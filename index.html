@@ -321,6 +321,29 @@ h1{margin:0 0 12px;font-size:clamp(28px,2.4vw,40px);line-height:1.12}
 .cost.cpaid{background:#4d5747;color:#fff}
 /* prose caps for tier descriptions */
 .tier-desc{max-width:75ch}
+
+/* ===== Recommended Builds ===== */
+.builds-card{margin:0 0 22px}
+.builds-inner{background:var(--panel);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:20px 22px}
+.builds-card h2{margin:0 0 4px;font-size:20px;color:var(--ink)}
+.builds-sub{margin:0 0 14px;font-size:15px;color:var(--ink2);max-width:75ch}
+.builds-row{display:flex;flex-wrap:wrap;gap:10px}
+.build-btn{display:flex;flex-direction:column;gap:3px;align-items:flex-start;text-align:left;padding:10px 14px;border:1.5px solid var(--line2);border-radius:12px;background:#fff;cursor:pointer;font-family:inherit;flex:1 1 220px;min-width:180px;max-width:340px;transition:border-color .14s,box-shadow .14s}
+.build-btn:hover{border-color:var(--green);box-shadow:var(--shadow)}
+.build-btn.on{border-color:var(--green);box-shadow:0 0 0 2px rgba(105,156,71,.35)}
+.build-btn b{font-size:15px;color:var(--ink);font-weight:800}
+.build-btn .bw{font-size:13px;color:var(--ink2);line-height:1.35}
+.build-detail{margin-top:16px;border-top:1px solid var(--line);padding-top:14px}
+.build-detail[hidden]{display:none}
+.build-detail h3{margin:0 0 2px;font-size:17px;color:var(--ink)}
+.build-detail .bd-who{font-size:14px;color:var(--ink2);margin:0 0 10px;max-width:75ch}
+.build-cols{display:grid;grid-template-columns:1fr;gap:12px 28px}
+@media(min-width:760px){.build-cols{grid-template-columns:1fr 1fr}}
+.build-cols h4{margin:0 0 5px;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase}
+.build-cols h4.s{color:#3f6d28}.build-cols h4.w{color:#9a5b12}
+.build-cols ul{margin:0;padding-left:18px}
+.build-cols li{font-size:14px;line-height:1.45;margin-bottom:5px;color:var(--ink2)}
+.build-count{display:block;margin-top:12px;font-size:13px;color:var(--ink3);font-weight:600}
 </style>
 </head>
 <body>
@@ -353,6 +376,14 @@ h1{margin:0 0 12px;font-size:clamp(28px,2.4vw,40px);line-height:1.12}
     </section>
     <details class="gloss"><summary>Glossary: IaC, HCL, TACOS, GitOps, CRD, KMS and more</summary>
       <div id="glossBody" class="gloss-grid"></div></details>
+  </section>
+  <section class="builds-card" aria-labelledby="buildshdr">
+    <div class="builds-inner">
+      <h2 id="buildshdr">Recommended Builds</h2>
+      <p class="builds-sub">Preset stacks whose tools fit together like lego. Pick one to auto-fill the tree below, then adjust any slot. Each preset lists concrete strengths and weaknesses.</p>
+      <div class="builds-row" id="buildsRow"></div>
+      <div class="build-detail" id="buildDetail" hidden></div>
+    </div>
   </section>
   <div id="app"><p class="muted">Loading tool data…</p></div>
 </main>
@@ -6681,6 +6712,32 @@ h1{margin:0 0 12px;font-size:clamp(28px,2.4vw,40px);line-height:1.12}
 const STAGES=[["provision","1","PROVISION","var(--s1)"],["orchestrate","2","ORCHESTRATE & GOVERN","var(--s2)"],
  ["configure","3","CONFIGURE · IMAGES · SECRETS","var(--s3)"],["deliver","4","DELIVER · CI/CD","var(--s4)"],
  ["reconcile","5","RECONCILE · GITOPS","var(--s5)"]];
+ const BUILDS=[
+  {name:"AWS Native Fortress",tag:"All-in on AWS",who:"A product org entirely on AWS with TypeScript or Python engineers, no multi-cloud mandate, and no wish to run a state backend.",
+   picks:["cloudformation","aws-cdk","checkov","trivy","infracost","packer","cloud-init","cloud-kms-sm","github-actions"],
+   strengths:["AWS CDK synthesizes to CloudFormation and deploys through change sets, so you inherit native rollback instead of rebuilding it.","Checkov and Trivy both scan the CloudFormation that CDK emits, and Infracost reads CDK projects directly, so scanning and cost gating need no Terraform detour.","CloudFormation holds state server-side: no bucket, lock table, or state encryption to design and own."],
+   weaknesses:["No strong policy engine fits: Sentinel is HashiCorp-only and Rego here targets Terraform plan JSON, so you fall back to Checkov custom policies.","Total single-vendor coupling: every artifact is a CloudFormation template, so a later multi-cloud need is a rewrite, not a migration.","CDK bootstrapping is mandatory in practice, and deploy-time-only values surface as opaque tokens."]},
+  {name:"Multi-Cloud OSS GitOps Rig",tag:"Multi-cloud OSS on Kubernetes",who:"A cloud-agnostic, OSS-first team running Kubernetes across two or more clouds, with no budget for a commercial control plane.",
+   picks:["opentofu","terragrunt","atlantis","checkov","trivy","opa-rego","terraform-tofu-test","infracost","sops","external-secrets","github-actions","flux-cd","helm","kustomize","flagger"],
+   strengths:["Flux and Flagger are the vendor-intended pair: Flagger ships from the fluxcd org with an official install-with-Flux path.","Terragrunt generates backend and provider config per unit, so many environments stay DRY without hand-written boilerplate.","SOPS keeps encrypted bootstrap material in Git while External Secrets syncs cloud secret stores into native Kubernetes Secrets."],
+   weaknesses:["Atlantis is a server you operate, and safe self-service needs explicit allowed_overrides and custom-workflow configuration.","Wiring OPA into Atlantis is a configuration project, not a checkbox (custom_policy_check).","External Secrets runs with broad privileges: a sloppy ClusterSecretStore becomes a cluster-wide secret-read primitive."]},
+  {name:"Governed Enterprise Estate",tag:"Regulated enterprise, audited policy",who:"A regulated enterprise with a central platform group and many app teams, where auditable policy and named vendor support beat tool cost.",
+   picks:["terraform","terragrunt","hcp-terraform","checkov","trivy","sentinel","terratest","infracost","ansible","packer","hashicorp-vault","gitlab-ci-cd","argo-cd","helm","argo-rollouts"],
+   strengths:["HCP Terraform gives graded policy enforcement (advisory, soft-mandatory, hard-mandatory) and per-resource cost finance can model from state.","Packer runs the same Ansible playbooks that converge live hosts, so one body of config code bakes images and configures servers.","Argo CD understands Argo Rollouts natively: a paused canary shows as Suspended, with resume and restart actions in the UI."],
+   weaknesses:["Cost scales with estate size: the meter is peak managed-resource count, so low-value resources pay the same per-resource rate.","Sentinel is HashiCorp-product-locked: leaving HCP Terraform means rewriting the policy corpus, most likely into Rego.","Terragrunt and HCP Terraform overlap on run orchestration and backend config: pick one owner or accept two sources of truth."]},
+  {name:"Lean Startup Loadout",tag:"1 to 3 engineers, pre-Series A",who:"One to three engineers before Series A, shipping to a managed platform, with zero appetite for operating infrastructure tooling.",
+   picks:["opentofu","checkov","infracost","cloud-init","sops","github-actions"],
+   strengths:["Nothing here is a service you operate: the only long-lived state is a state bucket and a Git repo.","Infracost runs from the CLI with a free key, parses locally, and sends no cloud credentials to the pricing API.","Every choice has a documented in-tier upgrade path: OpenTofu to Terragrunt, CI to Atlantis, Checkov to Checkov plus OPA."],
+   weaknesses:["Approval control is only GitHub branch protection: no plan-versus-apply RBAC or per-environment gates.","No drift detection: console changes stay invisible until the next plan.","SOPS key custody is a single point of failure, and cloud-init covers first boot only, not ongoing fleet change."]},
+  {name:"Platform Control Plane",tag:"Platform team, self-service APIs",who:"A dedicated platform team serving many product teams on Kubernetes, offering self-service APIs rather than tickets.",
+   picks:["crossplane","opa-rego","checkov","infracost","external-secrets","hashicorp-vault","argo-workflows","argo-cd","helm","kustomize","argo-rollouts","backstage"],
+   strengths:["Crossplane is CNCF Graduated (Oct 2025) with 70-plus named public adopters, so it is no longer an early bet.","Crossplane v2 compositions can compose native Kubernetes resources too, so one API can expose a whole application shape.","The Argo pieces are designed together: Argo CD renders Rollout health and offers resume and restart from the same pane as sync."],
+   weaknesses:["Crossplane installs into an existing cluster, so you still need a small Terraform or OpenTofu layer to bootstrap the first cluster.","The Rollouts controller must be installed in every workload cluster, unlike Argo CD's one-control-plane-many-clusters model.","Crossplane v2 removed several v1 composition features, so v1 configs need rework, and Backstage is a TypeScript app you own and upgrade."]},
+  {name:"Air-Gapped Compliance Vault",tag:"Air-gapped, no egress",who:"Government, defense, or regulated finance with no egress from production, where every artifact must be mirrored and every control plane self-hosted.",
+   picks:["opentofu","terramate","spacelift","checkov","trivy","opa-rego","terratest","ansible","packer","hashicorp-vault","sealed-secrets","gitlab-ci-cd","argo-cd","kustomize","argo-rollouts"],
+   strengths:["GitLab documents the full offline path, and its Terraform and OpenTofu HTTP state backend encrypts state at rest with no external dependency.","Sealed Secrets fits a disconnected cluster: kubeseal encrypts with a public key and only the in-cluster controller can decrypt, safe to commit.","Terramate commits generated Terraform or OpenTofu output with change-detection orchestration, so what an auditor reviews is what runs."],
+   weaknesses:["The mirroring burden is the build: every CI, runner, and analyzer image must be transferred and served from an internal registry, permanently.","Offline GitLab needs an offline license and internal NTP, or core checks fail.","Sealed Secrets key loss is terminal without a backup, and Spacelift self-hosted concurrency equals paid worker count."]}
+ ];
  const TL_SHORT={provision:"Provision",orchestrate:"Orchestrate & Govern",configure:"Configure",deliver:"Deliver",reconcile:"Reconcile"};
 const HEALTH={open:"var(--open)",bsl:"var(--bsl)",comm:"var(--comm)",fade:"var(--fade)"};
 const ACCENT={provision:"#699c47",orchestrate:"#7a5cc0",configure:"#2f9e8f",deliver:"#f8a231",reconcile:"#d1587f"};
@@ -6881,6 +6938,29 @@ function buildDetail(t){
     ${t.popularity_notes?`<h4>Traction</h4><div>${gloss(t.popularity_notes)}</div>`:""}`;
 }
 
+function renderBuilds(){
+  const row=document.getElementById("buildsRow");if(!row)return;
+  row.innerHTML=BUILDS.map((b,i)=>`<button class="build-btn" type="button" data-bi="${i}"><b>${esc(b.name)}</b><span class="bw">${esc(b.tag)}</span></button>`).join("");
+  row.querySelectorAll(".build-btn").forEach(btn=>btn.addEventListener("click",()=>applyBuild(+btn.dataset.bi)));
+}
+function applyBuild(i){
+  const b=BUILDS[i];if(!b)return;
+  SEL={};
+  b.picks.forEach(id=>{const t=BYID[id];if(!t)return;const k=slotKey(t);(SEL[k]=SEL[k]||new Set()).add(id);});
+  document.querySelectorAll(".node").forEach(n=>setNodeSel(n,isSelected(n.dataset.id)));
+  hidePop();updateTray();
+  document.querySelectorAll(".build-btn").forEach(x=>x.classList.toggle("on",(+x.dataset.bi)===i));
+  const found=b.picks.filter(id=>BYID[id]).length;
+  const d=document.getElementById("buildDetail");
+  d.innerHTML=`<h3>${esc(b.name)}</h3><p class="bd-who">${esc(b.who)}</p>
+    <div class="build-cols">
+      <div><h4 class="s">Strengths</h4><ul>${b.strengths.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
+      <div><h4 class="w">Weaknesses</h4><ul>${b.weaknesses.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
+    </div>
+    <span class="build-count">${found} tools applied to your build below · adjust any slot, then export</span>`;
+  d.hidden=false;
+  d.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
 function render(){
   const app=document.getElementById("app");app.innerHTML="";
   MAXSTARS=Math.max(1,...TOOLS.map(t=>(t.metrics||{}).stars||0));
@@ -7060,7 +7140,7 @@ document.getElementById("dlPng").addEventListener("click",()=>{
 function inlineJSON(id){const el=document.getElementById(id);try{return el&&el.textContent.trim()?JSON.parse(el.textContent):null;}catch(e){return null;}}
 const _t=inlineJSON("tools-data"),_i=inlineJSON("icons-data");
 (_t&&_i?Promise.resolve([_t,_i]):Promise.all([fetch("data/tools.json").then(r=>r.json()),fetch("data/icons.json").then(r=>r.json())]))
-  .then(([tools,icons])=>{TOOLS=tools;ICONS=icons;TOOLS.forEach(t=>BYID[t.id]=t);render();renderGlossary();})
+  .then(([tools,icons])=>{TOOLS=tools;ICONS=icons;TOOLS.forEach(t=>BYID[t.id]=t);render();renderGlossary();renderBuilds();})
   .catch(e=>{document.getElementById("app").innerHTML='<p class="muted">Failed to load data: '+esc(e.message)+'</p>';});
 </script>
 </body>
