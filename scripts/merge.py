@@ -20,7 +20,7 @@ ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D=os.path.join(ROOT,"data")
 
 def load(p):
-    with open(p) as f: return json.load(f)
+    with open(p, encoding="utf-8") as f: return json.load(f)
 
 registry=load(os.path.join(D,"registry.json"))
 metrics=load(os.path.join(D,"gh_metrics.json"))
@@ -64,12 +64,16 @@ for t in registry:
         pmethod="saas-no-repo"
     # top distinct sources
     dps=sen.get("data_points") or []
-    seen=set(); sources=[]
+    seen=set(); sources=[]; pros=[]; pseen=set()
     for dp in dps:
-        u=dp.get("url");
+        u=dp.get("url")
         if u and u not in seen: seen.add(u); sources.append(u)
-        if len(sources)>=6: break
-    out.append({**{k:t[k] for k in ("id","name","stage","stage_num","slot","slot_mode","license","oneliner","brand","mono","icon","repo")},
+        if dp.get("stance")=="pos":
+            note=(dp.get("note") or "").strip(); key=note.lower()
+            if note and key not in pseen and len(pros)<5:
+                pseen.add(key); pros.append({"note":note,"url":u,"source":dp.get("source")})
+    sources=sources[:6]
+    out.append({**{k:t[k] for k in ("id","name","stage","stage_num","slot","slot_mode","license","oneliner","brand","mono","icon","repo","docs")},
       "stage_name":t["stage_name"],
       "metrics":{"stars":m.get("stars"),"forks":m.get("forks"),"commits_90d":m.get("commits_90d"),
                  "latest_release":m.get("latest_release"),"latest_release_at":m.get("latest_release_at"),
@@ -81,10 +85,11 @@ for t in registry:
       "concerns":r.get("concerns") or [],
       "adopters":r.get("adopters") or "",
       "popularity_notes":r.get("popularity_notes") or "",
+      "pros":pros,
       "sources":sources,
     })
 
-json.dump(out,open(os.path.join(D,"tools.json"),"w"),indent=1)
+json.dump(out,open(os.path.join(D,"tools.json"),"w",encoding="utf-8"),indent=1,ensure_ascii=False)
 have=sum(1 for t in out if t["sentiment"]["n"])
 print(f"merged {len(out)} tools; {have} with sentiment; {sum(1 for t in out if t['popularity']['score'] is not None)} with popularity")
 missing=[t["id"] for t in out if not t["sentiment"]["n"]]

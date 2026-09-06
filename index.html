@@ -6,142 +6,189 @@
 <title>IaC Stack Picker — 2026</title>
 <meta name="description" content="Interactive map of Infrastructure-as-Code &amp; delivery tools: popularity, sentiment, concerns. Pick one per job and export your stack."/>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;900&display=swap');
 :root{
-  --bg:#0b1020; --panel:#0d1530; --panel2:#0a1226; --line:#1e293b; --line2:#26324d;
-  --ink:#f1f5f9; --ink2:#93a3ba; --ink3:#64748b;
-  --open:#34d399; --bsl:#f59e0b; --comm:#38bdf8; --fade:#fb7185;
-  --pick:#f59e0b; --combine:#34d399; --addon:#38bdf8;
-  --s1:#60a5fa; --s2:#a78bfa; --s3:#34d399; --s4:#fbbf24; --s5:#f472b6;
+  --bg:#f4f5f0; --panel:#ffffff; --panel2:#f7f8f4; --line:#e7e8e1; --line2:#dcded4;
+  --ink:#1c1d1b; --ink2:#5c6157; --ink3:#8b9083;
+  --green:#699c47; --green-d:#557d38; --amber:#f8a231; --amber-d:#e08a1f;
+  --open:#5e9c3f; --bsl:#e0892a; --comm:#2f7fd4; --fade:#d1495b;
+  --pick:#e0892a; --combine:#5e9c3f; --addon:#2f7fd4;
+  --s1:#699c47; --s2:#7a5cc0; --s3:#2f9e8f; --s4:#f8a231; --s5:#d1587f;
+  --pos:#5e9c3f; --neg:#d1495b;
+  --shadow:0 4px 18px rgba(28,29,27,.06); --shadow2:0 10px 30px rgba(28,29,27,.10);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font:15px/1.5 "Segoe UI",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
-a{color:#7cc5ff}
-header{padding:26px 30px 18px;background:linear-gradient(180deg,#111935,#0d1530);border-bottom:1px solid var(--line)}
-h1{margin:0 0 6px;font-size:30px;font-weight:800;letter-spacing:.2px}
-.sub{color:#9fb0c9;font-size:15px;max-width:1100px}
-.legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;font-size:13px;color:#cbd5e1}
-.legend b{color:#cbd5e1;font-weight:700;margin-right:6px}
-.pill{display:inline-flex;align-items:center;gap:6px;padding:2px 9px;border-radius:10px;font-size:12px;font-weight:700}
+body{margin:0;background:var(--bg);color:var(--ink2);
+  font:16px/1.6 "Jost",system-ui,Segoe UI,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--green-d);text-decoration:none}
+a:hover{text-decoration:underline}
+header{padding:34px 30px 22px;background:linear-gradient(180deg,#ffffff,#f7f8f4);border-bottom:1px solid var(--line)}
+h1{margin:0 0 8px;font-size:34px;font-weight:900;letter-spacing:-.2px;color:var(--ink);line-height:1.15}
+.sub{color:var(--ink2);font-size:16px;max-width:1080px;font-weight:400}
+.sub b{color:var(--ink);font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:20px;margin-top:16px;font-size:13.5px;color:var(--ink2)}
+.legend b{color:var(--ink);font-weight:600;margin-right:6px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:3px 12px;border-radius:50px;font-size:12px;font-weight:700}
 .dot{width:11px;height:11px;border-radius:50%;display:inline-block}
-main{padding:22px 30px 160px;max-width:1500px;margin:0 auto}
-.stage{background:var(--panel);border:1px solid var(--line);border-radius:16px;margin:0 0 20px;overflow:hidden;position:relative}
+main{padding:26px 30px 170px;max-width:1500px;margin:0 auto}
+.stage{background:var(--panel);border:1px solid var(--line);border-radius:20px;margin:0 0 22px;overflow:hidden;position:relative;box-shadow:var(--shadow)}
 .stage-rail{position:absolute;left:0;top:0;bottom:0;width:6px}
-.stage-h{display:flex;align-items:center;gap:14px;padding:16px 20px 6px 26px}
-.badge-n{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#0b1020;font-size:20px;flex:none}
-.stage-h h2{margin:0;font-size:19px;font-weight:800;letter-spacing:.4px}
-.stage-h .tag{color:#8291ab;font-size:13px}
-.slots{padding:6px 20px 18px 26px}
-.slot{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:12px 0}
-.slot-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.slot-h .title{font-weight:700;font-size:16px;color:#dbe4f0}
-.mode{padding:3px 10px;border-radius:10px;font-size:11.5px;font-weight:800;letter-spacing:.3px;border:1px solid}
-.mode.pick{color:var(--pick);border-color:var(--pick);background:rgba(245,158,11,.13)}
-.mode.combine{color:var(--combine);border-color:var(--combine);background:rgba(52,211,153,.13)}
-.mode.addon{color:var(--addon);border-color:var(--addon);background:rgba(56,189,248,.13)}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
-.card{background:#0f1a33;border:1.5px solid var(--line2);border-radius:12px;padding:12px;cursor:pointer;
+.stage-h{display:flex;align-items:center;gap:14px;padding:20px 22px 8px 28px}
+.badge-n{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;font-size:20px;flex:none}
+.stage-h h2{margin:0;font-size:20px;font-weight:800;letter-spacing:.3px}
+.stage-h .tag{color:var(--ink3);font-size:13px}
+.slots{padding:6px 22px 20px 28px}
+.slot{background:var(--panel2);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin:14px 0}
+.slot-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:12px;flex-wrap:wrap}
+.slot-h .title{font-weight:600;font-size:16.5px;color:var(--ink)}
+.mode{padding:4px 13px;border-radius:50px;font-size:11.5px;font-weight:700;letter-spacing:.3px;border:1px solid;color:#fff}
+.mode.pick{border-color:var(--pick);background:var(--pick)}
+.mode.combine{border-color:var(--combine);background:var(--combine)}
+.mode.addon{border-color:var(--addon);background:var(--addon)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--panel);border:1.5px solid var(--line2);border-radius:16px;padding:14px;cursor:pointer;
   position:relative;transition:transform .15s ease,border-color .15s ease,box-shadow .2s ease}
-.card:hover{transform:translateY(-2px);border-color:#3a4b70}
-.card.sel{border-color:#8ad;box-shadow:0 0 0 2px rgba(120,180,255,.35),0 8px 24px rgba(0,0,0,.35)}
-.card.sel::after{content:"✓";position:absolute;top:8px;right:10px;color:#8ad;font-weight:800}
+.card:hover{transform:translateY(-3px);border-color:var(--green);box-shadow:var(--shadow2)}
+.card.sel{border-color:var(--green);box-shadow:0 0 0 2px rgba(105,156,71,.35),var(--shadow2)}
+.card.sel::after{content:"\2713";position:absolute;top:9px;right:12px;color:var(--green);font-weight:800}
 .card.pulse{animation:pulse .4s ease}
 @keyframes pulse{0%{transform:scale(1)}45%{transform:scale(1.035)}100%{transform:scale(1)}}
-.chead{display:flex;align-items:flex-start;gap:10px}
-.bdg{width:34px;height:34px;border-radius:9px;flex:none;display:grid;place-items:center;overflow:hidden}
-.bdg svg{width:22px;height:22px}
-.bdg span{font-weight:800;font-size:13px}
-.cname{font-weight:700;font-size:15.5px;line-height:1.2}
-.cone{color:var(--ink2);font-size:12px;margin-top:2px}
-.lic{position:absolute;top:10px;right:12px;width:9px;height:9px;border-radius:50%}
-.card.sel .lic{right:30px}
-.metrics{display:flex;gap:14px;margin-top:10px;flex-wrap:wrap}
-.metric{flex:1;min-width:120px}
-.metric .lab{font-size:10.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--ink3);display:flex;justify-content:space-between}
-.bar{height:7px;border-radius:4px;background:#1b2740;margin-top:4px;overflow:hidden}
-.bar>i{display:block;height:100%;width:0;border-radius:4px;transition:width 1s cubic-bezier(.2,.8,.2,1)}
-.pop>i{background:linear-gradient(90deg,#3b82f6,#22d3ee)}
-.sen{position:relative}
-.sen>i{background:linear-gradient(90deg,#f87171,#fbbf24,#34d399)}
-.counts{font-size:11px;color:var(--ink2);margin-top:6px;display:flex;gap:8px;align-items:center}
+.chead{display:flex;align-items:flex-start;gap:12px}
+.bdg-link{flex:none;display:block;border-radius:12px;line-height:0;transition:transform .15s ease}
+.bdg-link:hover{transform:scale(1.08)}
+.bdg{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;overflow:hidden;box-shadow:0 2px 6px rgba(28,29,27,.14)}
+.bdg svg{width:24px;height:24px}
+.bdg span{font-weight:800;font-size:14px}
+.cname{font-weight:700;font-size:16px;line-height:1.2;color:var(--ink)}
+.cone{color:var(--ink2);font-size:12.5px;margin-top:3px;line-height:1.4}
+.lic{position:absolute;top:12px;right:14px;width:10px;height:10px;border-radius:50%}
+.card.sel .lic{right:32px}
+.metrics{display:flex;gap:16px;margin-top:12px;flex-wrap:wrap}
+.metric{flex:1;min-width:130px}
+.metric .lab{font-size:10.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink3);display:flex;justify-content:space-between;align-items:baseline;font-weight:600}
+.metric .lab b{color:var(--ink);font-weight:700;font-size:12.5px;letter-spacing:0}
+.bar{height:8px;border-radius:50px;background:#eaebe4;margin-top:5px;overflow:hidden}
+.bar>i{display:block;height:100%;width:0;border-radius:50px;transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.pop>i{background:linear-gradient(90deg,var(--green),var(--amber))}
+.sen>i{background:linear-gradient(90deg,var(--fade),var(--amber),var(--green))}
+.counts{font-size:11.5px;color:var(--ink2);margin-top:7px;display:flex;gap:9px;align-items:center;flex-wrap:wrap}
 .counts .u{color:var(--ink3)}
-.expand{margin-top:8px;font-size:12px;color:#7cc5ff;background:none;border:none;padding:0;cursor:pointer}
-.detail{display:none;margin-top:10px;border-top:1px solid var(--line);padding-top:10px;font-size:12.5px;color:#c7d2e0}
+.counts .p{color:var(--pos);font-weight:600}
+.counts .n{color:var(--neg);font-weight:600}
+.expand{margin-top:10px;font-size:12.5px;color:var(--green-d);background:none;border:none;padding:0;cursor:pointer;font-family:inherit;font-weight:600}
+.detail{display:none;margin-top:12px;border-top:1px solid var(--line);padding-top:12px;font-size:13px;color:var(--ink2)}
 .detail.open{display:block;animation:fade .25s ease}
 @keyframes fade{from{opacity:0;transform:translateY(-4px)}to{opacity:1}}
-.detail h4{margin:8px 0 4px;font-size:12px;color:#aeb9cc;text-transform:uppercase;letter-spacing:.4px}
-.detail ul{margin:4px 0;padding-left:16px}
-.detail li{margin:2px 0}
-.kv{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--ink2)}
+.detail h4{margin:12px 0 5px;font-size:11.5px;color:var(--ink3);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+.detail ul{margin:4px 0;padding-left:2px;list-style:none}
+.detail li{margin:5px 0;padding-left:17px;position:relative}
+.pros li::before{content:"\25B2";position:absolute;left:0;color:var(--pos);font-size:9px;top:3px}
+.cons li::before{content:"\25BC";position:absolute;left:0;color:var(--neg);font-size:9px;top:3px}
+.pros b{color:var(--green-d)}
+.cons b{color:var(--neg)}
+.detail .kv{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--ink2);list-style:none;padding:0;margin:0}
 .kv b{color:var(--ink)}
-.conf{font-size:10px;padding:1px 6px;border-radius:6px;border:1px solid var(--line2);color:var(--ink2)}
-/* tray */
-#tray{position:fixed;left:0;right:0;bottom:0;background:rgba(13,21,48,.96);
-  border-top:1px solid var(--line);backdrop-filter:blur(8px);padding:12px 22px;
-  transform:translateY(105%);transition:transform .3s ease;z-index:40}
+.conf{font-size:10px;padding:1px 8px;border-radius:50px;border:1px solid var(--line2);color:var(--ink2)}
+#tray{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.97);
+  border-top:1px solid var(--line);backdrop-filter:blur(8px);padding:14px 22px;box-shadow:0 -6px 24px rgba(28,29,27,.08);
+  transform:translateY(120%);transition:transform .3s ease;z-index:40}
 #tray.show{transform:translateY(0)}
 .tray-row{display:flex;align-items:center;gap:14px;max-width:1500px;margin:0 auto}
 #chips{display:flex;flex-wrap:wrap;gap:6px;flex:1;max-height:64px;overflow:auto}
-.chip{display:inline-flex;align-items:center;gap:6px;background:#132043;border:1px solid var(--line2);
-  border-radius:20px;padding:3px 10px;font-size:12px}
-.chip b{font-weight:700}
-.chip .x{cursor:pointer;color:var(--ink3)}
-.btn{border:none;border-radius:10px;padding:10px 16px;font-weight:700;cursor:pointer;font-size:14px}
-.btn.primary{background:linear-gradient(90deg,#6366f1,#22d3ee);color:#04121f}
-.btn.ghost{background:#182444;color:#cbd5e1;border:1px solid var(--line2)}
-#count{font-weight:800;font-size:15px;white-space:nowrap}
-/* modal */
-#modal{position:fixed;inset:0;background:rgba(4,8,18,.72);display:none;place-items:center;z-index:60;padding:24px}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--panel2);border:1px solid var(--line2);
+  border-radius:50px;padding:4px 12px;font-size:12.5px;color:var(--ink)}
+.chip b{font-weight:600}
+.chip .x{cursor:pointer;color:var(--ink3);font-weight:700}
+.btn{border:none;border-radius:50px;padding:11px 20px;font-weight:700;cursor:pointer;font-size:14px;font-family:inherit}
+.btn.primary{background:var(--green);color:#fff}
+.btn.primary:hover{background:var(--green-d)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line2)}
+.btn.ghost:hover{border-color:var(--ink3)}
+#count{font-weight:800;font-size:15px;white-space:nowrap;color:var(--ink)}
+#modal{position:fixed;inset:0;background:rgba(28,29,27,.5);display:none;place-items:center;z-index:60;padding:24px}
 #modal.show{display:grid;animation:fade .2s ease}
-.sheet{background:#0e1730;border:1px solid var(--line);border-radius:16px;max-width:1000px;width:100%;
-  max-height:88vh;overflow:auto;padding:20px}
-.sheet h3{margin:0 0 4px}
-.tabs{display:flex;gap:8px;margin:12px 0}
-.tab{padding:7px 14px;border-radius:9px;border:1px solid var(--line2);background:#132043;color:#cbd5e1;cursor:pointer;font-weight:700;font-size:13px}
-.tab.on{background:#22314f;color:#fff}
+.sheet{background:var(--panel);border:1px solid var(--line);border-radius:20px;max-width:1000px;width:100%;
+  max-height:88vh;overflow:auto;padding:24px;box-shadow:var(--shadow2)}
+.sheet h3{margin:0 0 4px;color:var(--ink);font-size:22px;font-weight:800}
+.tabs{display:flex;gap:8px;margin:14px 0}
+.tab{padding:8px 16px;border-radius:50px;border:1px solid var(--line2);background:#fff;color:var(--ink2);cursor:pointer;font-weight:600;font-size:13px;font-family:inherit}
+.tab.on{background:var(--green);color:#fff;border-color:var(--green)}
 .view{display:none}.view.on{display:block}
-#svgWrap{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:10px;overflow:auto}
-pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:12px;overflow:auto;font-size:12px;max-height:52vh}
-.row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
-.muted{color:var(--ink3);font-size:12px}
-.close{float:right;cursor:pointer;color:var(--ink2);font-size:22px;line-height:1}
-@media(max-width:640px){main{padding:16px 12px 170px}header{padding:18px 14px}.slots{padding:6px 10px 14px 14px}}
+#svgWrap{background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:12px;overflow:auto}
+pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:14px;padding:14px;overflow:auto;font-size:12px;max-height:52vh}
+.row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.muted{color:var(--ink3);font-size:12.5px}
+.close{float:right;cursor:pointer;color:var(--ink3);font-size:26px;line-height:1}
+@media(max-width:640px){main{padding:16px 12px 180px}header{padding:22px 16px}.slots{padding:6px 12px 16px 16px}h1{font-size:26px}}
+/* license tags */
+.cmeta{min-width:0}
+.lictag{display:inline-flex;align-items:center;gap:5px;margin-top:9px;padding:3px 11px 3px 8px;border-radius:50px;font-size:11.5px;font-weight:700;border:1px solid}
+.lictag svg{width:13px;height:13px;flex:none}
+.lictag.lopen{color:#3f6d28;background:rgba(94,156,63,.14);border-color:rgba(94,156,63,.4)}
+.lictag.lopen svg{fill:#5e9c3f}
+.lictag.lbsl{color:#9a5b12;background:rgba(224,137,42,.16);border-color:rgba(224,137,42,.45)}
+.lictag.lbsl svg{fill:#e0892a}
+.lictag.lcomm{color:#1f5aa0;background:rgba(47,127,212,.14);border-color:rgba(47,127,212,.42)}
+.lictag.lcomm svg{fill:#2f7fd4}
+.lictag.lfade{color:#a5303f;background:rgba(209,73,91,.15);border-color:rgba(209,73,91,.45)}
+.lictag.lfade svg{fill:#d1495b}
+/* talent tree */
+.stage{margin-bottom:8px}
+.stage-h{align-items:flex-start}
+.tier-lvl{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+.stage-ht{min-width:0}
+.tier-desc{color:var(--ink2);font-size:13px;margin-top:5px;max-width:940px;line-height:1.5}
+.tier-desc b{color:var(--ink);font-weight:600}
+.tier-link{height:30px;position:relative}
+.tier-link::before{content:"";position:absolute;left:47px;top:0;bottom:6px;width:3px;background:repeating-linear-gradient(var(--s2) 0 5px,transparent 5px 10px);opacity:.5}
+.tier-link::after{content:"\25BC";position:absolute;left:42px;bottom:-3px;color:var(--s2);opacity:.55;font-size:12px}
+/* glossary */
+.gloss{margin-top:18px;max-width:1100px}
+.gloss summary{cursor:pointer;font-weight:600;color:var(--green-d);font-size:14px;padding:4px 0}
+.gloss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px 22px;margin-top:12px}
+.gloss-grid .g{font-size:12.5px;line-height:1.45;color:var(--ink2)}
+.gloss-grid .g b{color:var(--ink);font-weight:700}
+.gloss-grid .g i{color:var(--green-d);font-style:normal;font-weight:600}
 </style>
 </head>
 <body>
 <header>
-  <h1>Build your IaC stack: which tools compete, and which combine?</h1>
-  <div class="sub">Every box is one job. <b>PICK ONE</b> slots hold interchangeable rivals; <b>COMBINE</b> slots stack together.
-  Each card shows a <b>popularity score</b> and a <b>sentiment score</b> (an <i>outcomes / data-points</i> ratio from GitHub metrics and 2023–2026 opinions on HN, Reddit, YouTube and blogs). Pick your tools, then export the stack as SVG + JSON.</div>
+  <h1>Spec your IaC stack like an RPG talent tree</h1>
+  <div class="sub">Five tiers, top to bottom. Each slot is a talent node: <b>PICK ONE</b> forces a single choice between rivals,
+  <b>COMBINE</b> lets you stack allies. Every node shows <b>popularity</b> (GitHub stars and recent commits) and
+  <b>sentiment</b> as a raw <b>favorable / total</b> count of the 2023-2026 opinions we found on HN, Reddit, YouTube and blogs.
+  Tap a logo to open its starter guide. Allocate your picks, then export your build as SVG + JSON.</div>
   <div class="legend">
     <span><b>SLOT:</b>
-      <span class="pill" style="color:var(--pick);border:1px solid var(--pick)">PICK ONE</span>
-      <span class="pill" style="color:var(--combine);border:1px solid var(--combine)">COMBINE</span>
-      <span class="pill" style="color:var(--addon);border:1px solid var(--addon)">ADD-ON</span></span>
-    <span><b>HEALTH:</b>
-      <span class="dot" style="background:var(--open)"></span> open
-      <span class="dot" style="background:var(--bsl)"></span> BSL
-      <span class="dot" style="background:var(--comm)"></span> commercial
-      <span class="dot" style="background:var(--fade)"></span> fading/EOL</span>
-    <span class="muted">badges: official marks where free (CC0), monograms otherwise</span>
+      <span class="pill" style="background:var(--pick);color:#fff">PICK ONE</span>
+      <span class="pill" style="background:var(--combine);color:#fff">COMBINE</span>
+      <span class="pill" style="background:var(--addon);color:#fff">ADD-ON</span></span>
+    <span><b>LICENSE:</b>
+      <span class="lictag lopen"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6h2c0-1.66 1.34-3 3-3s3 1.34 3 3v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm0 12H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>Open source</span>
+      <span class="lictag lbsl"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 11c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2 2-.9 2-2 2z"/></svg>Source-available</span>
+      <span class="lictag lcomm"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 11c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2 2-.9 2-2 2z"/></svg>Paid / license</span>
+      <span class="lictag lfade"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>Fading / EOL</span></span>
+    <span class="muted">logos link to official docs</span>
   </div>
+  <details class="gloss"><summary>Glossary &mdash; what do IaC, HCL, TACOS, GitOps, CRD, KMS&hellip; actually mean?</summary>
+    <div id="glossBody" class="gloss-grid"></div></details>
 </header>
 <main id="app"><p class="muted">Loading tool data…</p></main>
 
 <div id="tray">
   <div class="tray-row">
-    <span id="count">0 selected</span>
+    <span id="count">0 points allocated</span>
     <div id="chips"></div>
-    <button class="btn ghost" id="resetBtn">Reset</button>
-    <button class="btn primary" id="buildBtn">Build my stack →</button>
+    <button class="btn ghost" id="resetBtn">Reset build</button>
+    <button class="btn primary" id="buildBtn">View your build &rarr;</button>
   </div>
 </div>
 
 <div id="modal">
   <div class="sheet">
     <span class="close" id="closeModal">×</span>
-    <h3>Your IaC stack</h3>
+    <h3>Your IaC build</h3>
     <div class="muted" id="stackLine"></div>
     <div class="tabs">
       <div class="tab on" data-v="svg">Diagram (SVG)</div>
@@ -162,14 +209,15 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "name": "Terraform",
   "stage": "provision",
   "stage_num": "1",
-  "slot": "Provisioning engine \u2014 multi-cloud",
+  "slot": "Provisioning engine — multi-cloud",
   "slot_mode": "pick",
   "license": "bsl",
-  "oneliner": "HCL engine; de-facto standard, now BSL / IBM-owned",
+  "oneliner": "Declare cloud infra as code once, apply the same plan to AWS, Azure and GCP",
   "brand": "#7B42BC",
   "mono": "TF",
   "icon": "terraform",
   "repo": "hashicorp/terraform",
+  "docs": "https://developer.hashicorp.com/terraform/tutorials/aws-get-started",
   "stage_name": "PROVISION",
   "metrics": {
    "stars": 49618,
@@ -240,6 +288,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Still default at most enterprises; Fidelity and Waze publicly moved off HashiCorp Terraform. Huge hiring/module ecosystem remains.",
   "popularity_notes": "Dominant mindshare, slightly down as OpenTofu, Pulumi, and CDK take new greenfield and license-sensitive work.",
+  "pros": [
+   {
+    "note": "Still the gold standard when used with discipline.",
+    "url": "https://www.reddit.com/r/Terraform/comments/1o086al/your_honest_thoughts_on_terraform/",
+    "source": "reddit"
+   },
+   {
+    "note": "HCL is a straightforward declarative DSL with clear docs.",
+    "url": "https://news.ycombinator.com/item?id=39183668",
+    "source": "hn"
+   },
+   {
+    "note": "Prefer Terraform over CloudFormation for flexibility.",
+    "url": "https://www.reddit.com/r/aws/comments/150ehx9/why_use_terraform_over_cloudformation/",
+    "source": "reddit"
+   },
+   {
+    "note": "Import, state rm, and targeted apply beat CloudFormation.",
+    "url": "https://www.reddit.com/r/Terraform/comments/1cgugl1/think_about_move_from_cloudformation_to_terraform/",
+    "source": "reddit"
+   },
+   {
+    "note": "Nobody gets fired for choosing Terraform by default.",
+    "url": "https://www.reddit.com/r/devops/comments/1ps5058/which_infrastructure_as_code_tools_are_actually",
+    "source": "reddit"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/Terraform/comments/1ldu1wq/i_hate_terraform/",
    "https://www.reddit.com/r/Terraform/comments/1kcbby4/pain_points_while_using_terraform",
@@ -254,14 +329,15 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "name": "OpenTofu",
   "stage": "provision",
   "stage_num": "1",
-  "slot": "Provisioning engine \u2014 multi-cloud",
+  "slot": "Provisioning engine — multi-cloud",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "Open (MPL) drop-in fork of Terraform; CNCF",
+  "oneliner": "Terraform without the BSL licence: a drop-in fork you fully control",
   "brand": "#FFDA18",
   "mono": "OT",
   "icon": "opentofu",
   "repo": "opentofu/opentofu",
+  "docs": "https://opentofu.org/docs/intro/",
   "stage_name": "PROVISION",
   "metrics": {
    "stars": 30092,
@@ -324,6 +400,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Fidelity (2k+ apps, 50k+ state files); public mentions of Boeing, Capital One, AMD; CNCF/Linux Foundation backing.",
   "popularity_notes": "Mindshare up sharply 2024-2026 as the open Terraform. Still smaller than HashiCorp in enterprise sales, but the default insurance policy.",
+  "pros": [
+   {
+    "note": "Fidelity ran 50k state files and 4M resources on OpenTofu.",
+    "url": "https://opentofu.org/blog/fidelity-investment-migration/",
+    "source": "blog"
+   },
+   {
+    "note": "KubeCon talk: migration was organizational, CLI swap was easy.",
+    "url": "https://www.youtube.com/watch?v=2FQQOIEgZmU",
+    "source": "youtube"
+   },
+   {
+    "note": "Later Fidelity talk cites ~99 percent OpenTofu usage.",
+    "url": "https://www.youtube.com/watch?v=tdEsatNU048",
+    "source": "youtube"
+   },
+   {
+    "note": "Trade press treats Fidelity move as enterprise validation.",
+    "url": "https://www.futuriom.com/articles/news/fidelity-ditches-terraform-for-opentofu/2025/04",
+    "source": "article"
+   },
+   {
+    "note": "Shared pipelines made org-wide OpenTofu cutover a force multiplier.",
+    "url": "https://www.harness.io/blog/fidelitys-opentofu-migration-a-devops-success-story-worth-studying",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://opentofu.org/blog/fidelity-investment-migration/",
    "https://www.youtube.com/watch?v=2FQQOIEgZmU",
@@ -338,14 +441,15 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "name": "Pulumi",
   "stage": "provision",
   "stage_num": "1",
-  "slot": "Provisioning engine \u2014 multi-cloud",
+  "slot": "Provisioning engine — multi-cloud",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "IaC in real languages: TS, Python, Go, C#",
+  "oneliner": "Write infra in TypeScript, Python, Go or C# with real loops, types and tests",
   "brand": "#8A3391",
   "mono": "Pu",
   "icon": "pulumi",
   "repo": "pulumi/pulumi",
+  "docs": "https://www.pulumi.com/docs/iac/get-started/",
   "stage_name": "PROVISION",
   "metrics": {
    "stars": 25648,
@@ -409,6 +513,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "SST Ion; Webiny; language-heavy startups and platform teams. Not the default enterprise hire versus Terraform.",
   "popularity_notes": "Steady niche growth as the real-language IaC. Boosted by HashiCorp BSL and SST v3; still far behind HCL in mindshare.",
+  "pros": [
+   {
+    "note": "Migrated off Terraform after HashiCorp deal; would recommend.",
+    "url": "https://news.ycombinator.com/item?id=46193433",
+    "source": "hn"
+   },
+   {
+    "note": "Real languages beat HCL for modular self-service infra.",
+    "url": "https://news.ycombinator.com/item?id=46222165",
+    "source": "hn"
+   },
+   {
+    "note": "Pulumi looks more mature than CDKTF for real languages.",
+    "url": "https://news.ycombinator.com/item?id=39183668",
+    "source": "hn"
+   },
+   {
+    "note": "Developer shops prefer Pulumi loops over HCL count hacks.",
+    "url": "https://www.reddit.com/r/devops/comments/1uf8774/terraform_opentofu_vs_pulumi/",
+    "source": "reddit"
+   },
+   {
+    "note": "Automation API lets you run infra like real program code.",
+    "url": "https://mkdev.me/posts/i-don-t-get-cdk-48",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://news.ycombinator.com/item?id=46193433",
    "https://news.ycombinator.com/item?id=46222165",
@@ -423,14 +554,15 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "name": "Crossplane",
   "stage": "provision",
   "stage_num": "1",
-  "slot": "Provisioning engine \u2014 multi-cloud",
+  "slot": "Provisioning engine — multi-cloud",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "Provision cloud from inside Kubernetes (CRDs)",
+  "oneliner": "Provision cloud resources by applying Kubernetes YAML, no separate IaC tool",
   "brand": "#35B0A7",
   "mono": "XP",
   "icon": null,
   "repo": "crossplane/crossplane",
+  "docs": "https://docs.crossplane.io/latest/get-started/",
   "stage_name": "PROVISION",
   "metrics": {
    "stars": 12033,
@@ -507,6 +639,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Nike, Nokia, Grafana, NASA Science Cloud, Elastic, Akamai, SAP, IBM (graduation); Reddit; VSHN (Frankfurt health, HIN); Michelin cited at KubeCon.",
   "popularity_notes": "Up among platform-engineering/GitOps teams; CNCF graduation 2025. Still niche versus Terraform for general IaC. Hybrid is the common pattern.",
+  "pros": [
+   {
+    "note": "AWS GitOps path is production-ready with strong governance.",
+    "url": "https://blog.diatomlabs.com/from-terraform-to-crossplane-real-world-iac-in-kubernetes-for-aws-f67eb472062a",
+    "source": "blog"
+   },
+   {
+    "note": "Reddit uses Crossplane with Flux and Cluster API in production.",
+    "url": "https://thenewstack.io/reddit-no-longer-haunted-by-drifting-kubernetes-configurations/",
+    "source": "article"
+   },
+   {
+    "note": "CNCF graduation cites Nike, Nokia, Grafana, NASA, SAP, IBM.",
+    "url": "https://blog.crossplane.io/crossplane-cncf-graduation/",
+    "source": "blog"
+   },
+   {
+    "note": "Eighteen months in prod; 90 percent of infra on Crossplane.",
+    "url": "https://www.reddit.com/r/devops/comments/1dqu68q/crossplane_for_iac/",
+    "source": "reddit"
+   },
+   {
+    "note": "Controllers beat Terraform for continuous drift repair.",
+    "url": "https://www.reddit.com/r/kubernetes/comments/17yvgyi/top_pros_vs_cons_mainly_looking_for_cons_in_using/",
+    "source": "reddit"
+   }
+  ],
   "sources": [
    "https://www.cecg.io/blog/crossplane-the-good-the-bad-the-ugly",
    "https://www.vshn.ch/en/blog/how-we-used-crossplane-for-the-things-we-should-not-have/",
@@ -521,14 +680,15 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "name": "CloudFormation",
   "stage": "provision",
   "stage_num": "1",
-  "slot": "...or a cloud-native engine \u2014 single cloud",
+  "slot": "...or a cloud-native engine — single cloud",
   "slot_mode": "pick",
   "license": "comm",
-  "oneliner": "AWS-native declarative templates (YAML/JSON)",
+  "oneliner": "AWS-only stacks with built-in rollback and drift detection, no state file to host",
   "brand": "#FF9900",
   "mono": "CF",
   "icon": "amazonwebservices",
   "repo": null,
+  "docs": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/GettingStarted.html",
   "stage_name": "PROVISION",
   "metrics": {
    "stars": null,
@@ -599,6 +759,23 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Legacy AWS estates, compliance shops, Serverless Framework, and every CDK/SAM user (as the runtime). Rare for new greenfield by choice.",
   "popularity_notes": "Usage high as a substrate, mindshare low as an authoring tool. Trajectory flat-to-down versus CDK, Terraform, and SST.",
+  "pros": [
+   {
+    "note": "Stack refactoring finally eases moving resources between stacks.",
+    "url": "https://www.reddit.com/r/aws/comments/1ijvsze/reshape_your_aws_cloudformation_stacks_seamlessly/",
+    "source": "reddit"
+   },
+   {
+    "note": "Public CFN repos scored well in an IaC security scan.",
+    "url": "https://www.reddit.com/r/Terraform/comments/1rpclr9/we_scanned_92_open_source_iac_repos/",
+    "source": "reddit"
+   },
+   {
+    "note": "AWS-managed state and rollbacks remain a real CFN strength.",
+    "url": "https://beabetterdev.com/2025/02/15/should-you-start-using-cdk/",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://news.ycombinator.com/item?id=39183668",
    "https://sst.dev/blog/moving-away-from-cdk.html",
@@ -613,14 +790,15 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "name": "AWS CDK",
   "stage": "provision",
   "stage_num": "1",
-  "slot": "...or a cloud-native engine \u2014 single cloud",
+  "slot": "...or a cloud-native engine — single cloud",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "AWS infra in real code, compiles to CloudFormation",
+  "oneliner": "Generate CloudFormation from real code so AWS infra reuses your app language",
   "brand": "#FF9900",
   "mono": "CDK",
   "icon": "amazonwebservices",
   "repo": "aws/aws-cdk",
+  "docs": "https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html",
   "stage_name": "PROVISION",
   "metrics": {
    "stars": 12888,
@@ -690,6 +868,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "AWS-heavy product teams and Amazon internal construct sharing; SST v2 (now leaving). CDKTF sunset pushed some to Pulumi.",
   "popularity_notes": "Strong and stable in AWS-only shops. Polarizing. SST leaving CDK is a notable 2024 mindshare hit among serverless TS users.",
+  "pros": [
+   {
+    "note": "After six months, prefer CDK over any other AWS IaC tool.",
+    "url": "https://thewagner.net/blog/2025/02/15/six-months-of-cdk",
+    "source": "blog"
+   },
+   {
+    "note": "Leave console clicks and raw CFN; constructs plus tests win.",
+    "url": "https://beabetterdev.com/2025/02/15/should-you-start-using-cdk/",
+    "source": "blog"
+   },
+   {
+    "note": "Title and thread call CDK an absolute game changer.",
+    "url": "https://old.reddit.com/r/aws/comments/1n0paul/aws_cdk_absolute_game_changer",
+    "source": "reddit"
+   },
+   {
+    "note": "Migration write-up prefers CDK for AWS app stacks.",
+    "url": "https://rayprogramming.com/posts/devops-cicd/migrating-terraform-to-cdk/",
+    "source": "blog"
+   },
+   {
+    "note": "TypeScript CDK wins DevX for AWS-only API platforms.",
+    "url": "https://www.reddit.com/r/aws/comments/1entmyo/terraform_vs_cloudformation_vs_aws_cdk_for_api/",
+    "source": "reddit"
+   }
+  ],
   "sources": [
    "https://thewagner.net/blog/2025/02/15/six-months-of-cdk",
    "https://beabetterdev.com/2025/02/15/should-you-start-using-cdk/",
@@ -704,14 +909,15 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "name": "Azure Bicep",
   "stage": "provision",
   "stage_num": "1",
-  "slot": "...or a cloud-native engine \u2014 single cloud",
+  "slot": "...or a cloud-native engine — single cloud",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "Clean DSL for native Azure, replaces ARM JSON",
+  "oneliner": "Author Azure resources in a clean DSL that compiles to ARM, no raw JSON",
   "brand": "#0078D4",
   "mono": "Bi",
   "icon": "microsoftazure",
   "repo": "Azure/bicep",
+  "docs": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code",
   "stage_name": "PROVISION",
   "metrics": {
    "stars": 3637,
@@ -773,6 +979,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Microsoft-centric enterprises, ARM migrants, Azure Verified Modules users. CAF landing zones exist in both Bicep and Terraform.",
   "popularity_notes": "Up versus ARM JSON. Sideways versus Terraform in Azure shops. AVM and Deployment Stacks improved 2024-2026 credibility.",
+  "pros": [
+   {
+    "note": "Azure-first: Bicep is cleaner, faster, and day-zero on APIs.",
+    "url": "https://hiddedesmet.com/bicep-vs-terraform-the-iac-showdown",
+    "source": "blog"
+   },
+   {
+    "note": "3400-line ARM cut to ~800-line Bicep and became reviewable.",
+    "url": "https://quisitive.com/arm-bicep-modern-infrastructure-as-code-for-azure/",
+    "source": "article"
+   },
+   {
+    "note": "Stop struggling with ARM templates; switch to Bicep.",
+    "url": "https://www.youtube.com/watch?v=ezEQ_8opqm4",
+    "source": "youtube"
+   },
+   {
+    "note": "AVM session: official Bicep modules for production patterns.",
+    "url": "https://www.youtube.com/watch?v=x9jBP0zAI3U",
+    "source": "youtube"
+   },
+   {
+    "note": "AVM networking modules recommended over hand-rolled Bicep.",
+    "url": "https://thecloudarchitect.hashnode.dev/azure-networking-from-zero-to-enterprise-part-2-bicep-azure-verified-modules",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://hiddedesmet.com/bicep-vs-terraform-the-iac-showdown",
    "https://www.reddit.com/r/AZURE/comments/1o5o8ld/bicep_or_terraform_for_azure/",
@@ -787,14 +1020,15 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "name": "GCP Config Connector",
   "stage": "provision",
   "stage_num": "1",
-  "slot": "...or a cloud-native engine \u2014 single cloud",
+  "slot": "...or a cloud-native engine — single cloud",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "GCP resources managed as Kubernetes objects",
+  "oneliner": "Manage GCP resources as Kubernetes objects so GKE reconciles your cloud",
   "brand": "#4285F4",
   "mono": "CC",
   "icon": "googlecloud",
   "repo": "GoogleCloudPlatform/k8s-config-connector",
+  "docs": "https://cloud.google.com/config-connector/docs/how-to/getting-started",
   "stage_name": "PROVISION",
   "metrics": {
    "stars": 1063,
@@ -864,6 +1098,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Waze (public 2025). GKE Enterprise / Config Controller customers. Hybrid with Terraform is the usual pattern.",
   "popularity_notes": "Niche versus Terraform on GCP. Up inside GKE/GitOps orgs after Waze post. Sparse Reddit/HN compared with the other seven tools.",
+  "pros": [
+   {
+    "note": "Waze moved from Terraform to KCC and has not looked back.",
+    "url": "https://cloud.google.com/blog/products/containers-kubernetes/infrastructure-as-code-at-waze-using-config-connector/",
+    "source": "blog"
+   },
+   {
+    "note": "Waze demo of Helm charts feeding Config Connector.",
+    "url": "https://www.youtube.com/watch?v=B4RI4MwXOgg",
+    "source": "youtube"
+   },
+   {
+    "note": "Google: continuous reconcile beats point-in-time apply.",
+    "url": "https://cloud.google.com/blog/products/devops-sre/how-config-connector-compares-for-infrastructure-management/",
+    "source": "blog"
+   },
+   {
+    "note": "GKE add-on plus Workload Identity made KCC easy to start.",
+    "url": "https://medium.com/globant/infrastructure-as-code-using-kubernetes-d3d329446517",
+    "source": "article"
+   },
+   {
+    "note": "Fleet GitOps: Config Connector next to app manifests.",
+    "url": "https://medium.com/@sheltoncardin/your-gke-fleet-git-controlled-unlocking-enterprise-devops-with-anthos-config-management-12fb155ac78e",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://cloud.google.com/blog/products/containers-kubernetes/infrastructure-as-code-at-waze-using-config-connector/",
    "https://www.youtube.com/watch?v=B4RI4MwXOgg",
@@ -881,11 +1142,12 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Keep Terraform DRY",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "DRY wrapper: deps, run-all, remote state, Stacks",
+  "oneliner": "Stop copy-pasting Terraform across 20 environments: keep it DRY and apply many at once",
   "brand": "#4CA664",
   "mono": "TG",
   "icon": null,
   "repo": "gruntwork-io/terragrunt",
+  "docs": "https://terragrunt.gruntwork.io/docs/getting-started/quick-start/",
   "stage_name": "ORCHESTRATE & GOVERN",
   "metrics": {
    "stars": 9819,
@@ -959,6 +1221,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Gruntwork customers; Visa/pharma IaC mentioned in HN Who-wants-to-be-hired; GitHub-org automation posts; pairs with Atlantis/OpenTofu widely.",
   "popularity_notes": "Mindshare still highest among TF wrappers. 1.0 (2026) and Stacks revived interest after years of 0.x fatigue. Competitors: Terramate, Atmos, plain GHA.",
+  "pros": [
+   {
+    "note": "Uses Terragrunt everywhere; reputation feels outdated versus 2025 Stacks.",
+    "url": "https://www.axelmendoza.com/posts/terraform-vs-terragrunt/",
+    "source": "blog"
+   },
+   {
+    "note": "Picks Terragrunt over vanilla OpenTofu; Stacks enable pattern-level reuse.",
+    "url": "https://home.mlops.community/public/blogs/why-i-use-terragrunt-over-terraformopentofu-in-2025",
+    "source": "blog"
+   },
+   {
+    "note": "Vendor: OpenTofu features do not replace Terragrunt orchestration.",
+    "url": "https://www.gruntwork.io/blog/terragrunt-opentofu-better-together",
+    "source": "blog"
+   },
+   {
+    "note": "1.0: Stacks, filters, runner pool praised after long 0.x.",
+    "url": "https://www.reddit.com/r/devops/comments/1s8m4m4/terragrunt_10_released/",
+    "source": "reddit"
+   },
+   {
+    "note": "RC1 after ~900 releases; users eager to try Stacks.",
+    "url": "https://www.reddit.com/r/devops/comments/1qu4rp6/terragrunt_10_rc1_released",
+    "source": "reddit"
+   }
+  ],
   "sources": [
    "https://www.axelmendoza.com/posts/terraform-vs-terragrunt/",
    "https://home.mlops.community/public/blogs/why-i-use-terragrunt-over-terraformopentofu-in-2025",
@@ -976,11 +1265,12 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Keep Terraform DRY",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "Orchestration + code-gen + change detection",
+  "oneliner": "Add stacks, code-gen and change-only plans on top of plain Terraform",
   "brand": "#17D4A7",
   "mono": "Tm",
   "icon": null,
   "repo": "terramate-io/terramate",
+  "docs": "https://terramate.io/docs/cli/getting-started/",
   "stage_name": "ORCHESTRATE & GOVERN",
   "metrics": {
    "stars": 3623,
@@ -1042,8 +1332,35 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
     ]
    }
   ],
-  "adopters": "Alan (healthcare, 2025 Terraspace\u2192Terramate); HN user running GHA+S3 after TFC free EOL.",
-  "popularity_notes": "Rising 2024\u201326 as Terragrunt alternative and TFC-exit glue. Mindshare still well below Terragrunt. Catalyst/MCP are 2025\u201326 bets.",
+  "adopters": "Alan (healthcare, 2025 Terraspace→Terramate); HN user running GHA+S3 after TFC free EOL.",
+  "popularity_notes": "Rising 2024–26 as Terragrunt alternative and TFC-exit glue. Mindshare still well below Terragrunt. Catalyst/MCP are 2025–26 bets.",
+  "pros": [
+   {
+    "note": "OSS Terramate plus GHA/S3 made leaving TFC easy.",
+    "url": "https://news.ycombinator.com/item?id=46286787",
+    "source": "hn"
+   },
+   {
+    "note": "Alan: two-week migrate, no lock-in, graph deps, fair Cloud price.",
+    "url": "https://medium.com/alan/why-we-migrated-from-terraspace-to-terramate-a-technical-journey-91a6d667f6ec",
+    "source": "blog"
+   },
+   {
+    "note": "HCL codegen via Terramate beat brittle JQ Terraform templates.",
+    "url": "https://news.ycombinator.com/item?id=43670778",
+    "source": "hn"
+   },
+   {
+    "note": "GCP pipeline: codegen, parallel runs, PR plan comments.",
+    "url": "https://medium.com/@gilad437/building-a-production-ready-infrastructure-pipeline-with-terramate-and-google-cloud-platform-51fc60fac6c7",
+    "source": "blog"
+   },
+   {
+    "note": "Named as DIY TFC-free-tier replacement with GHA.",
+    "url": "https://www.reddit.com/r/Terraform/comments/1pngkr4/hcp_terraform_free_is_ending_choose_a_new_plan/",
+    "source": "reddit"
+   }
+  ],
   "sources": [
    "https://news.ycombinator.com/item?id=46286787",
    "https://medium.com/alan/why-we-migrated-from-terraspace-to-terramate-a-technical-journey-91a6d667f6ec",
@@ -1058,14 +1375,15 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "name": "Atlantis",
   "stage": "orchestrate",
   "stage_num": "2",
-  "slot": "Run it \u2014 automation / TACOS",
+  "slot": "Run it — automation / TACOS",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "PR-driven plan/apply, self-hosted, open source",
+  "oneliner": "Run terraform plan/apply from pull-request comments, so the PR is your control plane",
   "brand": "#2E86C1",
   "mono": "At",
   "icon": null,
   "repo": "runatlantis/atlantis",
+  "docs": "https://www.runatlantis.io/guide/",
   "stage_name": "ORCHESTRATE & GOVERN",
   "metrics": {
    "stars": 9282,
@@ -1138,6 +1456,28 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "DoorDash (account-isolated ECS); Grabyo; REI Systems mentions; CNCF Sandbox; still common mid-size self-host default.",
   "popularity_notes": "Mindshare high but aging. 2024 CNCF Sandbox. Displacement pressure from GHA, Digger, Terrateam, Spacelift.",
+  "pros": [
+   {
+    "note": "CNCF Sandbox acceptance; project still actively developed.",
+    "url": "https://www.cncf.io/projects/atlantis/",
+    "source": "article"
+   },
+   {
+    "note": "Called light and stable on Fargate versus rolling GHA.",
+    "url": "https://www.reddit.com/r/devops/comments/1gfou4n/terraformtofu_plan_apply_with_pr_automation_via/",
+    "source": "reddit"
+   },
+   {
+    "note": "Picked over TFC on cost and over GHA for locking feel.",
+    "url": "https://about.grabyo.com/terraform-and-atlantis/",
+    "source": "blog"
+   },
+   {
+    "note": "High GitHub stars; default OSS PR automation reference.",
+    "url": "https://github.com/runatlantis/atlantis",
+    "source": "article"
+   }
+  ],
   "sources": [
    "https://devopsboys.com/blog/atlantis-terraform-pull-request-automation-review-2026",
    "https://careersatdoordash.com/blog/atlantis-hardening-and-review-fatigue/",
@@ -1152,14 +1492,15 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "name": "HCP Terraform",
   "stage": "orchestrate",
   "stage_num": "2",
-  "slot": "Run it \u2014 automation / TACOS",
+  "slot": "Run it — automation / TACOS",
   "slot_mode": "pick",
   "license": "comm",
-  "oneliner": "HashiCorp managed runs, state, Sentinel policy",
+  "oneliner": "Hosted Terraform runs with remote state, RBAC and policy, no CI to build",
   "brand": "#7B42BC",
   "mono": "HCP",
   "icon": "terraform",
   "repo": null,
+  "docs": "https://developer.hashicorp.com/terraform/tutorials/cloud-get-started",
   "stage_name": "ORCHESTRATE & GOVERN",
   "metrics": {
    "stars": null,
@@ -1186,7 +1527,7 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
    "net": -0.478,
    "score": 26,
    "confidence": "high",
-   "summary": "Product still respected for VCS runs, Sentinel, and Stacks. Sentiment 2024\u201326 is dominated by RUM pricing, free-tier EOL, and IBM-era distrust."
+   "summary": "Product still respected for VCS runs, Sentinel, and Stacks. Sentiment 2024–26 is dominated by RUM pricing, free-tier EOL, and IBM-era distrust."
   },
   "concerns": [
    {
@@ -1232,7 +1573,19 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
    }
   ],
   "adopters": "Default enterprise Hashi path; exam/docs still teach HCP Projects/Stacks. Many mid-size teams publicly evaluating exits.",
-  "popularity_notes": "Still largest TACOS brand, but 2023 RUM + 2025\u201326 free EOL shifted mindshare toward Spacelift/env0/Scalr/DIY. Trend down on sentiment, not necessarily on installed base.",
+  "popularity_notes": "Still largest TACOS brand, but 2023 RUM + 2025–26 free EOL shifted mindshare toward Spacelift/env0/Scalr/DIY. Trend down on sentiment, not necessarily on installed base.",
+  "pros": [
+   {
+    "note": "Stacks/multi-workspace PR fan-out still unmatched in OSS.",
+    "url": "https://news.ycombinator.com/item?id=40231016",
+    "source": "hn"
+   },
+   {
+    "note": "Long Stacks deep-dive; author still invests in HCP features.",
+    "url": "https://mattias.engineer/blog/2025/terraform-stacks-deep-dive-aws/",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://mattias.engineer/blog/2026/hcp-terraform-rum-pricing/",
    "https://www.marktinderholt.com/infrastructure%20as%20code/terraform/devops/cloud/2025/12/19/rum-pricing.html",
@@ -1247,14 +1600,15 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "name": "Spacelift",
   "stage": "orchestrate",
   "stage_num": "2",
-  "slot": "Run it \u2014 automation / TACOS",
+  "slot": "Run it — automation / TACOS",
   "slot_mode": "pick",
   "license": "comm",
-  "oneliner": "Managed runner: TF, OpenTofu, Pulumi, Ansible",
+  "oneliner": "Managed runs for Terraform, Pulumi and Ansible with policy-as-code guardrails",
   "brand": "#6C4BF4",
   "mono": "Sp",
   "icon": null,
   "repo": null,
+  "docs": "https://docs.spacelift.io/getting-started",
   "stage_name": "ORCHESTRATE & GOVERN",
   "metrics": {
    "stars": null,
@@ -1318,7 +1672,34 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
    }
   ],
   "adopters": "CloudPosse recommendation; Odos TFC migration story; $51M Series C; OpenTofu sponsor. G2/AWS reviews from education, transport, OpenTofu users.",
-  "popularity_notes": "Strongest commercial mindshare versus HCP in 2024\u201326 Reddit bake-offs. Trend up as RUM refugees evaluate it.",
+  "popularity_notes": "Strongest commercial mindshare versus HCP in 2024–26 Reddit bake-offs. Trend up as RUM refugees evaluate it.",
+  "pros": [
+   {
+    "note": "OpenTofu shop: 3–4× ROI versus manual work, just works.",
+    "url": "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-drrpy7qnpny5s",
+    "source": "article"
+   },
+   {
+    "note": "Self-hosted Spacelift for residency/control announced.",
+    "url": "https://news.ycombinator.com/item?id=35561181",
+    "source": "hn"
+   },
+   {
+    "note": "Closest paid TFC analog; high-quality Terraform provider.",
+    "url": "https://news.ycombinator.com/item?id=40231016",
+    "source": "hn"
+   },
+   {
+    "note": "G2 ~4.9 on a small review set.",
+    "url": "https://www.g2.com/products/spacelift/reviews",
+    "source": "article"
+   },
+   {
+    "note": "Vendor customer story: TFC→Spacelift cost/speed.",
+    "url": "https://www.reddit.com/r/u_spacelift-io/comments/1fjp58d/migrating_from_terraform_cloud_to_spacelift_has/",
+    "source": "reddit"
+   }
+  ],
   "sources": [
    "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-drrpy7qnpny5s",
    "https://www.peerspot.com/products/spacelift-reviews",
@@ -1333,14 +1714,15 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "name": "env0",
   "stage": "orchestrate",
   "stage_num": "2",
-  "slot": "Run it \u2014 automation / TACOS",
+  "slot": "Run it — automation / TACOS",
   "slot_mode": "pick",
   "license": "comm",
-  "oneliner": "Managed IaC runs with cost & governance",
+  "oneliner": "Managed IaC pipelines with cost limits, TTLs and self-service environments",
   "brand": "#FF5A5F",
   "mono": "e0",
   "icon": null,
   "repo": null,
+  "docs": "https://docs.env0.com/docs/getting-started",
   "stage_name": "ORCHESTRATE & GOVERN",
   "metrics": {
    "stars": null,
@@ -1402,6 +1784,28 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "OpenTofu founding sponsor; Terratag OSS; $35M raise (2023). Specific public end-customer names scarce in this pass.",
   "popularity_notes": "Always in the Spacelift/Scalr/HCP shortlist. Mindshare mid-pack; 2026 chatter mixed versus 2023 OpenTF peak.",
+  "pros": [
+   {
+    "note": "HN: env0 raised $35M; seems a good TFC competitor.",
+    "url": "https://news.ycombinator.com/item?id=37090141",
+    "source": "hn"
+   },
+   {
+    "note": "G2 cloud-automation reviews generally satisfied.",
+    "url": "https://www.g2.com/products/env-zero/reviews",
+    "source": "article"
+   },
+   {
+    "note": "env0 staffer pitches deploy-based pricing versus RUM.",
+    "url": "https://www.reddit.com/r/Terraform/comments/1d3fbsg/tfe_pricing/",
+    "source": "reddit"
+   },
+   {
+    "note": "Argues environment/deploy billing more predictable than RUM.",
+    "url": "https://www.envzero.com/blog/terraform-cloud-pricing-a-complete-guide",
+    "source": "article"
+   }
+  ],
   "sources": [
    "https://news.ycombinator.com/item?id=37090141",
    "https://news.ycombinator.com/item?id=37270006",
@@ -1416,14 +1820,15 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "name": "Scalr",
   "stage": "orchestrate",
   "stage_num": "2",
-  "slot": "Run it \u2014 automation / TACOS",
+  "slot": "Run it — automation / TACOS",
   "slot_mode": "pick",
   "license": "comm",
-  "oneliner": "Managed TF runner with hierarchy & policy",
+  "oneliner": "Managed Terraform with an org and workspace hierarchy plus layered policies",
   "brand": "#3B5BDB",
   "mono": "Sc",
   "icon": null,
   "repo": null,
+  "docs": "https://docs.scalr.io/docs/getting-started",
   "stage_name": "ORCHESTRATE & GOVERN",
   "metrics": {
    "stars": null,
@@ -1486,7 +1891,29 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
    }
   ],
   "adopters": "Reddit 2025: Mastercard, Peloton. OpenTofu sponsor. Active r/Terraform staff (founder/DevRel).",
-  "popularity_notes": "Stable niche: hierarchy, OPA, run billing, CLI backend. Not the 2024\u201326 hype leader.",
+  "popularity_notes": "Stable niche: hierarchy, OPA, run billing, CLI backend. Not the 2024–26 hype leader.",
+  "pros": [
+   {
+    "note": "Vendor: self-hosted agents no longer eat concurrency quota.",
+    "url": "https://www.reddit.com/r/Terraform/comments/1c7wjfk/scalr_we_have_removed_concurrency_constraints",
+    "source": "reddit"
+   },
+   {
+    "note": "Battle-tested; Mastercard and Peloton cited as users.",
+    "url": "https://www.reddit.com/r/Terraform/comments/1n39dzk/what_are_tacos_missing_today",
+    "source": "reddit"
+   },
+   {
+    "note": "Vendor: run pricing plus free agents versus RUM.",
+    "url": "https://scalr.com/blog/scalr-vs-terraform-cloud-pricing",
+    "source": "article"
+   },
+   {
+    "note": "Some prefer Scalr human/run pricing versus Hashi.",
+    "url": "https://www.reddit.com/r/Terraform/comments/1d3fbsg/tfe_pricing/",
+    "source": "reddit"
+   }
+  ],
   "sources": [
    "https://news.ycombinator.com/item?id=40231016",
    "https://news.ycombinator.com/item?id=37907807",
@@ -1504,11 +1931,12 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Scan for misconfig / security",
   "slot_mode": "combine",
   "license": "open",
-  "oneliner": "Static scan of IaC for security misconfig",
+  "oneliner": "Fail the build when a bucket is public or a group opens 0.0.0.0/0, before apply",
   "brand": "#6C43DE",
   "mono": "Ck",
   "icon": null,
   "repo": "bridgecrewio/checkov",
+  "docs": "https://www.checkov.io/2.Basics/Installing%20Checkov.html",
   "stage_name": "ORCHESTRATE & GOVERN",
   "metrics": {
    "stars": 8984,
@@ -1581,6 +2009,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Palo Alto/Prisma Cloud (maintainer); GitLab CI component; Massdriver bundles it; common pre-commit/GHA default; SOC2 DIY repos.",
   "popularity_notes": "Mindshare leader among dedicated IaC SAST. Stars ~8.7k, frequent releases. Pair-with-Trivy is the 2025-26 default stack.",
+  "pros": [
+   {
+    "note": "Leads compared tools on Terraform policies and providers.",
+    "url": "https://devdosvid.blog/2024/04/16/a-deep-dive-into-terraform-static-code-analysis-tools-features-and-comparisons/",
+    "source": "blog"
+   },
+   {
+    "note": "Calls Checkov the most widely deployed OSS IaC scanner.",
+    "url": "https://spacelift.io/blog/iac-scanning-tools",
+    "source": "article"
+   },
+   {
+    "note": "De facto OSS standard; graph checks catch cross-resource issues.",
+    "url": "https://www.invicti.com/blog/web-security/iac-security-scanning-tools",
+    "source": "article"
+   },
+   {
+    "note": "Named as table-stakes Terraform pipeline security check.",
+    "url": "https://www.reddit.com/r/Terraform/comments/1vfkvf3/what_security_checks_are_part_of_your_terraform/",
+    "source": "reddit"
+   },
+   {
+    "note": "Commenter recommends Checkov for Terraform security sanity.",
+    "url": "https://news.ycombinator.com/item?id=40934408",
+    "source": "hn"
+   }
+  ],
   "sources": [
    "https://devdosvid.blog/2024/04/16/a-deep-dive-into-terraform-static-code-analysis-tools-features-and-comparisons/",
    "https://spacelift.io/blog/iac-scanning-tools",
@@ -1598,11 +2053,12 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Scan for misconfig / security",
   "slot_mode": "combine",
   "license": "open",
-  "oneliner": "Security scanner; absorbed tfsec",
+  "oneliner": "One scanner for IaC misconfig, container CVEs and leaked secrets in CI",
   "brand": "#4C4CFF",
   "mono": "Tv",
   "icon": "trivy",
   "repo": "aquasecurity/trivy",
+  "docs": "https://trivy.dev/latest/docs/",
   "stage_name": "ORCHESTRATE & GOVERN",
   "metrics": {
    "stars": 37795,
@@ -1675,6 +2131,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Aqua Security; default successor for tfsec users; very common GHA/container CI; ~35k-38k GitHub stars.",
   "popularity_notes": "Highest mindshare of any tool in this cluster. Trend was strongly up until Mar 2026 incident; still default consolidator but now with pin-digest hygiene.",
+  "pros": [
+   {
+    "note": "Most actively developed OSS scanner; absorbed tfsec engine.",
+    "url": "https://spacelift.io/blog/iac-scanning-tools",
+    "source": "article"
+   },
+   {
+    "note": "Best when consolidating IaC with container and K8s scans.",
+    "url": "https://www.invicti.com/blog/web-security/iac-security-scanning-tools",
+    "source": "article"
+   },
+   {
+    "note": "Users thank Aqua for a transparent postmortem.",
+    "url": "https://github.com/aquasecurity/trivy/discussions/10462",
+    "source": "article"
+   },
+   {
+    "note": "Best Terrascan exit if you want Rego plus container scans.",
+    "url": "https://arnav.au/2026/09/05/migrating-off-terrascan/",
+    "source": "blog"
+   },
+   {
+    "note": "Tutorial recommends trivy config as tfsec replacement.",
+    "url": "https://dev.to/verifacrew/how-to-secure-terraform-code-with-trivy-3m9m",
+    "source": "article"
+   }
+  ],
   "sources": [
    "https://spacelift.io/blog/iac-scanning-tools",
    "https://www.invicti.com/blog/web-security/iac-security-scanning-tools",
@@ -1692,11 +2175,12 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Scan for misconfig / security",
   "slot_mode": "combine",
   "license": "open",
-  "oneliner": "IaC misconfig scanner (Checkmarx)",
+  "oneliner": "Scan Terraform, CloudFormation, K8s and Ansible for misconfig in a single pass",
   "brand": "#00A8A8",
   "mono": "KI",
   "icon": null,
   "repo": "Checkmarx/kics",
+  "docs": "https://docs.kics.io/latest/getting-started/",
   "stage_name": "ORCHESTRATE & GOVERN",
   "metrics": {
    "stars": 2698,
@@ -1760,6 +2244,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Checkmarx (maintainer); GitLab IaC scanning default; Checkmarx One commercial wrap.",
   "popularity_notes": "Solid second-tier mindshare (~2.6k stars). Strongest where GitLab or polyglot IaC matters. Less Reddit chatter than Checkov/Trivy.",
+  "pros": [
+   {
+    "note": "2400+ queries; GitLab IaC scanning uses KICS under the hood.",
+    "url": "https://spacelift.io/blog/iac-scanning-tools",
+    "source": "article"
+   },
+   {
+    "note": "Widest OSS format coverage including Pulumi and Ansible.",
+    "url": "https://www.invicti.com/blog/web-security/iac-security-scanning-tools",
+    "source": "article"
+   },
+   {
+    "note": "Auto-remediation and rich GitLab/SonarQube output formats.",
+    "url": "https://devdosvid.blog/2024/04/16/a-deep-dive-into-terraform-static-code-analysis-tools-features-and-comparisons/",
+    "source": "blog"
+   },
+   {
+    "note": "GitLab ships KICS as default IaC scanning analyzer.",
+    "url": "https://docs.gitlab.com/user/application_security/iac_scanning/",
+    "source": "article"
+   },
+   {
+    "note": "First-party GitLab CI integration docs.",
+    "url": "https://docs.kics.io/latest/integrations_gitlabci/",
+    "source": "article"
+   }
+  ],
   "sources": [
    "https://spacelift.io/blog/iac-scanning-tools",
    "https://www.invicti.com/blog/web-security/iac-security-scanning-tools",
@@ -1777,11 +2288,12 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Scan for misconfig / security",
   "slot_mode": "combine",
   "license": "open",
-  "oneliner": "IaC policy & compliance scanner",
+  "oneliner": "Policy-scan IaC against CIS/SOC2 packs (archived Nov 2025; prefer Checkov/Trivy)",
   "brand": "#2C5E9E",
   "mono": "Ts",
   "icon": null,
   "repo": "tenable/terrascan",
+  "docs": "https://runterrascan.io/docs/getting-started/",
   "stage_name": "ORCHESTRATE & GOVERN",
   "metrics": {
    "stars": 5212,
@@ -1852,6 +2364,18 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Legacy CI users; historically Accurics then Tenable; ~5.2k stars at archive. Nessus integration EOL 2025.",
   "popularity_notes": "Sharp downtrend. Pre-2024 peer of Checkov/tfsec; 2026 consensus is migrate. Binary still runs but is not a control.",
+  "pros": [
+   {
+    "note": "Author recalls it as a quiet, decent CI gate for years.",
+    "url": "https://arnav.au/2026/09/05/migrating-off-terrascan/",
+    "source": "blog"
+   },
+   {
+    "note": "Once listed among most useful TF OSS scanners.",
+    "url": "https://news.ycombinator.com/item?id=32633222",
+    "source": "hn"
+   }
+  ],
   "sources": [
    "https://github.com/tenable/terrascan",
    "https://github.com/tenable/terrascan/issues/1724",
@@ -1869,11 +2393,12 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Custom policy engine",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "General policy engine; Rego language",
+  "oneliner": "Write org rules once in Rego and enforce them across Terraform, K8s and CI",
   "brand": "#566E7A",
   "mono": "OPA",
   "icon": null,
   "repo": "open-policy-agent/opa",
+  "docs": "https://www.openpolicyagent.org/docs/latest/",
   "stage_name": "ORCHESTRATE & GOVERN",
   "metrics": {
    "stars": 12200,
@@ -1937,6 +2462,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "CNCF graduated; Spacelift, Scalr, env0, HCP Terraform (OPA policy sets); Airtime Rewards via Spacelift; Conftest+Atlantis common.",
   "popularity_notes": "Highest PaC mindshare. Trend up as TFC alternatives and OpenTofu shops standardize on Rego. Language friction is the tax.",
+  "pros": [
+   {
+    "note": "Unified PaC across Terraform, K8s, APIs, and CI.",
+    "url": "https://spacelift.io/blog/open-policy-agent-opa-terraform",
+    "source": "article"
+   },
+   {
+    "note": "Prefer OPA over Sentinel to avoid HCP lock-in.",
+    "url": "https://spacelift.io/blog/terraform-vendor-lock-in",
+    "source": "article"
+   },
+   {
+    "note": "Portable open alternative to HashiCorp Sentinel.",
+    "url": "https://policyascode.dev/guides/opa-vs-sentinel-enterprise/",
+    "source": "article"
+   },
+   {
+    "note": "Vendor-neutral engine versus Sentinel lock-in.",
+    "url": "https://secure-pipelines.com/ci-cd-security/ci-cd-policy-engines-compared-opa-kyverno-sentinel-cedar/",
+    "source": "article"
+   },
+   {
+    "note": "OPA as universal open standard for whole cloud-native stack.",
+    "url": "https://cloudatler.com/blog/terraform-sentinel-vs-opa-policy-as-code-for-cloud-security",
+    "source": "article"
+   }
+  ],
   "sources": [
    "https://spacelift.io/blog/open-policy-agent-opa-terraform",
    "https://spacelift.io/blog/terraform-vendor-lock-in",
@@ -1954,11 +2506,12 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Custom policy engine",
   "slot_mode": "pick",
   "license": "comm",
-  "oneliner": "HashiCorp proprietary policy language",
+  "oneliner": "HashiCorp's policy language to gate Terraform runs in HCP and Enterprise",
   "brand": "#7B42BC",
   "mono": "Se",
   "icon": "hashicorp",
   "repo": null,
+  "docs": "https://developer.hashicorp.com/sentinel/intro/getting-started",
   "stage_name": "ORCHESTRATE & GOVERN",
   "metrics": {
    "stars": null,
@@ -2023,6 +2576,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "HCP Terraform / Terraform Enterprise customers; HashiCorp foundational policy library; AWS partnership blogs.",
   "popularity_notes": "High in HashiCorp enterprise accounts, low on Reddit/HN versus OPA. Mindshare flat-to-down among OSS/OpenTofu shops.",
+  "pros": [
+   {
+    "note": "AWS/HashiCorp promote Sentinel for scale governance.",
+    "url": "https://aws.amazon.com/blogs/apn/scale-securely-with-hashicorp-terraform-and-sentinel-policy-as-code/",
+    "source": "article"
+   },
+   {
+    "note": "Used with Checkov in compliance IaC programs.",
+    "url": "https://www.semantive.com/blog/enforcing-security-using-checkov-sentinel-and-more-in-compliance-focused-iac-workflows",
+    "source": "article"
+   },
+   {
+    "note": "Tighter TFC testing workflow than DIY OPA.",
+    "url": "https://medium.com/@tingli_business/terraform-policy-enforcement-a-practical-guide-to-sentinel-and-opa-3407d496bc83",
+    "source": "article"
+   },
+   {
+    "note": "Prewritten AWS foundational Sentinel policy packs.",
+    "url": "https://www.reddit.com/r/u_aalejos/comments/1l1sxva/terraform_adds_new_prewritten_sentinel_policies/",
+    "source": "reddit"
+   },
+   {
+    "note": "Defends Sentinel as free CLI plus public CIS libraries.",
+    "url": "https://news.ycombinator.com/item?id=30310447",
+    "source": "hn"
+   }
+  ],
   "sources": [
    "https://spacelift.io/blog/terraform-vendor-lock-in",
    "https://policyascode.dev/guides/opa-vs-sentinel-enterprise/",
@@ -2040,11 +2620,12 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Test",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "Native HCL test framework, ships in the CLI",
+  "oneliner": "Unit-test modules with mocks using the built-in terraform test, no extra tool",
   "brand": "#7B42BC",
   "mono": "tt",
   "icon": "terraform",
   "repo": "opentofu/opentofu",
+  "docs": "https://developer.hashicorp.com/terraform/language/tests",
   "stage_name": "ORCHESTRATE & GOVERN",
   "metrics": {
    "stars": 30092,
@@ -2109,6 +2690,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "HashiCorp Terraform 1.6+; OpenTofu 1.6+ tofu test; env0 private module CI; HCP registry testing.",
   "popularity_notes": "Fast-rising since 2023 GA. Default recommendation for new modules. Does not displace Terratest for deep integration.",
+  "pros": [
+   {
+    "note": "HCL tests beat learning Go for most module authors.",
+    "url": "https://www.envzero.com/blog/terratest-vs-terraform-opentofu-test-in-depth-comparison",
+    "source": "article"
+   },
+   {
+    "note": "Lightweight native tests for PR-speed unit coverage.",
+    "url": "https://awstip.com/terratest-vs-terraform-test-which-one-should-you-actually-use-dafe18f4164b",
+    "source": "article"
+   },
+   {
+    "note": "mock_provider enables unit tests without cloud creds.",
+    "url": "https://dev.to/recca0120/terraform-test-the-built-in-terraform-module-testing-framework-no-go-required-18ap",
+    "source": "blog"
+   },
+   {
+    "note": "Community welcomed GA of terraform test in 1.6.",
+    "url": "https://www.reddit.com/r/Terraform/comments/16ab9do/tests_general_availability_in_terraform_16/",
+    "source": "reddit"
+   },
+   {
+    "note": "1.7 mocking called a major testing upgrade.",
+    "url": "https://www.reddit.com/r/Terraform/comments/18wqvp6/terraform_17_release_candidate/",
+    "source": "reddit"
+   }
+  ],
   "sources": [
    "https://www.envzero.com/blog/terratest-vs-terraform-opentofu-test-in-depth-comparison",
    "https://awstip.com/terratest-vs-terraform-test-which-one-should-you-actually-use-dafe18f4164b",
@@ -2126,11 +2734,12 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Test",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "Go tests that spin up & assert real infra",
+  "oneliner": "Spin up real infra in Go tests, assert it works, then tear it down",
   "brand": "#00ADD8",
   "mono": "Tt",
   "icon": null,
   "repo": "gruntwork-io/terratest",
+  "docs": "https://terratest.gruntwork.io/docs/getting-started/quick-start/",
   "stage_name": "ORCHESTRATE & GOVERN",
   "metrics": {
    "stars": 7943,
@@ -2194,6 +2803,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Gruntwork (author); Magnolia SRE; common in mature module shops; used with LocalStack; HashiCorp historically pointed here pre-1.6.",
   "popularity_notes": "Mature, still recommended for E2E. Relative mindshare down versus native test for greenfield unit tests, not abandoned.",
+  "pros": [
+   {
+    "note": "Keep Terratest if you already have a working Go suite.",
+    "url": "https://www.envzero.com/blog/terratest-vs-terraform-opentofu-test-in-depth-comparison",
+    "source": "article"
+   },
+   {
+    "note": "Still the tool for real HTTP/infra behavior checks.",
+    "url": "https://awstip.com/terratest-vs-terraform-test-which-one-should-you-actually-use-dafe18f4164b",
+    "source": "article"
+   },
+   {
+    "note": "Module strategy threads still center Terratest for integration.",
+    "url": "https://www.reddit.com/r/Terraform/comments/1flz837/terraform_module_testing_strategy/",
+    "source": "reddit"
+   },
+   {
+    "note": "LocalStack pairing used to cut real-cloud cost.",
+    "url": "https://www.reddit.com/r/Terraform/comments/1mtmlhx/testing_iac_with_terratest_and_localstack/",
+    "source": "reddit"
+   },
+   {
+    "note": "Cited as the infra equivalent of serious automated tests.",
+    "url": "https://www.reddit.com/r/devops/comments/1jvacos/what_is_the_equivalent_of_unit_tests_for",
+    "source": "reddit"
+   }
+  ],
   "sources": [
    "https://www.envzero.com/blog/terratest-vs-terraform-opentofu-test-in-depth-comparison",
    "https://awstip.com/terratest-vs-terraform-test-which-one-should-you-actually-use-dafe18f4164b",
@@ -2211,11 +2847,12 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Estimate cost",
   "slot_mode": "addon",
   "license": "open",
-  "oneliner": "Shows the dollar delta of a plan in the PR",
+  "oneliner": "Show the monthly dollar delta of a Terraform plan right in the pull request",
   "brand": "#5C4EE5",
   "mono": "Ic",
   "icon": "infracost",
   "repo": "infracost/infracost",
+  "docs": "https://www.infracost.io/docs/",
   "stage_name": "ORCHESTRATE & GOVERN",
   "metrics": {
    "stars": 12508,
@@ -2278,8 +2915,35 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
     ]
    }
   ],
-  "adopters": "Vendor: 3,000\u20133,500 companies including Fortune 500 slice. YC W21; $15M Series A (2025). Default mention in TF tool lists and Digger/Atlantis integrations.",
-  "popularity_notes": "Highest positive mindshare in this cluster. Trend up into agent/IDE cost checks (2025\u201326). Not a run orchestrator\u2014complements Atlantis/HCP/Spacelift.",
+  "adopters": "Vendor: 3,000–3,500 companies including Fortune 500 slice. YC W21; $15M Series A (2025). Default mention in TF tool lists and Digger/Atlantis integrations.",
+  "popularity_notes": "Highest positive mindshare in this cluster. Trend up into agent/IDE cost checks (2025–26). Not a run orchestrator—complements Atlantis/HCP/Spacelift.",
+  "pros": [
+   {
+    "note": "~8/10: PR cost diffs caught EC2 upsizing; ROI clear.",
+    "url": "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-vy3p327s7vxsw",
+    "source": "article"
+   },
+   {
+    "note": "7/10: showed EC2+LB impact; ~$500 saved; UI slow.",
+    "url": "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-vy3p327s7vxsw",
+    "source": "article"
+   },
+   {
+    "note": "G2 Jerin: detailed Terraform bills before create.",
+    "url": "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-vy3p327s7vxsw",
+    "source": "article"
+   },
+   {
+    "note": "Cannot recommend enough; trust directionality of diffs.",
+    "url": "https://news.ycombinator.com/item?id=41235038",
+    "source": "hn"
+   },
+   {
+    "note": "Series A $15M; adoption/funding signal.",
+    "url": "https://www.infracost.io/blog/infracost-has-raised-a-15-million-series-a/",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://news.ycombinator.com/item?id=37062007",
    "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-vy3p327s7vxsw",
@@ -2297,12 +2961,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Configure servers",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "Agentless push config over SSH; YAML playbooks",
+  "oneliner": "Push config and app setup to servers over SSH with YAML playbooks, no agent",
   "brand": "#E00000",
   "mono": "An",
   "icon": "ansible",
   "repo": "ansible/ansible",
-  "stage_name": "CONFIGURE \u00b7 IMAGES \u00b7 SECRETS",
+  "docs": "https://docs.ansible.com/ansible/latest/getting_started/index.html",
+  "stage_name": "CONFIGURE · IMAGES · SECRETS",
   "metrics": {
    "stars": 70593,
    "forks": 24343,
@@ -2383,6 +3048,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Red Hat/IBM backed; used at Cloudflare-scale hosting migrations, university and enterprise fleets, network device automation, and widely in homelabs (Geerling playbooks). RHCE EX294 keeps enterprise demand.",
   "popularity_notes": "Highest mindshare of the config-management category (~31-32% share in 2025-2026 roundups), flat-to-slightly-down as containers absorb workloads but unrivalled among traditional CM tools; huge Galaxy ecosystem and constant new tutorial output.",
+  "pros": [
+   {
+    "note": "Vault plus Ansible dynamic inventory and signed SSH workflow praised as practical",
+    "url": "https://news.ycombinator.com/item?id=39658149",
+    "source": "hn"
+   },
+   {
+    "note": "Enroll reverse-engineers live servers into roles; warmly received, Geerling approved",
+    "url": "https://news.ycombinator.com/item?id=46449852",
+    "source": "hn"
+   },
+   {
+    "note": "dev-sec hardening collection described as battle-tested CIS baseline automation",
+    "url": "https://news.ycombinator.com/item?id=46529507",
+    "source": "hn"
+   },
+   {
+    "note": "Mac dev playbook keeps several machines reproducibly consistent, users report",
+    "url": "https://news.ycombinator.com/item?id=43791941",
+    "source": "hn"
+   },
+   {
+    "note": "Cloud exit to Hetzner hardened entirely with Ansible; big cost savings",
+    "url": "https://news.ycombinator.com/item?id=44335920",
+    "source": "hn"
+   }
+  ],
   "sources": [
    "https://news.ycombinator.com/item?id=41867540",
    "https://news.ycombinator.com/item?id=39658149",
@@ -2400,12 +3092,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Configure servers",
   "slot_mode": "pick",
   "license": "fade",
-  "oneliner": "Agent pull config in Ruby; OSS server EOL 2026",
+  "oneliner": "Agent-based config in Ruby for large fleets (OSS server reaches EOL 2026)",
   "brand": "#E9573F",
   "mono": "Ch",
   "icon": "chef",
   "repo": "chef/chef",
-  "stage_name": "CONFIGURE \u00b7 IMAGES \u00b7 SECRETS",
+  "docs": "https://docs.chef.io/",
+  "stage_name": "CONFIGURE · IMAGES · SECRETS",
   "metrics": {
    "stars": 8235,
    "forks": 2523,
@@ -2485,6 +3178,7 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Legacy enterprise fleets and some large-tech installations (Slack publicly modernizing a decade of Chef); free users largely on CINC. Greenfield adoption near zero.",
   "popularity_notes": "Clearly declining: cited around 6-7% config-management share against Ansible's ~32%, with community energy spent on exit paths (converters, migration guides) rather than new capability.",
+  "pros": [],
   "sources": [
    "https://www.reddit.com/r/sysadmin/comments/1bqkqiw/reasons_to_not_use_chef/",
    "https://www.reddit.com/r/sysadmin/comments/1pip1ui/at_some_point_in_the_past_10_years_configuration/",
@@ -2502,12 +3196,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Configure servers",
   "slot_mode": "pick",
   "license": "fade",
-  "oneliner": "Agent pull declarative config; Perforce-owned",
+  "oneliner": "Declarative agent that continuously enforces desired state across a fleet",
   "brand": "#FFAE1A",
   "mono": "Pp",
   "icon": "puppet",
   "repo": "puppetlabs/puppet",
-  "stage_name": "CONFIGURE \u00b7 IMAGES \u00b7 SECRETS",
+  "docs": "https://www.puppet.com/docs/puppet/8/puppet_index.html",
+  "stage_name": "CONFIGURE · IMAGES · SECRETS",
   "metrics": {
    "stars": 7928,
    "forks": 2209,
@@ -2587,6 +3282,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Large regulated and university fleets (NC State publicly moved to OpenVox); commercial consultancies now sell OpenVox support. Vox Pupuli maintains ~177 Forge modules.",
   "popularity_notes": "Vendor-side mindshare declining (~12% category share); community-side energy visibly transferred to OpenVox, which shipped steadily through 2025-2026 with new OS support and third-party commercial support offerings.",
+  "pros": [
+   {
+    "note": "OpenVox greeted as the only real open-source Puppet path forward",
+    "url": "https://www.reddit.com/r/Puppet/comments/1i8zi9b/openvox_the_communitydriven_fork_of_puppet_has/?tl=th",
+    "source": "reddit"
+   },
+   {
+    "note": "First OpenVox release celebrated as drop-in replacement",
+    "url": "https://www.reddit.com/r/Puppet/comments/1i6t1nu/first_release_of_openvox_hot_off_the_presses/",
+    "source": "reddit"
+   },
+   {
+    "note": "Community ships open Go reimplementation of the closed development kit",
+    "url": "https://www.reddit.com/r/Puppet/comments/1sayz1h/introducing_jig_an_open_and_free_reimplementation/",
+    "source": "reddit"
+   },
+   {
+    "note": "Maintainers announce soft fork aiming at modernization and community control",
+    "url": "https://voxpupuli.org/blog/2025/01/21/openvox-release/",
+    "source": "blog"
+   },
+   {
+    "note": "Steady releases with new OS support signal healthy fork momentum",
+    "url": "https://voxpupuli.org/blog/2025/07/31/openvox-releases/",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/Puppet/comments/1glrhz5/open_source_puppet_updates_2025/",
    "https://www.reddit.com/r/Puppet/comments/1md5qst/answering_questions_about_the_developer_eula/",
@@ -2604,12 +3326,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Configure servers",
   "slot_mode": "pick",
   "license": "fade",
-  "oneliner": "Event-driven config, agent or agentless",
+  "oneliner": "Config plus real-time remote execution across thousands of nodes over a fast bus",
   "brand": "#2AA198",
   "mono": "Sa",
   "icon": "saltproject",
   "repo": "saltstack/salt",
-  "stage_name": "CONFIGURE \u00b7 IMAGES \u00b7 SECRETS",
+  "docs": "https://docs.saltproject.io/salt/user-guide/en/latest/",
+  "stage_name": "CONFIGURE · IMAGES · SECRETS",
   "metrics": {
    "stars": 15649,
    "forks": 5611,
@@ -2689,6 +3412,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Cloudflare historically runs large parts of its fleet on Salt; reports of 50k-70k node deployments; embedded in SUSE Uyuni and used by Qubes OS.",
   "popularity_notes": "Niche and shrinking in mindshare, kept alive by scale-driven loyalty and LTS/STS releases through 2025-2026; community repeatedly states it would fork rather than let the project die.",
+  "pros": [
+   {
+    "note": "Vendor showcases Salt automating compliance across private cloud estates",
+    "url": "https://blogs.vmware.com/cloud-foundation/2026/04/23/how-vmware-salt-automates-compliance-across-private-cloud/",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/saltstack/comments/1m514fm/is_salt_worth_learning_in_2025/",
    "https://www.reddit.com/r/saltstack/comments/1gu0mrs/why_are_so_many_posts_about_leaving_saltstack/",
@@ -2706,12 +3436,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Bake immutable images",
   "slot_mode": "combine",
   "license": "bsl",
-  "oneliner": "Bakes golden images; calls Ansible as provisioner",
+  "oneliner": "Bake one golden VM/AMI image and boot it everywhere, immutably",
   "brand": "#02A8EF",
   "mono": "Pk",
   "icon": "packer",
   "repo": "hashicorp/packer",
-  "stage_name": "CONFIGURE \u00b7 IMAGES \u00b7 SECRETS",
+  "docs": "https://developer.hashicorp.com/packer/tutorials/aws-get-started",
+  "stage_name": "CONFIGURE · IMAGES · SECRETS",
   "metrics": {
    "stars": 15775,
    "forks": 3335,
@@ -2791,6 +3522,23 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Standard in AWS golden-AMI pipelines and Proxmox/homelab template workflows; commonly paired with Ansible provisioners and InSpec/Goss testing. Remains the go-to for Windows image builds.",
   "popularity_notes": "Stable but no longer growing: mindshare intact for VM image baking, quietly displaced where containers replaced VMs, with alternatives (mkosi, osbuild, KVMage, Raptor) accumulating rather than one successor winning.",
+  "pros": [
+   {
+    "note": "Walkthrough endorses Packer for efficient repeatable Proxmox templates",
+    "url": "https://karakoo.de/blog/efficient-proxmox-templates-a-focused-look-at-packer",
+    "source": "blog"
+   },
+   {
+    "note": "Popular homelab video pairs Packer templates with Terraform and Ansible",
+    "url": "https://youtube.com/watch?v=4iQ1E3oazoc",
+    "source": "youtube"
+   },
+   {
+    "note": "Demo builds compliant golden images with Packer, Vault and Ansible",
+    "url": "https://www.youtube.com/watch?v=-mTFWwWTKcg",
+    "source": "youtube"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/hashicorp/comments/15np9o8/hashicorp_license_change_hashicorp_adopts/",
    "https://www.reddit.com/r/hashicorp/comments/18oez0b/changes_to_hashicorp_packer_with_packer_110/",
@@ -2808,12 +3556,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Bake immutable images",
   "slot_mode": "combine",
   "license": "open",
-  "oneliner": "First-boot instance bootstrap (user-data)",
+  "oneliner": "Configure a fresh cloud VM on first boot via user-data: users, packages, keys",
   "brand": "#E95420",
   "mono": "ci",
   "icon": null,
   "repo": "canonical/cloud-init",
-  "stage_name": "CONFIGURE \u00b7 IMAGES \u00b7 SECRETS",
+  "docs": "https://cloudinit.readthedocs.io/en/latest/tutorial/index.html",
+  "stage_name": "CONFIGURE · IMAGES · SECRETS",
   "metrics": {
    "stars": 3806,
    "forks": 1128,
@@ -2893,6 +3642,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Canonical-maintained and shipped in effectively every major cloud Linux image; ubiquitous in Proxmox/homelab templates and as the Terraform-to-Ansible handoff. Ignition is the main rival on immutable distros.",
   "popularity_notes": "Quietly dominant infrastructure plumbing with no serious challenger for mutable Linux VMs; mindshare growing alongside Proxmox/OpenTofu homelab automation content through 2025-2026.",
+  "pros": [
+   {
+    "note": "Shares quick recipe spinning up Docker-ready Debian via cloud-init",
+    "url": "https://www.reddit.com/r/Proxmox/comments/1ovhnoj/cloudinit_spin_up_a_debian_13_vm_with_docker_in_2/",
+    "source": "reddit"
+   },
+   {
+    "note": "Cited as capability Linux has that Windows notably lacks",
+    "url": "https://www.reddit.com/r/linuxquestions/comments/1k2ynao/what_are_some_things_on_windows_that_are_missing/",
+    "source": "reddit"
+   },
+   {
+    "note": "Endorses minimal cloud-init as handoff between Terraform and Ansible",
+    "url": "https://www.reddit.com/r/devops/comments/1n94l8q/combining_terraform_ansible_and_clousinit/",
+    "source": "reddit"
+   },
+   {
+    "note": "Homelab automation writeup treats cloud-init as core enabling piece",
+    "url": "https://www.reddit.com/r/homelab/comments/100sxyf/automating_proxmox_with_terraform_cloudinit_pxe/",
+    "source": "reddit"
+   },
+   {
+    "note": "Calls cloud-init the standard interface for initializing Linux VMs",
+    "url": "https://oneuptime.com/blog/post/2026-02-23-how-to-use-terraform-with-cloud-init-for-vm-bootstrap/view",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/hetzner/comments/1ojddq2/how_to_debug_cloudinit/",
    "https://www.reddit.com/r/vmware/comments/15noor0/cloudinit_i_dont_understand_how_it_works/",
@@ -2910,12 +3686,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Manage secrets",
   "slot_mode": "combine",
   "license": "bsl",
-  "oneliner": "Dynamic secrets + encryption; BSL (see OpenBao)",
+  "oneliner": "Issue short-lived dynamic secrets and encrypt via API instead of hardcoding creds",
   "brand": "#F1C40F",
   "mono": "Va",
   "icon": "vault",
   "repo": "hashicorp/vault",
-  "stage_name": "CONFIGURE \u00b7 IMAGES \u00b7 SECRETS",
+  "docs": "https://developer.hashicorp.com/vault/tutorials/getting-started",
+  "stage_name": "CONFIGURE · IMAGES · SECRETS",
   "metrics": {
    "stars": 36209,
    "forks": 4751,
@@ -2995,6 +3772,18 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Broad enterprise deployment; PKI and dynamic-credential use common. OpenBao side draws SAP, G-Research, Adfinis and Reply; consultancies publish migration case studies both directions.",
   "popularity_notes": "Still the reference implementation and most-taught secrets tool, but net mindshare is splitting: OpenBao absorbs the open-source-governance segment while cloud-native managed stores absorb the low-complexity segment.",
+  "pros": [
+   {
+    "note": "Homelabber calls Vault plus External Secrets awesome once running",
+    "url": "https://www.reddit.com/r/homelab/comments/1pu33f5/hashicorp_vault",
+    "source": "reddit"
+   },
+   {
+    "note": "Users praise Vault PKI engine for short-lived certificate issuance",
+    "url": "https://www.reddit.com/r/kubernetes/comments/1j489fa/hashicorp_vault_as_pki",
+    "source": "reddit"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/devops/comments/1mqtq7p/hashicorp_vault_is_it_worth_it/",
    "https://www.reddit.com/r/selfhosted/comments/1p7ecat/hashicorp_vault/",
@@ -3012,12 +3801,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Manage secrets",
   "slot_mode": "combine",
   "license": "open",
-  "oneliner": "Encrypt secrets in Git with age / KMS",
+  "oneliner": "Commit encrypted secret files to Git, decrypt with KMS or age at deploy",
   "brand": "#6E56CF",
   "mono": "SO",
   "icon": null,
   "repo": "getsops/sops",
-  "stage_name": "CONFIGURE \u00b7 IMAGES \u00b7 SECRETS",
+  "docs": "https://github.com/getsops/sops",
+  "stage_name": "CONFIGURE · IMAGES · SECRETS",
   "metrics": {
    "stars": 23034,
    "forks": 1074,
@@ -3089,6 +3879,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Very common in Flux/Argo GitOps repos (ksops, kustomize-sops), NixOS and homelab setups, and as the bootstrap layer before Vault or External Secrets; AWS KMS plus SOPS is a widely cited enterprise pattern.",
   "popularity_notes": "Steadily rising mindshare, boosted by age adoption and GitOps growth; treated as the low-ceremony default rather than a platform, so it coexists with rather than competes against operators.",
+  "pros": [
+   {
+    "note": "Author shares encrypted env-file workflow and recommends SOPS with age",
+    "url": "https://www.reddit.com/r/devops/comments/1rr3crv/a_workflow_for_encrypted_env_files_using_sops_age/",
+    "source": "reddit"
+   },
+   {
+    "note": "SOPS resolves the cluster bootstrap chicken-and-egg for small clusters",
+    "url": "https://www.reddit.com/r/kubernetes/comments/1cqog1r/secrets_management_best_practice_on_k3s_chicken/",
+    "source": "reddit"
+   },
+   {
+    "note": "Walkthrough advocates committing age-encrypted secrets straight into Git",
+    "url": "https://tvi.al/commit-your-secrets-to-git-encrypted-with-sops-and-age/",
+    "source": "blog"
+   },
+   {
+    "note": "Engineer endorses partial-value encryption keeping diffs reviewable",
+    "url": "https://jyablonski.dev/posts/sops-for-secrets-management/",
+    "source": "blog"
+   },
+   {
+    "note": "Calls SOPS with age the sweet spot for small teams",
+    "url": "https://www.codewithkarani.com/blog/secrets-management-small-teams-sops-age",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/devops/comments/1rr3crv/a_workflow_for_encrypted_env_files_using_sops_age/",
    "https://www.reddit.com/r/kubernetes/comments/1kt9kz3/why_sops_or_sealed_secrets_over_any_external",
@@ -3106,12 +3923,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Manage secrets",
   "slot_mode": "combine",
   "license": "open",
-  "oneliner": "Sync secrets into K8s from a backend",
+  "oneliner": "Sync secrets from Vault, AWS or GCP into Kubernetes Secrets automatically",
   "brand": "#3454D1",
   "mono": "ES",
   "icon": null,
   "repo": "external-secrets/external-secrets",
-  "stage_name": "CONFIGURE \u00b7 IMAGES \u00b7 SECRETS",
+  "docs": "https://external-secrets.io/latest/introduction/getting-started/",
+  "stage_name": "CONFIGURE · IMAGES · SECRETS",
   "metrics": {
    "stars": 6836,
    "forks": 1410,
@@ -3191,6 +4009,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Reported in production against AWS Secrets Manager and Vault, including fleets around 1,200 clusters; packaged for Red Hat OpenShift and promoted through CNCF blog content.",
   "popularity_notes": "Strongly trending up: v1.0.0 GA in late 2025, CNCF-aligned governance after the commercial spin-off wound down and released IP under MIT, and now the default answer in r/kubernetes secrets threads.",
+  "pros": [
+   {
+    "note": "GA release greeted as confidence boost for organizational adoption",
+    "url": "https://www.reddit.com/r/kubernetes/comments/1oqsjyr/external_secrets_operator_is_now_ga_with_version",
+    "source": "reddit"
+   },
+   {
+    "note": "Operators report running it happily across very large cluster fleets",
+    "url": "https://www.reddit.com/r/kubernetes/comments/1rqc5p3/managing_external_secrets_in_production_kubernetes",
+    "source": "reddit"
+   },
+   {
+    "note": "Production thread endorses operator with Secrets Manager backend",
+    "url": "https://www.reddit.com/r/kubernetes/comments/1rklv79/external_secrets_operator_in_production",
+    "source": "reddit"
+   },
+   {
+    "note": "Replies favor the operator for less friction and easier rotation",
+    "url": "https://www.reddit.com/r/kubernetes/comments/1kt9kz3/why_sops_or_sealed_secrets_over_any_external",
+    "source": "reddit"
+   },
+   {
+    "note": "Conference talk demonstrates practical secret rotation with the operator",
+    "url": "https://www.reddit.com/r/kubernetes/comments/1m4jl1p/kcd_budapest_secret_rotation_using/",
+    "source": "reddit"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/kubernetes/comments/1oqsjyr/external_secrets_operator_is_now_ga_with_version",
    "https://www.reddit.com/r/kubernetes/comments/1rqc5p3/managing_external_secrets_in_production_kubernetes",
@@ -3208,12 +4053,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Manage secrets",
   "slot_mode": "combine",
   "license": "open",
-  "oneliner": "Commit encrypted secrets to Git",
+  "oneliner": "Encrypt K8s secrets so you can safely commit them to a public GitOps repo",
   "brand": "#326CE5",
   "mono": "SS",
   "icon": null,
   "repo": "bitnami-labs/sealed-secrets",
-  "stage_name": "CONFIGURE \u00b7 IMAGES \u00b7 SECRETS",
+  "docs": "https://github.com/bitnami-labs/sealed-secrets#usage",
+  "stage_name": "CONFIGURE · IMAGES · SECRETS",
   "metrics": {
    "stars": 9275,
    "forks": 773,
@@ -3293,6 +4139,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Widely deployed in small, on-prem and air-gapped GitOps clusters and as secret-zero bootstrap before External Secrets; community tooling (kseal, kubeseal-convert) still appearing in late 2025.",
   "popularity_notes": "Flat-to-declining relative mindshare as External Secrets became the production default, but genuinely alive: regular releases into 2026 including rate-limiting and decryption-oracle hardening.",
+  "pros": [
+   {
+    "note": "New CLI author says all secrets stay sealed and safely committed",
+    "url": "https://www.reddit.com/r/kubernetes/comments/1plw2h3/github_eznix86kseal_cli_tool_to_view_export_and",
+    "source": "reddit"
+   },
+   {
+    "note": "Recommended for small clusters wanting zero external dependencies",
+    "url": "https://www.reddit.com/r/kubernetes/comments/1cqog1r/secrets_management_best_practice_on_k3s_chicken/",
+    "source": "reddit"
+   },
+   {
+    "note": "Ongoing releases with security hardening show active maintenance",
+    "url": "https://github.com/bitnami-labs/sealed-secrets/releases/latest",
+    "source": "blog"
+   },
+   {
+    "note": "Author keeps sealed secrets alongside SOPS and is satisfied",
+    "url": "https://www.jonashietala.se/blog/2026/05/31/sops_age_and_sealed_secrets/",
+    "source": "blog"
+   },
+   {
+    "note": "Former maintainer defends write-only design while conceding UX gaps",
+    "url": "https://news.ycombinator.com/item?id=36806756",
+    "source": "hn"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/kubernetes/comments/1i0gq2r/sealedsecrets_or_externalsecrets",
    "https://www.reddit.com/r/kubernetes/comments/1kt9kz3/why_sops_or_sealed_secrets_over_any_external",
@@ -3310,12 +4183,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Manage secrets",
   "slot_mode": "combine",
   "license": "comm",
-  "oneliner": "AWS/GCP/Azure managed secret stores",
+  "oneliner": "Use the cloud's managed secret store and KMS keys for envelope encryption",
   "brand": "#5B6470",
   "mono": "KMS",
   "icon": "amazonwebservices",
   "repo": null,
-  "stage_name": "CONFIGURE \u00b7 IMAGES \u00b7 SECRETS",
+  "docs": "https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html",
+  "stage_name": "CONFIGURE · IMAGES · SECRETS",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -3395,6 +4269,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Default choice for cloud-resident workloads across AWS, Azure and GCP; usually paired with External Secrets or the CSI driver for Kubernetes. Community advice: prefer these over self-hosted Vault unless on-prem or dynamic secrets are required.",
   "popularity_notes": "Structurally growing because they are the path of least resistance inside each cloud; discussion volume skews negative on cost and IAM ergonomics rather than on whether to use them at all.",
+  "pros": [
+   {
+    "note": "Managed cloud stores recommended over self-hosting for most teams",
+    "url": "https://www.reddit.com/r/kubernetes/comments/1k70anc/what_is_the_current_stateoftheart_for_managing/",
+    "source": "reddit"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/aws/comments/1mgl85a/how_we_solved_environment_variable_chaos_for_40",
    "https://www.reddit.com/r/devops/comments/1mgl9tl/how_we_solved_environment_variable_chaos_for_40",
@@ -3412,12 +4293,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "CI/CD engine",
   "slot_mode": "pick",
   "license": "comm",
-  "oneliner": "CI/CD inside GitHub; YAML workflows",
+  "oneliner": "Run CI/CD from YAML in your GitHub repo on every push/PR, huge action marketplace",
   "brand": "#2088FF",
   "mono": "GA",
   "icon": "githubactions",
   "repo": "actions/runner",
-  "stage_name": "DELIVER \u00b7 CI/CD ENGINES",
+  "docs": "https://docs.github.com/en/actions/writing-workflows/quickstart",
+  "stage_name": "DELIVER · CI/CD ENGINES",
   "metrics": {
    "stars": 6238,
    "forks": 1415,
@@ -3499,6 +4381,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Effectively the default CI for GitHub-hosted OSS; GitHub reports tens of millions of jobs daily. High-profile departures include Zig (to Codeberg) and Ghostty.",
   "popularity_notes": "Mindshare clearly highest of any CI in this cluster, but developer-forum sentiment trended down through 2025-2026 while tutorial/YouTube volume stayed very high.",
+  "pros": [
+   {
+    "note": "Commenters endorse Actions as easiest start for GitHub-centric teams",
+    "url": "https://www.reddit.com/r/devops/comments/18ic2zx/seeking_opinions_on_github_actions_for_cicd/",
+    "source": "reddit"
+   },
+   {
+    "note": "Marketplace and repo integration praised as fastest path to pipelines",
+    "url": "https://www.reddit.com/r/devops/comments/105a2bn/gitlab_ci_vs_jenkins_vs_github_actions/",
+    "source": "reddit"
+   },
+   {
+    "note": "Advice: already on GitHub, just use Actions, avoid overthinking",
+    "url": "https://www.reddit.com/r/devops/comments/11cd32e/choosing_a_cicd_tool_for_your_product/",
+    "source": "reddit"
+   },
+   {
+    "note": "GitHub details re-architecture work aimed at reliability at huge scale",
+    "url": "https://github.blog/news-insights/product-news/lets-talk-about-github-actions/",
+    "source": "blog"
+   },
+   {
+    "note": "Recommends Actions to frontend devs for versioned workflow automation",
+    "url": "https://dev.to/arkhan/why-frontend-developers-should-learn-github-actions-in-2025-9al",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://news.ycombinator.com/item?id=46614558",
    "https://news.ycombinator.com/item?id=46615630",
@@ -3516,12 +4425,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "CI/CD engine",
   "slot_mode": "pick",
   "license": "comm",
-  "oneliner": "CI/CD built into GitLab",
+  "oneliner": "Pipelines built into GitLab, from lint to deploy, in one .gitlab-ci.yml",
   "brand": "#FC6D26",
   "mono": "GL",
   "icon": "gitlab",
   "repo": null,
-  "stage_name": "DELIVER \u00b7 CI/CD ENGINES",
+  "docs": "https://docs.gitlab.com/ee/ci/quick_start/",
+  "stage_name": "DELIVER · CI/CD ENGINES",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -3594,6 +4504,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Standard choice in enterprises needing on-prem, air-gapped or compliance-heavy CI; large migrations of thousands of repos reported publicly.",
   "popularity_notes": "Steady rather than growing mindshare: consistently the recommended pick for self-hosted and DevSecOps-heavy contexts, and the main named alternative whenever GitHub pricing or reliability flares.",
+  "pros": [
+   {
+    "note": "GitLab CI praised as complete integrated platform beating Jenkins",
+    "url": "https://www.reddit.com/r/devops/comments/105a2bn/gitlab_ci_vs_jenkins_vs_github_actions/",
+    "source": "reddit"
+   },
+   {
+    "note": "Terraform users prefer GitLab for predictable controlled environments",
+    "url": "https://www.reddit.com/r/Terraform/comments/1hj46vm/github_actions_or_gitlab/",
+    "source": "reddit"
+   },
+   {
+    "note": "Guidance: on GitLab already, its CI is the obvious pick",
+    "url": "https://www.reddit.com/r/devops/comments/11cd32e/choosing_a_cicd_tool_for_your_product/",
+    "source": "reddit"
+   },
+   {
+    "note": "Commenters recommend free self-hosted GitLab runners over paid SaaS CI",
+    "url": "https://www.reddit.com/r/devops/comments/1m3035c/when_is_circleci_worth_paying_for_over_free",
+    "source": "reddit"
+   },
+   {
+    "note": "Four-thousand-repo migration yielded more stable pipelines and faster deploys",
+    "url": "https://dev.to/claudiodevops/from-chaos-to-perfect-flow-my-experience-automating-a-massive-real-gitlab-migration-4000-repos-2p2f",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/gitlab/comments/1la5axk/gitlab_runners_extremely_slow/",
    "https://www.reddit.com/r/gitlab/comments/1rrw3y4/gitlab_runners_are_very_slow_today/",
@@ -3611,12 +4548,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "CI/CD engine",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "Veteran self-hosted automation server",
+  "oneliner": "Self-hosted automation server that can script literally any pipeline via plugins",
   "brand": "#D33833",
   "mono": "Jk",
   "icon": "jenkins",
   "repo": "jenkinsci/jenkins",
-  "stage_name": "DELIVER \u00b7 CI/CD ENGINES",
+  "docs": "https://www.jenkins.io/doc/pipeline/tour/getting-started/",
+  "stage_name": "DELIVER · CI/CD ENGINES",
   "metrics": {
    "stars": 26531,
    "forks": 9828,
@@ -3689,6 +4627,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Still entrenched across enterprise and on-prem estates; frequently described as the tool everyone is trying to replace but few have finished replacing.",
   "popularity_notes": "Mindshare trending down for greenfield work while install base persists. Tutorial volume remains large, mostly aimed at enterprise job-seekers rather than new adopters.",
+  "pros": [
+   {
+    "note": "Runs Jenkins painlessly by minimizing plugins to a handful",
+    "url": "https://news.ycombinator.com/item?id=44960042",
+    "source": "hn"
+   },
+   {
+    "note": "Defends Jenkins as excellent when kept simple and declarative",
+    "url": "https://www.reddit.com/r/devops/comments/1mqqvut/jenkins_is_truly_excellent/",
+    "source": "reddit"
+   },
+   {
+    "note": "Six-hour Jenkins course with large audience treats it as core skill",
+    "url": "https://www.youtube.com/watch?v=XaSdKR2fOU4",
+    "source": "youtube"
+   },
+   {
+    "note": "Well-viewed end-to-end Jenkins Docker Kubernetes project tutorial",
+    "url": "https://www.youtube.com/watch?v=llBvl_iSLDw",
+    "source": "youtube"
+   },
+   {
+    "note": "GitOps pipeline built on containerized Jenkins with scanning",
+    "url": "https://www.youtube.com/watch?v=xbxJpZcFT78",
+    "source": "youtube"
+   }
+  ],
   "sources": [
    "https://news.ycombinator.com/item?id=44960042",
    "https://news.ycombinator.com/item?id=35889948",
@@ -3706,12 +4671,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "CI/CD engine",
   "slot_mode": "pick",
   "license": "comm",
-  "oneliner": "Managed CI/CD SaaS",
+  "oneliner": "Hosted CI with fast caching and parallelism and minimal server upkeep",
   "brand": "#22A06B",
   "mono": "Ci",
   "icon": "circleci",
   "repo": null,
-  "stage_name": "DELIVER \u00b7 CI/CD ENGINES",
+  "docs": "https://circleci.com/docs/getting-started/",
+  "stage_name": "DELIVER · CI/CD ENGINES",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -3782,6 +4748,28 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Still used by teams with complex build matrices and non-GitHub forges; several public accounts of teams migrating off toward Actions or Buildkite.",
   "popularity_notes": "Mindshare declining: mostly appears now inside comparison and migration content rather than first-choice recommendations. Very little organic enthusiasm found in 2024-2026 forum threads.",
+  "pros": [
+   {
+    "note": "Teams stay because Actions lacked parity on images and parallelism",
+    "url": "https://www.reddit.com/r/devops/comments/1bmn7ie/why_do_some_companies_use_other_tooling_for_cicd",
+    "source": "reddit"
+   },
+   {
+    "note": "Author ships full Android automation on CircleCI, recommends approach",
+    "url": "https://www.reddit.com/r/androiddev/comments/1lecg07/i_wrote_a_stepbystep_guide_on_creating_a_fully/",
+    "source": "reddit"
+   },
+   {
+    "note": "Recommends CircleCI when test splitting and build optimization matter",
+    "url": "https://agentdeals.dev/circleci-vs-github-actions",
+    "source": "article"
+   },
+   {
+    "note": "Positions CircleCI as stability-focused alternative for critical pipelines",
+    "url": "https://semaphore.io/blog/best-github-actions-alternatives-in-2026",
+    "source": "article"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/devops/comments/1nou65j/circleci_self_hosted_concurrency_limits",
    "https://www.reddit.com/r/devops/comments/1ibtbal/best_circleci_course_on_udemyyoutube_etc",
@@ -3799,12 +4787,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "CI/CD engine",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "Kubernetes-native pipelines (CRDs)",
+  "oneliner": "Build CI/CD pipelines as Kubernetes CRDs that run on your own cluster",
   "brand": "#FD495C",
   "mono": "Tk",
   "icon": "tekton",
   "repo": "tektoncd/pipeline",
-  "stage_name": "DELIVER \u00b7 CI/CD ENGINES",
+  "docs": "https://tekton.dev/docs/getting-started/",
+  "stage_name": "DELIVER · CI/CD ENGINES",
   "metrics": {
    "stars": 9059,
    "forks": 1960,
@@ -3882,6 +4871,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Ford (~2000 teams), DNEG, Air Canada via OpenShift Pipelines; PeerSpot lists Home Depot, PayPal, Target, HSBC. Google Cloud Build lineage.",
   "popularity_notes": "Traction is enterprise/OpenShift-mediated rather than grassroots. Reached 1.0 and moved to CNCF in 2025, but independent community discussion remains notably quieter than Argo's.",
+  "pros": [
+   {
+    "note": "Ford, DNEG, Air Canada cases show large deployment-time reductions",
+    "url": "https://www.redhat.com/en/tekton-pipelines-1.0-and-openshift-for-cicd",
+    "source": "blog"
+   },
+   {
+    "note": "Private ROSA pipeline fully automated with Tekton triggers and Kaniko",
+    "url": "https://appinventiv.com/blog/automating-rosa-deployments-with-tekton/",
+    "source": "blog"
+   },
+   {
+    "note": "Year-long Jenkins-to-Tekton move improved auditability and reduced complexity",
+    "url": "https://medium.com/@sriram.chennai64/lessons-from-a-year-of-ci-cd-modernization-from-jenkins-to-tekton-7ea1842f5968",
+    "source": "blog"
+   },
+   {
+    "note": "Left Drone for Tekton citing Kubernetes-native reuse and scalability",
+    "url": "https://medium.com/otomi-platform/elevating-our-cloud-native-pipelines-migrating-from-drone-to-tekton-4b3d18549d08",
+    "source": "blog"
+   },
+   {
+    "note": "Project declares 1.0 stability, StepAction GA and CNCF move",
+    "url": "https://tekton.dev/blog/2025/05/23/tekton-pipelines-reaches-1.0-stability-today-innovation-tomorrow",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://mkdev.me/posts/is-tekton-still-alive-comparing-tekton-pipelines-with-argo-workflows-argocd-and-jenkins",
    "https://devopsboys.com/blog/argocd-vs-jenkins-x-vs-tekton-cd-comparison-2026",
@@ -3899,12 +4915,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "CI/CD engine",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "K8s-native workflow / DAG engine",
+  "oneliner": "Run DAG, step and batch jobs as pods on Kubernetes",
   "brand": "#EF7B4D",
   "mono": "AW",
   "icon": "argo",
   "repo": "argoproj/argo-workflows",
-  "stage_name": "DELIVER \u00b7 CI/CD ENGINES",
+  "docs": "https://argo-workflows.readthedocs.io/en/latest/walk-through/",
+  "stage_name": "DELIVER · CI/CD ENGINES",
   "metrics": {
    "stars": 16957,
    "forks": 3642,
@@ -3977,6 +4994,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Widely used for ML, batch and GPU workloads on Kubernetes; commonly paired with Argo CD and Argo Events. Named as the destination when teams abandon Tekton.",
   "popularity_notes": "Mindshare rising within the Kubernetes and ML-platform niche and clearly ahead of Tekton in community content, while data-engineering circles increasingly route to Dagster/Prefect instead.",
+  "pros": [
+   {
+    "note": "Team switched from Tekton to Argo Workflows and stayed there",
+    "url": "https://www.reddit.com/r/kubernetes/comments/196wgv9/tekton_pipelines_or_argocd_workflows/",
+    "source": "reddit"
+   },
+   {
+    "note": "Praised for spiky containerized workloads and GitOps-friendly definitions",
+    "url": "https://www.reddit.com/r/dataengineering/comments/15g8ish/argo_workflowsevents_for_data_pipelines/",
+    "source": "reddit"
+   },
+   {
+    "note": "Well-received production patterns writeup from real deployment experience",
+    "url": "https://www.reddit.com/r/devops/comments/17faiq8/argo_workflows_proven_patterns_from_production",
+    "source": "reddit"
+   },
+   {
+    "note": "Monorepo CI built on Argo Events and Workflows shared approvingly",
+    "url": "https://www.reddit.com/r/devops/comments/11qw0bv/monorepo_ci_pipeline_with_argo_events_and_argo/",
+    "source": "reddit"
+   },
+   {
+    "note": "Poll comments credit YAML Kubernetes-resource pipelines as GitOps friendly",
+    "url": "https://www.reddit.com/r/dataengineering/comments/12g8570/orchestration_poll/",
+    "source": "reddit"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/devops/comments/1ulusn9/why_argo_workflows_ci/",
    "https://www.reddit.com/r/kubernetes/comments/196wgv9/tekton_pipelines_or_argocd_workflows/",
@@ -3994,12 +5038,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "CI/CD engine",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "Lightweight OSS CI (Drone fork)",
+  "oneliner": "Lightweight self-hosted CI (Drone fork) for small teams and homelabs",
   "brand": "#4CAF50",
   "mono": "Wp",
   "icon": null,
   "repo": "woodpecker-ci/woodpecker",
-  "stage_name": "DELIVER \u00b7 CI/CD ENGINES",
+  "docs": "https://woodpecker-ci.org/docs/intro",
+  "stage_name": "DELIVER · CI/CD ENGINES",
   "metrics": {
    "stars": 7814,
    "forks": 661,
@@ -4071,6 +5116,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Codeberg offers Woodpecker to its Forgejo users; typical adopters are homelabs, small teams and Gitea/Forgejo self-hosters rather than named enterprises.",
   "popularity_notes": "Trending up modestly as the surviving open-source Drone lineage and as a named escape hatch during GitHub pricing backlashes, but absolute mindshare stays small and hobbyist-weighted.",
+  "pros": [
+   {
+    "note": "Highlights tiny footprint: roughly 100MB server, 30MB agent idle",
+    "url": "https://news.ycombinator.com/item?id=43966564",
+    "source": "hn"
+   },
+   {
+    "note": "Notes easy Kubernetes prototyping via Helm chart install",
+    "url": "https://news.ycombinator.com/item?id=46319744",
+    "source": "hn"
+   },
+   {
+    "note": "Recommended for cheap VPS and homelab Gitea pairings",
+    "url": "https://news.ycombinator.com/item?id=46744114",
+    "source": "hn"
+   },
+   {
+    "note": "Praises Forgejo plus Woodpecker as fully self-hosted lightweight stack",
+    "url": "https://news.ycombinator.com/item?id=48585637",
+    "source": "hn"
+   },
+   {
+    "note": "Suggested as escape from Actions billing and lock-in",
+    "url": "https://news.ycombinator.com/item?id=48583441",
+    "source": "hn"
+   }
+  ],
   "sources": [
    "https://news.ycombinator.com/item?id=43966564",
    "https://news.ycombinator.com/item?id=46319744",
@@ -4088,12 +5160,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "GitOps reconciler",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "Pull-based GitOps with a strong UI",
+  "oneliner": "GitOps: Argo watches Git and syncs your cluster to match, with a great diff UI",
   "brand": "#EF7B4D",
   "mono": "AC",
   "icon": "argo",
   "repo": "argoproj/argo-cd",
-  "stage_name": "RECONCILE \u00b7 GITOPS (KUBERNETES)",
+  "docs": "https://argo-cd.readthedocs.io/en/stable/getting_started/",
+  "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
   "metrics": {
    "stars": 24085,
    "forks": 7827,
@@ -4175,6 +5248,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Michelin (441 apps / 62 clusters), Intuit, Red Hat OpenShift GitOps, Akuity and Codefresh commercial distros; 850-app GitOps migration case study at optimumpartners.com",
   "popularity_notes": "Clear mindshare leader and trending up: CNCF 2025 end-user survey and a 2025 Octopus survey (~50% vs Flux ~11%) both put it first. Helm/Kustomize/Jsonnet support plus the UI make it the default pick; 2026 security coverage is the first real reputational dent.",
+  "pros": [
+   {
+    "note": "Prod users call it hardened; single pane of glass praised.",
+    "url": "https://www.reddit.com/r/devops/comments/1w3ot1w/anyone_actually_running_argocdgitops_in_prod_hows/",
+    "source": "reddit"
+   },
+   {
+    "note": "App-of-apps plus Renovate bootstrapping shared as working pattern.",
+    "url": "https://news.ycombinator.com/item?id=41192566",
+    "source": "hn"
+   },
+   {
+    "note": "CNCF end-user survey names it majority-adopted GitOps tool.",
+    "url": "https://www.cncf.io/announcements/2025/07/24/cncf-end-user-survey-finds-argo-cd-as-majority-adopted-gitops-solution-for-kubernetes/",
+    "source": "article"
+   },
+   {
+    "note": "Survey shows roughly half of GitOps users on Argo CD.",
+    "url": "https://thenewstack.io/survey-argocd-leaves-flux-and-other-gitops-platforms-behind/",
+    "source": "article"
+   },
+   {
+    "note": "Platform engineer rates Argo CD in a league of its own.",
+    "url": "https://loga.dev/blog/argocd-vs-fluxcd",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/devops/comments/1w3ot1w/anyone_actually_running_argocdgitops_in_prod_hows/",
    "https://www.reddit.com/r/devops/comments/17myb2s/where_argocd_falls_short/",
@@ -4192,12 +5292,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "GitOps reconciler",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "Pull-based GitOps controllers; community-led",
+  "oneliner": "GitOps controllers that reconcile K8s from Git with real Helm release semantics",
   "brand": "#5B7CFA",
   "mono": "Fx",
   "icon": null,
   "repo": "fluxcd/flux2",
-  "stage_name": "RECONCILE \u00b7 GITOPS (KUBERNETES)",
+  "docs": "https://fluxcd.io/flux/get-started/",
+  "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
   "metrics": {
    "stars": 8384,
    "forks": 778,
@@ -4277,6 +5378,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "GitLab (chose Flux after evaluation), Microsoft Azure AKS GitOps extension, Grafana-adjacent and homelab/Pi-cluster communities; CNCF graduated project",
   "popularity_notes": "Technically healthy but trending down on mindshare: 2.9 shipped in mid-2026 and CNCF graduation holds, yet post-Weaveworks surveys show roughly 11-16% share against Argo CD. Strongest pull remains real Helm release semantics, dependsOn ordering and low footprint for platform/infra layers.",
+  "pros": [
+   {
+    "note": "Users list dependsOn, health checks and image automation favourably.",
+    "url": "https://www.reddit.com/r/kubernetes/comments/1il9d9q/fluxcd_useful_features/",
+    "source": "reddit"
+   },
+   {
+    "note": "Long-time users call it cleaner and less complex than Argo.",
+    "url": "https://www.reddit.com/r/kubernetes/comments/1rkkdgg/flux_cd_deep_dive_architecture_crds_and_mental/",
+    "source": "reddit"
+   },
+   {
+    "note": "Pi Cluster project switched from Argo CD for Helm consistency.",
+    "url": "https://www.reddit.com/r/kubernetes/comments/1fy9w2k/new_release_pi_cluster_project_19_gitops_tool/",
+    "source": "reddit"
+   },
+   {
+    "note": "OCIRepository used to ship ML models with real provenance.",
+    "url": "https://www.reddit.com/r/sre/comments/1nubhxc/using_flux_cd_to_actually_deploy_ml_models_in/",
+    "source": "reddit"
+   },
+   {
+    "note": "ResourceSets make PR-driven preview environments workable.",
+    "url": "https://www.reddit.com/r/kubernetes/comments/1j9m657/how_to_setup_preview_environments_with_fluxcd_in/",
+    "source": "reddit"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/kubernetes/comments/1il9d9q/fluxcd_useful_features/",
    "https://www.reddit.com/r/kubernetes/comments/1rkkdgg/flux_cd_deep_dive_architecture_crds_and_mental/",
@@ -4294,12 +5422,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Package K8s manifests",
   "slot_mode": "combine",
   "license": "open",
-  "oneliner": "Templated, versioned Kubernetes charts",
+  "oneliner": "Package K8s manifests as versioned, parameterised charts you install and upgrade",
   "brand": "#0F1689",
   "mono": "He",
   "icon": "helm",
   "repo": "helm/helm",
-  "stage_name": "RECONCILE \u00b7 GITOPS (KUBERNETES)",
+  "docs": "https://helm.sh/docs/intro/quickstart/",
+  "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
   "metrics": {
    "stars": 30218,
    "forks": 7781,
@@ -4382,6 +5511,18 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Effectively universal for third-party Kubernetes distribution (Prometheus, cert-manager, Grafana, GitLab charts); Artifact Hub is the default discovery surface; CNCF graduated",
   "popularity_notes": "Entrenched and not going away, but sentiment is flat-to-negative on authoring. Helm 4 (Nov 2025, v4.2.x by Aug 2026) modernised plugins/SSA without touching Go templating, so escape-hatch projects (Nelm, Timoni, Yoke, cdk8s, Anemos, Kro) keep appearing and getting traction.",
+  "pros": [
+   {
+    "note": "Maintainers ship Wasm plugins, SSA default and kstatus waits.",
+    "url": "https://helm.sh/blog/helm-4-released/",
+    "source": "article"
+   },
+   {
+    "note": "CNCF frames ten years and v4 as major milestone.",
+    "url": "https://www.cncf.io/announcements/2025/11/12/helm-marks-10-years-with-release-of-version-4/",
+    "source": "article"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/devops/comments/1qj4721/fuckity_fuck_fuck_fuck_fuck_fuck_i_hate_helm/",
    "https://www.reddit.com/r/programming/comments/18ie6dh/pitfalls_of_helm_insights_from_3_yrs_with_the/",
@@ -4399,12 +5540,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Package K8s manifests",
   "slot_mode": "combine",
   "license": "open",
-  "oneliner": "Overlay & patch plain manifests, no templating",
+  "oneliner": "Patch and overlay plain K8s YAML per environment, no templating language",
   "brand": "#326CE5",
   "mono": "Ku",
   "icon": null,
   "repo": "kubernetes-sigs/kustomize",
-  "stage_name": "RECONCILE \u00b7 GITOPS (KUBERNETES)",
+  "docs": "https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/",
+  "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
   "metrics": {
    "stars": 12152,
    "forks": 2418,
@@ -4485,6 +5627,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Built into kubectl and natively supported by Argo CD and Flux; Tubi and Red Hat OpenShift GitOps document production use; standard content in CKA/CKAD curricula",
   "popularity_notes": "Steady and structurally safe: being in kubectl plus first-class GitOps support guarantees a floor. Trend is toward hybrid use (render Helm, patch with Kustomize) and toward Components as the answer to sprawl. Sentiment is positive for internal apps, negative once permutations explode.",
+  "pros": [
+   {
+    "note": "Preferred for simple env deltas without inventing schemas.",
+    "url": "https://www.reddit.com/r/kubernetes/comments/1ayt7hl/to_kustomize_or_to_helm_which_manifest_tooling_do",
+    "source": "reddit"
+   },
+   {
+    "note": "Helm 4 commenters repeatedly prefer Kustomize for org-internal config.",
+    "url": "https://news.ycombinator.com/item?id=45902604",
+    "source": "hn"
+   },
+   {
+    "note": "Team explicitly prefers Kustomize for all first-party workloads.",
+    "url": "https://clustercost.com/blog/why-we-dont-use-helm/",
+    "source": "blog"
+   },
+   {
+    "note": "Named first among alternatives to fighting YAML abstractions.",
+    "url": "https://systemssaturday.substack.com/p/systems-saturday-13-helm",
+    "source": "blog"
+   },
+   {
+    "note": "Switching felt like lifting a veil; config is plain YAML.",
+    "url": "https://dev.to/mdarifulhaque/goodbye-helm-charts-the-effortless-kustomize-kubernetes-deployment-guide-3kpm",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/kubernetes/comments/1nkx8kl/kustomize_whats_with_all_the_patching/",
    "https://www.reddit.com/r/kubernetes/comments/1ru4d92/re_the_post_from_a_few_about_a_month_ago_about/",
@@ -4502,12 +5671,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Package K8s manifests",
   "slot_mode": "combine",
   "license": "open",
-  "oneliner": "Data-templating language for configs",
+  "oneliner": "Generate large K8s/config JSON from a DRY language with variables and functions",
   "brand": "#0064A5",
   "mono": "Js",
   "icon": null,
   "repo": "google/jsonnet",
-  "stage_name": "RECONCILE \u00b7 GITOPS (KUBERNETES)",
+  "docs": "https://jsonnet.org/learning/tutorial.html",
+  "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
   "metrics": {
    "stars": 7564,
    "forks": 471,
@@ -4589,6 +5759,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Grafana Labs (Tanka, Grafonnet, Grafana Cloud), kube-prometheus and monitoring-mixin ecosystem, Loki/Mimir/Tempo deployments, Envoy config generation, Argo CD native config-management support",
   "popularity_notes": "Stable niche rather than growing: entrenched wherever Prometheus/Grafana mixins live, but the wider config-language conversation has moved to CUE, KCL, Pkl and code-first SDKs. 2025 tooling (Grafana LSP, jsonnetfmt, LLM assistance) measurably softened the learning-curve complaint.",
+  "pros": [
+   {
+    "note": "Commenter prefers Jsonnet plus JSON Schema over newer options.",
+    "url": "https://news.ycombinator.com/item?id=39243997",
+    "source": "hn"
+   },
+   {
+    "note": "Ported thousands of config lines; no bugs, nobody complained.",
+    "url": "https://news.ycombinator.com/item?id=46646487",
+    "source": "hn"
+   },
+   {
+    "note": "Working on real objects beats Helm's string templating.",
+    "url": "https://www.reddit.com/r/kubernetes/comments/1j8w66n/helm_jsonnet_template_functional_what_do_you_think",
+    "source": "reddit"
+   },
+   {
+    "note": "Grafonnet praised for scaling dashboards as code.",
+    "url": "https://www.reddit.com/r/grafana/comments/1ip88wp/jsonnet_grafonnet_automate_scale_grafana",
+    "source": "reddit"
+   },
+   {
+    "note": "LSP, jsonnetfmt and LLMs made the language pleasant again.",
+    "url": "https://giedrius.blog/2025/03/24/jsonnet-is-not-so-bad/",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://news.ycombinator.com/item?id=35325488",
    "https://news.ycombinator.com/item?id=35328999",
@@ -4606,12 +5803,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Progressive delivery",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "Canary / blue-green for Argo",
+  "oneliner": "Do canary and blue-green deploys on K8s with automated metric analysis",
   "brand": "#EF7B4D",
   "mono": "AR",
   "icon": "argo",
   "repo": "argoproj/argo-rollouts",
-  "stage_name": "RECONCILE \u00b7 GITOPS (KUBERNETES)",
+  "docs": "https://argo-rollouts.readthedocs.io/en/stable/getting-started/",
+  "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
   "metrics": {
    "stars": 3570,
    "forks": 1207,
@@ -4692,6 +5890,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Monzo (2,100+ services), Intuit (tens of thousands of Rollouts across hundreds of clusters), Credit Karma, Adobe (10k+ workloads), Cisco ThousandEyes, Headout, Priceline; Red Hat OpenShift documents it",
   "popularity_notes": "Default progressive-delivery choice in Argo shops and trending up: v1.10.0 shipped Aug 2026, case studies keep arriving through 2026, and Kargo extends it to multi-env promotion. Real adoption ceiling is metrics maturity, not the controller.",
+  "pros": [
+   {
+    "note": "Cisco team saves 15 minutes per region, decisions now reproducible.",
+    "url": "https://medium.com/thousandeyes-engineering/inside-deploying-thousandeyes-metrics-driven-progressive-delivery-with-argo-rollouts-00a05642c192",
+    "source": "blog"
+   },
+   {
+    "note": "Datadog AnalysisTemplates plus notifications fit existing Argo stack.",
+    "url": "https://tech.asoview.co.jp/entry/2025/12/10/102023",
+    "source": "blog"
+   },
+   {
+    "note": "Presented as the real progressive delivery controller Kubernetes lacks.",
+    "url": "https://codingtricks.io/argo-rollouts-canary-deployment-production-guide/index.html",
+    "source": "blog"
+   },
+   {
+    "note": "Positive walkthrough of canary weights and blue-green services.",
+    "url": "https://codingprotocols.com/blog/argo-rollouts-progressive-delivery",
+    "source": "blog"
+   },
+   {
+    "note": "Production playbook including when a mesh is unnecessary.",
+    "url": "https://letsbuildsolutions.com/blog/devops/progressive-delivery-with-argo-rollouts-canary-analysis-automated-blue-green-and-metrics-driven-deployment-gates-in-kubernetes/",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/kubernetes/comments/1cgdikd/are_things_like_argo_cdargo_rollouts_really_a/",
    "https://www.reddit.com/r/kubernetes/comments/1ug2n9w/debugging_a_canary_pipeline_broken_for_69_days/",
@@ -4709,12 +5934,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Progressive delivery",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "Progressive delivery for Flux & Argo",
+  "oneliner": "Automate metric-driven canary releases for Flux or Argo",
   "brand": "#326CE5",
   "mono": "Fl",
   "icon": null,
   "repo": "fluxcd/flagger",
-  "stage_name": "RECONCILE \u00b7 GITOPS (KUBERNETES)",
+  "docs": "https://docs.flagger.app/tutorials/",
+  "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
   "metrics": {
    "stars": 5398,
    "forks": 804,
@@ -4793,6 +6019,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "MediaMarktSaturn (production business apps), Linkerd/Buoyant and Istio user base, Flux ecosystem default, Azure AKS progressive delivery guidance; CNCF project under fluxcd",
   "popularity_notes": "Maintained and still the Flux-native answer, but clearly the smaller of the pair: fewer war stories, sparse head-to-head debate, and most 2025-2026 writing is tutorials rather than adoption news. Shares Flux's post-Weaveworks sustainability question.",
+  "pros": [
+   {
+    "note": "Flux plus Flagger plus Linkerd shared as working real stack.",
+    "url": "https://www.reddit.com/r/kubernetes/comments/13pv0rm/realworld_gitops_with_flux_flagger_and_linkerd",
+    "source": "reddit"
+   },
+   {
+    "note": "Linkerd plus Flagger praised for low operational overhead.",
+    "url": "https://www.reddit.com/r/kubernetes/comments/12wajhi/service_mesh_customers_out_there",
+    "source": "reddit"
+   },
+   {
+    "note": "Deep-dive shared and received as valuable after setup.",
+    "url": "https://www.reddit.com/r/devops/comments/t7hu75/a_deep_dive_to_canary_deployments_with_flagger",
+    "source": "reddit"
+   },
+   {
+    "note": "Retailer says Flagger already saved them from outages.",
+    "url": "https://medium.com/mediamarktsaturn-tech-blog/reliable-application-deployments-in-a-gitops-setup-with-flagger-4fb80405108c",
+    "source": "blog"
+   },
+   {
+    "note": "Same team reports deploy-on-Friday confidence from automation.",
+    "url": "https://dev.to/mms-tech/reliable-application-deployments-in-a-gitops-setup-with-flagger-5hjm",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/kubernetes/comments/1apz07z/flagger_vs_argo_rollouts_vs_service_meshes_a",
    "https://www.reddit.com/r/kubernetes/comments/13pv0rm/realworld_gitops_with_flux_flagger_and_linkerd",
@@ -4810,12 +6063,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Developer portal (IDP)",
   "slot_mode": "pick",
   "license": "open",
-  "oneliner": "Developer portal (Spotify / CNCF)",
+  "oneliner": "Build an internal developer portal: service catalog, docs and golden-path templates",
   "brand": "#36BAA2",
   "mono": "Bs",
   "icon": "backstage",
   "repo": "backstage/backstage",
-  "stage_name": "RECONCILE \u00b7 GITOPS (KUBERNETES)",
+  "docs": "https://backstage.io/docs/getting-started/",
+  "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
   "metrics": {
    "stars": 34343,
    "forks": 7608,
@@ -4899,6 +6153,23 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Spotify (origin, ~99% internal voluntary adoption), thousands of listed adopters, CNCF incubating; managed variants from Spotify Portal and Roadie; large orgs with 10k+ technical staff report successful consolidation",
   "popularity_notes": "Still the reference developer portal and the name everything else is compared against, but sentiment peaked and turned: 2025-2026 writing is dominated by TCO backlash, migrations to Port/Cortex/Roadie, and criticism that it lags on AI features while funded rivals ship them.",
+  "pros": [
+   {
+    "note": "Spotify Portal credited with cutting agent token usage sharply.",
+    "url": "https://news.ycombinator.com/item?id=48077324",
+    "source": "hn"
+   },
+   {
+    "note": "Spotify reports faster cycle times for heavy portal users.",
+    "url": "https://engineering.atspotify.com/2024/4/supercharged-developer-portals",
+    "source": "blog"
+   },
+   {
+    "note": "Trade press still presents it as state-of-the-art platform base.",
+    "url": "https://www.infoworld.com/article/4189074/building-a-state-of-the-art-development-platform-with-backstage.html",
+    "source": "article"
+   }
+  ],
   "sources": [
    "https://earthly.dev/blog/backstage-is-at-peak-hype/",
    "https://www.reddit.com/r/programming/comments/1m0pf7l/backstage_is_at_the_peak_of_its_hype/",
@@ -4916,12 +6187,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Developer portal (IDP)",
   "slot_mode": "pick",
   "license": "comm",
-  "oneliner": "Managed internal developer portal",
+  "oneliner": "Stand up an internal developer portal as SaaS, without running Backstage yourself",
   "brand": "#5B4CF5",
   "mono": "Po",
   "icon": null,
   "repo": null,
-  "stage_name": "RECONCILE \u00b7 GITOPS (KUBERNETES)",
+  "docs": "https://docs.port.io/getting-started/overview",
+  "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -5002,6 +6274,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Mid-market platform teams roughly 50-500 engineers per comparison write-ups; ~41 aggregated marketplace/G2 ratings around 4.4; AWS Marketplace listed; Ocean integration framework is open source",
   "popularity_notes": "Trending up hard on the commercial side: a reported $100M raise in Dec 2025 pushing agentic-AI positioning, and 2026 comparison posts repeatedly name it the default buy under ~500 engineers. Independent (non-vendor, non-review-site) sentiment remains thin relative to Backstage.",
+  "pros": [
+   {
+    "note": "Recommended for teams lacking capacity to own Backstage.",
+    "url": "https://www.reddit.com/r/sre/comments/1m7j1y0/developer_portals",
+    "source": "reddit"
+   },
+   {
+    "note": "Orgs tired of maintaining Backstage reported moving to Port.",
+    "url": "https://www.reddit.com/r/SoftwareEngineering/comments/1feei3o/are_internal_developer_portals_useful/",
+    "source": "reddit"
+   },
+   {
+    "note": "Suggested as off-the-shelf option for smaller teams.",
+    "url": "https://www.reddit.com/r/devops/comments/1dyb1f1/which_internal_developer_portal_should_we_use/?tl=zh-hans",
+    "source": "reddit"
+   },
+   {
+    "note": "Listing highlights fast support and flexible data model.",
+    "url": "https://aws.amazon.com/marketplace/pp/prodview-nbg7pncb33jxo",
+    "source": "article"
+   },
+   {
+    "note": "Wins on time-to-value, low FTE overhead and polished UX.",
+    "url": "https://lucaberton.com/blog/backstage-vs-port-2026/",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/devops/comments/1qjbjiz/what_happened_to_getportio",
    "https://www.reddit.com/r/sre/comments/1m7j1y0/developer_portals",
@@ -5019,12 +6318,13 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   "slot": "Developer portal (IDP)",
   "slot_mode": "pick",
   "license": "comm",
-  "oneliner": "Platform orchestrator for IDPs",
+  "oneliner": "Platform orchestrator that turns app specs into per-environment config for self-service",
   "brand": "#6C3BE0",
   "mono": "Hu",
   "icon": null,
   "repo": null,
-  "stage_name": "RECONCILE \u00b7 GITOPS (KUBERNETES)",
+  "docs": "https://developer.humanitec.com/introduction/overview/",
+  "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -5105,6 +6405,33 @@ pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:1
   ],
   "adopters": "Cimpress (34 apps, onboarding 2 weeks to 1 day), Convera (~99% adoption, ~40 minute onboarding), anonymised UK healthcare and Mobicom case studies; Score is a CNCF Sandbox project with official Backstage and Port integrations",
   "popularity_notes": "Respected inside platform-engineering circles and actively shipping (Sept 2025 orchestrator relaunch, AI-agent guardrails through 2026), but low organic mindshare: sparse Reddit/HN presence, near-zero Capterra reviews, ~6 Gartner ratings, ~$5M ARR estimates. Score has more independent traction than the product.",
+  "pros": [
+   {
+    "note": "Peer Insights around 4.7-4.8 with support rated highly.",
+    "url": "https://www.gartner.com/reviews/product/humanitec-platform-orchestrator",
+    "source": "article"
+   },
+   {
+    "note": "Sub-scores strong on integration and deployment experience.",
+    "url": "https://www.gartner.com/reviews/market/application-development/vendor/humanitec/product/humanitec-platform-orchestrator",
+    "source": "article"
+   },
+   {
+    "note": "Aggregated testimonials sit around 4.8 out of five.",
+    "url": "https://www.featuredcustomers.com/vendor/humanitec",
+    "source": "article"
+   },
+   {
+    "note": "Cimpress reports onboarding cut from two weeks to a day.",
+    "url": "https://humanitec.com/customers/cimpress",
+    "source": "blog"
+   },
+   {
+    "note": "Convera case cites 99% adoption and sub-5% change failure.",
+    "url": "https://humanitec.com/for-infrastructure-platform-engineers",
+    "source": "blog"
+   }
+  ],
   "sources": [
    "https://www.reddit.com/r/devops/comments/1kfcpze/does_anyone_here_use_humanitec_feedback_wanted",
    "https://www.reddit.com/r/platformengineering/comments/1flzeg0/anyone_taken_this_platform_engineering/",
@@ -5121,7 +6448,54 @@ const STAGES=[["provision","1","PROVISION","var(--s1)"],["orchestrate","2","ORCH
  ["configure","3","CONFIGURE · IMAGES · SECRETS","var(--s3)"],["deliver","4","DELIVER · CI/CD","var(--s4)"],
  ["reconcile","5","RECONCILE · GITOPS","var(--s5)"]];
 const HEALTH={open:"var(--open)",bsl:"var(--bsl)",comm:"var(--comm)",fade:"var(--fade)"};
-const ACCENT={provision:"#60a5fa",orchestrate:"#a78bfa",configure:"#34d399",deliver:"#fbbf24",reconcile:"#f472b6"};
+const ACCENT={provision:"#699c47",orchestrate:"#7a5cc0",configure:"#2f9e8f",deliver:"#f8a231",reconcile:"#d1587f"};
+const TIER_INFO={
+ provision:{level:"TIER 1",role:"Create the raw cloud resources",how:"You declare the desired end state (VMs, networks, databases) and the engine makes your cloud match it."},
+ orchestrate:{level:"TIER 2",role:"Run provisioning safely at scale, and govern it",how:"Wrap the engine to keep configs DRY, automate plan/apply from pull requests, and enforce policy, cost and security before changes land."},
+ configure:{level:"TIER 3",role:"Turn bare machines into ready systems, and handle secrets",how:"Install and configure software, bake golden images, and inject secrets at deploy instead of hardcoding them."},
+ deliver:{level:"TIER 4",role:"Build, test and ship on every change",how:"The CI/CD pipeline engine that runs your builds, tests and deployments automatically on each commit."},
+ reconcile:{level:"TIER 5",role:"Keep clusters in sync with Git, and give devs a portal",how:"Continuously drive Kubernetes to match Git (GitOps), roll releases out progressively, and offer self-service through a developer portal."},
+};
+const LIC_INFO={
+ open:{label:"Open source",cls:"lopen",icon:"unlock"},
+ bsl:{label:"Source-available (BSL)",cls:"lbsl",icon:"lock"},
+ comm:{label:"Paid / commercial",cls:"lcomm",icon:"lock"},
+ fade:{label:"Fading / EOL",cls:"lfade",icon:"warn"},
+};
+const LIC_ICON={
+ unlock:"M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6h2c0-1.66 1.34-3 3-3s3 1.34 3 3v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm0 12H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z",
+ lock:"M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 11c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2 2-.9 2-2 2z",
+ warn:"M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z",
+};
+const GLOSSARY=[
+ ["IaC","Infrastructure as Code","Manage servers and cloud with version-controlled files instead of clicking consoles."],
+ ["HCL","HashiCorp Configuration Language","The declarative syntax Terraform, Packer and Vault are written in."],
+ ["BSL","Business Source License","Source is public but competing commercial use is restricted for a few years, then it turns open."],
+ ["MPL","Mozilla Public License","A genuine open-source licence; OpenTofu adopted it after Terraform left open source."],
+ ["TACOS","Terraform Automation & Collaboration Software","Hosted platforms that run plan/apply with remote state, RBAC and policy (Spacelift, env0, HCP)."],
+ ["DRY","Don't Repeat Yourself","Avoid copy-pasting the same config across environments."],
+ ["GitOps","Git as the source of truth","A controller continuously syncs your cluster to match what is committed in Git."],
+ ["CRD","Custom Resource Definition","Extends Kubernetes with new object types so non-K8s things can be managed as K8s objects."],
+ ["ARM","Azure Resource Manager","Azure's native deployment and templating layer that Bicep compiles down to."],
+ ["DSL","Domain-Specific Language","A small language built for one job, like Bicep for Azure."],
+ ["DAG","Directed Acyclic Graph","A set of steps with dependencies and no loops, used to model workflows."],
+ ["KMS","Key Management Service","A cloud service that stores and uses encryption keys."],
+ ["SM","Secrets Manager","A cloud service that stores secrets like passwords, tokens and keys."],
+ ["RBAC","Role-Based Access Control","Permissions decided by a user's role: who may do what."],
+ ["TTL","Time To Live","Auto-expire an environment or resource after a set time."],
+ ["CI/CD","Continuous Integration / Delivery","Automatically build, test and ship on every code change."],
+ ["PR","Pull Request","A proposed change reviewed before it is merged into the main branch."],
+ ["CNCF","Cloud Native Computing Foundation","Neutral open-source home of Kubernetes, Argo, Flux and friends."],
+ ["AMI","Amazon Machine Image","A snapshot you boot EC2 virtual machines from."],
+ ["EOL","End of Life","No longer maintained or supported."],
+ ["Rego","OPA's policy language","The language you write Open Policy Agent rules in."],
+ ["Canary","Canary release","Ship to a small slice of traffic first, watch metrics, then roll out fully."],
+ ["IDP","Internal Developer Portal","A self-service hub where developers find services, docs and golden-path templates."],
+];
+function renderGlossary(){
+  const el=document.getElementById("glossBody");if(!el)return;
+  el.innerHTML=GLOSSARY.map(([t,f,d])=>`<div class="g"><b>${esc(t)}</b> <i>${esc(f)}</i><br>${esc(d)}</div>`).join("");
+}
 let TOOLS=[], ICONS={}, BYID={}, SEL={}; // SEL[slotKey]=Set(id)
 
 const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -5133,42 +6507,51 @@ function ink(hex){ // contrast color for a badge fill
   return (0.299*r+0.587*g+0.114*b)/255>0.6?"#0b1020":"#ffffff";}
 
 function badge(t){
-  if(t.icon && ICONS[t.icon])
-    return `<div class="bdg" style="background:${t.brand}"><svg viewBox="0 0 24 24" fill="${ink(t.brand)}"><path d="${ICONS[t.icon]}"/></svg></div>`;
-  return `<div class="bdg" style="background:${t.brand}"><span style="color:${ink(t.brand)}">${esc(t.mono)}</span></div>`;
+  const inner=(t.icon && ICONS[t.icon])
+    ? `<div class="bdg" style="background:${t.brand}"><svg viewBox="0 0 24 24" fill="${ink(t.brand)}"><path d="${ICONS[t.icon]}"/></svg></div>`
+    : `<div class="bdg" style="background:${t.brand}"><span style="color:${ink(t.brand)}">${esc(t.mono)}</span></div>`;
+  return t.docs
+    ? `<a class="bdg-link" href="${esc(t.docs)}" target="_blank" rel="noopener" title="Open the ${esc(t.name)} starter guide \u2197">${inner}</a>`
+    : inner;
 }
 
 function sencepts(s){if(!s||!s.n)return'<span class="u">no sentiment data</span>';
-  return `<span style="color:var(--open)">▲${s.pos}</span> <span class="u">▬${s.neu}</span>
-    <span style="color:var(--fade)">▼${s.neg}</span> <span class="u">· n=${s.n}</span>
+  return `<span class="p">\u25B2${s.pos}</span> <span class="u">\u25AC${s.neu}</span>
+    <span class="n">\u25BC${s.neg}</span> <span class="u">\u00b7 ${s.n} found</span>
     <span class="conf">${s.confidence||"?"}</span>`;}
 
+function fmtStars(n){return n>=1000?(n/1000).toFixed(n>=10000?0:1)+"k":String(n);}
 function card(t){
-  const pop=t.popularity||{}, sen=t.sentiment||{};
-  const popScore=pop.score==null?"–":pop.score, senScore=sen.score==null?"–":sen.score;
-  const m=t.metrics||{};
+  const pop=t.popularity||{}, sen=t.sentiment||{}, m=t.metrics||{};
+  const popVal=m.stars!=null?`${fmtStars(m.stars)} \u2605`:"n/a";
+  const senVal=sen.n?`${sen.pos} / ${sen.n}`:"\u2013";
+  const senW=sen.n?Math.round(sen.pos/sen.n*100):0;
+  const li=LIC_INFO[t.license]||{label:t.license,cls:"lcomm",icon:"lock"};
   return `<div class="card" data-id="${t.id}">
-    <span class="lic" style="background:${HEALTH[t.license]}" title="${t.license}"></span>
-    <div class="chead">${badge(t)}<div><div class="cname">${esc(t.name)}</div>
-      <div class="cone">${esc(t.oneliner)}</div></div></div>
+    <div class="chead">${badge(t)}<div class="cmeta"><div class="cname">${esc(t.name)}</div>
+      <div class="cone">${esc(t.oneliner)}</div>
+      <span class="lictag ${li.cls}"><svg viewBox="0 0 24 24"><path d="${LIC_ICON[li.icon]}"/></svg>${esc(li.label)}</span></div></div>
     <div class="metrics">
-      <div class="metric"><div class="lab"><span>Popularity</span><span>${popScore}/100</span></div>
+      <div class="metric"><div class="lab"><span>Popularity</span><b>${popVal}</b></div>
         <div class="bar pop"><i data-w="${pop.score||0}"></i></div></div>
-      <div class="metric"><div class="lab"><span>Sentiment</span><span>${senScore}/100</span></div>
-        <div class="bar sen"><i data-w="${sen.score||0}"></i></div>
+      <div class="metric"><div class="lab"><span>Sentiment</span><b>${senVal}</b></div>
+        <div class="bar sen"><i data-w="${senW}"></i></div>
         <div class="counts">${sencepts(sen)}</div></div>
     </div>
-    <button class="expand">details ▾</button>
+    <button class="expand">details \u25BE</button>
     <div class="detail">
-      <div class="kv">
-        ${m.stars!=null?`<span><b>${(m.stars/1000).toFixed(1)}k</b> ★</b></span>`:""}
+      <ul class="kv">
+        ${m.stars!=null?`<span><b>${fmtStars(m.stars)}</b> \u2605</span>`:""}
         ${m.commits_90d!=null?`<span><b>${m.commits_90d}</b> commits/90d</span>`:""}
         ${m.latest_release?`<span>rel <b>${esc(m.latest_release)}</b></span>`:""}
+        ${t.docs?`<span><a href="${esc(t.docs)}" target="_blank" rel="noopener">starter guide \u2197</a></span>`:""}
         ${t.repo?`<span><a href="https://github.com/${esc(t.repo)}" target="_blank" rel="noopener">${esc(t.repo)}</a></span>`:`<span class="u">no public repo</span>`}
-      </div>
-      ${sen.summary?`<h4>Sentiment</h4><div>${esc(sen.summary)}</div>`:""}
-      ${(t.concerns&&t.concerns.length)?`<h4>Author concerns</h4><ul>${
-        t.concerns.map(c=>`<li><b>${esc(c.tag)}</b> — ${esc(c.detail)} ${
+      </ul>
+      ${sen.summary?`<h4>What the chatter says</h4><div>${esc(sen.summary)}</div>`:""}
+      ${(t.pros&&t.pros.length)?`<h4>What users like</h4><ul class="pros">${
+        t.pros.map(p=>`<li>${esc(p.note)} ${p.url?`<a href="${esc(p.url)}" target="_blank" rel="noopener">[src]</a>`:""}</li>`).join("")}</ul>`:""}
+      ${(t.concerns&&t.concerns.length)?`<h4>What users flag</h4><ul class="cons">${
+        t.concerns.map(c=>`<li><b>${esc(c.tag)}</b> \u2014 ${esc(c.detail)} ${
           (c.sources||[]).slice(0,2).map((u,i)=>`<a href="${esc(u)}" target="_blank" rel="noopener">[${i+1}]</a>`).join(" ")}</li>`).join("")}</ul>`:""}
       ${t.adopters?`<h4>Adopters</h4><div>${esc(t.adopters)}</div>`:""}
       ${t.popularity_notes?`<h4>Traction</h4><div>${esc(t.popularity_notes)}</div>`:""}
@@ -5178,21 +6561,27 @@ function card(t){
 
 function render(){
   const app=document.getElementById("app");app.innerHTML="";
+  let drawn=false;
   for(const [skey,num,label,accent] of STAGES){
     const tools=TOOLS.filter(t=>t.stage===skey);if(!tools.length)continue;
+    if(drawn){const lk=document.createElement("div");lk.className="tier-link";app.appendChild(lk);}
     const slots=[];const seen=new Set();
     for(const t of tools){if(!seen.has(t.slot)){seen.add(t.slot);slots.push(t.slot);}}
+    const info=TIER_INFO[skey]||{level:"TIER "+num,role:"",how:""};
     const stage=document.createElement("section");stage.className="stage";
     let html=`<div class="stage-rail" style="background:${accent}"></div>
       <div class="stage-h"><div class="badge-n" style="background:${accent}">${num}</div>
-      <div><h2 style="color:${accent}">${esc(label)}</h2></div></div><div class="slots">`;
+      <div class="stage-ht"><div class="tier-lvl" style="color:${accent}">${esc(info.level)} \u00b7 allocate your pick</div>
+      <h2 style="color:${accent}">${esc(label)}</h2>
+      <div class="tier-desc"><b>${esc(info.role)}.</b> ${esc(info.how)}</div></div></div><div class="slots">`;
     for(const slot of slots){
       const items=tools.filter(t=>t.slot===slot);const mode=items[0].slot_mode;
       const mlabel={pick:"PICK ONE",combine:"COMBINE",addon:"ADD-ON"}[mode];
+      const mhint={pick:"choose one path",combine:"stack several",addon:"optional"}[mode];
       html+=`<div class="slot"><div class="slot-h"><span class="title">${esc(slot)}</span>
-        <span class="mode ${mode}">${mlabel}</span></div><div class="cards">${items.map(card).join("")}</div></div>`;
+        <span class="mode ${mode}">${mlabel} \u00b7 ${mhint}</span></div><div class="cards">${items.map(card).join("")}</div></div>`;
     }
-    html+=`</div>`;stage.innerHTML=html;app.appendChild(stage);
+    html+=`</div>`;stage.innerHTML=html;app.appendChild(stage);drawn=true;
   }
   wire();observeBars();
 }
@@ -5238,7 +6627,7 @@ function selectedTools(){
 }
 function updateTray(){
   const sel=selectedTools();const tray=document.getElementById("tray");
-  document.getElementById("count").textContent=sel.length+" selected";
+  document.getElementById("count").textContent=sel.length+(sel.length===1?" point allocated":" points allocated");
   document.getElementById("chips").innerHTML=sel.map(t=>
     `<span class="chip"><span class="dot" style="background:${t.brand}"></span><b>${esc(t.name)}</b>
      <span class="x" data-id="${t.id}">×</span></span>`).join("");
@@ -5254,7 +6643,8 @@ function buildManifest(){
   return {generated:new Date().toISOString(),tool_count:sel.length,
     source:"IaC Stack Picker",stack:STAGES.map(([sk,,label])=>({stage:label,
       tools:sel.filter(t=>t.stage===sk).map(t=>({name:t.name,slot:t.slot,license:t.license,
-        repo:t.repo||null,popularity:(t.popularity||{}).score??null,sentiment:(t.sentiment||{}).score??null,
+        repo:t.repo||null,docs:t.docs||null,stars:(t.metrics||{}).stars??null,
+        sentiment:(t.sentiment||{}).n?`${t.sentiment.pos}/${t.sentiment.n} favorable`:null,
         oneliner:t.oneliner}))})).filter(s=>s.tools.length)};
 }
 function buildSVG(){
@@ -5266,7 +6656,7 @@ function buildSVG(){
   const H=90+maxRows*66+40;
   let s=`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="Segoe UI,Arial,sans-serif">`;
   s+=`<rect width="${W}" height="${H}" fill="#0b1020" rx="14"/>`;
-  s+=`<text x="${pad}" y="34" fill="#f8fafc" font-size="18" font-weight="800">My IaC Stack</text>`;
+  s+=`<text x="${pad}" y="34" fill="#f8fafc" font-size="18" font-weight="800">My IaC Build</text>`;
   s+=`<text x="${pad}" y="54" fill="#64748b" font-size="12">${sel.length} tools · generated ${new Date().toISOString().slice(0,10)} · IaC Stack Picker</text>`;
   groups.forEach((g,ci)=>{
     const x=pad+ci*(colW+gap);
@@ -5318,7 +6708,7 @@ document.getElementById("dlPng").addEventListener("click",()=>{
 function inlineJSON(id){const el=document.getElementById(id);try{return el&&el.textContent.trim()?JSON.parse(el.textContent):null;}catch(e){return null;}}
 const _t=inlineJSON("tools-data"),_i=inlineJSON("icons-data");
 (_t&&_i?Promise.resolve([_t,_i]):Promise.all([fetch("data/tools.json").then(r=>r.json()),fetch("data/icons.json").then(r=>r.json())]))
-  .then(([tools,icons])=>{TOOLS=tools;ICONS=icons;TOOLS.forEach(t=>BYID[t.id]=t);render();})
+  .then(([tools,icons])=>{TOOLS=tools;ICONS=icons;TOOLS.forEach(t=>BYID[t.id]=t);render();renderGlossary();})
   .catch(e=>{document.getElementById("app").innerHTML='<p class="muted">Failed to load data: '+esc(e.message)+'</p>';});
 </script>
 </body>
