@@ -169,6 +169,7 @@ body{font-size:17px}
 .gloss summary{font-size:15px}
 .gloss-grid .g{font-size:14px}
 abbr[title]{text-decoration:underline dotted var(--amber-d);text-underline-offset:3px;text-decoration-thickness:1.5px;cursor:help}
+.gdef{color:var(--muted);font-style:italic;font-weight:400;font-size:.88em}
 .tree-wrap{overflow-x:auto;overflow-y:hidden;padding:10px 22px 26px 28px}
 .tree{--lc:#cfd2c7;min-width:min-content}
 .tree>ul{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:flex-start;gap:18px 30px;margin:0;padding:0;list-style:none}
@@ -6651,13 +6652,15 @@ function sencepts(s){if(!s||!s.n)return'<span class="u">no sentiment data</span>
     <span class="conf">${s.confidence||"?"}</span>`;}
 
 function fmtStars(n){return n>=1000?(n/1000).toFixed(n>=10000?0:1)+"k":String(n);}
-let _popTimer=null, GLOSS_MAP={}, GLOSS_RE=null;
+let _popTimer=null, GLOSS_MAP={}, GLOSS_FULL={}, GLOSS_RE=null;
 function buildGloss(){ if(GLOSS_RE) return;
-  GLOSSARY.forEach(([a,f,d])=>{GLOSS_MAP[a]=f+": "+d;});
+  GLOSSARY.forEach(([a,f,d])=>{GLOSS_MAP[a]=f+": "+d; GLOSS_FULL[a]=f;});
   const keys=Object.keys(GLOSS_MAP).sort((a,b)=>b.length-a.length).map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"));
   GLOSS_RE=new RegExp("(?<![A-Za-z0-9])(?:"+keys.join("|")+")(?![A-Za-z0-9])","g");
 }
 function gloss(s){ buildGloss(); return esc(s).replace(GLOSS_RE, m=>`<abbr title="${esc(GLOSS_MAP[m])}">${m}</abbr>`); }
+function glossV(s){ buildGloss(); const seen=new Set();
+  return esc(s).replace(GLOSS_RE, m=>{ const ab=`<abbr title="${esc(GLOSS_MAP[m])}">${m}</abbr>`; if(seen.has(m)) return ab; seen.add(m); return `${ab} <span class="gdef">(${esc(GLOSS_FULL[m])})</span>`; }); }
 function isSelected(id){ return Object.values(SEL).some(s=>s.has(id)); }
 
 function badgeInner(t){
@@ -6726,14 +6729,14 @@ function render(){
       const items=tools.filter(t=>t.slot===slot);const mode=items[0].slot_mode;
       const mlabel={pick:"PICK ONE",combine:"COMBINE",addon:"ADD-ON"}[mode];
       const mhint={pick:"choose one",combine:"stack several",addon:"optional"}[mode];
-      branches+=`<li><span class="tnode thub"><span class="mode ${mode}">${mlabel}</span><span class="hub-title">${gloss(slot)}</span><span class="hub-hint">${mhint}</span></span>
+      branches+=`<li><span class="tnode thub"><span class="mode ${mode}">${mlabel}</span><span class="hub-title">${glossV(slot)}</span><span class="hub-hint">${mhint}</span></span>
         <ul>${items.map(t=>`<li>${node(t)}</li>`).join("")}</ul></li>`;
     }
     stage.innerHTML=`<div class="stage-rail" style="background:${accent}"></div>
       <div class="stage-h"><div class="badge-n" style="background:${accent}">${num}</div>
       <div class="stage-ht"><div class="tier-lvl" style="color:${accent}">${esc(info.level)} \u00b7 allocate your picks</div>
       <h2 style="color:${accent}">${esc(label)}</h2>
-      <div class="tier-desc"><b>${gloss(info.role)}.</b> ${gloss(info.how)}</div></div></div>
+      <div class="tier-desc"><b>${glossV(info.role)}.</b> ${glossV(info.how)}</div></div></div>
       <div class="tree-wrap"><div class="tree" style="--ac:${accent}"><ul>${branches}</ul></div></div>`;
     app.appendChild(stage);drawn=true;
   }
@@ -6776,7 +6779,7 @@ function showPop(n){
   if(sb)sb.addEventListener("click",()=>{const nn=document.querySelector(`.node[data-id="${CSS.escape(t.id)}"]`);toggle(t.id,nn);});
   positionPop(n,pop);
 }
-function hidePopSoon(){ _popTimer=setTimeout(()=>{document.getElementById("nodepop").classList.remove("show");},200); }
+function hidePopSoon(){ _popTimer=setTimeout(()=>{const p=document.getElementById("nodepop"); if(p.matches(":hover")||p.contains(document.activeElement)) return; p.classList.remove("show");},200); }
 function wire(){
   const pop=document.getElementById("nodepop");
   document.querySelectorAll(".node").forEach(n=>{
