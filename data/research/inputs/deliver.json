@@ -1,0 +1,51 @@
+[
+ {
+  "id": "github-actions",
+  "name": "GitHub Actions",
+  "repo": "actions/runner",
+  "oneliner": "CI/CD inside GitHub; YAML workflows",
+  "license": "comm"
+ },
+ {
+  "id": "gitlab-ci-cd",
+  "name": "GitLab CI/CD",
+  "repo": null,
+  "oneliner": "CI/CD built into GitLab",
+  "license": "comm"
+ },
+ {
+  "id": "jenkins",
+  "name": "Jenkins",
+  "repo": "jenkinsci/jenkins",
+  "oneliner": "Veteran self-hosted automation server",
+  "license": "open"
+ },
+ {
+  "id": "circleci",
+  "name": "CircleCI",
+  "repo": null,
+  "oneliner": "Managed CI/CD SaaS",
+  "license": "comm"
+ },
+ {
+  "id": "tekton",
+  "name": "Tekton",
+  "repo": "tektoncd/pipeline",
+  "oneliner": "Kubernetes-native pipelines (CRDs)",
+  "license": "open"
+ },
+ {
+  "id": "argo-workflows",
+  "name": "Argo Workflows",
+  "repo": "argoproj/argo-workflows",
+  "oneliner": "K8s-native workflow / DAG engine",
+  "license": "open"
+ },
+ {
+  "id": "woodpecker",
+  "name": "Woodpecker",
+  "repo": "woodpecker-ci/woodpecker",
+  "oneliner": "Lightweight OSS CI (Drone fork)",
+  "license": "open"
+ }
+]

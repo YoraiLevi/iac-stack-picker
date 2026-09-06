@@ -1,0 +1,79 @@
+[
+ {
+  "id": "ansible",
+  "name": "Ansible",
+  "repo": "ansible/ansible",
+  "oneliner": "Agentless push config over SSH; YAML playbooks",
+  "license": "open"
+ },
+ {
+  "id": "chef",
+  "name": "Chef",
+  "repo": "chef/chef",
+  "oneliner": "Agent pull config in Ruby; OSS server EOL 2026",
+  "license": "fade"
+ },
+ {
+  "id": "puppet",
+  "name": "Puppet",
+  "repo": "puppetlabs/puppet",
+  "oneliner": "Agent pull declarative config; Perforce-owned",
+  "license": "fade"
+ },
+ {
+  "id": "salt",
+  "name": "Salt",
+  "repo": "saltstack/salt",
+  "oneliner": "Event-driven config, agent or agentless",
+  "license": "fade"
+ },
+ {
+  "id": "packer",
+  "name": "Packer",
+  "repo": "hashicorp/packer",
+  "oneliner": "Bakes golden images; calls Ansible as provisioner",
+  "license": "bsl"
+ },
+ {
+  "id": "cloud-init",
+  "name": "cloud-init",
+  "repo": "canonical/cloud-init",
+  "oneliner": "First-boot instance bootstrap (user-data)",
+  "license": "open"
+ },
+ {
+  "id": "hashicorp-vault",
+  "name": "HashiCorp Vault",
+  "repo": "hashicorp/vault",
+  "oneliner": "Dynamic secrets + encryption; BSL (see OpenBao)",
+  "license": "bsl"
+ },
+ {
+  "id": "sops",
+  "name": "SOPS",
+  "repo": "getsops/sops",
+  "oneliner": "Encrypt secrets in Git with age / KMS",
+  "license": "open"
+ },
+ {
+  "id": "external-secrets",
+  "name": "External Secrets",
+  "repo": "external-secrets/external-secrets",
+  "oneliner": "Sync secrets into K8s from a backend",
+  "license": "open"
+ },
+ {
+  "id": "sealed-secrets",
+  "name": "Sealed Secrets",
+  "repo": "bitnami-labs/sealed-secrets",
+  "oneliner": "Commit encrypted secrets to Git",
+  "license": "open"
+ },
+ {
+  "id": "cloud-kms-sm",
+  "name": "Cloud KMS / SM",
+  "repo": null,
+  "oneliner": "AWS/GCP/Azure managed secret stores",
+  "license": "comm"
+ }
+]

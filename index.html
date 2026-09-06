@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IaC Stack Picker — 2026</title>
+<meta name="description" content="Interactive map of Infrastructure-as-Code &amp; delivery tools: popularity, sentiment, concerns. Pick one per job and export your stack."/>
+<style>
+:root{
+  --bg:#0b1020; --panel:#0d1530; --panel2:#0a1226; --line:#1e293b; --line2:#26324d;
+  --ink:#f1f5f9; --ink2:#93a3ba; --ink3:#64748b;
+  --open:#34d399; --bsl:#f59e0b; --comm:#38bdf8; --fade:#fb7185;
+  --pick:#f59e0b; --combine:#34d399; --addon:#38bdf8;
+  --s1:#60a5fa; --s2:#a78bfa; --s3:#34d399; --s4:#fbbf24; --s5:#f472b6;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:15px/1.5 "Segoe UI",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#7cc5ff}
+header{padding:26px 30px 18px;background:linear-gradient(180deg,#111935,#0d1530);border-bottom:1px solid var(--line)}
+h1{margin:0 0 6px;font-size:30px;font-weight:800;letter-spacing:.2px}
+.sub{color:#9fb0c9;font-size:15px;max-width:1100px}
+.legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;font-size:13px;color:#cbd5e1}
+.legend b{color:#cbd5e1;font-weight:700;margin-right:6px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:2px 9px;border-radius:10px;font-size:12px;font-weight:700}
+.dot{width:11px;height:11px;border-radius:50%;display:inline-block}
+main{padding:22px 30px 160px;max-width:1500px;margin:0 auto}
+.stage{background:var(--panel);border:1px solid var(--line);border-radius:16px;margin:0 0 20px;overflow:hidden;position:relative}
+.stage-rail{position:absolute;left:0;top:0;bottom:0;width:6px}
+.stage-h{display:flex;align-items:center;gap:14px;padding:16px 20px 6px 26px}
+.badge-n{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#0b1020;font-size:20px;flex:none}
+.stage-h h2{margin:0;font-size:19px;font-weight:800;letter-spacing:.4px}
+.stage-h .tag{color:#8291ab;font-size:13px}
+.slots{padding:6px 20px 18px 26px}
+.slot{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:12px 0}
+.slot-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.slot-h .title{font-weight:700;font-size:16px;color:#dbe4f0}
+.mode{padding:3px 10px;border-radius:10px;font-size:11.5px;font-weight:800;letter-spacing:.3px;border:1px solid}
+.mode.pick{color:var(--pick);border-color:var(--pick);background:rgba(245,158,11,.13)}
+.mode.combine{color:var(--combine);border-color:var(--combine);background:rgba(52,211,153,.13)}
+.mode.addon{color:var(--addon);border-color:var(--addon);background:rgba(56,189,248,.13)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
+.card{background:#0f1a33;border:1.5px solid var(--line2);border-radius:12px;padding:12px;cursor:pointer;
+  position:relative;transition:transform .15s ease,border-color .15s ease,box-shadow .2s ease}
+.card:hover{transform:translateY(-2px);border-color:#3a4b70}
+.card.sel{border-color:#8ad;box-shadow:0 0 0 2px rgba(120,180,255,.35),0 8px 24px rgba(0,0,0,.35)}
+.card.sel::after{content:"✓";position:absolute;top:8px;right:10px;color:#8ad;font-weight:800}
+.card.pulse{animation:pulse .4s ease}
+@keyframes pulse{0%{transform:scale(1)}45%{transform:scale(1.035)}100%{transform:scale(1)}}
+.chead{display:flex;align-items:flex-start;gap:10px}
+.bdg{width:34px;height:34px;border-radius:9px;flex:none;display:grid;place-items:center;overflow:hidden}
+.bdg svg{width:22px;height:22px}
+.bdg span{font-weight:800;font-size:13px}
+.cname{font-weight:700;font-size:15.5px;line-height:1.2}
+.cone{color:var(--ink2);font-size:12px;margin-top:2px}
+.lic{position:absolute;top:10px;right:12px;width:9px;height:9px;border-radius:50%}
+.card.sel .lic{right:30px}
+.metrics{display:flex;gap:14px;margin-top:10px;flex-wrap:wrap}
+.metric{flex:1;min-width:120px}
+.metric .lab{font-size:10.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--ink3);display:flex;justify-content:space-between}
+.bar{height:7px;border-radius:4px;background:#1b2740;margin-top:4px;overflow:hidden}
+.bar>i{display:block;height:100%;width:0;border-radius:4px;transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.pop>i{background:linear-gradient(90deg,#3b82f6,#22d3ee)}
+.sen{position:relative}
+.sen>i{background:linear-gradient(90deg,#f87171,#fbbf24,#34d399)}
+.counts{font-size:11px;color:var(--ink2);margin-top:6px;display:flex;gap:8px;align-items:center}
+.counts .u{color:var(--ink3)}
+.expand{margin-top:8px;font-size:12px;color:#7cc5ff;background:none;border:none;padding:0;cursor:pointer}
+.detail{display:none;margin-top:10px;border-top:1px solid var(--line);padding-top:10px;font-size:12.5px;color:#c7d2e0}
+.detail.open{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(-4px)}to{opacity:1}}
+.detail h4{margin:8px 0 4px;font-size:12px;color:#aeb9cc;text-transform:uppercase;letter-spacing:.4px}
+.detail ul{margin:4px 0;padding-left:16px}
+.detail li{margin:2px 0}
+.kv{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--ink2)}
+.kv b{color:var(--ink)}
+.conf{font-size:10px;padding:1px 6px;border-radius:6px;border:1px solid var(--line2);color:var(--ink2)}
+/* tray */
+#tray{position:fixed;left:0;right:0;bottom:0;background:rgba(13,21,48,.96);
+  border-top:1px solid var(--line);backdrop-filter:blur(8px);padding:12px 22px;
+  transform:translateY(105%);transition:transform .3s ease;z-index:40}
+#tray.show{transform:translateY(0)}
+.tray-row{display:flex;align-items:center;gap:14px;max-width:1500px;margin:0 auto}
+#chips{display:flex;flex-wrap:wrap;gap:6px;flex:1;max-height:64px;overflow:auto}
+.chip{display:inline-flex;align-items:center;gap:6px;background:#132043;border:1px solid var(--line2);
+  border-radius:20px;padding:3px 10px;font-size:12px}
+.chip b{font-weight:700}
+.chip .x{cursor:pointer;color:var(--ink3)}
+.btn{border:none;border-radius:10px;padding:10px 16px;font-weight:700;cursor:pointer;font-size:14px}
+.btn.primary{background:linear-gradient(90deg,#6366f1,#22d3ee);color:#04121f}
+.btn.ghost{background:#182444;color:#cbd5e1;border:1px solid var(--line2)}
+#count{font-weight:800;font-size:15px;white-space:nowrap}
+/* modal */
+#modal{position:fixed;inset:0;background:rgba(4,8,18,.72);display:none;place-items:center;z-index:60;padding:24px}
+#modal.show{display:grid;animation:fade .2s ease}
+.sheet{background:#0e1730;border:1px solid var(--line);border-radius:16px;max-width:1000px;width:100%;
+  max-height:88vh;overflow:auto;padding:20px}
+.sheet h3{margin:0 0 4px}
+.tabs{display:flex;gap:8px;margin:12px 0}
+.tab{padding:7px 14px;border-radius:9px;border:1px solid var(--line2);background:#132043;color:#cbd5e1;cursor:pointer;font-weight:700;font-size:13px}
+.tab.on{background:#22314f;color:#fff}
+.view{display:none}.view.on{display:block}
+#svgWrap{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:10px;overflow:auto}
+pre{background:#0b1020;border:1px solid var(--line);border-radius:12px;padding:12px;overflow:auto;font-size:12px;max-height:52vh}
+.row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.muted{color:var(--ink3);font-size:12px}
+.close{float:right;cursor:pointer;color:var(--ink2);font-size:22px;line-height:1}
+@media(max-width:640px){main{padding:16px 12px 170px}header{padding:18px 14px}.slots{padding:6px 10px 14px 14px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Build your IaC stack: which tools compete, and which combine?</h1>
+  <div class="sub">Every box is one job. <b>PICK ONE</b> slots hold interchangeable rivals; <b>COMBINE</b> slots stack together.
+  Each card shows a <b>popularity score</b> and a <b>sentiment score</b> (an <i>outcomes / data-points</i> ratio from GitHub metrics and 2023–2026 opinions on HN, Reddit, YouTube and blogs). Pick your tools, then export the stack as SVG + JSON.</div>
+  <div class="legend">
+    <span><b>SLOT:</b>
+      <span class="pill" style="color:var(--pick);border:1px solid var(--pick)">PICK ONE</span>
+      <span class="pill" style="color:var(--combine);border:1px solid var(--combine)">COMBINE</span>
+      <span class="pill" style="color:var(--addon);border:1px solid var(--addon)">ADD-ON</span></span>
+    <span><b>HEALTH:</b>
+      <span class="dot" style="background:var(--open)"></span> open
+      <span class="dot" style="background:var(--bsl)"></span> BSL
+      <span class="dot" style="background:var(--comm)"></span> commercial
+      <span class="dot" style="background:var(--fade)"></span> fading/EOL</span>
+    <span class="muted">badges: official marks where free (CC0), monograms otherwise</span>
+  </div>
+</header>
+<main id="app"><p class="muted">Loading tool data…</p></main>
+
+<div id="tray">
+  <div class="tray-row">
+    <span id="count">0 selected</span>
+    <div id="chips"></div>
+    <button class="btn ghost" id="resetBtn">Reset</button>
+    <button class="btn primary" id="buildBtn">Build my stack →</button>
+  </div>
+</div>
+
+<div id="modal">
+  <div class="sheet">
+    <span class="close" id="closeModal">×</span>
+    <h3>Your IaC stack</h3>
+    <div class="muted" id="stackLine"></div>
+    <div class="tabs">
+      <div class="tab on" data-v="svg">Diagram (SVG)</div>
+      <div class="tab" data-v="json">Manifest (JSON)</div>
+    </div>
+    <div class="view on" id="v-svg"><div id="svgWrap"></div>
+      <div class="row"><button class="btn primary" id="dlSvg">Download SVG</button>
+      <button class="btn ghost" id="dlPng">Download PNG</button></div></div>
+    <div class="view" id="v-json"><pre id="jsonOut"></pre>
+      <div class="row"><button class="btn primary" id="dlJson">Download JSON</button>
+      <button class="btn ghost" id="copyJson">Copy</button></div></div>
+  </div>
+</div>
+
+<script>
+const STAGES=[["provision","1","PROVISION","var(--s1)"],["orchestrate","2","ORCHESTRATE & GOVERN","var(--s2)"],
+ ["configure","3","CONFIGURE · IMAGES · SECRETS","var(--s3)"],["deliver","4","DELIVER · CI/CD","var(--s4)"],
+ ["reconcile","5","RECONCILE · GITOPS","var(--s5)"]];
+const HEALTH={open:"var(--open)",bsl:"var(--bsl)",comm:"var(--comm)",fade:"var(--fade)"};
+const ACCENT={provision:"#60a5fa",orchestrate:"#a78bfa",configure:"#34d399",deliver:"#fbbf24",reconcile:"#f472b6"};
+let TOOLS=[], ICONS={}, BYID={}, SEL={}; // SEL[slotKey]=Set(id)
+
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const slotKey=t=>t.stage+"::"+t.slot;
+
+function ink(hex){ // contrast color for a badge fill
+  const c=hex.replace("#","");if(c.length<6)return"#fff";
+  const r=parseInt(c.slice(0,2),16),g=parseInt(c.slice(2,4),16),b=parseInt(c.slice(4,6),16);
+  return (0.299*r+0.587*g+0.114*b)/255>0.6?"#0b1020":"#ffffff";}
+
+function badge(t){
+  if(t.icon && ICONS[t.icon])
+    return `<div class="bdg" style="background:${t.brand}"><svg viewBox="0 0 24 24" fill="${ink(t.brand)}"><path d="${ICONS[t.icon]}"/></svg></div>`;
+  return `<div class="bdg" style="background:${t.brand}"><span style="color:${ink(t.brand)}">${esc(t.mono)}</span></div>`;
+}
+
+function sencepts(s){if(!s||!s.n)return'<span class="u">no sentiment data</span>';
+  return `<span style="color:var(--open)">▲${s.pos}</span> <span class="u">▬${s.neu}</span>
+    <span style="color:var(--fade)">▼${s.neg}</span> <span class="u">· n=${s.n}</span>
+    <span class="conf">${s.confidence||"?"}</span>`;}
+
+function card(t){
+  const pop=t.popularity||{}, sen=t.sentiment||{};
+  const popScore=pop.score==null?"–":pop.score, senScore=sen.score==null?"–":sen.score;
+  const m=t.metrics||{};
+  return `<div class="card" data-id="${t.id}">
+    <span class="lic" style="background:${HEALTH[t.license]}" title="${t.license}"></span>
+    <div class="chead">${badge(t)}<div><div class="cname">${esc(t.name)}</div>
+      <div class="cone">${esc(t.oneliner)}</div></div></div>
+    <div class="metrics">
+      <div class="metric"><div class="lab"><span>Popularity</span><span>${popScore}/100</span></div>
+        <div class="bar pop"><i data-w="${pop.score||0}"></i></div></div>
+      <div class="metric"><div class="lab"><span>Sentiment</span><span>${senScore}/100</span></div>
+        <div class="bar sen"><i data-w="${sen.score||0}"></i></div>
+        <div class="counts">${sencepts(sen)}</div></div>
+    </div>
+    <button class="expand">details ▾</button>
+    <div class="detail">
+      <div class="kv">
+        ${m.stars!=null?`<span><b>${(m.stars/1000).toFixed(1)}k</b> ★</b></span>`:""}
+        ${m.commits_90d!=null?`<span><b>${m.commits_90d}</b> commits/90d</span>`:""}
+        ${m.latest_release?`<span>rel <b>${esc(m.latest_release)}</b></span>`:""}
+        ${t.repo?`<span><a href="https://github.com/${esc(t.repo)}" target="_blank" rel="noopener">${esc(t.repo)}</a></span>`:`<span class="u">no public repo</span>`}
+      </div>
+      ${sen.summary?`<h4>Sentiment</h4><div>${esc(sen.summary)}</div>`:""}
+      ${(t.concerns&&t.concerns.length)?`<h4>Author concerns</h4><ul>${
+        t.concerns.map(c=>`<li><b>${esc(c.tag)}</b> — ${esc(c.detail)} ${
+          (c.sources||[]).slice(0,2).map((u,i)=>`<a href="${esc(u)}" target="_blank" rel="noopener">[${i+1}]</a>`).join(" ")}</li>`).join("")}</ul>`:""}
+      ${t.adopters?`<h4>Adopters</h4><div>${esc(t.adopters)}</div>`:""}
+      ${t.popularity_notes?`<h4>Traction</h4><div>${esc(t.popularity_notes)}</div>`:""}
+    </div>
+  </div>`;
+}
+
+function render(){
+  const app=document.getElementById("app");app.innerHTML="";
+  for(const [skey,num,label,accent] of STAGES){
+    const tools=TOOLS.filter(t=>t.stage===skey);if(!tools.length)continue;
+    const slots=[];const seen=new Set();
+    for(const t of tools){if(!seen.has(t.slot)){seen.add(t.slot);slots.push(t.slot);}}
+    const stage=document.createElement("section");stage.className="stage";
+    let html=`<div class="stage-rail" style="background:${accent}"></div>
+      <div class="stage-h"><div class="badge-n" style="background:${accent}">${num}</div>
+      <div><h2 style="color:${accent}">${esc(label)}</h2></div></div><div class="slots">`;
+    for(const slot of slots){
+      const items=tools.filter(t=>t.slot===slot);const mode=items[0].slot_mode;
+      const mlabel={pick:"PICK ONE",combine:"COMBINE",addon:"ADD-ON"}[mode];
+      html+=`<div class="slot"><div class="slot-h"><span class="title">${esc(slot)}</span>
+        <span class="mode ${mode}">${mlabel}</span></div><div class="cards">${items.map(card).join("")}</div></div>`;
+    }
+    html+=`</div>`;stage.innerHTML=html;app.appendChild(stage);
+  }
+  wire();observeBars();
+}
+
+function wire(){
+  document.querySelectorAll(".card").forEach(el=>{
+    el.addEventListener("click",e=>{
+      if(e.target.closest(".expand")||e.target.closest("a"))return;
+      toggle(el.dataset.id,el);
+    });
+  });
+  document.querySelectorAll(".expand").forEach(b=>b.addEventListener("click",e=>{
+    e.stopPropagation();const d=b.parentElement.querySelector(".detail");
+    d.classList.toggle("open");b.textContent=d.classList.contains("open")?"details ▴":"details ▾";
+  }));
+}
+function observeBars(){
+  const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){
+    en.target.querySelectorAll(".bar>i").forEach(i=>i.style.width=(i.dataset.w||0)+"%");
+    io.unobserve(en.target);}});},{threshold:.25});
+  document.querySelectorAll(".card").forEach(c=>io.observe(c));
+}
+
+function toggle(id,el){
+  const t=BYID[id];const k=slotKey(t);SEL[k]=SEL[k]||new Set();
+  const mode=t.slot_mode;const has=SEL[k].has(id);
+  if(mode==="pick"){ // single-select within slot
+    document.querySelectorAll(`.card`).forEach(c=>{const tt=BYID[c.dataset.id];
+      if(tt&&slotKey(tt)===k){c.classList.remove("sel");}});
+    SEL[k].clear();
+    if(!has){SEL[k].add(id);el.classList.add("sel");el.classList.add("pulse");}
+  }else{
+    if(has){SEL[k].delete(id);el.classList.remove("sel");}
+    else{SEL[k].add(id);el.classList.add("sel");el.classList.add("pulse");}
+  }
+  setTimeout(()=>el.classList.remove("pulse"),400);
+  updateTray();
+}
+function selectedTools(){
+  const ids=[];Object.values(SEL).forEach(s=>s.forEach(i=>ids.push(i)));
+  return ids.map(i=>BYID[i]).filter(Boolean)
+    .sort((a,b)=>a.stage_num-b.stage_num||a.slot.localeCompare(b.slot));
+}
+function updateTray(){
+  const sel=selectedTools();const tray=document.getElementById("tray");
+  document.getElementById("count").textContent=sel.length+" selected";
+  document.getElementById("chips").innerHTML=sel.map(t=>
+    `<span class="chip"><span class="dot" style="background:${t.brand}"></span><b>${esc(t.name)}</b>
+     <span class="x" data-id="${t.id}">×</span></span>`).join("");
+  document.querySelectorAll("#chips .x").forEach(x=>x.addEventListener("click",()=>{
+    const t=BYID[x.dataset.id];SEL[slotKey(t)].delete(t.id);
+    const c=document.querySelector(`.card[data-id="${t.id}"]`);if(c)c.classList.remove("sel");updateTray();}));
+  tray.classList.toggle("show",sel.length>0);
+}
+
+/* ---------- exporter ---------- */
+function buildManifest(){
+  const sel=selectedTools();
+  return {generated:new Date().toISOString(),tool_count:sel.length,
+    source:"IaC Stack Picker",stack:STAGES.map(([sk,,label])=>({stage:label,
+      tools:sel.filter(t=>t.stage===sk).map(t=>({name:t.name,slot:t.slot,license:t.license,
+        repo:t.repo||null,popularity:(t.popularity||{}).score??null,sentiment:(t.sentiment||{}).score??null,
+        oneliner:t.oneliner}))})).filter(s=>s.tools.length)};
+}
+function buildSVG(){
+  const sel=selectedTools();const cols=STAGES.filter(([sk])=>sel.some(t=>t.stage===sk));
+  const W=Math.max(560,cols.length*250+40);const pad=20,colW=230,gap=20;
+  const groups=cols.map(([sk,num,label,accent])=>({sk,num,label,accent:ACCENT[sk],
+    items:sel.filter(t=>t.stage===sk)}));
+  const maxRows=Math.max(1,...groups.map(g=>g.items.length));
+  const H=90+maxRows*66+40;
+  let s=`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="Segoe UI,Arial,sans-serif">`;
+  s+=`<rect width="${W}" height="${H}" fill="#0b1020" rx="14"/>`;
+  s+=`<text x="${pad}" y="34" fill="#f8fafc" font-size="18" font-weight="800">My IaC Stack</text>`;
+  s+=`<text x="${pad}" y="54" fill="#64748b" font-size="12">${sel.length} tools · generated ${new Date().toISOString().slice(0,10)} · IaC Stack Picker</text>`;
+  groups.forEach((g,ci)=>{
+    const x=pad+ci*(colW+gap);
+    s+=`<text x="${x}" y="84" fill="${g.accent}" font-size="13" font-weight="800">${g.num} ${esc(g.label)}</text>`;
+    if(ci<groups.length-1){const ax=x+colW+4;s+=`<text x="${ax-2}" y="120" fill="#334155" font-size="20">→</text>`;}
+    g.items.forEach((t,ri)=>{
+      const y=98+ri*66;
+      s+=`<rect x="${x}" y="${y}" width="${colW}" height="56" rx="10" fill="#0f1a33" stroke="#26324d"/>`;
+      s+=`<rect x="${x}" y="${y}" width="5" height="56" rx="2.5" fill="${t.brand}"/>`;
+      s+=`<circle cx="${x+26}" cy="${y+28}" r="13" fill="${t.brand}"/>`;
+      if(t.icon&&ICONS[t.icon])
+        s+=`<g transform="translate(${x+26-8},${y+28-8}) scale(0.667)"><path d="${ICONS[t.icon]}" fill="${ink(t.brand)}"/></g>`;
+      else s+=`<text x="${x+26}" y="${y+32}" text-anchor="middle" fill="${ink(t.brand)}" font-size="11" font-weight="800">${esc(t.mono)}</text>`;
+      s+=`<text x="${x+46}" y="${y+24}" fill="#f1f5f9" font-size="13" font-weight="700">${esc(t.name)}</text>`;
+      s+=`<text x="${x+46}" y="${y+40}" fill="#93a3ba" font-size="10">${esc((t.slot||"").slice(0,30))}</text>`;
+    });
+  });
+  s+=`</svg>`;return s;
+}
+function openModal(){
+  const sel=selectedTools();if(!sel.length)return;
+  document.getElementById("stackLine").textContent=sel.map(t=>t.name).join("  ·  ");
+  document.getElementById("svgWrap").innerHTML=buildSVG();
+  document.getElementById("jsonOut").textContent=JSON.stringify(buildManifest(),null,2);
+  document.getElementById("modal").classList.add("show");
+}
+function download(name,text,type){const b=new Blob([text],{type});const u=URL.createObjectURL(b);
+  const a=document.createElement("a");a.href=u;a.download=name;a.click();URL.revokeObjectURL(u);}
+
+document.getElementById("buildBtn").addEventListener("click",openModal);
+document.getElementById("resetBtn").addEventListener("click",()=>{SEL={};
+  document.querySelectorAll(".card.sel").forEach(c=>c.classList.remove("sel"));updateTray();});
+document.getElementById("closeModal").addEventListener("click",()=>document.getElementById("modal").classList.remove("show"));
+document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")e.currentTarget.classList.remove("show");});
+document.querySelectorAll(".tab").forEach(tb=>tb.addEventListener("click",()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("on"));tb.classList.add("on");
+  document.querySelectorAll(".view").forEach(v=>v.classList.remove("on"));
+  document.getElementById("v-"+tb.dataset.v).classList.add("on");}));
+document.getElementById("dlSvg").addEventListener("click",()=>download("iac-stack.svg",buildSVG(),"image/svg+xml"));
+document.getElementById("dlJson").addEventListener("click",()=>download("iac-stack.json",JSON.stringify(buildManifest(),null,2),"application/json"));
+document.getElementById("copyJson").addEventListener("click",()=>navigator.clipboard.writeText(JSON.stringify(buildManifest(),null,2)));
+document.getElementById("dlPng").addEventListener("click",()=>{
+  const svg=buildSVG();const img=new Image();const b=new Blob([svg],{type:"image/svg+xml"});const u=URL.createObjectURL(b);
+  img.onload=()=>{const c=document.createElement("canvas");const m=svg.match(/width="(\d+)" height="(\d+)"/);
+    c.width=(+m[1])*2;c.height=(+m[2])*2;const g=c.getContext("2d");g.scale(2,2);g.drawImage(img,0,0);
+    c.toBlob(bl=>{const a=document.createElement("a");a.href=URL.createObjectURL(bl);a.download="iac-stack.png";a.click();});
+    URL.revokeObjectURL(u);};img.src=u;});
+
+Promise.all([fetch("data/tools.json").then(r=>r.json()),fetch("data/icons.json").then(r=>r.json())])
+  .then(([tools,icons])=>{TOOLS=tools;ICONS=icons;TOOLS.forEach(t=>BYID[t.id]=t);render();})
+  .catch(e=>{document.getElementById("app").innerHTML='<p class="muted">Failed to load data: '+esc(e.message)+'</p>';});
+</script>
+</body>
+</html>

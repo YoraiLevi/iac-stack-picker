@@ -1,0 +1,58 @@
+[
+ {
+  "id": "terragrunt",
+  "name": "Terragrunt",
+  "repo": "gruntwork-io/terragrunt",
+  "oneliner": "DRY wrapper: deps, run-all, remote state, Stacks",
+  "license": "open"
+ },
+ {
+  "id": "terramate",
+  "name": "Terramate",
+  "repo": "terramate-io/terramate",
+  "oneliner": "Orchestration + code-gen + change detection",
+  "license": "open"
+ },
+ {
+  "id": "atlantis",
+  "name": "Atlantis",
+  "repo": "runatlantis/atlantis",
+  "oneliner": "PR-driven plan/apply, self-hosted, open source",
+  "license": "open"
+ },
+ {
+  "id": "hcp-terraform",
+  "name": "HCP Terraform",
+  "repo": null,
+  "oneliner": "HashiCorp managed runs, state, Sentinel policy",
+  "license": "comm"
+ },
+ {
+  "id": "spacelift",
+  "name": "Spacelift",
+  "repo": null,
+  "oneliner": "Managed runner: TF, OpenTofu, Pulumi, Ansible",
+  "license": "comm"
+ },
+ {
+  "id": "env0",
+  "name": "env0",
+  "repo": null,
+  "oneliner": "Managed IaC runs with cost & governance",
+  "license": "comm"
+ },
+ {
+  "id": "scalr",
+  "name": "Scalr",
+  "repo": null,
+  "oneliner": "Managed TF runner with hierarchy & policy",
+  "license": "comm"
+ },
+ {
+  "id": "infracost",
+  "name": "Infracost",
+  "repo": "infracost/infracost",
+  "oneliner": "Shows the dollar delta of a plan in the PR",
+  "license": "open"
+ }
+]

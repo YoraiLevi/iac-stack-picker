@@ -1,0 +1,58 @@
+[
+ {
+  "id": "checkov",
+  "name": "Checkov",
+  "repo": "bridgecrewio/checkov",
+  "oneliner": "Static scan of IaC for security misconfig",
+  "license": "open"
+ },
+ {
+  "id": "trivy",
+  "name": "Trivy",
+  "repo": "aquasecurity/trivy",
+  "oneliner": "Security scanner; absorbed tfsec",
+  "license": "open"
+ },
+ {
+  "id": "kics",
+  "name": "KICS",
+  "repo": "Checkmarx/kics",
+  "oneliner": "IaC misconfig scanner (Checkmarx)",
+  "license": "open"
+ },
+ {
+  "id": "terrascan",
+  "name": "Terrascan",
+  "repo": "tenable/terrascan",
+  "oneliner": "IaC policy & compliance scanner",
+  "license": "open"
+ },
+ {
+  "id": "opa-rego",
+  "name": "OPA / Rego",
+  "repo": "open-policy-agent/opa",
+  "oneliner": "General policy engine; Rego language",
+  "license": "open"
+ },
+ {
+  "id": "sentinel",
+  "name": "Sentinel",
+  "repo": null,
+  "oneliner": "HashiCorp proprietary policy language",
+  "license": "comm"
+ },
+ {
+  "id": "terraform-tofu-test",
+  "name": "terraform / tofu test",
+  "repo": "opentofu/opentofu",
+  "oneliner": "Native HCL test framework, ships in the CLI",
+  "license": "open"
+ },
+ {
+  "id": "terratest",
+  "name": "Terratest",
+  "repo": "gruntwork-io/terratest",
+  "oneliner": "Go tests that spin up & assert real infra",
+  "license": "open"
+ }
+]

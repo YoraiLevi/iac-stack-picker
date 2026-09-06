@@ -1,0 +1,58 @@
+[
+ {
+  "id": "terraform",
+  "name": "Terraform",
+  "repo": "hashicorp/terraform",
+  "oneliner": "HCL engine; de-facto standard, now BSL / IBM-owned",
+  "license": "bsl"
+ },
+ {
+  "id": "opentofu",
+  "name": "OpenTofu",
+  "repo": "opentofu/opentofu",
+  "oneliner": "Open (MPL) drop-in fork of Terraform; CNCF",
+  "license": "open"
+ },
+ {
+  "id": "pulumi",
+  "name": "Pulumi",
+  "repo": "pulumi/pulumi",
+  "oneliner": "IaC in real languages: TS, Python, Go, C#",
+  "license": "open"
+ },
+ {
+  "id": "crossplane",
+  "name": "Crossplane",
+  "repo": "crossplane/crossplane",
+  "oneliner": "Provision cloud from inside Kubernetes (CRDs)",
+  "license": "open"
+ },
+ {
+  "id": "cloudformation",
+  "name": "CloudFormation",
+  "repo": null,
+  "oneliner": "AWS-native declarative templates (YAML/JSON)",
+  "license": "comm"
+ },
+ {
+  "id": "aws-cdk",
+  "name": "AWS CDK",
+  "repo": "aws/aws-cdk",
+  "oneliner": "AWS infra in real code, compiles to CloudFormation",
+  "license": "open"
+ },
+ {
+  "id": "azure-bicep",
+  "name": "Azure Bicep",
+  "repo": "Azure/bicep",
+  "oneliner": "Clean DSL for native Azure, replaces ARM JSON",
+  "license": "open"
+ },
+ {
+  "id": "gcp-config-connector",
+  "name": "GCP Config Connector",
+  "repo": "GoogleCloudPlatform/k8s-config-connector",
+  "oneliner": "GCP resources managed as Kubernetes objects",
+  "license": "open"
+ }
+]

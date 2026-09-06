@@ -1,0 +1,72 @@
+[
+ {
+  "id": "argo-cd",
+  "name": "Argo CD",
+  "repo": "argoproj/argo-cd",
+  "oneliner": "Pull-based GitOps with a strong UI",
+  "license": "open"
+ },
+ {
+  "id": "flux-cd",
+  "name": "Flux CD",
+  "repo": "fluxcd/flux2",
+  "oneliner": "Pull-based GitOps controllers; community-led",
+  "license": "open"
+ },
+ {
+  "id": "helm",
+  "name": "Helm",
+  "repo": "helm/helm",
+  "oneliner": "Templated, versioned Kubernetes charts",
+  "license": "open"
+ },
+ {
+  "id": "kustomize",
+  "name": "Kustomize",
+  "repo": "kubernetes-sigs/kustomize",
+  "oneliner": "Overlay & patch plain manifests, no templating",
+  "license": "open"
+ },
+ {
+  "id": "jsonnet",
+  "name": "Jsonnet",
+  "repo": "google/jsonnet",
+  "oneliner": "Data-templating language for configs",
+  "license": "open"
+ },
+ {
+  "id": "argo-rollouts",
+  "name": "Argo Rollouts",
+  "repo": "argoproj/argo-rollouts",
+  "oneliner": "Canary / blue-green for Argo",
+  "license": "open"
+ },
+ {
+  "id": "flagger",
+  "name": "Flagger",
+  "repo": "fluxcd/flagger",
+  "oneliner": "Progressive delivery for Flux & Argo",
+  "license": "open"
+ },
+ {
+  "id": "backstage",
+  "name": "Backstage",
+  "repo": "backstage/backstage",
+  "oneliner": "Developer portal (Spotify / CNCF)",
+  "license": "open"
+ },
+ {
+  "id": "port",
+  "name": "Port",
+  "repo": null,
+  "oneliner": "Managed internal developer portal",
+  "license": "comm"
+ },
+ {
+  "id": "humanitec",
+  "name": "Humanitec",
+  "repo": null,
+  "oneliner": "Platform orchestrator for IDPs",
+  "license": "comm"
+ }
+]
