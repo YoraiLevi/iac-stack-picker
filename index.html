@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>IaC Stack Picker — 2026</title>
 <meta name="description" content="Interactive map of Infrastructure-as-Code &amp; delivery tools: popularity, sentiment, concerns. Pick one per job and export your stack."/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self'; base-uri 'none'; form-action 'none'"/>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;900&display=swap');
 :root{
@@ -46,7 +47,7 @@ main{padding:26px 30px 170px;max-width:1500px;margin:0 auto}
 .mode.pick{border-color:var(--pick);background:var(--pick)}
 .mode.combine{border-color:var(--combine);background:var(--combine)}
 .mode.addon{border-color:var(--addon);background:var(--addon)}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
 .card{background:var(--panel);border:1.5px solid var(--line2);border-radius:16px;padding:14px;cursor:pointer;
   position:relative;transition:transform .15s ease,border-color .15s ease,box-shadow .2s ease}
 .card:hover{transform:translateY(-3px);border-color:var(--green);box-shadow:var(--shadow2)}
@@ -94,8 +95,8 @@ main{padding:26px 30px 170px;max-width:1500px;margin:0 auto}
   border-top:1px solid var(--line);backdrop-filter:blur(8px);padding:14px 22px;box-shadow:0 -6px 24px rgba(28,29,27,.08);
   transform:translateY(120%);transition:transform .3s ease;z-index:40}
 #tray.show{transform:translateY(0)}
-.tray-row{display:flex;align-items:center;gap:14px;max-width:1500px;margin:0 auto}
-#chips{display:flex;flex-wrap:wrap;gap:6px;flex:1;max-height:64px;overflow:auto}
+.tray-row{display:flex;align-items:center;gap:14px;max-width:1500px;margin:0 auto;flex-wrap:wrap}
+#chips{display:flex;flex-wrap:wrap;gap:6px;flex:1;min-width:200px;max-height:132px;overflow:auto}
 .chip{display:inline-flex;align-items:center;gap:6px;background:var(--panel2);border:1px solid var(--line2);
   border-radius:50px;padding:4px 12px;font-size:12.5px;color:var(--ink)}
 .chip b{font-weight:600}
@@ -119,8 +120,10 @@ main{padding:26px 30px 170px;max-width:1500px;margin:0 auto}
 pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:14px;padding:14px;overflow:auto;font-size:12px;max-height:52vh}
 .row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
 .muted{color:var(--ink3);font-size:12.5px}
-.close{float:right;cursor:pointer;color:var(--ink3);font-size:26px;line-height:1}
+.close{float:right;cursor:pointer;color:var(--ink3);font-size:26px;line-height:1;background:none;border:none;padding:0;font-family:inherit}
+.close:focus-visible,.tab:focus-visible,.card:focus-visible,#chips .x:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 @media(max-width:640px){main{padding:16px 12px 180px}header{padding:22px 16px}.slots{padding:6px 12px 16px 16px}h1{font-size:26px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}.card:hover{transform:none}}
 /* license tags */
 .cmeta{min-width:0}
 .lictag{display:inline-flex;align-items:center;gap:5px;margin-top:9px;padding:3px 11px 3px 8px;border-radius:50px;font-size:11.5px;font-weight:700;border:1px solid}
@@ -167,7 +170,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
     <span><b>LICENSE:</b>
       <span class="lictag lopen"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6h2c0-1.66 1.34-3 3-3s3 1.34 3 3v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm0 12H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>Open source</span>
       <span class="lictag lbsl"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 11c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2 2-.9 2-2 2z"/></svg>Source-available</span>
-      <span class="lictag lcomm"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 11c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2 2-.9 2-2 2z"/></svg>Paid / license</span>
+      <span class="lictag lcomm"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 11c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2 2-.9 2-2 2z"/></svg>Proprietary</span>
       <span class="lictag lfade"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>Fading / EOL</span></span>
     <span class="muted">logos link to official docs</span>
   </div>
@@ -187,12 +190,12 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
 
 <div id="modal">
   <div class="sheet">
-    <span class="close" id="closeModal">×</span>
+    <button class="close" id="closeModal" aria-label="Close">×</button>
     <h3>Your IaC build</h3>
     <div class="muted" id="stackLine"></div>
     <div class="tabs">
-      <div class="tab on" data-v="svg">Diagram (SVG)</div>
-      <div class="tab" data-v="json">Manifest (JSON)</div>
+      <button class="tab on" data-v="svg">Diagram (SVG)</button>
+      <button class="tab" data-v="json">Manifest (JSON)</button>
     </div>
     <div class="view on" id="v-svg"><div id="svgWrap"></div>
       <div class="row"><button class="btn primary" id="dlSvg">Download SVG</button>
@@ -6459,7 +6462,7 @@ const TIER_INFO={
 const LIC_INFO={
  open:{label:"Open source",cls:"lopen",icon:"unlock"},
  bsl:{label:"Source-available (BSL)",cls:"lbsl",icon:"lock"},
- comm:{label:"Paid / commercial",cls:"lcomm",icon:"lock"},
+ comm:{label:"Proprietary (vendor)",cls:"lcomm",icon:"lock"},
  fade:{label:"Fading / EOL",cls:"lfade",icon:"warn"},
 };
 const LIC_ICON={
@@ -6499,6 +6502,8 @@ function renderGlossary(){
 let TOOLS=[], ICONS={}, BYID={}, SEL={}; // SEL[slotKey]=Set(id)
 
 const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const urlOK=u=>{u=String(u==null?"":u).trim();return /^(https?:|mailto:)/i.test(u)?u:"#";};
+const pathD=d=>{d=String(d==null?"":d);return /^[\sMLHVCSQTAZmlhvcsqtaz0-9.,\-+eE]*$/.test(d)?d:"";};
 const slotKey=t=>t.stage+"::"+t.slot;
 
 function ink(hex){ // contrast color for a badge fill
@@ -6507,11 +6512,12 @@ function ink(hex){ // contrast color for a badge fill
   return (0.299*r+0.587*g+0.114*b)/255>0.6?"#0b1020":"#ffffff";}
 
 function badge(t){
+  const bg=esc(t.brand),fg=esc(ink(t.brand));
   const inner=(t.icon && ICONS[t.icon])
-    ? `<div class="bdg" style="background:${t.brand}"><svg viewBox="0 0 24 24" fill="${ink(t.brand)}"><path d="${ICONS[t.icon]}"/></svg></div>`
-    : `<div class="bdg" style="background:${t.brand}"><span style="color:${ink(t.brand)}">${esc(t.mono)}</span></div>`;
+    ? `<div class="bdg" style="background:${bg}"><svg viewBox="0 0 24 24" fill="${fg}"><path d="${pathD(ICONS[t.icon])}"/></svg></div>`
+    : `<div class="bdg" style="background:${bg}"><span style="color:${fg}">${esc(t.mono)}</span></div>`;
   return t.docs
-    ? `<a class="bdg-link" href="${esc(t.docs)}" target="_blank" rel="noopener" title="Open the ${esc(t.name)} starter guide \u2197">${inner}</a>`
+    ? `<a class="bdg-link" href="${urlOK(t.docs)}" target="_blank" rel="noopener noreferrer" title="Open the ${esc(t.name)} starter guide \u2197">${inner}</a>`
     : inner;
 }
 
@@ -6527,14 +6533,16 @@ function card(t){
   const senVal=sen.n?`${sen.pos} / ${sen.n}`:"\u2013";
   const senW=sen.n?Math.round(sen.pos/sen.n*100):0;
   const li=LIC_INFO[t.license]||{label:t.license,cls:"lcomm",icon:"lock"};
-  return `<div class="card" data-id="${t.id}">
+  const popTip=m.stars!=null?"Bar shows popularity relative to this set (stars 75% + commits/90d 25%); number is GitHub stars":"No public GitHub repo (SaaS or bundled feature); popularity not scored";
+  const senTip="Favorable share of a ~20-take sample from HN, Reddit and blogs; a sample, not a census";
+  return `<div class="card" data-id="${esc(t.id)}" role="button" tabindex="0" aria-pressed="false">
     <div class="chead">${badge(t)}<div class="cmeta"><div class="cname">${esc(t.name)}</div>
       <div class="cone">${esc(t.oneliner)}</div>
       <span class="lictag ${li.cls}"><svg viewBox="0 0 24 24"><path d="${LIC_ICON[li.icon]}"/></svg>${esc(li.label)}</span></div></div>
     <div class="metrics">
-      <div class="metric"><div class="lab"><span>Popularity</span><b>${popVal}</b></div>
-        <div class="bar pop"><i data-w="${pop.score||0}"></i></div></div>
-      <div class="metric"><div class="lab"><span>Sentiment</span><b>${senVal}</b></div>
+      <div class="metric"><div class="lab" title="${esc(popTip)}"><span>Popularity</span><b>${popVal}</b></div>
+        <div class="bar pop"><i data-w="${Number(pop.score)||0}"></i></div></div>
+      <div class="metric"><div class="lab" title="${esc(senTip)}"><span>Sentiment</span><b>${senVal}</b></div>
         <div class="bar sen"><i data-w="${senW}"></i></div>
         <div class="counts">${sencepts(sen)}</div></div>
     </div>
@@ -6544,15 +6552,15 @@ function card(t){
         ${m.stars!=null?`<span><b>${fmtStars(m.stars)}</b> \u2605</span>`:""}
         ${m.commits_90d!=null?`<span><b>${m.commits_90d}</b> commits/90d</span>`:""}
         ${m.latest_release?`<span>rel <b>${esc(m.latest_release)}</b></span>`:""}
-        ${t.docs?`<span><a href="${esc(t.docs)}" target="_blank" rel="noopener">starter guide \u2197</a></span>`:""}
-        ${t.repo?`<span><a href="https://github.com/${esc(t.repo)}" target="_blank" rel="noopener">${esc(t.repo)}</a></span>`:`<span class="u">no public repo</span>`}
+        ${t.docs?`<span><a href="${urlOK(t.docs)}" target="_blank" rel="noopener noreferrer">starter guide \u2197</a></span>`:""}
+        ${t.repo?`<span><a href="https://github.com/${esc(t.repo)}" target="_blank" rel="noopener noreferrer">${esc(t.repo)}</a></span>`:`<span class="u">no public repo</span>`}
       </ul>
       ${sen.summary?`<h4>What the chatter says</h4><div>${esc(sen.summary)}</div>`:""}
       ${(t.pros&&t.pros.length)?`<h4>What users like</h4><ul class="pros">${
-        t.pros.map(p=>`<li>${esc(p.note)} ${p.url?`<a href="${esc(p.url)}" target="_blank" rel="noopener">[src]</a>`:""}</li>`).join("")}</ul>`:""}
+        t.pros.map(p=>`<li>${esc(p.note)} ${p.url?`<a href="${urlOK(p.url)}" target="_blank" rel="noopener noreferrer">[src]</a>`:""}</li>`).join("")}</ul>`:""}
       ${(t.concerns&&t.concerns.length)?`<h4>What users flag</h4><ul class="cons">${
         t.concerns.map(c=>`<li><b>${esc(c.tag)}</b> \u2014 ${esc(c.detail)} ${
-          (c.sources||[]).slice(0,2).map((u,i)=>`<a href="${esc(u)}" target="_blank" rel="noopener">[${i+1}]</a>`).join(" ")}</li>`).join("")}</ul>`:""}
+          (c.sources||[]).slice(0,2).map((u,i)=>`<a href="${urlOK(u)}" target="_blank" rel="noopener noreferrer">[${i+1}]</a>`).join(" ")}</li>`).join("")}</ul>`:""}
       ${t.adopters?`<h4>Adopters</h4><div>${esc(t.adopters)}</div>`:""}
       ${t.popularity_notes?`<h4>Traction</h4><div>${esc(t.popularity_notes)}</div>`:""}
     </div>
@@ -6588,15 +6596,18 @@ function render(){
 
 function wire(){
   document.querySelectorAll(".card").forEach(el=>{
-    el.addEventListener("click",e=>{
-      if(e.target.closest(".expand")||e.target.closest("a"))return;
-      toggle(el.dataset.id,el);
+    const act=e=>{if(e.target.closest(".expand")||e.target.closest("a"))return;toggle(el.dataset.id,el);};
+    el.addEventListener("click",act);
+    el.addEventListener("keydown",e=>{if(e.key===" "||e.key==="Enter"){e.preventDefault();act(e);}});
+  });
+  document.querySelectorAll(".expand").forEach(b=>{
+    b.setAttribute("aria-expanded","false");
+    b.addEventListener("click",e=>{
+      e.stopPropagation();const d=b.parentElement.querySelector(".detail");
+      const open=d.classList.toggle("open");b.setAttribute("aria-expanded",open?"true":"false");
+      b.textContent=open?"details \u25B4":"details \u25BE";
     });
   });
-  document.querySelectorAll(".expand").forEach(b=>b.addEventListener("click",e=>{
-    e.stopPropagation();const d=b.parentElement.querySelector(".detail");
-    d.classList.toggle("open");b.textContent=d.classList.contains("open")?"details ▴":"details ▾";
-  }));
 }
 function observeBars(){
   const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){
@@ -6610,13 +6621,14 @@ function toggle(id,el){
   const mode=t.slot_mode;const has=SEL[k].has(id);
   if(mode==="pick"){ // single-select within slot
     document.querySelectorAll(`.card`).forEach(c=>{const tt=BYID[c.dataset.id];
-      if(tt&&slotKey(tt)===k){c.classList.remove("sel");}});
+      if(tt&&slotKey(tt)===k){c.classList.remove("sel");c.setAttribute("aria-pressed","false");}});
     SEL[k].clear();
-    if(!has){SEL[k].add(id);el.classList.add("sel");el.classList.add("pulse");}
+    if(!has){SEL[k].add(id);el.classList.add("sel","pulse");}
   }else{
     if(has){SEL[k].delete(id);el.classList.remove("sel");}
-    else{SEL[k].add(id);el.classList.add("sel");el.classList.add("pulse");}
+    else{SEL[k].add(id);el.classList.add("sel","pulse");}
   }
+  el.setAttribute("aria-pressed",el.classList.contains("sel")?"true":"false");
   setTimeout(()=>el.classList.remove("pulse"),400);
   updateTray();
 }
@@ -6629,11 +6641,13 @@ function updateTray(){
   const sel=selectedTools();const tray=document.getElementById("tray");
   document.getElementById("count").textContent=sel.length+(sel.length===1?" point allocated":" points allocated");
   document.getElementById("chips").innerHTML=sel.map(t=>
-    `<span class="chip"><span class="dot" style="background:${t.brand}"></span><b>${esc(t.name)}</b>
-     <span class="x" data-id="${t.id}">×</span></span>`).join("");
-  document.querySelectorAll("#chips .x").forEach(x=>x.addEventListener("click",()=>{
+    `<span class="chip"><span class="dot" style="background:${esc(t.brand)}"></span><b>${esc(t.name)}</b>
+     <span class="x" data-id="${esc(t.id)}" role="button" tabindex="0" aria-label="Remove ${esc(t.name)}">×</span></span>`).join("");
+  document.querySelectorAll("#chips .x").forEach(x=>{const rm=()=>{
     const t=BYID[x.dataset.id];SEL[slotKey(t)].delete(t.id);
-    const c=document.querySelector(`.card[data-id="${t.id}"]`);if(c)c.classList.remove("sel");updateTray();}));
+    const c=document.querySelector(`.card[data-id="${CSS.escape(t.id)}"]`);if(c){c.classList.remove("sel");c.setAttribute("aria-pressed","false");}updateTray();};
+    x.addEventListener("click",rm);
+    x.addEventListener("keydown",e=>{if(e.key===" "||e.key==="Enter"){e.preventDefault();rm();}});});
   tray.classList.toggle("show",sel.length>0);
 }
 
@@ -6654,24 +6668,24 @@ function buildSVG(){
     items:sel.filter(t=>t.stage===sk)}));
   const maxRows=Math.max(1,...groups.map(g=>g.items.length));
   const H=90+maxRows*66+40;
-  let s=`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="Segoe UI,Arial,sans-serif">`;
-  s+=`<rect width="${W}" height="${H}" fill="#0b1020" rx="14"/>`;
-  s+=`<text x="${pad}" y="34" fill="#f8fafc" font-size="18" font-weight="800">My IaC Build</text>`;
-  s+=`<text x="${pad}" y="54" fill="#64748b" font-size="12">${sel.length} tools · generated ${new Date().toISOString().slice(0,10)} · IaC Stack Picker</text>`;
+  let s=`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="Jost,Segoe UI,Arial,sans-serif">`;
+  s+=`<rect width="${W}" height="${H}" fill="#f4f5f0" rx="14" stroke="#e7e8e1"/>`;
+  s+=`<text x="${pad}" y="34" fill="#1c1d1b" font-size="18" font-weight="800">My IaC Build</text>`;
+  s+=`<text x="${pad}" y="54" fill="#8b9083" font-size="12">${sel.length} tools \u00b7 generated ${new Date().toISOString().slice(0,10)} \u00b7 IaC Stack Picker</text>`;
   groups.forEach((g,ci)=>{
     const x=pad+ci*(colW+gap);
-    s+=`<text x="${x}" y="84" fill="${g.accent}" font-size="13" font-weight="800">${g.num} ${esc(g.label)}</text>`;
-    if(ci<groups.length-1){const ax=x+colW+4;s+=`<text x="${ax-2}" y="120" fill="#334155" font-size="20">→</text>`;}
+    s+=`<text x="${x}" y="84" fill="${esc(g.accent)}" font-size="13" font-weight="800">${g.num} ${esc(g.label)}</text>`;
+    if(ci<groups.length-1){const ax=x+colW+4;s+=`<text x="${ax-2}" y="120" fill="#c9ccc0" font-size="20">\u2192</text>`;}
     g.items.forEach((t,ri)=>{
       const y=98+ri*66;
-      s+=`<rect x="${x}" y="${y}" width="${colW}" height="56" rx="10" fill="#0f1a33" stroke="#26324d"/>`;
-      s+=`<rect x="${x}" y="${y}" width="5" height="56" rx="2.5" fill="${t.brand}"/>`;
-      s+=`<circle cx="${x+26}" cy="${y+28}" r="13" fill="${t.brand}"/>`;
+      s+=`<rect x="${x}" y="${y}" width="${colW}" height="56" rx="10" fill="#ffffff" stroke="#dcded4"/>`;
+      s+=`<rect x="${x}" y="${y}" width="5" height="56" rx="2.5" fill="${esc(t.brand)}"/>`;
+      s+=`<circle cx="${x+26}" cy="${y+28}" r="13" fill="${esc(t.brand)}"/>`;
       if(t.icon&&ICONS[t.icon])
-        s+=`<g transform="translate(${x+26-8},${y+28-8}) scale(0.667)"><path d="${ICONS[t.icon]}" fill="${ink(t.brand)}"/></g>`;
-      else s+=`<text x="${x+26}" y="${y+32}" text-anchor="middle" fill="${ink(t.brand)}" font-size="11" font-weight="800">${esc(t.mono)}</text>`;
-      s+=`<text x="${x+46}" y="${y+24}" fill="#f1f5f9" font-size="13" font-weight="700">${esc(t.name)}</text>`;
-      s+=`<text x="${x+46}" y="${y+40}" fill="#93a3ba" font-size="10">${esc((t.slot||"").slice(0,30))}</text>`;
+        s+=`<g transform="translate(${x+26-8},${y+28-8}) scale(0.667)"><path d="${pathD(ICONS[t.icon])}" fill="${esc(ink(t.brand))}"/></g>`;
+      else s+=`<text x="${x+26}" y="${y+32}" text-anchor="middle" fill="${esc(ink(t.brand))}" font-size="11" font-weight="800">${esc(t.mono)}</text>`;
+      s+=`<text x="${x+46}" y="${y+24}" fill="#1c1d1b" font-size="13" font-weight="700">${esc(t.name)}</text>`;
+      s+=`<text x="${x+46}" y="${y+40}" fill="#8b9083" font-size="10">${esc((t.slot||"").slice(0,30))}</text>`;
     });
   });
   s+=`</svg>`;return s;
@@ -6688,9 +6702,10 @@ function download(name,text,type){const b=new Blob([text],{type});const u=URL.cr
 
 document.getElementById("buildBtn").addEventListener("click",openModal);
 document.getElementById("resetBtn").addEventListener("click",()=>{SEL={};
-  document.querySelectorAll(".card.sel").forEach(c=>c.classList.remove("sel"));updateTray();});
+  document.querySelectorAll(".card.sel").forEach(c=>{c.classList.remove("sel");c.setAttribute("aria-pressed","false");});updateTray();});
 document.getElementById("closeModal").addEventListener("click",()=>document.getElementById("modal").classList.remove("show"));
 document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")e.currentTarget.classList.remove("show");});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){document.getElementById("modal").classList.remove("show");}});
 document.querySelectorAll(".tab").forEach(tb=>tb.addEventListener("click",()=>{
   document.querySelectorAll(".tab").forEach(x=>x.classList.remove("on"));tb.classList.add("on");
   document.querySelectorAll(".view").forEach(v=>v.classList.remove("on"));

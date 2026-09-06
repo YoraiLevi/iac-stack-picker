@@ -34,4 +34,4 @@ Scores are indicative and method-transparent, not authoritative. Every data poin
 3. `data/research/out/*.json` — sentiment/concerns gathered per cluster.
 4. `scripts/merge.py` — merges + computes scores into `data/tools.json` (consumed by `index.html`).
 
-Static site, no backend, no build step, no runtime third-party calls (icon marks are CC0, inlined).
+Static site, no backend, no build step. The only third-party runtime request is the Jost webfont from Google Fonts (`@import` in `index.html`, allow-listed in the page CSP); icon marks are CC0 and tool data is inlined.
