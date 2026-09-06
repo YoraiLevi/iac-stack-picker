@@ -86,7 +86,7 @@ main{padding:26px 30px 170px;max-width:1500px;margin:0 auto}
 .detail{display:none;margin-top:12px;border-top:1px solid var(--line);padding-top:12px;font-size:13px;color:var(--ink2)}
 .detail.open{display:block;animation:fade .25s ease}
 @keyframes fade{from{opacity:0;transform:translateY(-4px)}to{opacity:1}}
-.detail h4{margin:12px 0 5px;font-size:11.5px;color:var(--ink3);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+.detail h4{margin:12px 0 5px;font-size:.8125rem;color:var(--ink3);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
 .detail ul{margin:4px 0;padding-left:2px;list-style:none}
 .detail li{margin:5px 0;padding-left:17px;position:relative}
 .pros li::before{content:"\25B2";position:absolute;left:0;color:var(--pos);font-size:9px;top:3px}
@@ -114,17 +114,17 @@ main{padding:26px 30px 170px;max-width:1500px;margin:0 auto}
 #count{font-weight:800;font-size:15px;white-space:nowrap;color:var(--ink)}
 #modal{position:fixed;inset:0;background:rgba(28,29,27,.5);display:none;place-items:center;z-index:60;padding:24px}
 #modal.show{display:grid;animation:fade .2s ease}
-.sheet{background:var(--panel);border:1px solid var(--line);border-radius:20px;max-width:1000px;width:100%;
+.sheet{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:20px;max-width:1000px;width:100%;
   max-height:88vh;overflow:auto;padding:24px;box-shadow:var(--shadow2)}
 .sheet h3{margin:0 0 4px;color:var(--ink);font-size:22px;font-weight:800}
 .tabs{display:flex;gap:8px;margin:14px 0}
-.tab{padding:8px 16px;border-radius:50px;border:1px solid var(--line2);background:#fff;color:var(--ink2);cursor:pointer;font-weight:600;font-size:13px;font-family:inherit}
+.tab{padding:8px 16px;border-radius:50px;border:1px solid var(--line2);background:#fff;color:var(--ink2);cursor:pointer;font-weight:600;font-size:.875rem;font-family:inherit}
 .tab.on{background:var(--green);color:#fff;border-color:var(--green)}
 .view{display:none}.view.on{display:block}
 #svgWrap{background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:12px;overflow:auto}
 pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:14px;padding:14px;overflow:auto;font-size:12px;max-height:52vh}
 .row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
-.muted{color:var(--ink3);font-size:12.5px}
+.muted{color:var(--ink3);font-size:.875rem}
 .close{float:right;cursor:pointer;color:var(--ink3);font-size:26px;line-height:1;background:none;border:none;padding:0;font-family:inherit}
 .close:focus-visible,.tab:focus-visible,.card:focus-visible,#chips .x:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 @media(max-width:640px){main{padding:16px 12px 180px}header{padding:22px 16px}.slots{padding:6px 12px 16px 16px}h1{font-size:26px}}
@@ -163,15 +163,14 @@ body{font-size:17px}
 .sub{font-size:17px;line-height:1.6}
 .legend{font-size:15px;gap:22px}
 .pill{font-size:13px}
-.tier-lvl{font-size:12.5px}
+.tier-lvl{font-size:.8125rem}
 .tier-desc{font-size:15.5px;max-width:1000px}
 .stage-h h2{font-size:23px}
 .gloss summary{font-size:15px}
 .gloss-grid .g{font-size:14px}
 abbr[title]{text-decoration:underline dotted var(--amber-d);text-underline-offset:3px;text-decoration-thickness:1.5px;cursor:help}
-.gdef{color:var(--muted);font-style:italic;font-weight:400;font-size:.88em}
-.tree-wrap{overflow-x:auto;overflow-y:hidden;padding:10px 22px 26px 28px}
-.tree{--lc:#cfd2c7;min-width:min-content}
+.gdef{color:var(--ink2);font-style:italic;font-weight:400;font-size:.88em}
+.tree{--lc:#808678;min-width:min-content}
 .tree>ul{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:flex-start;gap:18px 30px;margin:0;padding:0;list-style:none}
 .tree ul{list-style:none}
 .tree>ul>li{padding:0;margin:0;display:flex;flex-direction:column;align-items:center}
@@ -187,8 +186,8 @@ abbr[title]{text-decoration:underline dotted var(--amber-d);text-underline-offse
 .tree ul ul>li:first-child::after{border-radius:7px 0 0 0}
 .thub{display:inline-flex;flex-direction:column;align-items:center;gap:3px;padding:9px 14px;background:linear-gradient(180deg,#fff,var(--panel2));border:2px solid var(--ac,var(--line2));border-radius:14px;text-align:center;box-shadow:var(--shadow)}
 .thub .mode{color:#fff;margin-bottom:2px}
-.hub-title{font-weight:700;font-size:14.5px;color:var(--ink);line-height:1.25;max-width:240px}
-.hub-hint{font-size:12px;color:var(--ink3)}
+.hub-title{font-weight:700;font-size:1rem;color:var(--ink);line-height:1.25;max-width:240px}
+.hub-hint{font-size:.8125rem;color:var(--ink3)}
 .node{display:flex;flex-direction:column;align-items:center;gap:7px;width:124px;padding:11px 8px 10px;background:var(--panel);border:2px solid var(--line2);border-radius:16px;cursor:pointer;font-family:inherit;position:relative;transition:transform .14s,border-color .14s,box-shadow .18s}
 .node:hover{border-color:var(--green);box-shadow:var(--shadow2);transform:translateY(-2px);z-index:2}
 .node.sel{border-color:var(--green);box-shadow:0 0 0 3px rgba(105,156,71,.35),var(--shadow2)}
@@ -220,13 +219,13 @@ abbr[title]{text-decoration:underline dotted var(--amber-d);text-underline-offse
 .metric .lab b{font-size:14px}
 .counts{font-size:13px}
 .lictag{font-size:12.5px}
-.conf{font-size:11.5px}
-.chip{font-size:13.5px}
+.conf{font-size:.8125rem}
+.chip{font-size:.875rem}
 .node:focus-visible{outline:3px solid var(--green);outline-offset:2px}
 @media(prefers-reduced-motion:reduce){.node:hover{transform:none}}
 @media(max-width:640px){.tree-wrap{padding:8px 10px 20px}.node{width:110px}}
 /* ===== a11y + visibility overhaul v3 ===== */
-:root{--ink3:#5c6157;--lc:#5c6157;--green-d:#3f6d28}
+:root{--ink3:#5c6157;--green-d:#3f6d28}
 .node:focus-visible,.selbtn:focus-visible,.btn:focus-visible,.tab:focus-visible,.close:focus-visible,.popclose:focus-visible,#chips .x:focus-visible,.gloss summary:focus-visible{outline:3px solid var(--green-d);outline-offset:3px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.node:hover,.card:hover{transform:none}}
 .btn{min-height:44px}
@@ -282,7 +281,6 @@ abbr[title]{text-decoration:underline dotted var(--amber-d);text-underline-offse
 .metric .lab{font-size:.875rem;color:var(--ink2)}.metric .lab b{font-size:1rem}
 .metric .cap{font-size:.8125rem;color:var(--ink2);margin-top:5px;line-height:1.4}
 .metric .ticks{display:flex;justify-content:space-between;font-size:.75rem;color:var(--ink3);margin-top:3px}
-.gdef{color:var(--ink2)}
 @media(max-width:560px){#nodepop .metrics{grid-template-columns:1fr}}
 @media(max-width:640px){.node{width:132px}}
 #nodepop ul.kv{list-style:none;padding:0;margin:12px 0 2px;display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--ink2)}
@@ -292,6 +290,11 @@ abbr[title]{text-decoration:underline dotted var(--amber-d);text-underline-offse
 #nodepop .pros li::before{content:"\25B2";position:absolute;left:0;top:5px;font-size:10px;color:#2f6d17}
 #nodepop .cons li::before{content:"\25BC";position:absolute;left:0;top:5px;font-size:10px;color:#b3283a}
 #nodepop a{color:#356021}
+.hub-why{font-size:.8125rem;color:var(--ink2);line-height:1.4;max-width:230px;margin-top:3px}
+.cost{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:7px;font-size:.75rem;font-weight:800;letter-spacing:.02em;line-height:1.25;white-space:nowrap}
+.cost.cfree{background:#3f6d28;color:#fff}
+.cost.cpaid{background:#9a5b12;color:#fff}
+.cost.costbig{font-size:.8125rem;padding:4px 11px;border-radius:9px}
 </style>
 </head>
 <body>
@@ -310,6 +313,9 @@ abbr[title]{text-decoration:underline dotted var(--amber-d);text-underline-offse
       <span class="lictag lopen"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6h2c0-1.66 1.34-3 3-3s3 1.34 3 3v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm0 12H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>Open source</span>
       <span class="lictag lbsl"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6z"/></svg>Source-available</span>
       <span class="lictag lcomm"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6z"/></svg>Proprietary</span></span>
+    <span><b>COST:</b>
+      <span class="cost cfree">Free &middot; self-host</span>
+      <span class="cost cpaid">Paid &middot; vendor</span></span>
     <span><b>LIFECYCLE:</b>
       <span class="lictag lfade"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>Fading / EOL</span></span>
     <span class="muted">select a node to add it &middot; open details for sentiment, pros and concerns &middot; dotted terms show their meaning</span>
@@ -6662,6 +6668,32 @@ const LIC_ICON={
  lock:"M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6z",
  warn:"M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z",
 };
+const SLOT_WHY={
+ "Provisioning engine \u2014 multi-cloud":"Declares your cloud infrastructure as code so one plan builds any cloud. Everything else in the stack sits on top of this.",
+ "...or a cloud-native engine \u2014 single cloud":"Your cloud vendor's own IaC. Fewer moving parts and day-one support for new services, at the cost of lock-in to that one cloud.",
+ "Keep Terraform DRY":"Optional. Strips repeated backend, provider and variable boilerplate once you run many Terraform stacks.",
+ "Run it \u2014 automation / TACOS":"Runs plan and apply from pull requests with locking, approvals and an audit trail, instead of from someone's laptop.",
+ "Scan for misconfig / security":"Catches insecure defaults such as open buckets and over-broad IAM before you apply. Stack several: each finds gaps the others miss.",
+ "Custom policy engine":"Encodes your own guardrails such as naming, allowed regions and cost caps, then blocks changes that break them.",
+ "Test":"Proves a module actually builds working infrastructure, not just valid syntax.",
+ "Estimate cost":"Shows the dollar impact of a change inside the pull request, before it merges.",
+ "Configure servers":"Installs packages and sets state inside long-lived VMs, which cloud provisioning does not do.",
+ "Bake immutable images":"Builds a golden machine image once so servers boot ready and identical every time.",
+ "Manage secrets":"Keeps passwords, tokens and keys out of your code and state files.",
+ "CI/CD engine":"The pipeline that actually runs every step above on each commit.",
+ "GitOps reconciler":"Continuously makes the cluster match Git and heals drift on its own, instead of pushing from CI.",
+ "Package K8s manifests":"Turns raw Kubernetes YAML into reusable, per-environment bundles.",
+ "Progressive delivery":"Ships a new version to a slice of traffic and rolls back automatically on bad metrics.",
+ "Developer portal (IDP)":"Gives developers a self-service catalog and golden paths over everything above.",
+};
+const SLOT_WHY_N={};for(const k in SLOT_WHY)SLOT_WHY_N[k.replace(/[^a-z0-9]+/gi,"").toLowerCase()]=SLOT_WHY[k];
+function slotWhy(s){return SLOT_WHY_N[String(s).replace(/[^a-z0-9]+/gi,"").toLowerCase()]||"";}
+const COST={
+ open:{free:true,short:"Free",label:"Free \u00b7 self-host",cls:"cfree"},
+ bsl:{free:true,short:"Free",label:"Free \u00b7 self-host",cls:"cfree"},
+ comm:{free:false,short:"Paid",label:"Paid \u00b7 vendor",cls:"cpaid"},
+};
+function costOf(t){return COST[t.license]||COST.comm;}
 const GLOSSARY=[
  ["IaC","Infrastructure as Code","Manage servers and cloud with version-controlled files instead of clicking consoles."],
  ["HCL","HashiCorp Configuration Language","The declarative syntax Terraform, Packer and Vault are written in."],
@@ -6719,7 +6751,7 @@ function sencepts(s){if(!s||!s.n)return'<span class="u">no sentiment data</span>
     <span class="conf">${s.confidence||"?"}</span>`;}
 
 function fmtStars(n){return n>=1000?(n/1000).toFixed(n>=10000?0:1)+"k":String(n);}
-let _popTimer=null, GLOSS_MAP={}, GLOSS_FULL={}, GLOSS_RE=null;
+let _popTimer=null, _popSuppress=false, _tapArmed=null, _lastPtr="", GLOSS_MAP={}, GLOSS_FULL={}, GLOSS_RE=null;
 function buildGloss(){ if(GLOSS_RE) return;
   GLOSSARY.forEach(([a,f,d])=>{GLOSS_MAP[a]=f+": "+d; GLOSS_FULL[a]=f;});
   const keys=Object.keys(GLOSS_MAP).sort((a,b)=>b.length-a.length).map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"));
@@ -6741,11 +6773,12 @@ function node(t){
   const starsN=m.stars!=null?fmtStars(m.stars):null;
   const starTxt=starsN?starsN+" stars":"n/a stars";
   const fade=t.lifecycle==="fade", on=isSelected(t.id);
-  const alabel=`${t.name}: ${t.oneliner}. Licence: ${li.label}. ${starsN?m.stars.toLocaleString("en-US")+" GitHub stars":"No public star data"}.${fade?" Fading or end of life.":""}${on?" Currently in your build.":""}`;
+  const c=costOf(t);
+  const alabel=`${t.name}: ${t.oneliner}. ${c.free?"Free to self-host":"Paid vendor product"}. Licence: ${li.label}. ${starsN?m.stars.toLocaleString("en-US")+" GitHub stars":"No public star data"}.${fade?" Fading or end of life.":""}`;
   return `<button class="node${on?" sel":""}" data-id="${esc(t.id)}" data-hub="${esc(slotKey(t))}" aria-pressed="${on}" aria-label="${esc(alabel)}">
     <span class="node-badge" aria-hidden="true">${badgeInner(t)}</span>
     <span class="node-name">${esc(t.name)}</span>
-    <span class="node-meta"><span class="ms">${esc(starTxt)}</span></span>
+    <span class="node-meta"><span class="ms">${esc(starTxt)}</span><span class="cost ${c.cls}" aria-hidden="true">${c.short}</span></span>
     <span class="lic-chip ${li.cls}" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="${LIC_ICON[li.icon]}"/></svg>${esc(li.label)}</span>
     ${fade?`<span class="lic-chip lfade" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="${LIC_ICON.warn}"/></svg>Fading / EOL</span>`:""}
   </button>`;
@@ -6758,10 +6791,10 @@ function buildDetail(t){
   const senW=senPct!=null?senPct:0;
   const popW=m.stars>0?Math.max(4,Math.round(Math.log10(m.stars)/Math.log10(Math.max(10,MAXSTARS))*100)):0;
   const li=LIC_INFO[t.license]||{label:t.license,cls:"lcomm",icon:"lock"};
-  const fade=t.lifecycle==="fade", on=isSelected(t.id);
+  const fade=t.lifecycle==="fade", on=isSelected(t.id), c=costOf(t);
   return `<button class="popclose" aria-label="Close tool details">\u00d7</button>
     <div class="pop-head">${badge(t)}<div><div class="pop-name" id="popname">${esc(t.name)}</div>
-    <div class="tagrow"><span class="lictag ${li.cls}"><svg viewBox="0 0 24 24"><path d="${LIC_ICON[li.icon]}"/></svg>${esc(li.label)}</span>${
+    <div class="tagrow"><span class="cost ${c.cls} costbig" title="${c.free?"Free and self-hostable":"Proprietary vendor product, usually paid"}">${c.label}</span><span class="lictag ${li.cls}"><svg viewBox="0 0 24 24"><path d="${LIC_ICON[li.icon]}"/></svg>${esc(li.label)}</span>${
       fade?`<span class="lictag lfade"><svg viewBox="0 0 24 24"><path d="${LIC_ICON.warn}"/></svg>Fading / EOL</span>`:""}</div></div></div>
     <p class="pop-one">${gloss(t.oneliner)}</p>
     <div class="metrics">
@@ -6811,8 +6844,8 @@ function render(){
     for(const slot of slots){
       const items=tools.filter(t=>t.slot===slot);const mode=items[0].slot_mode;
       const mlabel={pick:"PICK ONE",combine:"COMBINE",addon:"ADD-ON"}[mode];
-      const mhint={pick:"choose one",combine:"stack several",addon:"optional"}[mode];
-      branches+=`<li><span class="tnode thub"><span class="mode ${mode}">${mlabel}</span><span class="hub-title">${glossV(slot,gSeen)}</span><span class="hub-hint">${mhint}</span></span>
+      const mhint={pick:"choose one",combine:"stack several",addon:"optional"}[mode];const mwhy=slotWhy(slot);
+      branches+=`<li><span class="tnode thub"><span class="mode ${mode}">${mlabel}</span><span class="hub-title">${glossV(slot,gSeen)}</span>${mwhy?`<span class="hub-why">${esc(mwhy)}</span>`:""}<span class="hub-hint">${mhint}</span></span>
         <ul>${items.map(t=>`<li>${node(t)}</li>`).join("")}</ul></li>`;
     }
     stage.innerHTML=`<div class="stage-rail" style="background:${accent}"></div>
@@ -6855,20 +6888,21 @@ function positionPop(n,pop){
   pop.style.left=left+"px";pop.style.top=top+"px";
 }
 function showPop(n){
+  if(_popSuppress)return;
   clearTimeout(_popTimer);
   const pop=document.getElementById("nodepop");const t=BYID[n.dataset.id];if(!t)return;
   pop.innerHTML=buildDetail(t);pop.dataset.for=t.id;pop.classList.add("show");pop.setAttribute("aria-labelledby","popname");
   const cl=pop.querySelector(".popclose");
-  if(cl)cl.addEventListener("click",()=>{pop.classList.remove("show");n.focus();});
+  if(cl)cl.addEventListener("click",()=>{_popSuppress=true;_tapArmed=null;pop.classList.remove("show");n.focus();setTimeout(()=>{_popSuppress=false;},0);});
   const sb=pop.querySelector(".selbtn");
   if(sb)sb.addEventListener("click",()=>{const nn=document.querySelector(`.node[data-id="${CSS.escape(t.id)}"]`);toggle(t.id,nn);});
   positionPop(n,pop);
 }
-function hidePopSoon(){ _popTimer=setTimeout(()=>{const p=document.getElementById("nodepop"); if(p.matches(":hover")||p.contains(document.activeElement)) return; p.classList.remove("show");},200); }
+function hidePopSoon(){ _popTimer=setTimeout(()=>{const p=document.getElementById("nodepop"); if(p.matches(":hover")||p.contains(document.activeElement)) return; _tapArmed=null; p.classList.remove("show");},200); }
 function wire(){
   const pop=document.getElementById("nodepop");
   document.querySelectorAll(".node").forEach(n=>{
-    n.addEventListener("click",e=>{if(e.target.closest("a"))return;toggle(n.dataset.id,n);showPop(n);});
+    n.addEventListener("click",e=>{if(e.target.closest("a"))return;const pop=document.getElementById("nodepop");const touch=e.detail>0&&_lastPtr==="touch";const armed=_tapArmed===n.dataset.id&&pop.classList.contains("show")&&pop.dataset.for===n.dataset.id;if(touch&&!armed){_tapArmed=n.dataset.id;showPop(n);return;}toggle(n.dataset.id,n);showPop(n);});
     n.addEventListener("mouseenter",()=>showPop(n));
     n.addEventListener("mouseleave",hidePopSoon);
     n.addEventListener("focus",()=>showPop(n));
@@ -6948,11 +6982,12 @@ function download(name,text,type){const b=new Blob([text],{type});const u=URL.cr
 
 document.getElementById("buildBtn").addEventListener("click",openModal);
 document.getElementById("resetBtn").addEventListener("click",()=>{SEL={};
-  document.querySelectorAll(".node.sel").forEach(c=>setNodeSel(c,false));document.getElementById("nodepop").classList.remove("show");updateTray();});
+  document.querySelectorAll(".node.sel").forEach(c=>setNodeSel(c,false));document.getElementById("nodepop").classList.remove("show");_tapArmed=null;updateTray();});
 document.getElementById("closeModal").addEventListener("click",()=>document.getElementById("modal").classList.remove("show"));
 document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")e.currentTarget.classList.remove("show");});
-document.addEventListener("keydown",e=>{if(e.key==="Escape"){document.getElementById("modal").classList.remove("show");document.getElementById("nodepop").classList.remove("show");}});
-document.addEventListener("click",e=>{if(!e.target.closest(".node")&&!e.target.closest("#nodepop"))document.getElementById("nodepop").classList.remove("show");});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){document.getElementById("modal").classList.remove("show");document.getElementById("nodepop").classList.remove("show");_tapArmed=null;}});
+document.addEventListener("click",e=>{if(!e.target.closest(".node")&&!e.target.closest("#nodepop")){document.getElementById("nodepop").classList.remove("show");_tapArmed=null;}});
+document.addEventListener("pointerdown",e=>{_lastPtr=e.pointerType||"";},true);
 document.querySelectorAll(".tab").forEach(tb=>tb.addEventListener("click",()=>{
   document.querySelectorAll(".tab").forEach(x=>x.classList.remove("on"));tb.classList.add("on");
   document.querySelectorAll(".view").forEach(v=>v.classList.remove("on"));
