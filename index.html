@@ -6765,10 +6765,10 @@ const LIC_ICON={
 const SLOT_WHY={
  "Provisioning engine \u2014 multi-cloud":"Declares your cloud infrastructure as code so one plan builds any cloud. Everything else in the stack sits on top of this.",
  "...or a cloud-native engine \u2014 single cloud":"Your cloud vendor's own IaC. Fewer moving parts and day-one support for new services, at the cost of lock-in to that one cloud.",
- "Keep Terraform DRY":"Optional. Strips repeated backend, provider and variable boilerplate once you run many Terraform stacks.",
+ "Keep Terraform DRY":"Optional. Strips repeated backend, provider and variable boilerplate once you run many Terraform stacks. Stack several: terramate create --all-terragrunt imports an existing Terragrunt layout, so both can run side by side during a migration.",
  "Run it \u2014 automation / TACOS":"Runs plan and apply from pull requests with locking, approvals and an audit trail, instead of from someone's laptop.",
  "Scan for misconfig / security":"Catches insecure defaults such as open buckets and over-broad IAM before you apply. Stack several: each finds gaps the others miss.",
- "Custom policy engine":"Encodes your own guardrails such as naming, allowed regions and cost caps, then blocks changes that break them.",
+ "Custom policy engine":"Encodes your own guardrails such as naming, allowed regions and cost caps, then blocks changes that break them. Stack several: HCP Terraform attaches Sentinel and OPA policy sets to the same workspace, so an org can enforce both at once.",
  "Test":"Proves a module actually builds working infrastructure, not just valid syntax.",
  "Estimate cost":"Shows the dollar impact of a change inside the pull request, before it merges.",
  "Configure servers":"Installs packages and sets state inside long-lived VMs, which cloud provisioning does not do.",
