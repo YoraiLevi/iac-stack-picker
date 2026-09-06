@@ -6659,7 +6659,7 @@ function buildGloss(){ if(GLOSS_RE) return;
   GLOSS_RE=new RegExp("(?<![A-Za-z0-9])(?:"+keys.join("|")+")(?![A-Za-z0-9])","g");
 }
 function gloss(s){ buildGloss(); return esc(s).replace(GLOSS_RE, m=>`<abbr title="${esc(GLOSS_MAP[m])}">${m}</abbr>`); }
-function glossV(s){ buildGloss(); const seen=new Set();
+function glossV(s,seen){ buildGloss(); if(!seen) seen=new Set();
   return esc(s).replace(GLOSS_RE, m=>{ const ab=`<abbr title="${esc(GLOSS_MAP[m])}">${m}</abbr>`; if(seen.has(m)) return ab; seen.add(m); return `${ab} <span class="gdef">(${esc(GLOSS_FULL[m])})</span>`; }); }
 function isSelected(id){ return Object.values(SEL).some(s=>s.has(id)); }
 
@@ -6716,7 +6716,7 @@ function render(){
   const app=document.getElementById("app");app.innerHTML="";
   MAXSTARS=Math.max(1,...TOOLS.map(t=>(t.metrics||{}).stars||0));
   buildGloss();
-  let drawn=false;
+  let drawn=false; const gSeen=new Set();
   for(const [skey,num,label,accent] of STAGES){
     const tools=TOOLS.filter(t=>t.stage===skey);if(!tools.length)continue;
     if(drawn){const lk=document.createElement("div");lk.className="tier-link";app.appendChild(lk);}
@@ -6729,14 +6729,14 @@ function render(){
       const items=tools.filter(t=>t.slot===slot);const mode=items[0].slot_mode;
       const mlabel={pick:"PICK ONE",combine:"COMBINE",addon:"ADD-ON"}[mode];
       const mhint={pick:"choose one",combine:"stack several",addon:"optional"}[mode];
-      branches+=`<li><span class="tnode thub"><span class="mode ${mode}">${mlabel}</span><span class="hub-title">${glossV(slot)}</span><span class="hub-hint">${mhint}</span></span>
+      branches+=`<li><span class="tnode thub"><span class="mode ${mode}">${mlabel}</span><span class="hub-title">${glossV(slot,gSeen)}</span><span class="hub-hint">${mhint}</span></span>
         <ul>${items.map(t=>`<li>${node(t)}</li>`).join("")}</ul></li>`;
     }
     stage.innerHTML=`<div class="stage-rail" style="background:${accent}"></div>
       <div class="stage-h"><div class="badge-n" style="background:${accent}">${num}</div>
       <div class="stage-ht"><div class="tier-lvl" style="color:${accent}">${esc(info.level)} \u00b7 allocate your picks</div>
       <h2 style="color:${accent}">${esc(label)}</h2>
-      <div class="tier-desc"><b>${glossV(info.role)}.</b> ${glossV(info.how)}</div></div></div>
+      <div class="tier-desc"><b>${glossV(info.role,gSeen)}.</b> ${glossV(info.how,gSeen)}</div></div></div>
       <div class="tree-wrap"><div class="tree" style="--ac:${accent}"><ul>${branches}</ul></div></div>`;
     app.appendChild(stage);drawn=true;
   }
