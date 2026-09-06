@@ -78,6 +78,11 @@ main{padding:26px 30px 170px;max-width:1500px;margin:0 auto}
 .counts .p{color:var(--pos);font-weight:600}
 .counts .n{color:var(--neg);font-weight:600}
 .expand{margin-top:10px;font-size:12.5px;color:var(--green-d);background:none;border:none;padding:0;cursor:pointer;font-family:inherit;font-weight:600}
+.selbtn{margin-top:12px;width:100%;padding:8px 10px;border-radius:10px;border:1.5px solid var(--line2);background:#fff;color:var(--ink2);font-family:inherit;font-weight:700;font-size:12.5px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.selbtn:hover{border-color:var(--green)}
+.selbtn[aria-pressed="true"]{background:var(--green);color:#fff;border-color:var(--green)}
+.selbtn:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.tagrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .detail{display:none;margin-top:12px;border-top:1px solid var(--line);padding-top:12px;font-size:13px;color:var(--ink2)}
 .detail.open{display:block;animation:fade .25s ease}
 @keyframes fade{from{opacity:0;transform:translateY(-4px)}to{opacity:1}}
@@ -169,8 +174,9 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
       <span class="pill" style="background:var(--addon);color:#fff">ADD-ON</span></span>
     <span><b>LICENSE:</b>
       <span class="lictag lopen"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6h2c0-1.66 1.34-3 3-3s3 1.34 3 3v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm0 12H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>Open source</span>
-      <span class="lictag lbsl"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 11c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2 2-.9 2-2 2z"/></svg>Source-available</span>
-      <span class="lictag lcomm"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 11c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2 2-.9 2-2 2z"/></svg>Proprietary</span>
+      <span class="lictag lbsl"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6z"/></svg>Source-available</span>
+      <span class="lictag lcomm"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6z"/></svg>Proprietary</span></span>
+    <span><b>LIFECYCLE:</b>
       <span class="lictag lfade"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>Fading / EOL</span></span>
     <span class="muted">logos link to official docs</span>
   </div>
@@ -222,6 +228,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "hashicorp/terraform",
   "docs": "https://developer.hashicorp.com/terraform/tutorials/aws-get-started",
   "stage_name": "PROVISION",
+  "lifecycle": "active",
   "metrics": {
    "stars": 49618,
    "forks": 10629,
@@ -342,6 +349,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "opentofu/opentofu",
   "docs": "https://opentofu.org/docs/intro/",
   "stage_name": "PROVISION",
+  "lifecycle": "active",
   "metrics": {
    "stars": 30092,
    "forks": 1355,
@@ -454,6 +462,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "pulumi/pulumi",
   "docs": "https://www.pulumi.com/docs/iac/get-started/",
   "stage_name": "PROVISION",
+  "lifecycle": "active",
   "metrics": {
    "stars": 25648,
    "forks": 1422,
@@ -567,6 +576,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "crossplane/crossplane",
   "docs": "https://docs.crossplane.io/latest/get-started/",
   "stage_name": "PROVISION",
+  "lifecycle": "active",
   "metrics": {
    "stars": 12033,
    "forks": 1253,
@@ -693,6 +703,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": null,
   "docs": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/GettingStarted.html",
   "stage_name": "PROVISION",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -803,6 +814,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "aws/aws-cdk",
   "docs": "https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html",
   "stage_name": "PROVISION",
+  "lifecycle": "active",
   "metrics": {
    "stars": 12888,
    "forks": 4625,
@@ -922,6 +934,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "Azure/bicep",
   "docs": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code",
   "stage_name": "PROVISION",
+  "lifecycle": "active",
   "metrics": {
    "stars": 3637,
    "forks": 826,
@@ -1033,6 +1046,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "GoogleCloudPlatform/k8s-config-connector",
   "docs": "https://cloud.google.com/config-connector/docs/how-to/getting-started",
   "stage_name": "PROVISION",
+  "lifecycle": "active",
   "metrics": {
    "stars": 1063,
    "forks": 378,
@@ -1152,6 +1166,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "gruntwork-io/terragrunt",
   "docs": "https://terragrunt.gruntwork.io/docs/getting-started/quick-start/",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": 9819,
    "forks": 1221,
@@ -1275,6 +1290,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "terramate-io/terramate",
   "docs": "https://terramate.io/docs/cli/getting-started/",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": 3623,
    "forks": 125,
@@ -1388,6 +1404,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "runatlantis/atlantis",
   "docs": "https://www.runatlantis.io/guide/",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": 9282,
    "forks": 1335,
@@ -1505,6 +1522,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": null,
   "docs": "https://developer.hashicorp.com/terraform/tutorials/cloud-get-started",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -1613,6 +1631,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": null,
   "docs": "https://docs.spacelift.io/getting-started",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -1727,6 +1746,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": null,
   "docs": "https://docs.env0.com/docs/getting-started",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -1833,6 +1853,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": null,
   "docs": "https://docs.scalr.io/docs/getting-started",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -1941,6 +1962,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "bridgecrewio/checkov",
   "docs": "https://www.checkov.io/2.Basics/Installing%20Checkov.html",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": 8984,
    "forks": 1401,
@@ -2063,6 +2085,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "aquasecurity/trivy",
   "docs": "https://trivy.dev/latest/docs/",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": 37795,
    "forks": 660,
@@ -2185,6 +2208,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "Checkmarx/kics",
   "docs": "https://docs.kics.io/latest/getting-started/",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": 2698,
    "forks": 381,
@@ -2298,6 +2322,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "tenable/terrascan",
   "docs": "https://runterrascan.io/docs/getting-started/",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "fade",
   "metrics": {
    "stars": 5212,
    "forks": 555,
@@ -2403,6 +2428,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "open-policy-agent/opa",
   "docs": "https://www.openpolicyagent.org/docs/latest/",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": 12200,
    "forks": 1670,
@@ -2516,6 +2542,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": null,
   "docs": "https://developer.hashicorp.com/sentinel/intro/getting-started",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -2630,6 +2657,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "opentofu/opentofu",
   "docs": "https://developer.hashicorp.com/terraform/language/tests",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": 30092,
    "forks": 1355,
@@ -2744,6 +2772,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "gruntwork-io/terratest",
   "docs": "https://terratest.gruntwork.io/docs/getting-started/quick-start/",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": 7943,
    "forks": 1372,
@@ -2857,6 +2886,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "infracost/infracost",
   "docs": "https://www.infracost.io/docs/",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": 12508,
    "forks": 686,
@@ -2971,6 +3001,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "ansible/ansible",
   "docs": "https://docs.ansible.com/ansible/latest/getting_started/index.html",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "active",
   "metrics": {
    "stars": 70593,
    "forks": 24343,
@@ -3094,7 +3125,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "stage_num": "3",
   "slot": "Configure servers",
   "slot_mode": "pick",
-  "license": "fade",
+  "license": "open",
   "oneliner": "Agent-based config in Ruby for large fleets (OSS server reaches EOL 2026)",
   "brand": "#E9573F",
   "mono": "Ch",
@@ -3102,6 +3133,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "chef/chef",
   "docs": "https://docs.chef.io/",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "fade",
   "metrics": {
    "stars": 8235,
    "forks": 2523,
@@ -3198,7 +3230,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "stage_num": "3",
   "slot": "Configure servers",
   "slot_mode": "pick",
-  "license": "fade",
+  "license": "open",
   "oneliner": "Declarative agent that continuously enforces desired state across a fleet",
   "brand": "#FFAE1A",
   "mono": "Pp",
@@ -3206,6 +3238,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "puppetlabs/puppet",
   "docs": "https://www.puppet.com/docs/puppet/8/puppet_index.html",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "fade",
   "metrics": {
    "stars": 7928,
    "forks": 2209,
@@ -3328,7 +3361,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "stage_num": "3",
   "slot": "Configure servers",
   "slot_mode": "pick",
-  "license": "fade",
+  "license": "open",
   "oneliner": "Config plus real-time remote execution across thousands of nodes over a fast bus",
   "brand": "#2AA198",
   "mono": "Sa",
@@ -3336,6 +3369,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "saltstack/salt",
   "docs": "https://docs.saltproject.io/salt/user-guide/en/latest/",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "fade",
   "metrics": {
    "stars": 15649,
    "forks": 5611,
@@ -3446,6 +3480,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "hashicorp/packer",
   "docs": "https://developer.hashicorp.com/packer/tutorials/aws-get-started",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "active",
   "metrics": {
    "stars": 15775,
    "forks": 3335,
@@ -3566,6 +3601,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "canonical/cloud-init",
   "docs": "https://cloudinit.readthedocs.io/en/latest/tutorial/index.html",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "active",
   "metrics": {
    "stars": 3806,
    "forks": 1128,
@@ -3696,6 +3732,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "hashicorp/vault",
   "docs": "https://developer.hashicorp.com/vault/tutorials/getting-started",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "active",
   "metrics": {
    "stars": 36209,
    "forks": 4751,
@@ -3811,6 +3848,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "getsops/sops",
   "docs": "https://github.com/getsops/sops",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "active",
   "metrics": {
    "stars": 23034,
    "forks": 1074,
@@ -3933,6 +3971,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "external-secrets/external-secrets",
   "docs": "https://external-secrets.io/latest/introduction/getting-started/",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "active",
   "metrics": {
    "stars": 6836,
    "forks": 1410,
@@ -4063,6 +4102,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "bitnami-labs/sealed-secrets",
   "docs": "https://github.com/bitnami-labs/sealed-secrets#usage",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "active",
   "metrics": {
    "stars": 9275,
    "forks": 773,
@@ -4193,6 +4233,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": null,
   "docs": "https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -4303,6 +4344,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "actions/runner",
   "docs": "https://docs.github.com/en/actions/writing-workflows/quickstart",
   "stage_name": "DELIVER · CI/CD ENGINES",
+  "lifecycle": "active",
   "metrics": {
    "stars": 6238,
    "forks": 1415,
@@ -4435,6 +4477,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": null,
   "docs": "https://docs.gitlab.com/ee/ci/quick_start/",
   "stage_name": "DELIVER · CI/CD ENGINES",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -4558,6 +4601,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "jenkinsci/jenkins",
   "docs": "https://www.jenkins.io/doc/pipeline/tour/getting-started/",
   "stage_name": "DELIVER · CI/CD ENGINES",
+  "lifecycle": "active",
   "metrics": {
    "stars": 26531,
    "forks": 9828,
@@ -4681,6 +4725,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": null,
   "docs": "https://circleci.com/docs/getting-started/",
   "stage_name": "DELIVER · CI/CD ENGINES",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -4797,6 +4842,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "tektoncd/pipeline",
   "docs": "https://tekton.dev/docs/getting-started/",
   "stage_name": "DELIVER · CI/CD ENGINES",
+  "lifecycle": "active",
   "metrics": {
    "stars": 9059,
    "forks": 1960,
@@ -4925,6 +4971,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "argoproj/argo-workflows",
   "docs": "https://argo-workflows.readthedocs.io/en/latest/walk-through/",
   "stage_name": "DELIVER · CI/CD ENGINES",
+  "lifecycle": "active",
   "metrics": {
    "stars": 16957,
    "forks": 3642,
@@ -5048,6 +5095,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "woodpecker-ci/woodpecker",
   "docs": "https://woodpecker-ci.org/docs/intro",
   "stage_name": "DELIVER · CI/CD ENGINES",
+  "lifecycle": "active",
   "metrics": {
    "stars": 7814,
    "forks": 661,
@@ -5170,6 +5218,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "argoproj/argo-cd",
   "docs": "https://argo-cd.readthedocs.io/en/stable/getting_started/",
   "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
+  "lifecycle": "active",
   "metrics": {
    "stars": 24085,
    "forks": 7827,
@@ -5302,6 +5351,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "fluxcd/flux2",
   "docs": "https://fluxcd.io/flux/get-started/",
   "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
+  "lifecycle": "active",
   "metrics": {
    "stars": 8384,
    "forks": 778,
@@ -5432,6 +5482,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "helm/helm",
   "docs": "https://helm.sh/docs/intro/quickstart/",
   "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
+  "lifecycle": "active",
   "metrics": {
    "stars": 30218,
    "forks": 7781,
@@ -5550,6 +5601,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "kubernetes-sigs/kustomize",
   "docs": "https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/",
   "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
+  "lifecycle": "active",
   "metrics": {
    "stars": 12152,
    "forks": 2418,
@@ -5681,6 +5733,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "google/jsonnet",
   "docs": "https://jsonnet.org/learning/tutorial.html",
   "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
+  "lifecycle": "active",
   "metrics": {
    "stars": 7564,
    "forks": 471,
@@ -5813,6 +5866,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "argoproj/argo-rollouts",
   "docs": "https://argo-rollouts.readthedocs.io/en/stable/getting-started/",
   "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
+  "lifecycle": "active",
   "metrics": {
    "stars": 3570,
    "forks": 1207,
@@ -5944,6 +5998,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "fluxcd/flagger",
   "docs": "https://docs.flagger.app/tutorials/",
   "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
+  "lifecycle": "active",
   "metrics": {
    "stars": 5398,
    "forks": 804,
@@ -6073,6 +6128,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": "backstage/backstage",
   "docs": "https://backstage.io/docs/getting-started/",
   "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
+  "lifecycle": "active",
   "metrics": {
    "stars": 34343,
    "forks": 7608,
@@ -6197,6 +6253,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": null,
   "docs": "https://docs.port.io/getting-started/overview",
   "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -6328,6 +6385,7 @@ pre{background:#1c1d1b;color:#e6e8e0;border:1px solid var(--line);border-radius:
   "repo": null,
   "docs": "https://developer.humanitec.com/introduction/overview/",
   "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -6463,11 +6521,10 @@ const LIC_INFO={
  open:{label:"Open source",cls:"lopen",icon:"unlock"},
  bsl:{label:"Source-available (BSL)",cls:"lbsl",icon:"lock"},
  comm:{label:"Proprietary (vendor)",cls:"lcomm",icon:"lock"},
- fade:{label:"Fading / EOL",cls:"lfade",icon:"warn"},
 };
 const LIC_ICON={
  unlock:"M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6h2c0-1.66 1.34-3 3-3s3 1.34 3 3v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm0 12H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z",
- lock:"M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 11c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2 2-.9 2-2 2z",
+ lock:"M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6z",
  warn:"M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z",
 };
 const GLOSSARY=[
@@ -6499,7 +6556,7 @@ function renderGlossary(){
   const el=document.getElementById("glossBody");if(!el)return;
   el.innerHTML=GLOSSARY.map(([t,f,d])=>`<div class="g"><b>${esc(t)}</b> <i>${esc(f)}</i><br>${esc(d)}</div>`).join("");
 }
-let TOOLS=[], ICONS={}, BYID={}, SEL={}; // SEL[slotKey]=Set(id)
+let TOOLS=[], ICONS={}, BYID={}, SEL={}, MAXSTARS=1; // SEL[slotKey]=Set(id)
 
 const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const urlOK=u=>{u=String(u==null?"":u).trim();return /^(https?:|mailto:)/i.test(u)?u:"#";};
@@ -6532,20 +6589,24 @@ function card(t){
   const popVal=m.stars!=null?`${fmtStars(m.stars)} \u2605`:"n/a";
   const senVal=sen.n?`${sen.pos} / ${sen.n}`:"\u2013";
   const senW=sen.n?Math.round(sen.pos/sen.n*100):0;
+  const popW=m.stars>0?Math.max(4,Math.round(Math.log10(m.stars)/Math.log10(Math.max(10,MAXSTARS))*100)):0;
   const li=LIC_INFO[t.license]||{label:t.license,cls:"lcomm",icon:"lock"};
-  const popTip=m.stars!=null?"Bar shows popularity relative to this set (stars 75% + commits/90d 25%); number is GitHub stars":"No public GitHub repo (SaaS or bundled feature); popularity not scored";
+  const fade=t.lifecycle==="fade";
+  const popTip=m.stars!=null?"Bar is popularity relative to the most-starred tool in this set (GitHub stars only, log scale); the number is exact stars":"No public GitHub repo (SaaS or bundled feature); popularity not scored";
   const senTip="Favorable share of a ~20-take sample from HN, Reddit and blogs; a sample, not a census";
-  return `<div class="card" data-id="${esc(t.id)}" role="button" tabindex="0" aria-pressed="false">
+  return `<div class="card" data-id="${esc(t.id)}">
     <div class="chead">${badge(t)}<div class="cmeta"><div class="cname">${esc(t.name)}</div>
       <div class="cone">${esc(t.oneliner)}</div>
-      <span class="lictag ${li.cls}"><svg viewBox="0 0 24 24"><path d="${LIC_ICON[li.icon]}"/></svg>${esc(li.label)}</span></div></div>
+      <div class="tagrow"><span class="lictag ${li.cls}"><svg viewBox="0 0 24 24"><path d="${LIC_ICON[li.icon]}"/></svg>${esc(li.label)}</span>${
+        fade?`<span class="lictag lfade" title="Still maintained but losing momentum or nearing end of life"><svg viewBox="0 0 24 24"><path d="${LIC_ICON.warn}"/></svg>Fading / EOL</span>`:""}</div></div></div>
     <div class="metrics">
       <div class="metric"><div class="lab" title="${esc(popTip)}"><span>Popularity</span><b>${popVal}</b></div>
-        <div class="bar pop"><i data-w="${Number(pop.score)||0}"></i></div></div>
+        <div class="bar pop"><i data-w="${popW}"></i></div></div>
       <div class="metric"><div class="lab" title="${esc(senTip)}"><span>Sentiment</span><b>${senVal}</b></div>
         <div class="bar sen"><i data-w="${senW}"></i></div>
         <div class="counts">${sencepts(sen)}</div></div>
     </div>
+    <button class="selbtn" aria-pressed="false">\uFF0B Add to build</button>
     <button class="expand">details \u25BE</button>
     <div class="detail">
       <ul class="kv">
@@ -6569,7 +6630,7 @@ function card(t){
 
 function render(){
   const app=document.getElementById("app");app.innerHTML="";
-  let drawn=false;
+  let drawn=false;MAXSTARS=Math.max(1,...TOOLS.map(t=>(t.metrics||{}).stars||0));
   for(const [skey,num,label,accent] of STAGES){
     const tools=TOOLS.filter(t=>t.stage===skey);if(!tools.length)continue;
     if(drawn){const lk=document.createElement("div");lk.className="tier-link";app.appendChild(lk);}
@@ -6596,10 +6657,11 @@ function render(){
 
 function wire(){
   document.querySelectorAll(".card").forEach(el=>{
-    const act=e=>{if(e.target.closest(".expand")||e.target.closest("a"))return;toggle(el.dataset.id,el);};
-    el.addEventListener("click",act);
-    el.addEventListener("keydown",e=>{if(e.key===" "||e.key==="Enter"){e.preventDefault();act(e);}});
+    el.addEventListener("click",e=>{if(e.target.closest(".expand")||e.target.closest(".selbtn")||e.target.closest("a"))return;toggle(el.dataset.id,el);});
   });
+  document.querySelectorAll(".selbtn").forEach(b=>b.addEventListener("click",e=>{
+    e.stopPropagation();const c=b.closest(".card");toggle(c.dataset.id,c);
+  }));
   document.querySelectorAll(".expand").forEach(b=>{
     b.setAttribute("aria-expanded","false");
     b.addEventListener("click",e=>{
@@ -6616,19 +6678,23 @@ function observeBars(){
   document.querySelectorAll(".card").forEach(c=>io.observe(c));
 }
 
+function setCardSel(c,on){
+  c.classList.toggle("sel",on);
+  const b=c.querySelector(".selbtn");
+  if(b){b.setAttribute("aria-pressed",on?"true":"false");b.textContent=on?"\u2713 In build":"\uFF0B Add to build";}
+}
 function toggle(id,el){
   const t=BYID[id];const k=slotKey(t);SEL[k]=SEL[k]||new Set();
   const mode=t.slot_mode;const has=SEL[k].has(id);
   if(mode==="pick"){ // single-select within slot
     document.querySelectorAll(`.card`).forEach(c=>{const tt=BYID[c.dataset.id];
-      if(tt&&slotKey(tt)===k){c.classList.remove("sel");c.setAttribute("aria-pressed","false");}});
+      if(tt&&slotKey(tt)===k){setCardSel(c,false);}});
     SEL[k].clear();
-    if(!has){SEL[k].add(id);el.classList.add("sel","pulse");}
+    if(!has){SEL[k].add(id);setCardSel(el,true);el.classList.add("pulse");}
   }else{
-    if(has){SEL[k].delete(id);el.classList.remove("sel");}
-    else{SEL[k].add(id);el.classList.add("sel","pulse");}
+    if(has){SEL[k].delete(id);setCardSel(el,false);}
+    else{SEL[k].add(id);setCardSel(el,true);el.classList.add("pulse");}
   }
-  el.setAttribute("aria-pressed",el.classList.contains("sel")?"true":"false");
   setTimeout(()=>el.classList.remove("pulse"),400);
   updateTray();
 }
@@ -6645,7 +6711,7 @@ function updateTray(){
      <span class="x" data-id="${esc(t.id)}" role="button" tabindex="0" aria-label="Remove ${esc(t.name)}">×</span></span>`).join("");
   document.querySelectorAll("#chips .x").forEach(x=>{const rm=()=>{
     const t=BYID[x.dataset.id];SEL[slotKey(t)].delete(t.id);
-    const c=document.querySelector(`.card[data-id="${CSS.escape(t.id)}"]`);if(c){c.classList.remove("sel");c.setAttribute("aria-pressed","false");}updateTray();};
+    const c=document.querySelector(`.card[data-id="${CSS.escape(t.id)}"]`);if(c)setCardSel(c,false);updateTray();};
     x.addEventListener("click",rm);
     x.addEventListener("keydown",e=>{if(e.key===" "||e.key==="Enter"){e.preventDefault();rm();}});});
   tray.classList.toggle("show",sel.length>0);
@@ -6656,7 +6722,7 @@ function buildManifest(){
   const sel=selectedTools();
   return {generated:new Date().toISOString(),tool_count:sel.length,
     source:"IaC Stack Picker",stack:STAGES.map(([sk,,label])=>({stage:label,
-      tools:sel.filter(t=>t.stage===sk).map(t=>({name:t.name,slot:t.slot,license:t.license,
+      tools:sel.filter(t=>t.stage===sk).map(t=>({name:t.name,slot:t.slot,license:t.license,lifecycle:t.lifecycle||"active",
         repo:t.repo||null,docs:t.docs||null,stars:(t.metrics||{}).stars??null,
         sentiment:(t.sentiment||{}).n?`${t.sentiment.pos}/${t.sentiment.n} favorable`:null,
         oneliner:t.oneliner}))})).filter(s=>s.tools.length)};
@@ -6702,7 +6768,7 @@ function download(name,text,type){const b=new Blob([text],{type});const u=URL.cr
 
 document.getElementById("buildBtn").addEventListener("click",openModal);
 document.getElementById("resetBtn").addEventListener("click",()=>{SEL={};
-  document.querySelectorAll(".card.sel").forEach(c=>{c.classList.remove("sel");c.setAttribute("aria-pressed","false");});updateTray();});
+  document.querySelectorAll(".card.sel").forEach(c=>setCardSel(c,false));updateTray();});
 document.getElementById("closeModal").addEventListener("click",()=>document.getElementById("modal").classList.remove("show"));
 document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")e.currentTarget.classList.remove("show");});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){document.getElementById("modal").classList.remove("show");}});

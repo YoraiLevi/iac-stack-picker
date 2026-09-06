@@ -301,7 +301,8 @@
   "mono": "Ts",
   "icon": null,
   "repo": "tenable/terrascan",
-  "docs": "https://runterrascan.io/docs/getting-started/"
+  "docs": "https://runterrascan.io/docs/getting-started/",
+  "lifecycle": "fade"
  },
  {
   "id": "opa-rego",
@@ -407,13 +408,14 @@
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
   "slot": "Configure servers",
   "slot_mode": "pick",
-  "license": "fade",
+  "license": "open",
   "oneliner": "Agent-based config in Ruby for large fleets (OSS server reaches EOL 2026)",
   "brand": "#E9573F",
   "mono": "Ch",
   "icon": "chef",
   "repo": "chef/chef",
-  "docs": "https://docs.chef.io/"
+  "docs": "https://docs.chef.io/",
+  "lifecycle": "fade"
  },
  {
   "id": "puppet",
@@ -423,13 +425,14 @@
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
   "slot": "Configure servers",
   "slot_mode": "pick",
-  "license": "fade",
+  "license": "open",
   "oneliner": "Declarative agent that continuously enforces desired state across a fleet",
   "brand": "#FFAE1A",
   "mono": "Pp",
   "icon": "puppet",
   "repo": "puppetlabs/puppet",
-  "docs": "https://www.puppet.com/docs/puppet/8/puppet_index.html"
+  "docs": "https://www.puppet.com/docs/puppet/8/puppet_index.html",
+  "lifecycle": "fade"
  },
  {
   "id": "salt",
@@ -439,13 +442,14 @@
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
   "slot": "Configure servers",
   "slot_mode": "pick",
-  "license": "fade",
+  "license": "open",
   "oneliner": "Config plus real-time remote execution across thousands of nodes over a fast bus",
   "brand": "#2AA198",
   "mono": "Sa",
   "icon": "saltproject",
   "repo": "saltstack/salt",
-  "docs": "https://docs.saltproject.io/salt/user-guide/en/latest/"
+  "docs": "https://docs.saltproject.io/salt/user-guide/en/latest/",
+  "lifecycle": "fade"
  },
  {
   "id": "packer",

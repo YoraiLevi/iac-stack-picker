@@ -14,6 +14,7 @@
   "repo": "hashicorp/terraform",
   "docs": "https://developer.hashicorp.com/terraform/tutorials/aws-get-started",
   "stage_name": "PROVISION",
+  "lifecycle": "active",
   "metrics": {
    "stars": 49618,
    "forks": 10629,
@@ -134,6 +135,7 @@
   "repo": "opentofu/opentofu",
   "docs": "https://opentofu.org/docs/intro/",
   "stage_name": "PROVISION",
+  "lifecycle": "active",
   "metrics": {
    "stars": 30092,
    "forks": 1355,
@@ -246,6 +248,7 @@
   "repo": "pulumi/pulumi",
   "docs": "https://www.pulumi.com/docs/iac/get-started/",
   "stage_name": "PROVISION",
+  "lifecycle": "active",
   "metrics": {
    "stars": 25648,
    "forks": 1422,
@@ -359,6 +362,7 @@
   "repo": "crossplane/crossplane",
   "docs": "https://docs.crossplane.io/latest/get-started/",
   "stage_name": "PROVISION",
+  "lifecycle": "active",
   "metrics": {
    "stars": 12033,
    "forks": 1253,
@@ -485,6 +489,7 @@
   "repo": null,
   "docs": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/GettingStarted.html",
   "stage_name": "PROVISION",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -595,6 +600,7 @@
   "repo": "aws/aws-cdk",
   "docs": "https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html",
   "stage_name": "PROVISION",
+  "lifecycle": "active",
   "metrics": {
    "stars": 12888,
    "forks": 4625,
@@ -714,6 +720,7 @@
   "repo": "Azure/bicep",
   "docs": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code",
   "stage_name": "PROVISION",
+  "lifecycle": "active",
   "metrics": {
    "stars": 3637,
    "forks": 826,
@@ -825,6 +832,7 @@
   "repo": "GoogleCloudPlatform/k8s-config-connector",
   "docs": "https://cloud.google.com/config-connector/docs/how-to/getting-started",
   "stage_name": "PROVISION",
+  "lifecycle": "active",
   "metrics": {
    "stars": 1063,
    "forks": 378,
@@ -944,6 +952,7 @@
   "repo": "gruntwork-io/terragrunt",
   "docs": "https://terragrunt.gruntwork.io/docs/getting-started/quick-start/",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": 9819,
    "forks": 1221,
@@ -1067,6 +1076,7 @@
   "repo": "terramate-io/terramate",
   "docs": "https://terramate.io/docs/cli/getting-started/",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": 3623,
    "forks": 125,
@@ -1180,6 +1190,7 @@
   "repo": "runatlantis/atlantis",
   "docs": "https://www.runatlantis.io/guide/",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": 9282,
    "forks": 1335,
@@ -1297,6 +1308,7 @@
   "repo": null,
   "docs": "https://developer.hashicorp.com/terraform/tutorials/cloud-get-started",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -1405,6 +1417,7 @@
   "repo": null,
   "docs": "https://docs.spacelift.io/getting-started",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -1519,6 +1532,7 @@
   "repo": null,
   "docs": "https://docs.env0.com/docs/getting-started",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -1625,6 +1639,7 @@
   "repo": null,
   "docs": "https://docs.scalr.io/docs/getting-started",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -1733,6 +1748,7 @@
   "repo": "bridgecrewio/checkov",
   "docs": "https://www.checkov.io/2.Basics/Installing%20Checkov.html",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": 8984,
    "forks": 1401,
@@ -1855,6 +1871,7 @@
   "repo": "aquasecurity/trivy",
   "docs": "https://trivy.dev/latest/docs/",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": 37795,
    "forks": 660,
@@ -1977,6 +1994,7 @@
   "repo": "Checkmarx/kics",
   "docs": "https://docs.kics.io/latest/getting-started/",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": 2698,
    "forks": 381,
@@ -2090,6 +2108,7 @@
   "repo": "tenable/terrascan",
   "docs": "https://runterrascan.io/docs/getting-started/",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "fade",
   "metrics": {
    "stars": 5212,
    "forks": 555,
@@ -2195,6 +2214,7 @@
   "repo": "open-policy-agent/opa",
   "docs": "https://www.openpolicyagent.org/docs/latest/",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": 12200,
    "forks": 1670,
@@ -2308,6 +2328,7 @@
   "repo": null,
   "docs": "https://developer.hashicorp.com/sentinel/intro/getting-started",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -2422,6 +2443,7 @@
   "repo": "opentofu/opentofu",
   "docs": "https://developer.hashicorp.com/terraform/language/tests",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": 30092,
    "forks": 1355,
@@ -2536,6 +2558,7 @@
   "repo": "gruntwork-io/terratest",
   "docs": "https://terratest.gruntwork.io/docs/getting-started/quick-start/",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": 7943,
    "forks": 1372,
@@ -2649,6 +2672,7 @@
   "repo": "infracost/infracost",
   "docs": "https://www.infracost.io/docs/",
   "stage_name": "ORCHESTRATE & GOVERN",
+  "lifecycle": "active",
   "metrics": {
    "stars": 12508,
    "forks": 686,
@@ -2763,6 +2787,7 @@
   "repo": "ansible/ansible",
   "docs": "https://docs.ansible.com/ansible/latest/getting_started/index.html",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "active",
   "metrics": {
    "stars": 70593,
    "forks": 24343,
@@ -2886,7 +2911,7 @@
   "stage_num": "3",
   "slot": "Configure servers",
   "slot_mode": "pick",
-  "license": "fade",
+  "license": "open",
   "oneliner": "Agent-based config in Ruby for large fleets (OSS server reaches EOL 2026)",
   "brand": "#E9573F",
   "mono": "Ch",
@@ -2894,6 +2919,7 @@
   "repo": "chef/chef",
   "docs": "https://docs.chef.io/",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "fade",
   "metrics": {
    "stars": 8235,
    "forks": 2523,
@@ -2990,7 +3016,7 @@
   "stage_num": "3",
   "slot": "Configure servers",
   "slot_mode": "pick",
-  "license": "fade",
+  "license": "open",
   "oneliner": "Declarative agent that continuously enforces desired state across a fleet",
   "brand": "#FFAE1A",
   "mono": "Pp",
@@ -2998,6 +3024,7 @@
   "repo": "puppetlabs/puppet",
   "docs": "https://www.puppet.com/docs/puppet/8/puppet_index.html",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "fade",
   "metrics": {
    "stars": 7928,
    "forks": 2209,
@@ -3120,7 +3147,7 @@
   "stage_num": "3",
   "slot": "Configure servers",
   "slot_mode": "pick",
-  "license": "fade",
+  "license": "open",
   "oneliner": "Config plus real-time remote execution across thousands of nodes over a fast bus",
   "brand": "#2AA198",
   "mono": "Sa",
@@ -3128,6 +3155,7 @@
   "repo": "saltstack/salt",
   "docs": "https://docs.saltproject.io/salt/user-guide/en/latest/",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "fade",
   "metrics": {
    "stars": 15649,
    "forks": 5611,
@@ -3238,6 +3266,7 @@
   "repo": "hashicorp/packer",
   "docs": "https://developer.hashicorp.com/packer/tutorials/aws-get-started",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "active",
   "metrics": {
    "stars": 15775,
    "forks": 3335,
@@ -3358,6 +3387,7 @@
   "repo": "canonical/cloud-init",
   "docs": "https://cloudinit.readthedocs.io/en/latest/tutorial/index.html",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "active",
   "metrics": {
    "stars": 3806,
    "forks": 1128,
@@ -3488,6 +3518,7 @@
   "repo": "hashicorp/vault",
   "docs": "https://developer.hashicorp.com/vault/tutorials/getting-started",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "active",
   "metrics": {
    "stars": 36209,
    "forks": 4751,
@@ -3603,6 +3634,7 @@
   "repo": "getsops/sops",
   "docs": "https://github.com/getsops/sops",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "active",
   "metrics": {
    "stars": 23034,
    "forks": 1074,
@@ -3725,6 +3757,7 @@
   "repo": "external-secrets/external-secrets",
   "docs": "https://external-secrets.io/latest/introduction/getting-started/",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "active",
   "metrics": {
    "stars": 6836,
    "forks": 1410,
@@ -3855,6 +3888,7 @@
   "repo": "bitnami-labs/sealed-secrets",
   "docs": "https://github.com/bitnami-labs/sealed-secrets#usage",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "active",
   "metrics": {
    "stars": 9275,
    "forks": 773,
@@ -3985,6 +4019,7 @@
   "repo": null,
   "docs": "https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html",
   "stage_name": "CONFIGURE · IMAGES · SECRETS",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -4095,6 +4130,7 @@
   "repo": "actions/runner",
   "docs": "https://docs.github.com/en/actions/writing-workflows/quickstart",
   "stage_name": "DELIVER · CI/CD ENGINES",
+  "lifecycle": "active",
   "metrics": {
    "stars": 6238,
    "forks": 1415,
@@ -4227,6 +4263,7 @@
   "repo": null,
   "docs": "https://docs.gitlab.com/ee/ci/quick_start/",
   "stage_name": "DELIVER · CI/CD ENGINES",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -4350,6 +4387,7 @@
   "repo": "jenkinsci/jenkins",
   "docs": "https://www.jenkins.io/doc/pipeline/tour/getting-started/",
   "stage_name": "DELIVER · CI/CD ENGINES",
+  "lifecycle": "active",
   "metrics": {
    "stars": 26531,
    "forks": 9828,
@@ -4473,6 +4511,7 @@
   "repo": null,
   "docs": "https://circleci.com/docs/getting-started/",
   "stage_name": "DELIVER · CI/CD ENGINES",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -4589,6 +4628,7 @@
   "repo": "tektoncd/pipeline",
   "docs": "https://tekton.dev/docs/getting-started/",
   "stage_name": "DELIVER · CI/CD ENGINES",
+  "lifecycle": "active",
   "metrics": {
    "stars": 9059,
    "forks": 1960,
@@ -4717,6 +4757,7 @@
   "repo": "argoproj/argo-workflows",
   "docs": "https://argo-workflows.readthedocs.io/en/latest/walk-through/",
   "stage_name": "DELIVER · CI/CD ENGINES",
+  "lifecycle": "active",
   "metrics": {
    "stars": 16957,
    "forks": 3642,
@@ -4840,6 +4881,7 @@
   "repo": "woodpecker-ci/woodpecker",
   "docs": "https://woodpecker-ci.org/docs/intro",
   "stage_name": "DELIVER · CI/CD ENGINES",
+  "lifecycle": "active",
   "metrics": {
    "stars": 7814,
    "forks": 661,
@@ -4962,6 +5004,7 @@
   "repo": "argoproj/argo-cd",
   "docs": "https://argo-cd.readthedocs.io/en/stable/getting_started/",
   "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
+  "lifecycle": "active",
   "metrics": {
    "stars": 24085,
    "forks": 7827,
@@ -5094,6 +5137,7 @@
   "repo": "fluxcd/flux2",
   "docs": "https://fluxcd.io/flux/get-started/",
   "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
+  "lifecycle": "active",
   "metrics": {
    "stars": 8384,
    "forks": 778,
@@ -5224,6 +5268,7 @@
   "repo": "helm/helm",
   "docs": "https://helm.sh/docs/intro/quickstart/",
   "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
+  "lifecycle": "active",
   "metrics": {
    "stars": 30218,
    "forks": 7781,
@@ -5342,6 +5387,7 @@
   "repo": "kubernetes-sigs/kustomize",
   "docs": "https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/",
   "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
+  "lifecycle": "active",
   "metrics": {
    "stars": 12152,
    "forks": 2418,
@@ -5473,6 +5519,7 @@
   "repo": "google/jsonnet",
   "docs": "https://jsonnet.org/learning/tutorial.html",
   "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
+  "lifecycle": "active",
   "metrics": {
    "stars": 7564,
    "forks": 471,
@@ -5605,6 +5652,7 @@
   "repo": "argoproj/argo-rollouts",
   "docs": "https://argo-rollouts.readthedocs.io/en/stable/getting-started/",
   "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
+  "lifecycle": "active",
   "metrics": {
    "stars": 3570,
    "forks": 1207,
@@ -5736,6 +5784,7 @@
   "repo": "fluxcd/flagger",
   "docs": "https://docs.flagger.app/tutorials/",
   "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
+  "lifecycle": "active",
   "metrics": {
    "stars": 5398,
    "forks": 804,
@@ -5865,6 +5914,7 @@
   "repo": "backstage/backstage",
   "docs": "https://backstage.io/docs/getting-started/",
   "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
+  "lifecycle": "active",
   "metrics": {
    "stars": 34343,
    "forks": 7608,
@@ -5989,6 +6039,7 @@
   "repo": null,
   "docs": "https://docs.port.io/getting-started/overview",
   "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,
@@ -6120,6 +6171,7 @@
   "repo": null,
   "docs": "https://developer.humanitec.com/introduction/overview/",
   "stage_name": "RECONCILE · GITOPS (KUBERNETES)",
+  "lifecycle": "active",
   "metrics": {
    "stars": null,
    "forks": null,

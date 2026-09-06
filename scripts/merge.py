@@ -73,8 +73,9 @@ for t in registry:
             if note and key not in pseen and len(pros)<5:
                 pseen.add(key); pros.append({"note":note,"url":u,"source":dp.get("source")})
     sources=sources[:6]
+    lifecycle=t.get("lifecycle") or ("fade" if m.get("archived") else "active")
     out.append({**{k:t[k] for k in ("id","name","stage","stage_num","slot","slot_mode","license","oneliner","brand","mono","icon","repo","docs")},
-      "stage_name":t["stage_name"],
+      "stage_name":t["stage_name"],"lifecycle":lifecycle,
       "metrics":{"stars":m.get("stars"),"forks":m.get("forks"),"commits_90d":m.get("commits_90d"),
                  "latest_release":m.get("latest_release"),"latest_release_at":m.get("latest_release_at"),
                  "archived":m.get("archived"),"license_spdx":m.get("license")},

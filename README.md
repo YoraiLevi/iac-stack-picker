@@ -9,12 +9,9 @@ recurring author concerns with source links. Pick your tools and export the stac
 **Live page:** enabled via GitHub Pages.
 
 ## How the scores work
-- **Sentiment** = `(pos − neg) / n` mapped to 0–100, with raw `▲pos ▬neu ▼neg · n` shown on every card.
-- **Popularity** = composite of GitHub stars (0.75) and 90-day commit activity (0.25),
-  min-max normalized **within this survey set** (so it reads "big vs small here", not absolute install base).
-  SaaS/closed tools with **no public repo show `n/a`** — we don't fabricate a number from discussion volume,
-  because every tool was researched to a fixed ~20 data-point quota, making discussion count a collection
-  artifact rather than an adoption signal. Their qualitative traction notes are shown instead.
+- **Sentiment** the card shows the raw pair `pos / n` (favorable takes out of the total sampled), with `▲pos ▬neu ▼neg · n` beneath it. The sentiment bar fills to `pos / n`. A composite `(pos − neg) / n` mapped to 0–100 is kept in `tools.json` for reference but is not the displayed number.
+- **Popularity** the card shows exact **GitHub stars**. The bar fills relative to the most-starred tool in this set on a log scale (stars only, so bar and number agree). SaaS/closed tools with **no public repo show `n/a`** rather than a fabricated number, since every tool was researched to a fixed ~20 data-point quota that makes discussion count a collection artifact, not adoption. Their qualitative traction notes are shown instead. A GitHub-only composite (`0.75·stars + 0.25·commits_90d`, min-max normalized within the set) still lives in `tools.json` as `popularity.score`.
+- **License vs lifecycle are separate.** The license chip always states open / source-available (BSL) / proprietary. A distinct **Fading / EOL** chip marks tools losing momentum or archived (Chef, Puppet, Salt, Terrascan), so every card states open-vs-paid on its own, never hidden behind a lifecycle label.
 
 Scores are indicative and method-transparent, not authoritative. Every data point links to its source.
 

@@ -4,7 +4,7 @@ recurring author concerns per tool, grouped by pipeline stage, with source links
 and each tool's popularity/sentiment scores for context."""
 import json, os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-tools = json.load(open(os.path.join(ROOT, "data", "tools.json")))
+tools = json.load(open(os.path.join(ROOT, "data", "tools.json"), encoding="utf-8"))
 
 STAGE_ORDER = ["provision", "orchestrate", "configure", "deliver", "reconcile"]
 STAGE_TITLE = {
