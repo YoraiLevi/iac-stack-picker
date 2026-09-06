@@ -225,27 +225,94 @@ abbr[title]{text-decoration:underline dotted var(--amber-d);text-underline-offse
 .node:focus-visible{outline:3px solid var(--green);outline-offset:2px}
 @media(prefers-reduced-motion:reduce){.node:hover{transform:none}}
 @media(max-width:640px){.tree-wrap{padding:8px 10px 20px}.node{width:110px}}
+/* ===== a11y + visibility overhaul v3 ===== */
+:root{--ink3:#5c6157;--lc:#5c6157;--green-d:#3f6d28}
+.node:focus-visible,.selbtn:focus-visible,.btn:focus-visible,.tab:focus-visible,.close:focus-visible,.popclose:focus-visible,#chips .x:focus-visible,.gloss summary:focus-visible{outline:3px solid var(--green-d);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.node:hover,.card:hover{transform:none}}
+.btn{min-height:44px}
+.btn.primary{background:var(--green-d)}.btn.primary:hover{background:#356021}
+.tab.on{background:var(--green-d);border-color:var(--green-d)}
+.close{min-width:44px;min-height:44px;display:inline-grid;place-items:center;float:none;position:absolute;top:14px;right:16px}
+#chips .x{min-width:28px;min-height:28px;display:inline-grid;place-items:center;font-size:16px}
+.gloss summary{min-height:44px;display:flex;align-items:center}
+/* license: text + icon, dark on pale (never colour-only) */
+.lictag{font-size:.875rem;padding:4px 11px;gap:6px}.lictag svg{width:15px;height:15px}
+.lictag.lopen{color:#3f6d28;background:#eef4e8;border-color:#bcd6ab}.lictag.lopen svg{fill:#3f6d28}
+.lictag.lbsl{color:#9a5b12;background:#fff3df;border-color:#e9c48a}.lictag.lbsl svg{fill:#9a5b12}
+.lictag.lcomm{color:#1f5aa0;background:#edf4fc;border-color:#a9c9ec}.lictag.lcomm svg{fill:#1f5aa0}
+.lictag.lfade{color:#a5303f;background:#fdeaed;border-color:#eeb3bc}.lictag.lfade svg{fill:#a5303f}
+/* nodes: larger, self-labelling license chip */
+.node{width:150px;min-height:44px}
+.node-name{font-size:.9375rem;line-height:1.25}
+.node-meta{font-size:.875rem;gap:7px;flex-wrap:wrap;justify-content:center}
+.node-meta .ms{font-variant-numeric:tabular-nums;font-weight:700;color:var(--ink)}
+.lic-chip{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:8px;font-size:.8125rem;line-height:1.2;font-weight:700;border:1px solid;max-width:100%;text-align:center}
+.lic-chip svg{width:14px;height:14px;flex:none}
+.lic-chip.lopen{color:#3f6d28;background:#eef4e8;border-color:#bcd6ab}.lic-chip.lopen svg{fill:#3f6d28}
+.lic-chip.lbsl{color:#9a5b12;background:#fff3df;border-color:#e9c48a}.lic-chip.lbsl svg{fill:#9a5b12}
+.lic-chip.lcomm{color:#1f5aa0;background:#edf4fc;border-color:#a9c9ec}.lic-chip.lcomm svg{fill:#1f5aa0}
+.lic-chip.lfade{color:#a5303f;background:#fdeaed;border-color:#eeb3bc}.lic-chip.lfade svg{fill:#a5303f}
+.node.sel::after{width:26px;height:26px;font-size:14px;top:-9px;right:-9px}
+/* mode pills: dark text on pale fill (was white on bright, fails 1.4.3) */
+.mode.pick,.pill.pick{background:#fbe6c4;color:#7a4a0f}
+.mode.combine,.pill.combine{background:#e2f0d6;color:#356021}
+.mode.addon,.pill.addon{background:#dcebfb;color:#194b86}
+/* tier connector: bold, solid, visible, labelled */
+.tier-link{height:58px;margin:2px 0}
+.tier-link::before{left:46px;top:2px;bottom:22px;width:6px;background:#557d38;opacity:1;border-radius:3px}
+.tier-link::after{content:"";left:38px;bottom:6px;width:0;height:0;border-left:11px solid transparent;border-right:11px solid transparent;border-top:15px solid #557d38;opacity:1;font-size:0}
+.tl-label{position:absolute;left:74px;top:50%;transform:translateY(-50%);font-size:.875rem;font-weight:700;color:#3f6d28}
+/* popover: wider, larger, readable */
+#nodepop{width:min(30rem,calc(100vw - 2rem));max-width:none;max-height:min(86vh,44rem);padding:22px 24px 20px;font-size:1rem;line-height:1.55}
+#nodepop .pop-one,#nodepop li,#nodepop .kv{max-width:64ch}
+.popclose{position:absolute;top:8px;right:8px;min-width:44px;min-height:44px;display:inline-grid;place-items:center;border:none;background:none;color:var(--ink2);font-size:26px;line-height:1;cursor:pointer;border-radius:10px;font-family:inherit}
+.popclose:hover{background:var(--panel2)}
+.pop-head{padding-right:40px}
+.pop-name{font-size:1.375rem}
+.pop-one{font-size:1.0625rem;color:var(--ink2)}
+#nodepop .metrics{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;margin-top:14px}
+#nodepop .metric .lab{font-size:.875rem}#nodepop .metric .lab b{font-size:1rem}
+#nodepop h4{font-size:.9375rem;color:var(--ink);text-transform:none;letter-spacing:0;margin:16px 0 6px}
+#nodepop li{font-size:1rem;line-height:1.5}#nodepop .kv{font-size:.9375rem}
+.selbtn{min-height:44px;font-size:.9375rem}
+.selbtn[aria-pressed="true"]{background:var(--green-d);border-color:var(--green-d)}
+/* metric bars: solid fill, thicker, contrasty track */
+.bar{height:12px;background:#c9ccc0}
+.pop>i{background:var(--green-d)}.sen>i{background:var(--green-d)}
+.metric .lab{font-size:.875rem;color:var(--ink2)}.metric .lab b{font-size:1rem}
+.metric .cap{font-size:.8125rem;color:var(--ink2);margin-top:5px;line-height:1.4}
+.metric .ticks{display:flex;justify-content:space-between;font-size:.75rem;color:var(--ink3);margin-top:3px}
+.gdef{color:var(--ink2)}
+@media(max-width:560px){#nodepop .metrics{grid-template-columns:1fr}}
+@media(max-width:640px){.node{width:132px}}
+#nodepop ul.kv{list-style:none;padding:0;margin:12px 0 2px;display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--ink2)}
+#nodepop ul.kv li{margin:0}#nodepop ul.kv b{color:var(--ink)}
+#nodepop .pros,#nodepop .cons{list-style:none;padding-left:2px;margin:4px 0 6px}
+#nodepop .pros li,#nodepop .cons li{position:relative;padding-left:18px;margin:6px 0}
+#nodepop .pros li::before{content:"\25B2";position:absolute;left:0;top:5px;font-size:10px;color:#2f6d17}
+#nodepop .cons li::before{content:"\25BC";position:absolute;left:0;top:5px;font-size:10px;color:#b3283a}
+#nodepop a{color:#356021}
 </style>
 </head>
 <body>
 <header>
   <h1>Spec your IaC stack like an RPG talent tree</h1>
   <div class="sub">Five tiers, top to bottom. Each slot is a talent node: <b>PICK ONE</b> forces a single choice between rivals,
-  <b>COMBINE</b> lets you stack allies. Every node shows <b>popularity</b> (GitHub stars) and
-  <b>sentiment</b> as a raw <b>favorable / total</b> count of 2023-2026 opinions from HN, Reddit, YouTube and blogs.
-  Hover or focus any node for its details, license, sources and docs. Allocate your picks, then export your build as SVG + JSON.</div>
+  <b>COMBINE</b> lets you stack allies. Every node shows its <b>GitHub stars</b> and <b>license</b> at a glance.
+  Select a node, or open its details, to see <b>favorable sentiment</b> (a raw <b>favorable / total</b> count of 2023-2026 opinions from HN, Reddit, YouTube and blogs), pros, concerns and docs.
+  Allocate your picks, then export your build as SVG + JSON.</div>
   <div class="legend">
     <span><b>SLOT:</b>
-      <span class="pill" style="background:var(--pick);color:#fff">PICK ONE</span>
-      <span class="pill" style="background:var(--combine);color:#fff">COMBINE</span>
-      <span class="pill" style="background:var(--addon);color:#fff">ADD-ON</span></span>
+      <span class="pill pick">PICK ONE</span>
+      <span class="pill combine">COMBINE</span>
+      <span class="pill addon">ADD-ON</span></span>
     <span><b>LICENSE:</b>
       <span class="lictag lopen"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6h2c0-1.66 1.34-3 3-3s3 1.34 3 3v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm0 12H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>Open source</span>
       <span class="lictag lbsl"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6z"/></svg>Source-available</span>
       <span class="lictag lcomm"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6z"/></svg>Proprietary</span></span>
     <span><b>LIFECYCLE:</b>
       <span class="lictag lfade"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>Fading / EOL</span></span>
-    <span class="muted">hover a node for details &middot; dotted terms show their definition on hover</span>
+    <span class="muted">select a node to add it &middot; open details for sentiment, pros and concerns &middot; dotted terms show their meaning</span>
   </div>
   <details class="gloss"><summary>Glossary &mdash; what do IaC, HCL, TACOS, GitOps, CRD, KMS&hellip; actually mean?</summary>
     <div id="glossBody" class="gloss-grid"></div></details>
@@ -6670,37 +6737,52 @@ function badgeInner(t){
     : `<span class="bdg" style="background:${bg}"><span class="mono" style="color:${fg}">${esc(t.mono)}</span></span>`;
 }
 function node(t){
-  const m=t.metrics||{}, li=LIC_INFO[t.license]||{cls:"lcomm",label:t.license};
-  const stars=m.stars!=null?fmtStars(m.stars)+"\u2605":"n/a";
+  const m=t.metrics||{}, li=LIC_INFO[t.license]||{cls:"lcomm",label:t.license,icon:"lock"};
+  const starsN=m.stars!=null?fmtStars(m.stars):null;
+  const starTxt=starsN?starsN+" stars":"n/a stars";
   const fade=t.lifecycle==="fade", on=isSelected(t.id);
-  return `<button class="node${on?" sel":""}" data-id="${esc(t.id)}" data-hub="${esc(slotKey(t))}" aria-pressed="${on}" aria-label="${esc(t.name+": "+t.oneliner)}">
-    <span class="node-badge">${badgeInner(t)}</span>
+  const alabel=`${t.name}: ${t.oneliner}. Licence: ${li.label}. ${starsN?m.stars.toLocaleString("en-US")+" GitHub stars":"No public star data"}.${fade?" Fading or end of life.":""}${on?" Currently in your build.":""}`;
+  return `<button class="node${on?" sel":""}" data-id="${esc(t.id)}" data-hub="${esc(slotKey(t))}" aria-pressed="${on}" aria-label="${esc(alabel)}">
+    <span class="node-badge" aria-hidden="true">${badgeInner(t)}</span>
     <span class="node-name">${esc(t.name)}</span>
-    <span class="node-meta"><span class="ms">${stars}</span><span class="lic-dot ${li.cls}" title="${esc(li.label)}"></span>${fade?`<span class="fade-dot" title="Fading / EOL"></span>`:""}</span>
+    <span class="node-meta"><span class="ms">${esc(starTxt)}</span></span>
+    <span class="lic-chip ${li.cls}" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="${LIC_ICON[li.icon]}"/></svg>${esc(li.label)}</span>
+    ${fade?`<span class="lic-chip lfade" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="${LIC_ICON.warn}"/></svg>Fading / EOL</span>`:""}
   </button>`;
 }
 function buildDetail(t){
   const sen=t.sentiment||{}, m=t.metrics||{};
-  const popVal=m.stars!=null?`${fmtStars(m.stars)} \u2605`:"n/a";
-  const senVal=sen.n?`${sen.pos} / ${sen.n}`:"\u2013";
-  const senW=sen.n?Math.round(sen.pos/sen.n*100):0;
+  const popNum=m.stars!=null?m.stars.toLocaleString("en-US"):null;
+  const band=m.stars==null?"":m.stars>=100000?"100k+ stars":m.stars>=10000?"10k\u201399,999 stars":m.stars>=1000?"1k\u20139,999 stars":"under 1,000 stars";
+  const senPct=sen.n?Math.round(sen.pos/sen.n*100):null;
+  const senW=senPct!=null?senPct:0;
   const popW=m.stars>0?Math.max(4,Math.round(Math.log10(m.stars)/Math.log10(Math.max(10,MAXSTARS))*100)):0;
   const li=LIC_INFO[t.license]||{label:t.license,cls:"lcomm",icon:"lock"};
   const fade=t.lifecycle==="fade", on=isSelected(t.id);
-  return `<div class="pop-head">${badge(t)}<div><div class="pop-name">${esc(t.name)}</div>
+  return `<button class="popclose" aria-label="Close tool details">\u00d7</button>
+    <div class="pop-head">${badge(t)}<div><div class="pop-name" id="popname">${esc(t.name)}</div>
     <div class="tagrow"><span class="lictag ${li.cls}"><svg viewBox="0 0 24 24"><path d="${LIC_ICON[li.icon]}"/></svg>${esc(li.label)}</span>${
       fade?`<span class="lictag lfade"><svg viewBox="0 0 24 24"><path d="${LIC_ICON.warn}"/></svg>Fading / EOL</span>`:""}</div></div></div>
     <p class="pop-one">${gloss(t.oneliner)}</p>
     <div class="metrics">
-      <div class="metric"><div class="lab" title="Bar is relative to the most-starred tool in this set (stars only, log scale); number is exact stars"><span>Popularity</span><b>${popVal}</b></div><div class="bar pop"><i style="width:${popW}%"></i></div></div>
-      <div class="metric"><div class="lab" title="Favorable share of a ~20-take sample; a sample, not a census"><span>Sentiment</span><b>${senVal}</b></div><div class="bar sen"><i style="width:${senW}%"></i></div><div class="counts">${sencepts(sen)}</div></div>
+      <div class="metric">
+        <div class="lab"><span>GitHub stars</span><b>${popNum?esc(popNum):"n/a"}</b></div>
+        <div class="bar pop" role="img" aria-label="${popNum?esc(popNum+" GitHub stars ("+band+")"):"No public star data"}"><i style="width:${popW}%"></i></div>
+        <div class="cap">${popNum?"Log scale vs the most-starred tool here \u00b7 "+esc(band):"No public repository"}</div>
+      </div>
+      <div class="metric">
+        <div class="lab"><span>Favorable sentiment</span><b class="senpct">${senPct!=null?senPct+"%":"\u2013"}</b></div>
+        <div class="bar sen" role="img" aria-label="${senPct!=null?senPct+" percent favorable, "+sen.pos+" of "+sen.n+" sampled opinions":"No sentiment sample"}"><i style="width:${senW}%"></i></div>
+        <div class="ticks" aria-hidden="true"><span>0%</span><span>50%</span><span>100%</span></div>
+        <div class="cap">${senPct!=null?esc(`${sen.pos} favorable \u00b7 ${sen.neu} neutral \u00b7 ${sen.neg} unfavorable of ${sen.n} sampled 2023\u20132026 opinions`):"No sentiment sample"}</div>
+      </div>
     </div>
-    <button class="selbtn" aria-pressed="${on}">${on?"\u2713 In build":"\uFF0B Add to build"}</button>
+    <button class="selbtn" aria-pressed="${on}">${on?"Remove from build":"\uFF0B Add to build"}</button>
     <ul class="kv">
-      ${m.commits_90d!=null?`<span><b>${m.commits_90d}</b> commits/90d</span>`:""}
-      ${m.latest_release?`<span>rel <b>${esc(m.latest_release)}</b></span>`:""}
-      ${t.docs?`<span><a href="${urlOK(t.docs)}" target="_blank" rel="noopener noreferrer">starter guide \u2197</a></span>`:""}
-      ${t.repo?`<span><a href="https://github.com/${esc(t.repo)}" target="_blank" rel="noopener noreferrer">${esc(t.repo)}</a></span>`:`<span class="u">no public repo</span>`}
+      ${m.commits_90d!=null?`<li><b>${m.commits_90d}</b> commits/90d</li>`:""}
+      ${m.latest_release?`<li>rel <b>${esc(m.latest_release)}</b></li>`:""}
+      ${t.docs?`<li><a href="${urlOK(t.docs)}" target="_blank" rel="noopener noreferrer">starter guide \u2197</a></li>`:""}
+      ${t.repo?`<li><a href="https://github.com/${esc(t.repo)}" target="_blank" rel="noopener noreferrer">${esc(t.repo)}</a></li>`:`<li class="u">no public repo</li>`}
     </ul>
     ${sen.summary?`<h4>What the chatter says</h4><div>${gloss(sen.summary)}</div>`:""}
     ${(t.pros&&t.pros.length)?`<h4>What users like</h4><ul class="pros">${
@@ -6719,7 +6801,7 @@ function render(){
   let drawn=false; const gSeen=new Set();
   for(const [skey,num,label,accent] of STAGES){
     const tools=TOOLS.filter(t=>t.stage===skey);if(!tools.length)continue;
-    if(drawn){const lk=document.createElement("div");lk.className="tier-link";app.appendChild(lk);}
+    if(drawn){const lk=document.createElement("div");lk.className="tier-link";lk.innerHTML='<span class="tl-label">Next tier \u2193</span>';app.appendChild(lk);}
     const slots=[];const seen=new Set();
     for(const t of tools){if(!seen.has(t.slot)){seen.add(t.slot);slots.push(t.slot);}}
     const info=TIER_INFO[skey]||{level:"TIER "+num,role:"",how:""};
@@ -6747,7 +6829,7 @@ function render(){
 function setNodeSel(n,on){ if(!n)return; n.classList.toggle("sel",on); n.setAttribute("aria-pressed",on?"true":"false"); }
 function syncPop(id){ const p=document.getElementById("nodepop");
   if(p.classList.contains("show") && p.dataset.for===id){ const sb=p.querySelector(".selbtn");
-    if(sb){ const on=isSelected(id); sb.setAttribute("aria-pressed",on?"true":"false"); sb.textContent=on?"\u2713 In build":"\uFF0B Add to build"; } } }
+    if(sb){ const on=isSelected(id); sb.setAttribute("aria-pressed",on?"true":"false"); sb.textContent=on?"Remove from build":"\uFF0B Add to build"; } } }
 function toggle(id,el){
   const t=BYID[id];const k=slotKey(t);SEL[k]=SEL[k]||new Set();
   const has=SEL[k].has(id);
@@ -6775,7 +6857,9 @@ function positionPop(n,pop){
 function showPop(n){
   clearTimeout(_popTimer);
   const pop=document.getElementById("nodepop");const t=BYID[n.dataset.id];if(!t)return;
-  pop.innerHTML=buildDetail(t);pop.dataset.for=t.id;pop.classList.add("show");
+  pop.innerHTML=buildDetail(t);pop.dataset.for=t.id;pop.classList.add("show");pop.setAttribute("aria-labelledby","popname");
+  const cl=pop.querySelector(".popclose");
+  if(cl)cl.addEventListener("click",()=>{pop.classList.remove("show");n.focus();});
   const sb=pop.querySelector(".selbtn");
   if(sb)sb.addEventListener("click",()=>{const nn=document.querySelector(`.node[data-id="${CSS.escape(t.id)}"]`);toggle(t.id,nn);});
   positionPop(n,pop);
