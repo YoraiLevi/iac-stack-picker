@@ -344,6 +344,10 @@ h1{margin:0 0 12px;font-size:clamp(28px,2.4vw,40px);line-height:1.12}
 .build-cols ul{margin:0;padding-left:18px}
 .build-cols li{font-size:14px;line-height:1.45;margin-bottom:5px;color:var(--ink2)}
 .build-count{display:block;margin-top:12px;font-size:13px;color:var(--ink3);font-weight:600}
+.pop-compare{margin:2px 0 14px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--panel2,#f4f6f1);display:flex;flex-direction:column;gap:7px}
+.cmp-row{display:flex;gap:10px;font-size:14px;line-height:1.42;color:var(--ink2)}
+.cmp-lab{flex:none;width:96px;font-weight:800;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase;padding-top:2px}
+.cmp-lab.s{color:#3f6d28}.cmp-lab.w{color:#9a5b12}.cmp-lab.c{color:#1f5aa0}
 </style>
 </head>
 <body>
@@ -2852,7 +2856,7 @@ h1{margin:0 0 12px;font-size:clamp(28px,2.4vw,40px);line-height:1.12}
   "stage": "orchestrate",
   "stage_num": "2",
   "slot": "Test",
-  "slot_mode": "pick",
+  "slot_mode": "combine",
   "license": "open",
   "oneliner": "Unit-test modules with mocks using the built-in terraform test, no extra tool",
   "brand": "#7B42BC",
@@ -2967,7 +2971,7 @@ h1{margin:0 0 12px;font-size:clamp(28px,2.4vw,40px);line-height:1.12}
   "stage": "orchestrate",
   "stage_num": "2",
   "slot": "Test",
-  "slot_mode": "pick",
+  "slot_mode": "combine",
   "license": "open",
   "oneliner": "Spin up real infra in Go tests, assert it works, then tear it down",
   "brand": "#00ADD8",
@@ -6834,7 +6838,7 @@ function renderGlossary(){
   const el=document.getElementById("glossBody");if(!el)return;
   el.innerHTML=GLOSSARY.map(([t,f,d])=>`<div class="g"><b>${esc(t)}</b> <i>${esc(f)}</i><br>${esc(d)}</div>`).join("");
 }
-let TOOLS=[], ICONS={}, BYID={}, SEL={}, MAXSTARS=1; // SEL[slotKey]=Set(id)
+let TOOLS=[], ICONS={}, BYID={}, SEL={}, SLOTMODE={}, MAXSTARS=1; // SEL[slotKey]=Set(id)
 
 const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const urlOK=u=>{u=String(u==null?"":u).trim();return /^(https?:|mailto:)/i.test(u)?u:"#";};
@@ -6894,6 +6898,58 @@ function node(t){
     ${fade?`<span class="lic-chip lfade" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="${LIC_ICON.warn}"/></svg>Fading / EOL</span>`:""}
   </button>`;
 }
+const COMPARE={
+ terraform:{edge:"Largest provider and module ecosystem; the default for existing estates.",watch:"BUSL 1.1 since v1.6 (licensor IBM), so not OSI open source; exclusive with OpenTofu per state.",combines:["crossplane"]},
+ opentofu:{edge:"Drop-in HCL fork under MPL-2.0 with vendor-neutral CNCF governance.",watch:"Smaller ecosystem momentum than Terraform; exclusive with Terraform per state.",combines:["crossplane"]},
+ pulumi:{edge:"Real languages (TypeScript, Python, Go, .NET) with loops, types, and unit-testable infra.",watch:"Smaller module ecosystem and a different mental model from HCL.",combines:["terraform","opentofu"]},
+ crossplane:{edge:"Continuous reconciliation with the cluster as control plane, auto-correcting drift.",watch:"Needs an existing Kubernetes cluster, so a small TF/OpenTofu layer still bootstraps cluster zero.",combines:["terraform","opentofu"]},
+ cloudformation:{edge:"AWS-managed state and change sets; no state file to host.",watch:"AWS-only, and stacks can wedge in UPDATE_ROLLBACK_FAILED.",combines:["aws-cdk"]},
+ "aws-cdk":{edge:"Author AWS infra in real languages; synthesizes to CloudFormation.",watch:"Not an alternative to CloudFormation: it deploys through it, so you own both layers.",combines:["cloudformation"]},
+ "azure-bicep":{edge:"Clean typed DSL that transpiles to ARM JSON, no raw JSON authoring.",watch:"Azure-only; a transparent layer over ARM, which stays the execution engine.",combines:[]},
+ "gcp-config-connector":{edge:"Manages GCP as Kubernetes CRDs reconciled continuously in-cluster.",watch:"GCP-only and needs a cluster: a different control plane from template-and-deploy CLIs.",combines:[]},
+ terragrunt:{edge:"Wrapper that invokes terraform/tofu with generated backend/provider config and run-all.",watch:"Owns the invocation; overlaps with TACOS platforms that also orchestrate runs.",combines:["terramate"]},
+ terramate:{edge:"Orchestrator with Git change detection and code generation into plain, reviewable HCL.",watch:"Not a wrapper: needs a runner, and its value grows with many stacks.",combines:["terragrunt"]},
+ atlantis:{edge:"Self-hosted and PR-driven; your backend and credentials stay yours.",watch:"A server you operate; one platform owns state and locking per workspace.",combines:["terragrunt"]},
+ "hcp-terraform":{edge:"Hosted runs with remote state, RBAC, and graded policy; free tier includes a small policy set.",watch:"Per-resource billing scales with estate size; one platform owns state per workspace.",combines:["terragrunt","sentinel","opa-rego"]},
+ spacelift:{edge:"OpenTofu and Terraform first-class, OPA policy, private or self-hosted workers.",watch:"Private worker pools are paid and concurrency equals worker count; one platform owns state per workspace.",combines:["terragrunt","opa-rego"]},
+ env0:{edge:"Managed pipelines with cost limits, TTLs, and self-service environments.",watch:"Bring your own remote backend for Terragrunt; one platform owns state per workspace.",combines:["terragrunt"]},
+ scalr:{edge:"Managed Terraform with an org/workspace hierarchy and layered policy.",watch:"Its backend must be disabled for Terragrunt run-all; one platform owns state per workspace.",combines:["terragrunt","opa-rego"]},
+ "opa-rego":{edge:"Portable Rego: the same policies also guard Kubernetes admission and CI, not just Terraform.",watch:"Advisory or mandatory only; no hard, no-override tier like Sentinel.",combines:["sentinel"]},
+ sentinel:{edge:"Three enforcement levels including hard-mandatory with no override path.",watch:"HashiCorp-product-locked; leaving HCP Terraform means rewriting into Rego.",combines:["opa-rego"]},
+ "terraform-tofu-test":{edge:"In-repo assertions with mocks and no Go toolchain; ships in the CLI.",watch:"Unit-level; lighter than real-infrastructure integration tests.",combines:["terratest"]},
+ terratest:{edge:"Spins up real infrastructure in Go tests and asserts it works end to end.",watch:"Slower and needs a Go toolchain; complements, not replaces, unit tests.",combines:["terraform-tofu-test"]},
+ checkov:{edge:"Deep IaC policy coverage with Python or YAML custom policies.",watch:"IaC-focused; pair it with an image and CVE scanner.",combines:["trivy"]},
+ trivy:{edge:"One scanner for IaC misconfig, container CVEs, and leaked secrets.",watch:"Broad, but shallower custom-policy authoring than Checkov.",combines:["checkov"]},
+ kics:{edge:"Broad query pack across Terraform, CloudFormation, Kubernetes, and Ansible in one pass.",watch:"Smaller community than Checkov or Trivy.",combines:[]},
+ ansible:{edge:"Agentless push over SSH with YAML playbooks; pairs with Packer to bake images.",watch:"One config owner per host; the push model can drift between runs.",combines:["terraform","packer"]},
+ chef:{edge:"Agent-based convergence in Ruby for large, long-lived fleets.",watch:"Moving to licensed downloads; one config owner per host.",combines:[]},
+ puppet:{edge:"Declarative agent that continuously enforces desired state.",watch:"Public OSS packaging withdrawn (see the OpenVox fork); one config owner per host.",combines:[]},
+ salt:{edge:"Configuration plus fast real-time remote execution across thousands of nodes.",watch:"Now under Broadcom; one config owner per host.",combines:[]},
+ packer:{edge:"Bake one golden image and boot it immutably everywhere; can run Ansible during the build.",watch:"BSL-licensed, and it covers image build only, not runtime config.",combines:["ansible"]},
+ "cloud-init":{edge:"First-boot configuration via user-data on effectively any cloud VM.",watch:"First boot only; not ongoing fleet management.",combines:[]},
+ "hashicorp-vault":{edge:"Dynamic, short-lived secrets and encryption-as-a-service.",watch:"BSL-licensed and an operational service to run (or use OpenBao).",combines:[]},
+ sops:{edge:"Encrypt secret files in Git, decrypt with KMS or age at deploy time.",watch:"Key custody is a single point of failure; no dynamic secrets.",combines:[]},
+ "external-secrets":{edge:"Syncs cloud secret stores into native Kubernetes Secrets on an interval.",watch:"Runs with broad privileges: lock down SecretStores.",combines:[]},
+ "sealed-secrets":{edge:"Encrypt with a public key, decrypt only in-cluster; safe to commit and great air-gapped.",watch:"Key loss is terminal without a backup; no dynamic secrets.",combines:[]},
+ "cloud-kms-sm":{edge:"Managed cloud secret store plus KMS for envelope encryption.",watch:"Cloud-vendor-specific and usage-priced.",combines:[]},
+ "github-actions":{edge:"Huge marketplace, and CI lives in the same repo as the code.",watch:"Vendor-hosted minutes; heavy workflows can get pricey.",combines:["argo-workflows","tekton"]},
+ "gitlab-ci-cd":{edge:"One integrated platform from lint to deploy, with a strong offline story.",watch:"Best value inside GitLab; heavier to self-host.",combines:[]},
+ jenkins:{edge:"Scriptable to run virtually any pipeline via plugins; fully self-hosted.",watch:"Plugin sprawl and maintenance burden; dated UX.",combines:[]},
+ circleci:{edge:"Fast caching and parallelism with minimal server upkeep.",watch:"Vendor-hosted; another external dependency.",combines:[]},
+ tekton:{edge:"Pipelines as Kubernetes CRDs that run on your own cluster.",watch:"An in-cluster building block, usually paired with an outer trigger or SaaS CI.",combines:["github-actions","argo-cd"]},
+ "argo-workflows":{edge:"DAG and batch jobs as pods on Kubernetes.",watch:"An in-cluster engine, not a full source-hosted CI on its own.",combines:["argo-cd","github-actions"]},
+ woodpecker:{edge:"Lightweight self-hosted CI for small teams and homelabs.",watch:"Smaller ecosystem and fewer integrations.",combines:[]},
+ "argo-cd":{edge:"Rich diff UI and native Argo Rollouts health; strong for app teams.",watch:"Coexists with Flux only on disjoint resources; no object may have two owners.",combines:["argo-rollouts","helm","kustomize"]},
+ "flux-cd":{edge:"GitOps controllers with real Helm release semantics; pairs with Flagger.",watch:"Coexists with Argo CD only on disjoint resources.",combines:["flagger","helm","kustomize"]},
+ "argo-rollouts":{edge:"Canary and blue-green with metric analysis; Argo CD renders its health natively.",watch:"Controller installs per workload cluster; best paired with Argo CD.",combines:["argo-cd"]},
+ flagger:{edge:"Non-invasive canaries via one Canary CR; a Flux subproject.",watch:"Best paired with Flux, and needs a service mesh or ingress to shift traffic.",combines:["flux-cd"]},
+ helm:{edge:"Versioned, parameterized charts with real release upgrade semantics.",watch:"Go templating gets complex; often combined with Kustomize overlays.",combines:["kustomize"]},
+ kustomize:{edge:"Template-free per-environment overlays on plain YAML; built into kubectl.",watch:"No packaging or versioning; pair with Helm for third-party charts.",combines:["helm"]},
+ jsonnet:{edge:"Generate large, DRY config with functions and variables.",watch:"Another language to learn; heavier than plain overlays.",combines:[]},
+ backstage:{edge:"Open, extensible catalog, scaffolder, and TechDocs with a large adopter base.",watch:"Self-hosted TypeScript app you build and maintain; slowest time to value.",combines:["humanitec"]},
+ port:{edge:"Config-driven SaaS portal with blueprints and scorecards; fast to stand up.",watch:"Commercial per-seat above a limited free tier.",combines:["humanitec"]},
+ humanitec:{edge:"A platform orchestrator (a backend) consuming Score specs; sits behind a portal.",watch:"Not a portal rival: complementary to Backstage or Port, not a catalog itself.",combines:["backstage","port"]}
+};
 function buildDetail(t){
   const sen=t.sentiment||{}, m=t.metrics||{};
   const popNum=m.stars!=null?m.stars.toLocaleString("en-US"):null;
@@ -6903,11 +6959,22 @@ function buildDetail(t){
   const popW=m.stars>0?Math.max(4,Math.round(Math.log10(m.stars)/Math.log10(Math.max(10,MAXSTARS))*100)):0;
   const li=LIC_INFO[t.license]||{label:t.license,cls:"lcomm",icon:"lock"};
   const fade=t.lifecycle==="fade", on=isSelected(t.id), c=costOf(t);
+  const cm=COMPARE[t.id]||{};
+  let cmpHtml="";
+  {const cnames=(cm.combines||[]).map(id=>BYID[id]&&BYID[id].name).filter(Boolean).map(esc);
+   if(cm.edge||cm.watch||cnames.length){
+     cmpHtml='<div class="pop-compare">'+
+       (cm.edge?'<div class="cmp-row"><span class="cmp-lab s">Best at</span><span>'+gloss(cm.edge)+'</span></div>':'')+
+       (cm.watch?'<div class="cmp-row"><span class="cmp-lab w">Watch for</span><span>'+gloss(cm.watch)+'</span></div>':'')+
+       (cnames.length?'<div class="cmp-row"><span class="cmp-lab c">Combines with</span><span>'+cnames.join(", ")+'</span></div>':'')+
+       '</div>';
+   }}
   return `<button class="popclose" aria-label="Close tool details">\u00d7</button>
     <div class="pop-head">${badge(t)}<div><div class="pop-name" id="popname">${esc(t.name)}</div>
     <div class="tagrow"><span class="cost ${c.cls} costbig" title="${esc(c.cap)}">${c.label}</span><span class="lictag ${li.cls}"><svg viewBox="0 0 24 24"><path d="${LIC_ICON[li.icon]}"/></svg>${esc(li.label)}</span>${
       fade?`<span class="lictag lfade"><svg viewBox="0 0 24 24"><path d="${LIC_ICON.warn}"/></svg>Fading / EOL</span>`:""}${c.src?`<a class="pricesrc" href="${urlOK(c.src)}" target="_blank" rel="noopener noreferrer" title="Pricing verified ${PRICING_ASOF}">pricing \u00b7 ${PRICING_ASOF} \u2197</a>`:""}</div></div></div>
     <p class="pop-one">${gloss(t.oneliner)}</p>
+    ${cmpHtml}
     <div class="metrics">
       <div class="metric">
         <div class="lab"><span>GitHub stars</span><b>${popNum?esc(popNum):"n/a"}</b></div>
@@ -6976,7 +7043,7 @@ function render(){
     const roleH=glossV(info.role,gSeen), howH=glossV(info.how,gSeen);
     let branches="";
     for(const slot of slots){
-      const items=tools.filter(t=>t.slot===slot);const mode=items[0].slot_mode;
+      const items=tools.filter(t=>t.slot===slot);const mode=items[0].slot_mode;SLOTMODE[slotKey(items[0])]=mode;
       const mlabel={pick:"PICK ONE",combine:"COMBINE",addon:"ADD-ON"}[mode];
       const mhint={pick:"choose one",combine:"stack several",addon:"optional"}[mode];const mwhy=slotWhy(slot);
       branches+=`<li><span class="tnode thub"><span class="mode ${mode}">${mlabel}</span><span class="hub-title">${glossV(slot,gSeen)}</span>${mwhy?`<span class="hub-why">${glossV(mwhy,gSeen)}</span>`:""}<span class="hub-hint">${mhint}</span></span>
@@ -7000,7 +7067,7 @@ function syncPop(id){ const p=document.getElementById("nodepop");
 function toggle(id,el){
   const t=BYID[id];const k=slotKey(t);SEL[k]=SEL[k]||new Set();
   const has=SEL[k].has(id);
-  if(t.slot_mode==="pick"){
+  if((SLOTMODE[k]||t.slot_mode)==="pick"){
     document.querySelectorAll(`.node[data-hub="${CSS.escape(k)}"]`).forEach(n=>setNodeSel(n,false));
     SEL[k].clear();
     if(!has){SEL[k].add(id);setNodeSel(el,true);if(el)el.classList.add("pulse");}
