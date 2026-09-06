@@ -293,7 +293,10 @@ abbr[title]{text-decoration:underline dotted var(--amber-d);text-underline-offse
 .hub-why{font-size:.8125rem;color:var(--ink2);line-height:1.4;max-width:230px;margin-top:3px}
 .cost{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:7px;font-size:.75rem;font-weight:800;letter-spacing:.02em;line-height:1.25;white-space:nowrap}
 .cost.cfree{background:#3f6d28;color:#fff}
+.cost.cfreev{background:#0f6b6b;color:#fff}
+.cost.ctier{background:#1f5fa8;color:#fff}
 .cost.cpaid{background:#9a5b12;color:#fff}
+.pricesrc{font-size:.75rem;color:#356021;text-decoration:underline;white-space:nowrap;align-self:center}
 .cost.costbig{font-size:.8125rem;padding:4px 11px;border-radius:9px}
 </style>
 </head>
@@ -315,7 +318,9 @@ abbr[title]{text-decoration:underline dotted var(--amber-d);text-underline-offse
       <span class="lictag lcomm"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6z"/></svg>Proprietary</span></span>
     <span><b>COST:</b>
       <span class="cost cfree">Free &middot; self-host</span>
-      <span class="cost cpaid">Vendor-hosted</span></span>
+      <span class="cost cfreev">Free &middot; vendor</span>
+      <span class="cost ctier">Free tier</span>
+      <span class="cost cpaid">Paid</span></span>
     <span><b>LIFECYCLE:</b>
       <span class="lictag lfade"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>Fading / EOL</span></span>
     <span class="muted">select a node to add it &middot; open details for sentiment, pros and concerns &middot; dotted terms show their meaning</span>
@@ -6688,12 +6693,33 @@ const SLOT_WHY={
 };
 const SLOT_WHY_N={};for(const k in SLOT_WHY)SLOT_WHY_N[k.replace(/[^a-z0-9]+/gi,"").toLowerCase()]=SLOT_WHY[k];
 function slotWhy(s){return SLOT_WHY_N[String(s).replace(/[^a-z0-9]+/gi,"").toLowerCase()]||"";}
-const COST={
- open:{free:true,short:"Free",label:"Free \u00b7 self-host",cls:"cfree"},
- bsl:{free:true,short:"Free",label:"Free \u00b7 self-host",cls:"cfree"},
- comm:{free:false,short:"Vendor",label:"Vendor-hosted",cls:"cpaid"},
+const COSTMETA={
+ selfhost:{short:"Free",label:"Free \u00b7 self-host",cls:"cfree",free:true,cap:"Free and self-hostable at no licence cost"},
+ freev:{short:"Free",label:"Free \u00b7 vendor",cls:"cfreev",free:true,cap:"No charge for the service itself; you pay only for the cloud resources it creates"},
+ tier:{short:"Free tier",label:"Free tier",cls:"ctier",free:true,cap:"Has a free tier for small use; paid plans unlock scale"},
+ paid:{short:"Paid",label:"Paid",cls:"cpaid",free:false,cap:"No free self-serve tier; a paid plan or usage billing is required"},
 };
-function costOf(t){return COST[t.license]||COST.comm;}
+// Cost tier for proprietary (comm) tools, each verified from the vendor's own pricing page, as of Sep 2026.
+const PRICING_ASOF="Sep 2026";
+const PRICING={
+ "cloudformation":{tier:"freev",src:"https://aws.amazon.com/cloudformation/pricing/"},
+ "hcp-terraform":{tier:"tier",src:"https://developer.hashicorp.com/terraform/cloud-docs/overview"},
+ "spacelift":{tier:"tier",src:"https://spacelift.io/pricing"},
+ "env0":{tier:"tier",src:"https://www.env0.com/pricing"},
+ "scalr":{tier:"tier",src:"https://scalr.com/pricing"},
+ "sentinel":{tier:"paid",src:"https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement"},
+ "cloud-kms-sm":{tier:"paid",src:"https://aws.amazon.com/kms/pricing/"},
+ "github-actions":{tier:"tier",src:"https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions"},
+ "gitlab-ci-cd":{tier:"tier",src:"https://about.gitlab.com/pricing/"},
+ "circleci":{tier:"tier",src:"https://circleci.com/pricing/"},
+ "port":{tier:"tier",src:"https://www.port.io/pricing"},
+ "humanitec":{tier:"paid",src:"https://humanitec.com/pricing"},
+};
+function costOf(t){
+ if(t.license!=="comm")return Object.assign({tier:"selfhost",src:null},COSTMETA.selfhost);
+ const p=PRICING[t.id]||{tier:"paid",src:null};
+ return Object.assign({tier:p.tier,src:p.src||null},COSTMETA[p.tier]);
+}
 const GLOSSARY=[
  ["IaC","Infrastructure as Code","Manage servers and cloud with version-controlled files instead of clicking consoles."],
  ["HCL","HashiCorp Configuration Language","The declarative syntax Terraform, Packer and Vault are written in."],
@@ -6774,7 +6800,7 @@ function node(t){
   const starTxt=starsN?starsN+" stars":"n/a stars";
   const fade=t.lifecycle==="fade", on=isSelected(t.id);
   const c=costOf(t);
-  const alabel=`${t.name}: ${t.oneliner}. ${c.free?"Free to self-host":"Proprietary, vendor-hosted"}. Licence: ${li.label}. ${starsN?m.stars.toLocaleString("en-US")+" GitHub stars":"No public star data"}.${fade?" Fading or end of life.":""}`;
+  const alabel=`${t.name}: ${t.oneliner}. ${c.cap}. Licence: ${li.label}. ${starsN?m.stars.toLocaleString("en-US")+" GitHub stars":"No public star data"}.${fade?" Fading or end of life.":""}`;
   return `<button class="node${on?" sel":""}" data-id="${esc(t.id)}" data-hub="${esc(slotKey(t))}" aria-pressed="${on}" aria-label="${esc(alabel)}">
     <span class="node-badge" aria-hidden="true">${badgeInner(t)}</span>
     <span class="node-name">${esc(t.name)}</span>
@@ -6794,8 +6820,8 @@ function buildDetail(t){
   const fade=t.lifecycle==="fade", on=isSelected(t.id), c=costOf(t);
   return `<button class="popclose" aria-label="Close tool details">\u00d7</button>
     <div class="pop-head">${badge(t)}<div><div class="pop-name" id="popname">${esc(t.name)}</div>
-    <div class="tagrow"><span class="cost ${c.cls} costbig" title="${c.free?"Free and self-hostable":"Proprietary and vendor-hosted, not self-hostable. Most plans are paid; a few (CloudFormation, GitHub Actions) have a free tier."}">${c.label}</span><span class="lictag ${li.cls}"><svg viewBox="0 0 24 24"><path d="${LIC_ICON[li.icon]}"/></svg>${esc(li.label)}</span>${
-      fade?`<span class="lictag lfade"><svg viewBox="0 0 24 24"><path d="${LIC_ICON.warn}"/></svg>Fading / EOL</span>`:""}</div></div></div>
+    <div class="tagrow"><span class="cost ${c.cls} costbig" title="${esc(c.cap)}">${c.label}</span><span class="lictag ${li.cls}"><svg viewBox="0 0 24 24"><path d="${LIC_ICON[li.icon]}"/></svg>${esc(li.label)}</span>${
+      fade?`<span class="lictag lfade"><svg viewBox="0 0 24 24"><path d="${LIC_ICON.warn}"/></svg>Fading / EOL</span>`:""}${c.src?`<a class="pricesrc" href="${urlOK(c.src)}" target="_blank" rel="noopener noreferrer" title="Pricing verified ${PRICING_ASOF}">pricing \u00b7 ${PRICING_ASOF} \u2197</a>`:""}</div></div></div>
     <p class="pop-one">${gloss(t.oneliner)}</p>
     <div class="metrics">
       <div class="metric">
