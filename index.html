@@ -394,7 +394,7 @@ html{scroll-padding-top:66px}
 #nodepop .metric{min-width:0}
 #nodepop .cmp-row{min-width:0}
 #nodepop .cmp-row>span{min-width:0}
-#nodepop .selbtn{position:sticky;top:0;z-index:4;margin:2px 0 14px;background:var(--s2);color:#fff;border-color:var(--s2);font-size:13.5px;font-weight:800;padding:11px 12px;box-shadow:0 3px 10px rgba(28,29,27,.14)}
+#nodepop .selbtn{position:sticky;top:0;z-index:4;margin:12px 0 14px;background:var(--s2);color:#fff;border-color:var(--s2);font-size:13.5px;font-weight:800;padding:11px 12px;box-shadow:0 3px 10px rgba(28,29,27,.14)}
 #nodepop .selbtn:hover{filter:brightness(1.06)}
 #nodepop .selbtn[aria-pressed="true"]{background:#fff;color:var(--ink2);border-color:var(--line2);box-shadow:none}
 .cmb-logos{display:inline-flex;flex-wrap:wrap;gap:6px;align-items:center}
@@ -7048,7 +7048,7 @@ function buildDetail(t){
      cmpHtml='<div class="pop-compare">'+
        (cm.edge?'<div class="cmp-row"><span class="cmp-lab s">Best at</span><span>'+gloss(cm.edge)+'</span></div>':'')+
        (cm.watch?'<div class="cmp-row"><span class="cmp-lab w">Watch for</span><span>'+gloss(cm.watch)+'</span></div>':'')+
-       (cids.length?'<div class="cmp-row"><span class="cmp-lab c">Combines with</span><span class="cmb-logos">'+cids.map(id=>'<button type="button" class="cmb-logo" data-goto="'+esc(id)+'" title="'+esc(BYID[id].name)+'" aria-label="Go to '+esc(BYID[id].name)+'">'+cbadge(BYID[id])+'</button>').join('')+'</span></div>':'')+
+       (cids.length?'<div class="cmp-row"><span class="cmp-lab c">Combines with</span><span class="cmb-logos">'+cids.map(id=>'<button type="button" class="cmb-logo" style="background:'+esc(BYID[id].brand)+'" data-goto="'+esc(id)+'" title="'+esc(BYID[id].name)+'" aria-label="Go to '+esc(BYID[id].name)+'">'+cbadge(BYID[id])+'</button>').join('')+'</span></div>':'')+
        '</div>';
    }}
   return `<button class="popclose" aria-label="Close tool details">\u00d7</button>
