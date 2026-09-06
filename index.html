@@ -387,9 +387,25 @@ html{scroll-padding-top:66px}
 @media(max-width:640px){#nodepop{width:min(92vw,384px);top:52px}}
 @media(min-width:1100px){body.pop-open .page-shell{padding-left:calc(clamp(300px,27vw,384px) + 22px)}}
 </style>
+<style>
+#nodepop{overflow-wrap:anywhere}
+#nodepop .pop-head>div{min-width:0}
+#nodepop .tagrow{flex-wrap:wrap}
+#nodepop .metric{min-width:0}
+#nodepop .cmp-row{min-width:0}
+#nodepop .cmp-row>span{min-width:0}
+#nodepop .selbtn{position:sticky;top:0;z-index:4;margin:2px 0 14px;background:var(--s2);color:#fff;border-color:var(--s2);font-size:13.5px;font-weight:800;padding:11px 12px;box-shadow:0 3px 10px rgba(28,29,27,.14)}
+#nodepop .selbtn:hover{filter:brightness(1.06)}
+#nodepop .selbtn[aria-pressed="true"]{background:#fff;color:var(--ink2);border-color:var(--line2);box-shadow:none}
+.cmb-logos{display:inline-flex;flex-wrap:wrap;gap:6px;align-items:center}
+.cmb-logo{width:27px;height:27px;border-radius:7px;border:1px solid var(--line2);background:#fff;display:grid;place-items:center;overflow:hidden;cursor:pointer;padding:0;flex:none}
+.cmb-logo svg{width:17px;height:17px}
+.cmb-logo .mono{font-size:9px;line-height:1}
+.cmb-logo:hover{border-color:var(--s2);box-shadow:0 2px 8px rgba(28,29,27,.16)}
+</style>
 </head>
 <body>
-<header id="tbar" aria-label="Build toolbar"><div class="tbar-inner"><span class="tbar-brand">IaC Stack Picker</span><span id="count">0 tools</span><span class="tbar-spacer"></span><button class="btn ghost" type="button" id="loadBtn">Load JSON</button><button class="btn ghost" type="button" id="saveBtn">Save JSON</button><button class="btn ghost" type="button" id="resetBtn">Reset</button><button class="btn primary" type="button" id="buildBtn">View build &rarr;</button><input type="file" id="loadFile" accept="application/json,.json" hidden></div></header>
+<header id="tbar" aria-label="Build toolbar"><div class="tbar-inner"><span class="tbar-brand">IaC Stack Picker</span><span id="count">0 tools</span><span class="tbar-spacer"></span><button class="btn ghost" type="button" id="loadBtn">Paste JSON</button><button class="btn ghost" type="button" id="saveBtn">Copy JSON</button><button class="btn ghost" type="button" id="resetBtn">Reset</button><button class="btn primary" type="button" id="buildBtn">View build &rarr;</button></div></header>
 <main class="page-shell">
   <section class="masthead">
     <div class="masthead-copy">
@@ -6999,18 +7015,19 @@ function buildDetail(t){
   const fade=t.lifecycle==="fade", on=isSelected(t.id), c=costOf(t);
   const cm=COMPARE[t.id]||{};
   let cmpHtml="";
-  {const cnames=(CADJ[t.id]?[...CADJ[t.id]]:[]).map(id=>BYID[id]&&BYID[id].name).filter(Boolean).map(esc);
+  {const cids=(CADJ[t.id]?[...CADJ[t.id]]:[]).filter(id=>BYID[id]);const cnames=cids.map(id=>esc(BYID[id].name));
    if(cm.edge||cm.watch||cnames.length){
      cmpHtml='<div class="pop-compare">'+
        (cm.edge?'<div class="cmp-row"><span class="cmp-lab s">Best at</span><span>'+gloss(cm.edge)+'</span></div>':'')+
        (cm.watch?'<div class="cmp-row"><span class="cmp-lab w">Watch for</span><span>'+gloss(cm.watch)+'</span></div>':'')+
-       (cnames.length?'<div class="cmp-row"><span class="cmp-lab c">Combines with</span><span>'+cnames.join(", ")+'</span></div>':'')+
+       (cids.length?'<div class="cmp-row"><span class="cmp-lab c">Combines with</span><span class="cmb-logos">'+cids.map(id=>'<button type="button" class="cmb-logo" data-goto="'+esc(id)+'" title="'+esc(BYID[id].name)+'" aria-label="Go to '+esc(BYID[id].name)+'">'+cbadge(BYID[id])+'</button>').join('')+'</span></div>':'')+
        '</div>';
    }}
   return `<button class="popclose" aria-label="Close tool details">\u00d7</button>
     <div class="pop-head">${badge(t)}<div><div class="pop-name" id="popname">${esc(t.name)}</div>
     <div class="tagrow"><span class="cost ${c.cls} costbig" title="${esc(c.cap)}">${c.label}</span><span class="lictag ${li.cls}"><svg viewBox="0 0 24 24"><path d="${LIC_ICON[li.icon]}"/></svg>${esc(li.label)}</span>${
       fade?`<span class="lictag lfade"><svg viewBox="0 0 24 24"><path d="${LIC_ICON.warn}"/></svg>Fading / EOL</span>`:""}${c.src?`<a class="pricesrc" href="${urlOK(c.src)}" target="_blank" rel="noopener noreferrer" title="Pricing verified ${PRICING_ASOF}">pricing \u00b7 ${PRICING_ASOF} \u2197</a>`:""}</div></div></div>
+    <button class="selbtn" aria-pressed="${on}">${on?"\u2713 In your build \u00b7 tap to remove":"\uFF0B Add to build"}</button>
     <p class="pop-one">${gloss(t.oneliner)}</p>
     ${cmpHtml}
     <div class="metrics">
@@ -7026,7 +7043,7 @@ function buildDetail(t){
         <div class="cap">${senPct!=null?esc(`${sen.pos} favorable \u00b7 ${sen.neu} neutral \u00b7 ${sen.neg} unfavorable of ${sen.n} sampled 2023\u20132026 opinions`):"No sentiment sample"}</div>
       </div>
     </div>
-    <button class="selbtn" aria-pressed="${on}">${on?"Remove from build":"\uFF0B Add to build"}</button>
+    
     <ul class="kv">
       ${m.commits_90d!=null?`<li><b>${m.commits_90d}</b> commits/90d</li>`:""}
       ${m.latest_release?`<li>rel <b>${esc(m.latest_release)}</b></li>`:""}
@@ -7111,7 +7128,7 @@ function render(){
 function setNodeSel(n,on){ if(!n)return; n.classList.toggle("sel",on); }
 function syncPop(id){ const p=document.getElementById("nodepop");
   if(p.classList.contains("show") && p.dataset.for===id){ const sb=p.querySelector(".selbtn");
-    if(sb){ const on=isSelected(id); sb.setAttribute("aria-pressed",on?"true":"false"); sb.textContent=on?"Remove from build":"\uFF0B Add to build"; } } }
+    if(sb){ const on=isSelected(id); sb.setAttribute("aria-pressed",on?"true":"false"); sb.textContent=on?"\u2713 In your build \u00b7 tap to remove":"\uFF0B Add to build"; } } }
 function toggle(id,el){
   const t=BYID[id];const k=slotKey(t);SEL[k]=SEL[k]||new Set();
   const has=SEL[k].has(id);
@@ -7146,6 +7163,7 @@ function showPop(n){
   if(cl)cl.addEventListener("click",()=>{_popSuppress=true;hidePop();n.focus();setTimeout(()=>{_popSuppress=false;},0);});
   const sb=pop.querySelector(".selbtn");
   if(sb)sb.addEventListener("click",()=>{const nn=document.querySelector(`.node[data-id="${CSS.escape(t.id)}"]`);toggle(t.id,nn);});
+  pop.querySelectorAll(".cmb-logo").forEach(b=>b.addEventListener("click",()=>{const id=b.dataset.goto;const tn=document.querySelector(`.node[data-id="${CSS.escape(id)}"]`);scrollToNode(id);if(tn)showPop(tn);}));
   /* drawer: fixed position via CSS */
 }
 function hidePop(){document.getElementById("nodepop").classList.remove("show");document.body.classList.remove("pop-open");document.querySelectorAll('.node[aria-expanded="true"]').forEach(x=>x.setAttribute("aria-expanded","false"));_tapArmed=null;}
@@ -7197,6 +7215,7 @@ function updateTray(){
 
 /* ---------- exporter ---------- */
 function saveJSON(){const sel=selectedTools();if(!sel.length){alert("Select some tools first.");return;}download("iac-stack.json",JSON.stringify(buildManifest(),null,2),"application/json");}
+function copyJSON(){const sel=selectedTools();if(!sel.length){alert("Select some tools first.");return;}const txt=JSON.stringify(buildManifest(),null,2);const done=()=>{const b=document.getElementById("saveBtn");if(b){const o=b.textContent;b.textContent="Copied \u2713";setTimeout(()=>{b.textContent=o;},1200);}};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done).catch(()=>{prompt("Copy this JSON:",txt);});}else{prompt("Copy this JSON:",txt);}}
 function buildManifest(){
   const sel=selectedTools();
   return {generated:new Date().toISOString(),tool_count:sel.length,
@@ -7248,9 +7267,9 @@ function download(name,text,type){const b=new Blob([text],{type});const u=URL.cr
 document.getElementById("buildBtn").addEventListener("click",openModal);
 document.getElementById("resetBtn").addEventListener("click",()=>{SEL={};
   document.querySelectorAll(".node.sel").forEach(c=>setNodeSel(c,false));hidePop();updateTray();});
-document.getElementById("saveBtn").addEventListener("click",saveJSON);
-document.getElementById("loadBtn").addEventListener("click",()=>document.getElementById("loadFile").click());
-document.getElementById("loadFile").addEventListener("change",e=>{const f=e.target.files&&e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{applyManifest(JSON.parse(rd.result));}catch(err){alert("Could not load JSON: "+err.message);}e.target.value="";};rd.readAsText(f);});
+document.getElementById("saveBtn").addEventListener("click",copyJSON);
+document.getElementById("loadBtn").addEventListener("click",()=>{const txt=prompt("Paste your saved stack JSON here:");if(!txt)return;try{applyManifest(JSON.parse(txt));}catch(err){alert("Could not parse JSON: "+err.message);}});
+
 document.getElementById("closeModal").addEventListener("click",()=>document.getElementById("modal").classList.remove("show"));
 document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")e.currentTarget.classList.remove("show");});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){document.getElementById("modal").classList.remove("show");hidePop();}});
@@ -7262,7 +7281,7 @@ document.querySelectorAll(".tab").forEach(tb=>tb.addEventListener("click",()=>{
   document.getElementById("v-"+tb.dataset.v).classList.add("on");}));
 document.getElementById("dlSvg").addEventListener("click",()=>download("iac-stack.svg",buildSVG(),"image/svg+xml"));
 document.getElementById("dlJson").addEventListener("click",saveJSON);
-document.getElementById("copyJson").addEventListener("click",()=>navigator.clipboard.writeText(JSON.stringify(buildManifest(),null,2)));
+document.getElementById("copyJson").addEventListener("click",copyJSON);
 document.getElementById("dlPng").addEventListener("click",()=>{
   const svg=buildSVG();const img=new Image();const b=new Blob([svg],{type:"image/svg+xml"});const u=URL.createObjectURL(b);
   img.onload=()=>{const c=document.createElement("canvas");const m=svg.match(/width="(\d+)" height="(\d+)"/);
