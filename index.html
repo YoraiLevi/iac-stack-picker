@@ -415,6 +415,20 @@ html{scroll-padding-top:66px}
 #pasteArea{width:100%;min-height:220px;margin-top:12px;padding:12px;border:1.5px solid var(--line2);border-radius:12px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.5;resize:vertical;box-sizing:border-box;color:var(--ink)}
 .paste-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:14px}
 </style>
+<style>
+@media(min-width:1100px){
+  #nodepop{transform:none!important;visibility:visible!important}
+  #tray{transform:none!important;width:clamp(210px,16vw,250px)}
+  .page-shell{padding-left:calc(clamp(300px,27vw,384px) + 24px)!important;padding-right:calc(clamp(210px,16vw,250px) + 24px)!important}
+}
+.pop-empty{padding:10px 2px;color:var(--ink3)}
+.pop-empty .pe-ic{width:44px;height:44px;border-radius:12px;background:var(--panel2);display:grid;place-items:center;margin-bottom:12px}
+.pop-empty .pe-ic svg{width:24px;height:24px;fill:var(--ink3)}
+.pop-empty h4{margin:0 0 6px;font-size:1rem;color:var(--ink)}
+.pop-empty p{margin:0;font-size:.9375rem;line-height:1.5}
+.tray-empty{padding:8px 12px;color:var(--ink3);font-size:12.5px;line-height:1.5}
+.tray-head{padding:14px 12px 8px}
+</style>
 </head>
 <body>
 <header id="tbar" aria-label="Build toolbar"><div class="tbar-inner"><span class="tbar-brand">IaC Stack Picker</span><span id="count">0 tools</span><span class="tbar-spacer"></span><button class="btn ghost" type="button" id="loadBtn">Paste JSON</button><button class="btn ghost" type="button" id="saveBtn">Copy JSON</button><button class="btn ghost" type="button" id="resetBtn">Reset</button><button class="btn primary" type="button" id="buildBtn">View build &rarr;</button></div></header>
@@ -7167,6 +7181,7 @@ function positionPop(n,pop){
   if(top<8) top=8;
   pop.style.left=left+"px";pop.style.top=top+"px";
 }
+function showPopPlaceholder(){const pop=document.getElementById("nodepop");pop.innerHTML='<div class="pop-empty"><div class="pe-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg></div><h4>Tool details</h4><p>Click any tool card to see its licence, popularity, sentiment and how it stacks. Use the <b>&#xFF0B;</b> on a card to add it to your build.</p></div>';pop.dataset.for="";pop.removeAttribute("aria-labelledby");}
 function showPop(n){
   if(_popSuppress)return;
   clearTimeout(_popTimer);
@@ -7180,7 +7195,7 @@ function showPop(n){
   pop.querySelectorAll(".cmb-logo").forEach(b=>b.addEventListener("click",()=>{const id=b.dataset.goto;const tn=document.querySelector(`.node[data-id="${CSS.escape(id)}"]`);scrollToNode(id);if(tn)showPop(tn);}));
   /* drawer: fixed position via CSS */
 }
-function hidePop(){document.getElementById("nodepop").classList.remove("show");document.body.classList.remove("pop-open");document.querySelectorAll('.node[aria-expanded="true"]').forEach(x=>x.setAttribute("aria-expanded","false"));_tapArmed=null;}
+function hidePop(){document.getElementById("nodepop").classList.remove("show");document.body.classList.remove("pop-open");document.querySelectorAll('.node[aria-expanded="true"]').forEach(x=>x.setAttribute("aria-expanded","false"));showPopPlaceholder();_tapArmed=null;}
 function hidePopSoon(){ _popTimer=setTimeout(()=>{const p=document.getElementById("nodepop"); if(p.matches(":hover")||p.contains(document.activeElement)) return; hidePop();},200); }
 function wire(){
   document.querySelectorAll(".node").forEach(n=>{
@@ -7224,6 +7239,7 @@ function updateTray(){
     const c=document.querySelector(`.node[data-id="${CSS.escape(t.id)}"]`);if(c)setNodeSel(c,false);syncPop(x.dataset.id);updateTray();};
     x.addEventListener("click",rm);
     x.addEventListener("keydown",e=>{if(e.key===" "||e.key==="Enter"){e.preventDefault();rm(e);}});});
+  if(!sel.length)document.getElementById("chips").innerHTML='<div class="tray-empty">No tools yet. Click the <b>&#xFF0B;</b> on any card to add it here.</div>';
   tray.classList.toggle("show",sel.length>0);
   document.body.classList.toggle("tray-open",sel.length>0);
 }
@@ -7311,7 +7327,7 @@ document.getElementById("dlPng").addEventListener("click",()=>{
 function inlineJSON(id){const el=document.getElementById(id);try{return el&&el.textContent.trim()?JSON.parse(el.textContent):null;}catch(e){return null;}}
 const _t=inlineJSON("tools-data"),_i=inlineJSON("icons-data");
 (_t&&_i?Promise.resolve([_t,_i]):Promise.all([fetch("data/tools.json").then(r=>r.json()),fetch("data/icons.json").then(r=>r.json())]))
-  .then(([tools,icons])=>{TOOLS=tools;ICONS=icons;TOOLS.forEach(t=>BYID[t.id]=t);render();renderGlossary();renderBuilds();})
+  .then(([tools,icons])=>{TOOLS=tools;ICONS=icons;TOOLS.forEach(t=>BYID[t.id]=t);render();renderGlossary();renderBuilds();showPopPlaceholder();updateTray();})
   .catch(e=>{document.getElementById("app").innerHTML='<p class="muted">Failed to load data: '+esc(e.message)+'</p>';});
 </script>
 </body>
