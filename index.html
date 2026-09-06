@@ -348,9 +348,37 @@ h1{margin:0 0 12px;font-size:clamp(28px,2.4vw,40px);line-height:1.12}
 .cmp-row{display:flex;gap:10px;font-size:14px;line-height:1.42;color:var(--ink2)}
 .cmp-lab{flex:none;width:96px;font-weight:800;font-size:11.5px;letter-spacing:.03em;text-transform:uppercase;padding-top:2px}
 .cmp-lab.s{color:#3f6d28}.cmp-lab.w{color:#9a5b12}.cmp-lab.c{color:#1f5aa0}
+
+/* ===== toolbar + right build sidebar v4 ===== */
+#tbar{position:sticky;top:0;z-index:55;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);box-shadow:0 2px 12px rgba(28,29,27,.06)}
+.tbar-inner{display:flex;align-items:center;gap:10px;max-width:1960px;margin:0 auto;padding:9px 30px;flex-wrap:wrap}
+.tbar-brand{font-weight:900;color:var(--ink);font-size:16px;letter-spacing:-.2px}
+#tbar #count{font-weight:700;font-size:13.5px;color:var(--ink2);white-space:nowrap}
+.tbar-spacer{flex:1;min-width:8px}
+#tbar .btn{min-height:38px;padding:8px 15px;font-size:13.5px}
+@media(max-width:640px){.tbar-inner{padding:8px 12px;gap:7px}.tbar-brand{display:none}#tbar .btn{padding:7px 11px;font-size:12.5px;min-height:34px}}
+#tray{position:fixed;top:57px;right:0;bottom:0;left:auto;width:clamp(154px,15vw,198px);background:rgba(255,255,255,.98);border-left:1px solid var(--line);border-top:none;box-shadow:-6px 0 24px rgba(28,29,27,.08);transform:translateX(112%);transition:transform .3s ease;z-index:45;display:flex;flex-direction:column;padding:0}
+#tray.show{transform:translateX(0)}
+.tray-head{font-weight:800;font-size:12px;letter-spacing:.5px;text-transform:uppercase;color:var(--ink3);padding:14px 14px 8px}
+#chips{display:flex;flex-direction:column;gap:8px;flex:1;overflow:auto;padding:2px 12px 16px;max-height:none;min-width:0}
+.chip{display:flex;align-items:center;gap:9px;width:100%;background:var(--panel);border:1.5px solid var(--line2);border-radius:12px;padding:7px 9px;cursor:pointer;font-family:inherit;text-align:left;transition:border-color .14s,box-shadow .16s,transform .14s}
+.chip:hover{border-color:var(--green);box-shadow:var(--shadow);transform:translateX(-2px)}
+.chip:focus-visible{outline:3px solid var(--green-d);outline-offset:2px}
+.chip .cbdg{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;overflow:hidden;flex:none}
+.chip .cbdg svg{width:16px;height:16px}
+.chip .cbdg .mono{font-weight:800;font-size:10px}
+.chip .cnm{font-weight:700;font-size:12.5px;color:var(--ink);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chip .x{cursor:pointer;color:var(--ink3);font-weight:800;font-size:15px;flex:none;min-width:22px;min-height:22px;display:grid;place-items:center;border-radius:6px}
+.chip .x:hover{background:#fdeaed;color:#a5303f}
+body.tray-open .page-shell{padding-right:calc(clamp(154px,15vw,198px) + 22px)}
+.page-shell{padding-bottom:60px}
+.node.flash{animation:flash 1.15s ease}
+@keyframes flash{0%,100%{box-shadow:var(--shadow2)}28%{box-shadow:0 0 0 4px rgba(105,156,71,.6),var(--shadow2)}}
+@media(max-width:900px){body.tray-open .page-shell{padding-right:30px}#tray{width:min(76vw,300px)}}
 </style>
 </head>
 <body>
+<header id="tbar" aria-label="Build toolbar"><div class="tbar-inner"><span class="tbar-brand">IaC Stack Picker</span><span id="count">0 tools</span><span class="tbar-spacer"></span><button class="btn ghost" type="button" id="loadBtn">Load JSON</button><button class="btn ghost" type="button" id="saveBtn">Save JSON</button><button class="btn ghost" type="button" id="resetBtn">Reset</button><button class="btn primary" type="button" id="buildBtn">View build &rarr;</button><input type="file" id="loadFile" accept="application/json,.json" hidden></div></header>
 <main class="page-shell">
   <section class="masthead">
     <div class="masthead-copy">
@@ -392,14 +420,10 @@ h1{margin:0 0 12px;font-size:clamp(28px,2.4vw,40px);line-height:1.12}
   <div id="app"><p class="muted">Loading tool data…</p></div>
 </main>
 
-<div id="tray">
-  <div class="tray-row">
-    <span id="count">0 points allocated</span>
-    <div id="chips"></div>
-    <button class="btn ghost" id="resetBtn">Reset build</button>
-    <button class="btn primary" id="buildBtn">View your build &rarr;</button>
-  </div>
-</div>
+<aside id="tray" aria-label="Your build (selected tools)">
+  <div class="tray-head">Your build</div>
+  <div id="chips"></div>
+</aside>
 
 <div id="modal">
   <div class="sheet">
@@ -7121,18 +7145,29 @@ function selectedTools(){
   return ids.map(i=>BYID[i]).filter(Boolean)
     .sort((a,b)=>a.stage_num-b.stage_num||a.slot.localeCompare(b.slot));
 }
+function cbadge(t){const fg=esc(ink(t.brand));return (t.icon&&ICONS[t.icon])?`<svg viewBox="0 0 24 24" fill="${fg}"><path d="${pathD(ICONS[t.icon])}"/></svg>`:`<span class="mono" style="color:${fg}">${esc(t.mono)}</span>`;}
+function scrollToNode(id){const n=document.querySelector(`.node[data-id="${CSS.escape(id)}"]`);if(!n)return;n.scrollIntoView({behavior:"smooth",block:"center",inline:"center"});n.classList.remove("flash");void n.offsetWidth;n.classList.add("flash");setTimeout(()=>n.classList.remove("flash"),1200);}
+function applyManifest(obj){const names=new Set();const walk=v=>{if(Array.isArray(v))v.forEach(walk);else if(v&&typeof v==="object"){if(typeof v.name==="string")names.add(v.name);Object.values(v).forEach(walk);}};walk(obj);if(!names.size){alert("No tools found in that file.");return;}const byName={};TOOLS.forEach(t=>byName[t.name]=t);SEL={};let n=0;names.forEach(nm=>{const t=byName[nm];if(!t)return;const k=slotKey(t);const mode=SLOTMODE[k]||t.slot_mode;if(!SEL[k])SEL[k]=new Set();if(mode==="pick"&&SEL[k].size>=1)return;SEL[k].add(t.id);n++;});document.querySelectorAll(".node").forEach(nd=>setNodeSel(nd,isSelected(nd.dataset.id)));hidePop();updateTray();if(!n)alert("None of those tool names matched this catalog.");}
+
 function updateTray(){
   const sel=selectedTools();const tray=document.getElementById("tray");
-  document.getElementById("count").textContent=sel.length+(sel.length===1?" point allocated":" points allocated");
+  document.getElementById("count").textContent=sel.length+(sel.length===1?" tool":" tools");
   document.getElementById("chips").innerHTML=sel.map(t=>
-    `<span class="chip"><span class="dot" style="background:${esc(t.brand)}"></span><b>${esc(t.name)}</b>
-     <span class="x" data-id="${esc(t.id)}" role="button" tabindex="0" aria-label="Remove ${esc(t.name)}">×</span></span>`).join("");
-  document.querySelectorAll("#chips .x").forEach(x=>{const rm=()=>{
+    `<div class="chip" data-id="${esc(t.id)}" role="button" tabindex="0" aria-label="Jump to ${esc(t.name)} in the tree">`+
+    `<span class="cbdg" style="background:${esc(t.brand)}">${cbadge(t)}</span>`+
+    `<span class="cnm">${esc(t.name)}</span>`+
+    `<span class="x" data-id="${esc(t.id)}" role="button" tabindex="0" aria-label="Remove ${esc(t.name)}">\u00d7</span></div>`).join("");
+  document.querySelectorAll("#chips .chip").forEach(ch=>{
+    ch.addEventListener("click",e=>{if(e.target.closest(".x"))return;scrollToNode(ch.dataset.id);});
+    ch.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&!e.target.closest(".x")){e.preventDefault();scrollToNode(ch.dataset.id);}});
+  });
+  document.querySelectorAll("#chips .x").forEach(x=>{const rm=e=>{if(e)e.stopPropagation();
     const t=BYID[x.dataset.id];SEL[slotKey(t)].delete(t.id);
     const c=document.querySelector(`.node[data-id="${CSS.escape(t.id)}"]`);if(c)setNodeSel(c,false);syncPop(x.dataset.id);updateTray();};
     x.addEventListener("click",rm);
-    x.addEventListener("keydown",e=>{if(e.key===" "||e.key==="Enter"){e.preventDefault();rm();}});});
+    x.addEventListener("keydown",e=>{if(e.key===" "||e.key==="Enter"){e.preventDefault();rm(e);}});});
   tray.classList.toggle("show",sel.length>0);
+  document.body.classList.toggle("tray-open",sel.length>0);
 }
 
 /* ---------- exporter ---------- */
@@ -7187,6 +7222,9 @@ function download(name,text,type){const b=new Blob([text],{type});const u=URL.cr
 document.getElementById("buildBtn").addEventListener("click",openModal);
 document.getElementById("resetBtn").addEventListener("click",()=>{SEL={};
   document.querySelectorAll(".node.sel").forEach(c=>setNodeSel(c,false));hidePop();updateTray();});
+document.getElementById("saveBtn").addEventListener("click",()=>{const sel=selectedTools();if(!sel.length){alert("Select some tools first, then Save.");return;}download("iac-stack.json",JSON.stringify(buildManifest(),null,2),"application/json");});
+document.getElementById("loadBtn").addEventListener("click",()=>document.getElementById("loadFile").click());
+document.getElementById("loadFile").addEventListener("change",e=>{const f=e.target.files&&e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{applyManifest(JSON.parse(rd.result));}catch(err){alert("Could not load JSON: "+err.message);}e.target.value="";};rd.readAsText(f);});
 document.getElementById("closeModal").addEventListener("click",()=>document.getElementById("modal").classList.remove("show"));
 document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")e.currentTarget.classList.remove("show");});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){document.getElementById("modal").classList.remove("show");hidePop();}});
