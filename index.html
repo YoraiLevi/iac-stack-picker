@@ -6724,6 +6724,7 @@ function render(){
     for(const t of tools){if(!seen.has(t.slot)){seen.add(t.slot);slots.push(t.slot);}}
     const info=TIER_INFO[skey]||{level:"TIER "+num,role:"",how:""};
     const stage=document.createElement("section");stage.className="stage";
+    const roleH=glossV(info.role,gSeen), howH=glossV(info.how,gSeen);
     let branches="";
     for(const slot of slots){
       const items=tools.filter(t=>t.slot===slot);const mode=items[0].slot_mode;
@@ -6736,7 +6737,7 @@ function render(){
       <div class="stage-h"><div class="badge-n" style="background:${accent}">${num}</div>
       <div class="stage-ht"><div class="tier-lvl" style="color:${accent}">${esc(info.level)} \u00b7 allocate your picks</div>
       <h2 style="color:${accent}">${esc(label)}</h2>
-      <div class="tier-desc"><b>${glossV(info.role,gSeen)}.</b> ${glossV(info.how,gSeen)}</div></div></div>
+      <div class="tier-desc"><b>${roleH}.</b> ${howH}</div></div></div>
       <div class="tree-wrap"><div class="tree" style="--ac:${accent}"><ul>${branches}</ul></div></div>`;
     app.appendChild(stage);drawn=true;
   }
