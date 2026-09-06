@@ -403,6 +403,18 @@ html{scroll-padding-top:66px}
 .cmb-logo .mono{font-size:9px;line-height:1}
 .cmb-logo:hover{border-color:var(--s2);box-shadow:0 2px 8px rgba(28,29,27,.16)}
 </style>
+<style>
+.node.sel::after{content:none}
+.node .node-add{position:absolute;top:-10px;right:-10px;width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid var(--line2);color:var(--ink2);display:grid;place-items:center;font-size:15px;font-weight:800;line-height:1;cursor:pointer;z-index:5;box-shadow:var(--shadow);user-select:none;transition:background .14s,border-color .14s,color .14s}
+.node .node-add:hover{border-color:var(--green);color:var(--green)}
+.node.sel .node-add{background:var(--green);border-color:var(--green);color:#fff}
+.node .node-add:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+#pasteModal{position:fixed;inset:0;background:rgba(28,29,27,.5);display:none;place-items:center;z-index:80;padding:24px}
+#pasteModal.show{display:grid;animation:fade .2s ease}
+#pasteModal .sheet.paste{max-width:560px}
+#pasteArea{width:100%;min-height:220px;margin-top:12px;padding:12px;border:1.5px solid var(--line2);border-radius:12px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.5;resize:vertical;box-sizing:border-box;color:var(--ink)}
+.paste-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:14px}
+</style>
 </head>
 <body>
 <header id="tbar" aria-label="Build toolbar"><div class="tbar-inner"><span class="tbar-brand">IaC Stack Picker</span><span id="count">0 tools</span><span class="tbar-spacer"></span><button class="btn ghost" type="button" id="loadBtn">Paste JSON</button><button class="btn ghost" type="button" id="saveBtn">Copy JSON</button><button class="btn ghost" type="button" id="resetBtn">Reset</button><button class="btn primary" type="button" id="buildBtn">View build &rarr;</button></div></header>
@@ -451,6 +463,8 @@ html{scroll-padding-top:66px}
   <div class="tray-head">Your build</div>
   <div id="chips"></div>
 </aside>
+
+<div id="pasteModal"><div class="sheet paste"><button class="close" id="closePaste" aria-label="Close">&times;</button><h3>Paste stack JSON</h3><div class="muted">Paste a build you copied earlier, then Apply.</div><textarea id="pasteArea" spellcheck="false" placeholder="Paste your saved stack JSON here"></textarea><div class="paste-actions"><button class="btn ghost" type="button" id="cancelPaste">Cancel</button><button class="btn primary" type="button" id="applyPaste">Apply</button></div></div></div>
 
 <div id="modal">
   <div class="sheet">
@@ -2922,7 +2936,7 @@ html{scroll-padding-top:66px}
    "forks": 1355,
    "commits_90d": 268,
    "latest_release": null,
-   "latest_release_at": "2026-08-27T18:01:40Z",
+   "latest_release_at": null,
    "archived": false,
    "license_spdx": "MPL-2.0"
   },
@@ -6891,7 +6905,7 @@ function renderGlossary(){
   const el=document.getElementById("glossBody");if(!el)return;
   el.innerHTML=GLOSSARY.map(([t,f,d])=>`<div class="g"><b>${esc(t)}</b> <i>${esc(f)}</i><br>${esc(d)}</div>`).join("");
 }
-let TOOLS=[], ICONS={}, BYID={}, SEL={}, SLOTMODE={}, CADJ={}, MAXSTARS=1; // SEL[slotKey]=Set(id)
+let TOOLS=[], ICONS={}, BYID={}, SEL={}, SLOTMODE={}, CADJ={}, CEDGES={}, MAXSTARS=1; // SEL[slotKey]=Set(id)
 
 const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const urlOK=u=>{u=String(u==null?"":u).trim();return /^(https?:|mailto:)/i.test(u)?u:"#";};
@@ -6944,7 +6958,7 @@ function node(t){
   const c=costOf(t);
   const cmb=CADJ[t.id]?[...CADJ[t.id]]:[];
   const alabel=`${t.name}: ${t.oneliner}. ${c.cap}. Licence: ${li.label}. ${starsN?m.stars.toLocaleString("en-US")+" GitHub stars":"No public star data"}.${fade?" Fading or end of life.":""}`;
-  return `<button class="node${on?" sel":""}" data-id="${esc(t.id)}" data-hub="${esc(slotKey(t))}" aria-haspopup="dialog" aria-expanded="false" aria-controls="nodepop" aria-label="${esc(alabel)}">
+  return `<button class="node${on?" sel":""}" data-id="${esc(t.id)}" data-hub="${esc(slotKey(t))}" aria-haspopup="dialog" aria-expanded="false" aria-controls="nodepop" aria-label="${esc(alabel)}"><span class="node-add" role="button" tabindex="0" aria-pressed="${on}" aria-label="${on?'Remove from build':'Add to build'}" title="${on?'Remove from build':'Add to build'}">${on?'\u2713':'\uFF0B'}</span>
     ${cmb.length?`<span class="combine-flag" data-combines="${esc(cmb.join(","))}" tabindex="0" title="Combines with ${esc(cmb.map(id=>(BYID[id]||{}).name).filter(Boolean).join(", "))}" aria-label="Combines with ${esc(cmb.map(id=>(BYID[id]||{}).name).filter(Boolean).join(", "))}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></span>`:""}<span class="node-badge" aria-hidden="true">${badgeInner(t)}</span>
     <span class="node-name">${esc(t.name)}</span>
     <span class="node-meta"><span class="ms">${esc(starTxt)}</span><span class="cost ${c.cls}" aria-hidden="true">${c.short}</span></span>
@@ -7015,7 +7029,7 @@ function buildDetail(t){
   const fade=t.lifecycle==="fade", on=isSelected(t.id), c=costOf(t);
   const cm=COMPARE[t.id]||{};
   let cmpHtml="";
-  {const cids=(CADJ[t.id]?[...CADJ[t.id]]:[]).filter(id=>BYID[id]);const cnames=cids.map(id=>esc(BYID[id].name));
+  {const cids=(CEDGES[t.id]?[...CEDGES[t.id]]:[]).filter(id=>BYID[id]);const cnames=cids.map(id=>esc(BYID[id].name));
    if(cm.edge||cm.watch||cnames.length){
      cmpHtml='<div class="pop-compare">'+
        (cm.edge?'<div class="cmp-row"><span class="cmp-lab s">Best at</span><span>'+gloss(cm.edge)+'</span></div>':'')+
@@ -7090,7 +7104,7 @@ function buildCombineAdj(){
   const bySlot={};
   TOOLS.forEach(t=>{const k=slotKey(t);(bySlot[k]=bySlot[k]||[]).push(t);});
   Object.values(bySlot).forEach(arr=>{if(arr[0]&&arr[0].slot_mode==="combine"){for(let i=0;i<arr.length;i++)for(let j=i+1;j<arr.length;j++)add(arr[i].id,arr[j].id);}});
-  Object.keys(COMPARE).forEach(id=>{const cm=COMPARE[id]||{};(cm.combines||[]).forEach(to=>{if(BYID[to])add(id,to);});});
+  CEDGES={};const addE=(a,b)=>{if(!a||!b||a===b)return;(CEDGES[a]=CEDGES[a]||new Set()).add(b);(CEDGES[b]=CEDGES[b]||new Set()).add(a);};Object.keys(COMPARE).forEach(id=>{const cm=COMPARE[id]||{};(cm.combines||[]).forEach(to=>{if(BYID[to]){add(id,to);addE(id,to);}});});
 }
 function render(){
   const app=document.getElementById("app");app.innerHTML="";
@@ -7125,7 +7139,7 @@ function render(){
   wire();
 }
 
-function setNodeSel(n,on){ if(!n)return; n.classList.toggle("sel",on); }
+function setNodeSel(n,on){ if(!n)return; n.classList.toggle("sel",on); const _a=n.querySelector(".node-add"); if(_a){_a.setAttribute("aria-pressed",on?"true":"false");_a.setAttribute("aria-label",on?"Remove from build":"Add to build");_a.setAttribute("title",on?"Remove from build":"Add to build");_a.textContent=on?"\u2713":"\uFF0B";} }
 function syncPop(id){ const p=document.getElementById("nodepop");
   if(p.classList.contains("show") && p.dataset.for===id){ const sb=p.querySelector(".selbtn");
     if(sb){ const on=isSelected(id); sb.setAttribute("aria-pressed",on?"true":"false"); sb.textContent=on?"\u2713 In your build \u00b7 tap to remove":"\uFF0B Add to build"; } } }
@@ -7171,6 +7185,7 @@ function hidePopSoon(){ _popTimer=setTimeout(()=>{const p=document.getElementByI
 function wire(){
   document.querySelectorAll(".node").forEach(n=>{
     n.addEventListener("click",e=>{if(e.target.closest("a"))return;showPop(n);});
+    const _add=n.querySelector(".node-add");if(_add){_add.addEventListener("click",e=>{e.stopPropagation();toggle(n.dataset.id,n);});_add.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();e.stopPropagation();toggle(n.dataset.id,n);}});}
     const flag=n.querySelector(".combine-flag");
     if(flag){
       const ids=(flag.dataset.combines||"").split(",").filter(Boolean);
@@ -7268,11 +7283,15 @@ document.getElementById("buildBtn").addEventListener("click",openModal);
 document.getElementById("resetBtn").addEventListener("click",()=>{SEL={};
   document.querySelectorAll(".node.sel").forEach(c=>setNodeSel(c,false));hidePop();updateTray();});
 document.getElementById("saveBtn").addEventListener("click",copyJSON);
-document.getElementById("loadBtn").addEventListener("click",()=>{const txt=prompt("Paste your saved stack JSON here:");if(!txt)return;try{applyManifest(JSON.parse(txt));}catch(err){alert("Could not parse JSON: "+err.message);}});
+document.getElementById("loadBtn").addEventListener("click",()=>{const pm=document.getElementById("pasteModal");const ta=document.getElementById("pasteArea");ta.value="";pm.classList.add("show");setTimeout(()=>ta.focus(),0);});
+document.getElementById("applyPaste").addEventListener("click",()=>{const ta=document.getElementById("pasteArea");const txt=ta.value.trim();if(!txt){alert("Paste some JSON first.");return;}let obj;try{obj=JSON.parse(txt);}catch(err){alert("Could not parse JSON: "+err.message);return;}applyManifest(obj);document.getElementById("pasteModal").classList.remove("show");});
+document.getElementById("cancelPaste").addEventListener("click",()=>document.getElementById("pasteModal").classList.remove("show"));
+document.getElementById("closePaste").addEventListener("click",()=>document.getElementById("pasteModal").classList.remove("show"));
+document.getElementById("pasteModal").addEventListener("click",e=>{if(e.target.id==="pasteModal")document.getElementById("pasteModal").classList.remove("show");});
 
 document.getElementById("closeModal").addEventListener("click",()=>document.getElementById("modal").classList.remove("show"));
 document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")e.currentTarget.classList.remove("show");});
-document.addEventListener("keydown",e=>{if(e.key==="Escape"){document.getElementById("modal").classList.remove("show");hidePop();}});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){document.getElementById("modal").classList.remove("show");document.getElementById("pasteModal").classList.remove("show");hidePop();}});
 document.addEventListener("click",e=>{if(!e.target.closest(".node")&&!e.target.closest("#nodepop")){hidePop();}});
 document.addEventListener("pointerdown",e=>{_lastPtr=e.pointerType||"";},true);
 document.querySelectorAll(".tab").forEach(tb=>tb.addEventListener("click",()=>{
