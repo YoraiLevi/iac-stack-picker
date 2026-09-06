@@ -1,11 +1,11 @@
-# Author Concerns Catalog â€” IaC & Delivery Tools (2026)
+# Author Concerns Catalog — IaC & Delivery Tools (2026)
 
 Recurring criticisms and risks raised by practitioners across HackerNews, Reddit, YouTube, and blogs (2023-2026), distilled per tool with source links. Each tool also shows its popularity and sentiment scores (see the live picker and data/tools.json for the underlying data points).
 
 > Scores are indicative and method-transparent, not authoritative. Sentiment = `(pos - neg)/n` mapped to 0-100; popularity is normalized within this survey set.
 
 
-## 1 Â· Provision
+## 1 · Provision
 
 ### AWS CDK
 
@@ -32,7 +32,7 @@ Clear ARM successor for Azure-only teams: no state file, day-0 APIs. Terraform s
 
 ### CloudFormation
 
-*commercial - ...or a cloud-native engine — single cloud - popularity -/100 - sentiment 32/100 (+4 ~6 -12 - n=22, high)*
+*proprietary - ...or a cloud-native engine — single cloud - popularity -/100 - sentiment 32/100 (+4 ~6 -12 - n=22, high)*
 
 AWS-native rollbacks and audits still matter, but YAML, stuck stacks, and lag make it the tool people escape via CDK or Terraform.
 
@@ -102,7 +102,7 @@ Still the default multi-cloud IaC, but BSL/IBM, state footguns, and HCL limits f
 - **provider-slowness** - Some providers apply slowly or fail after a green plan. [[1]](https://www.reddit.com/r/Terraform/comments/1lelq6z/just_hit_a_terraform_personal_record)
 
 
-## 2 Â· Orchestrate & Govern
+## 2 · Orchestrate & Govern
 
 ### OPA / Rego
 
@@ -117,7 +117,7 @@ CNCF-graduated default for portable policy-as-code across Terraform plans, K8s, 
 
 ### Sentinel
 
-*commercial - Custom policy engine - popularity -/100 - sentiment 50/100 (+6 ~10 -6 - n=22, med)*
+*proprietary - Custom policy engine - popularity -/100 - sentiment 50/100 (+6 ~10 -6 - n=22, med)*
 
 Best-in-class native HCP Terraform/Enterprise plan gates with advisory/soft/hard enforcement. Repeatedly criticized as proprietary lock-in versus OPA, and paid-tier only for real enforcement.
 
@@ -174,7 +174,7 @@ Still the default free PR plan/apply bot. Loved for locking and comments; critic
 
 ### HCP Terraform
 
-*commercial - Run it — automation / TACOS - popularity -/100 - sentiment 26/100 (+3 ~6 -14 - n=23, high)*
+*proprietary - Run it — automation / TACOS - popularity -/100 - sentiment 26/100 (+3 ~6 -14 - n=23, high)*
 
 Product still respected for VCS runs, Sentinel, and Stacks. Sentiment 2024–26 is dominated by RUM pricing, free-tier EOL, and IBM-era distrust.
 
@@ -186,7 +186,7 @@ Product still respected for VCS runs, Sentinel, and Stacks. Sentiment 2024–26 
 
 ### Scalr
 
-*commercial - Run it — automation / TACOS - popularity -/100 - sentiment 52/100 (+4 ~13 -3 - n=20, med)*
+*proprietary - Run it — automation / TACOS - popularity -/100 - sentiment 52/100 (+4 ~13 -3 - n=20, med)*
 
 Governance/hierarchy TACOS with run-based pricing and CLI-native backend. Mastercard/Peloton cited. Independent sentiment sparse; HN user slammed Terraform provider quality.
 
@@ -197,7 +197,7 @@ Governance/hierarchy TACOS with run-based pricing and CLI-native backend. Master
 
 ### Spacelift
 
-*commercial - Run it — automation / TACOS - popularity -/100 - sentiment 55/100 (+8 ~8 -6 - n=22, med)*
+*proprietary - Run it — automation / TACOS - popularity -/100 - sentiment 55/100 (+8 ~8 -6 - n=22, med)*
 
 Often named the quality/multi-IaC TACOS leader versus HCP. Users love policies, workers, and reliability; sting is list price (~$20k Starter) and free-tier jump.
 
@@ -208,7 +208,7 @@ Often named the quality/multi-IaC TACOS leader versus HCP. Users love policies, 
 
 ### env0
 
-*commercial - Run it — automation / TACOS - popularity -/100 - sentiment 52/100 (+4 ~13 -3 - n=20, med)*
+*proprietary - Run it — automation / TACOS - popularity -/100 - sentiment 52/100 (+4 ~13 -3 - n=20, med)*
 
 Solid OpenTofu-era TACOS with drift/cost/self-service pitch. Independent reviews thinner than Spacelift; 2026 competitor chatter about stagnation. Snyk flagged default plan RCE like peers.
 
@@ -242,7 +242,7 @@ Checkmarx OSS scanner with the widest IaC format coverage and huge Rego query se
 
 ### Terrascan
 
-*open - Scan for misconfig / security - popularity 28/100 - sentiment 32/100 (+3 ~8 -11 - n=22, high)*
+*open, fading/EOL - Scan for misconfig / security - popularity 28/100 - sentiment 32/100 (+3 ~8 -11 - n=22, high)*
 
 Once a reasonable OPA/Rego IaC scanner. Tenable archived the repo Nov 2025 after a 2024 last release. Consensus: do not start new pipelines; migrate to Checkov, Trivy, or KICS.
 
@@ -287,7 +287,7 @@ GA in Terraform/OpenTofu 1.6; HCL tests with mocks since 1.7. Loved for no-Go un
 - **hcl-limits** - Run blocks ordered, historically no for_each, fewer community fixtures. [[1]](https://www.envzero.com/blog/terratest-vs-terraform-opentofu-test-in-depth-comparison)
 
 
-## 3 Â· Configure Â· Images Â· Secrets
+## 3 · Configure · Images · Secrets
 
 ### Packer
 
@@ -330,7 +330,7 @@ Still the default config-management choice and widely defended, but a persistent
 
 ### Chef
 
-*fading/EOL - Configure servers - popularity 52/100 - sentiment 35/100 (+0 ~18 -8 - n=26, high)*
+*open, fading/EOL - Configure servers - popularity 52/100 - sentiment 35/100 (+0 ~18 -8 - n=26, high)*
 
 Sentiment is dominated by end-of-life and licensing anxiety rather than technical merit. Ruby DSL still has defenders, but nearly every discussion is about migrating off or onto CINC.
 
@@ -343,7 +343,7 @@ Sentiment is dominated by end-of-life and licensing anxiety rather than technica
 
 ### Puppet
 
-*fading/EOL - Configure servers - popularity 36/100 - sentiment 52/100 (+7 ~12 -6 - n=25, high)*
+*open, fading/EOL - Configure servers - popularity 36/100 - sentiment 52/100 (+7 ~12 -6 - n=25, high)*
 
 The dominant story is the 2024-2025 Perforce packaging lockdown and the OpenVox fork. Sentiment toward the technology stays respectful; sentiment toward the vendor is hostile, and community energy has migrated to the fork.
 
@@ -356,7 +356,7 @@ The dominant story is the 2024-2025 Perforce packaging lockdown and the OpenVox 
 
 ### Salt
 
-*fading/EOL - Configure servers - popularity 70/100 - sentiment 35/100 (+1 ~12 -7 - n=20, high)*
+*open, fading/EOL - Configure servers - popularity 70/100 - sentiment 35/100 (+1 ~12 -7 - n=20, high)*
 
 Loyal users still rate Salt best-in-class for fast, large-fleet remote execution, but almost every thread is shadowed by Broadcom stewardship doubt after visible staffing and commit declines.
 
@@ -369,7 +369,7 @@ Loyal users still rate Salt best-in-class for fast, large-fleet remote execution
 
 ### Cloud KMS / SM
 
-*commercial - Manage secrets - popularity -/100 - sentiment 27/100 (+1 ~12 -13 - n=26, high)*
+*proprietary - Manage secrets - popularity -/100 - sentiment 27/100 (+1 ~12 -13 - n=26, high)*
 
 Managed stores are the pragmatic default and the recommended escape from self-hosting, yet sentiment is dominated by cost and policy friction: per-secret and per-request pricing, envelope-encryption bill shocks, and dual-authorization key policies.
 
@@ -432,7 +432,7 @@ Still liked for simple single-cluster GitOps and actively maintained, but increa
 - **no-audit-or-central-policy** - Auditing limited to Git and Kubernetes logs, with no central ACL layer. [[1]](https://devsecopsschool.com/blog/sealed-secrets/) [[2]](https://atmosly.com/blog/kubernetes-secrets-management-vault-vs-sealed-secrets-vs-external-secrets-2025)
 
 
-## 4 Â· Deliver Â· CI/CD
+## 4 · Deliver · CI/CD
 
 ### Argo Workflows
 
@@ -448,7 +448,7 @@ Strong reputation as a Kubernetes-native DAG and batch engine, widely preferred 
 
 ### CircleCI
 
-*commercial - CI/CD engine - popularity -/100 - sentiment 42/100 (+4 ~13 -8 - n=25, med)*
+*proprietary - CI/CD engine - popularity -/100 - sentiment 42/100 (+4 ~13 -8 - n=25, med)*
 
 Respected for orbs, parallelism and quick starts, but recent discussion is dominated by credit-based cost ramp, concurrency ceilings and reliability gripes as teams drift toward GitHub Actions.
 
@@ -460,7 +460,7 @@ Respected for orbs, parallelism and quick starts, but recent discussion is domin
 
 ### GitHub Actions
 
-*commercial - CI/CD engine - popularity 45/100 - sentiment 49/100 (+10 ~15 -11 - n=36, high)*
+*proprietary - CI/CD engine - popularity 45/100 - sentiment 49/100 (+10 ~15 -11 - n=36, high)*
 
 Ubiquitous default for GitHub-hosted code and praised for marketplace plus zero setup. Power users are sharply negative on reliability, debugging feedback loop and runner economics.
 
@@ -473,7 +473,7 @@ Ubiquitous default for GitHub-hosted code and praised for marketplace plus zero 
 
 ### GitLab CI/CD
 
-*commercial - CI/CD engine - popularity -/100 - sentiment 53/100 (+9 ~15 -7 - n=31, high)*
+*proprietary - CI/CD engine - popularity -/100 - sentiment 53/100 (+9 ~15 -7 - n=31, high)*
 
 Well-liked as the integrated all-in-one option, especially self-hosted where runner minutes are free. Complaints concentrate on slow shared SaaS runners and a stingy free compute quota.
 
@@ -521,7 +521,7 @@ Small but consistently warm sentiment: the go-to lightweight self-hosted CI for 
 - **drone-heritage-constraints** - Pipeline syntax and design still inherit Drone 0.8 era assumptions. [[1]](https://xyquadrat.ch/blog/simple-ci-with-woodpecker/) [[2]](https://cicdcalculator.com/drone-ci-pricing)
 
 
-## 5 Â· Reconcile Â· GitOps
+## 5 · Reconcile · GitOps
 
 ### Backstage
 
@@ -538,7 +538,7 @@ Strong catalog/ownership value at large scale, but 2025-2026 discourse is domina
 
 ### Humanitec
 
-*commercial - Developer portal (IDP) - popularity -/100 - sentiment 62/100 (+8 ~14 -2 - n=24, med)*
+*proprietary - Developer portal (IDP) - popularity -/100 - sentiment 62/100 (+8 ~14 -2 - n=24, med)*
 
 Analyst and case-study numbers are strong, organic community chatter is thin and sceptical; pricing, learning curve and past marketing tactics dominate what criticism exists.
 
@@ -551,7 +551,7 @@ Analyst and case-study numbers are strong, organic community chatter is thin and
 
 ### Port
 
-*commercial - Developer portal (IDP) - popularity -/100 - sentiment 60/100 (+8 ~14 -3 - n=25, med)*
+*proprietary - Developer portal (IDP) - popularity -/100 - sentiment 60/100 (+8 ~14 -3 - n=25, med)*
 
 Reddit's usual escape hatch from Backstage TCO and the default mid-market buy; reviewers hit bugs, thin docs, per-seat cost and a deliberately unopinionated blank canvas.
 

@@ -14,7 +14,7 @@ STAGE_TITLE = {
     "deliver": "4 · Deliver · CI/CD",
     "reconcile": "5 · Reconcile · GitOps",
 }
-HEALTH = {"open": "open", "bsl": "source-available (BSL)", "comm": "commercial", "fade": "fading/EOL"}
+HEALTH = {"open": "open", "bsl": "source-available (BSL)", "comm": "proprietary"}
 
 lines = []
 lines.append("# Author Concerns Catalog — IaC & Delivery Tools (2026)\n")
@@ -44,7 +44,10 @@ for s in STAGE_ORDER:
                  f"(+{sen.get('pos',0)} ~{sen.get('neu',0)} -{sen.get('neg',0)} - n={sen.get('n',0)}"
                  f"{', ' + sen['confidence'] if sen.get('confidence') else ''})")
         lines.append(f"### {t['name']}\n")
-        lines.append(f"*{HEALTH.get(t['license'], t['license'])} - {t['slot']} - {badge}*\n")
+        health = HEALTH.get(t["license"], t["license"])
+        if t.get("lifecycle") == "fade":
+            health += ", fading/EOL"
+        lines.append(f"*{health} - {t['slot']} - {badge}*\n")
         if sen.get("summary"):
             lines.append(f"{sen['summary']}\n")
         concerns = t.get("concerns") or []

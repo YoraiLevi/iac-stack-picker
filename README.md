@@ -2,15 +2,15 @@
 
 An interactive map of Infrastructure-as-Code &amp; delivery tooling. Every box is one job:
 **PICK ONE** slots hold interchangeable rivals; **COMBINE** slots stack together. Each tool card
-shows a **popularity score** and a **sentiment score** (an *outcomes / data-points* ratio built
-from GitHub metrics and 2023–2026 opinions on HN, Reddit, YouTube and blogs), plus a catalog of
-recurring author concerns with source links. Pick your tools and export the stack as **SVG + JSON**.
+shows exact **GitHub stars** and a **favorable / total** sentiment count built from 2023–2026 opinions
+on HN, Reddit, YouTube and blogs, plus a license chip, a lifecycle marker, and a catalog of recurring
+author concerns with source links. Pick your tools and export the stack as **SVG + JSON**.
 
 **Live page:** enabled via GitHub Pages.
 
 ## How the scores work
-- **Sentiment** the card shows the raw pair `pos / n` (favorable takes out of the total sampled), with `▲pos ▬neu ▼neg · n` beneath it. The sentiment bar fills to `pos / n`. A composite `(pos − neg) / n` mapped to 0–100 is kept in `tools.json` for reference but is not the displayed number.
-- **Popularity** the card shows exact **GitHub stars**. The bar fills relative to the most-starred tool in this set on a log scale (stars only, so bar and number agree). SaaS/closed tools with **no public repo show `n/a`** rather than a fabricated number, since every tool was researched to a fixed ~20 data-point quota that makes discussion count a collection artifact, not adoption. Their qualitative traction notes are shown instead. A GitHub-only composite (`0.75·stars + 0.25·commits_90d`, min-max normalized within the set) still lives in `tools.json` as `popularity.score`.
+- **Sentiment:** the card shows the raw pair `pos / n` (favorable takes out of the total sampled), with `▲pos ▬neu ▼neg · n` beneath it. The sentiment bar fills to `pos / n`. A composite `(pos − neg) / n` mapped to 0–100 lives in `tools.json` only and is never the displayed number.
+- **Popularity:** the card shows exact **GitHub stars**. The bar fills relative to the most-starred tool in this set on a log scale (stars only, so bar and number agree). SaaS/closed tools with **no public repo show `n/a`** rather than a fabricated number, since every tool was researched to a fixed ~20 data-point quota that makes discussion count a collection artifact, not adoption. Their qualitative traction notes are shown instead. A GitHub-only composite (`0.75·stars + 0.25·commits_90d`, min-max normalized within the set) lives in `tools.json` as `popularity.score`.
 - **License vs lifecycle are separate.** The license chip always states open / source-available (BSL) / proprietary. A distinct **Fading / EOL** chip marks tools losing momentum or archived (Chef, Puppet, Salt, Terrascan), so every card states open-vs-paid on its own, never hidden behind a lifecycle label.
 
 Scores are indicative and method-transparent, not authoritative. Every data point links to its source.
