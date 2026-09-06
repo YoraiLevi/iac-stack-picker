@@ -6718,7 +6718,7 @@ const STAGES=[["provision","1","PROVISION","var(--s1)"],["orchestrate","2","ORCH
  ["reconcile","5","RECONCILE · GITOPS","var(--s5)"]];
  const BUILDS=[
   {name:"AWS Native Fortress",tag:"All-in on AWS",who:"A product org entirely on AWS with TypeScript or Python engineers, no multi-cloud mandate, and no wish to run a state backend.",
-   picks:["cloudformation","aws-cdk","checkov","trivy","infracost","packer","cloud-init","cloud-kms-sm","github-actions"],
+   picks:["aws-cdk","checkov","trivy","infracost","packer","cloud-init","cloud-kms-sm","github-actions"],
    strengths:["AWS CDK synthesizes to CloudFormation and deploys through change sets, so you inherit native rollback instead of rebuilding it.","Checkov and Trivy both scan the CloudFormation that CDK emits, and Infracost reads CDK projects directly, so scanning and cost gating need no Terraform detour.","CloudFormation holds state server-side: no bucket, lock table, or state encryption to design and own."],
    weaknesses:["No strong policy engine fits: Sentinel is HashiCorp-only and Rego here targets Terraform plan JSON, so you fall back to Checkov custom policies.","Total single-vendor coupling: every artifact is a CloudFormation template, so a later multi-cloud need is a rewrite, not a migration.","CDK bootstrapping is mandatory in practice, and deploy-time-only values surface as opaque tokens."]},
   {name:"Multi-Cloud OSS GitOps Rig",tag:"Multi-cloud OSS on Kubernetes",who:"A cloud-agnostic, OSS-first team running Kubernetes across two or more clouds, with no budget for a commercial control plane.",
@@ -7013,11 +7013,11 @@ function renderBuilds(){
 function applyBuild(i){
   const b=BUILDS[i];if(!b)return;
   SEL={};
-  b.picks.forEach(id=>{const t=BYID[id];if(!t)return;const k=slotKey(t);(SEL[k]=SEL[k]||new Set()).add(id);});
+  b.picks.forEach(id=>{const t=BYID[id];if(!t)return;const k=slotKey(t);const mode=SLOTMODE[k]||t.slot_mode;if(!SEL[k])SEL[k]=new Set();if(mode==="pick"&&SEL[k].size>=1){console.warn("Build "+JSON.stringify(b.name)+" lists multiple tools for pick slot "+JSON.stringify(k)+"; keeping first, skipping "+id);return;}SEL[k].add(id);});
   document.querySelectorAll(".node").forEach(n=>setNodeSel(n,isSelected(n.dataset.id)));
   hidePop();updateTray();
   document.querySelectorAll(".build-btn").forEach(x=>x.classList.toggle("on",(+x.dataset.bi)===i));
-  const found=b.picks.filter(id=>BYID[id]).length;
+  const found=Object.values(SEL).reduce((n,set)=>n+set.size,0);
   const d=document.getElementById("buildDetail");
   d.innerHTML=`<h3>${esc(b.name)}</h3><p class="bd-who">${esc(b.who)}</p>
     <div class="build-cols">
