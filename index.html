@@ -315,7 +315,7 @@ abbr[title]{text-decoration:underline dotted var(--amber-d);text-underline-offse
       <span class="lictag lcomm"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6z"/></svg>Proprietary</span></span>
     <span><b>COST:</b>
       <span class="cost cfree">Free &middot; self-host</span>
-      <span class="cost cpaid">Paid &middot; vendor</span></span>
+      <span class="cost cpaid">Vendor-hosted</span></span>
     <span><b>LIFECYCLE:</b>
       <span class="lictag lfade"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>Fading / EOL</span></span>
     <span class="muted">select a node to add it &middot; open details for sentiment, pros and concerns &middot; dotted terms show their meaning</span>
@@ -6691,7 +6691,7 @@ function slotWhy(s){return SLOT_WHY_N[String(s).replace(/[^a-z0-9]+/gi,"").toLow
 const COST={
  open:{free:true,short:"Free",label:"Free \u00b7 self-host",cls:"cfree"},
  bsl:{free:true,short:"Free",label:"Free \u00b7 self-host",cls:"cfree"},
- comm:{free:false,short:"Paid",label:"Paid \u00b7 vendor",cls:"cpaid"},
+ comm:{free:false,short:"Vendor",label:"Vendor-hosted",cls:"cpaid"},
 };
 function costOf(t){return COST[t.license]||COST.comm;}
 const GLOSSARY=[
@@ -6774,7 +6774,7 @@ function node(t){
   const starTxt=starsN?starsN+" stars":"n/a stars";
   const fade=t.lifecycle==="fade", on=isSelected(t.id);
   const c=costOf(t);
-  const alabel=`${t.name}: ${t.oneliner}. ${c.free?"Free to self-host":"Paid vendor product"}. Licence: ${li.label}. ${starsN?m.stars.toLocaleString("en-US")+" GitHub stars":"No public star data"}.${fade?" Fading or end of life.":""}`;
+  const alabel=`${t.name}: ${t.oneliner}. ${c.free?"Free to self-host":"Proprietary, vendor-hosted"}. Licence: ${li.label}. ${starsN?m.stars.toLocaleString("en-US")+" GitHub stars":"No public star data"}.${fade?" Fading or end of life.":""}`;
   return `<button class="node${on?" sel":""}" data-id="${esc(t.id)}" data-hub="${esc(slotKey(t))}" aria-pressed="${on}" aria-label="${esc(alabel)}">
     <span class="node-badge" aria-hidden="true">${badgeInner(t)}</span>
     <span class="node-name">${esc(t.name)}</span>
@@ -6794,7 +6794,7 @@ function buildDetail(t){
   const fade=t.lifecycle==="fade", on=isSelected(t.id), c=costOf(t);
   return `<button class="popclose" aria-label="Close tool details">\u00d7</button>
     <div class="pop-head">${badge(t)}<div><div class="pop-name" id="popname">${esc(t.name)}</div>
-    <div class="tagrow"><span class="cost ${c.cls} costbig" title="${c.free?"Free and self-hostable":"Proprietary vendor product, usually paid"}">${c.label}</span><span class="lictag ${li.cls}"><svg viewBox="0 0 24 24"><path d="${LIC_ICON[li.icon]}"/></svg>${esc(li.label)}</span>${
+    <div class="tagrow"><span class="cost ${c.cls} costbig" title="${c.free?"Free and self-hostable":"Proprietary and vendor-hosted, not self-hostable. Most plans are paid; a few (CloudFormation, GitHub Actions) have a free tier."}">${c.label}</span><span class="lictag ${li.cls}"><svg viewBox="0 0 24 24"><path d="${LIC_ICON[li.icon]}"/></svg>${esc(li.label)}</span>${
       fade?`<span class="lictag lfade"><svg viewBox="0 0 24 24"><path d="${LIC_ICON.warn}"/></svg>Fading / EOL</span>`:""}</div></div></div>
     <p class="pop-one">${gloss(t.oneliner)}</p>
     <div class="metrics">
@@ -6845,7 +6845,7 @@ function render(){
       const items=tools.filter(t=>t.slot===slot);const mode=items[0].slot_mode;
       const mlabel={pick:"PICK ONE",combine:"COMBINE",addon:"ADD-ON"}[mode];
       const mhint={pick:"choose one",combine:"stack several",addon:"optional"}[mode];const mwhy=slotWhy(slot);
-      branches+=`<li><span class="tnode thub"><span class="mode ${mode}">${mlabel}</span><span class="hub-title">${glossV(slot,gSeen)}</span>${mwhy?`<span class="hub-why">${esc(mwhy)}</span>`:""}<span class="hub-hint">${mhint}</span></span>
+      branches+=`<li><span class="tnode thub"><span class="mode ${mode}">${mlabel}</span><span class="hub-title">${glossV(slot,gSeen)}</span>${mwhy?`<span class="hub-why">${glossV(mwhy,gSeen)}</span>`:""}<span class="hub-hint">${mhint}</span></span>
         <ul>${items.map(t=>`<li>${node(t)}</li>`).join("")}</ul></li>`;
     }
     stage.innerHTML=`<div class="stage-rail" style="background:${accent}"></div>
@@ -6893,12 +6893,13 @@ function showPop(n){
   const pop=document.getElementById("nodepop");const t=BYID[n.dataset.id];if(!t)return;
   pop.innerHTML=buildDetail(t);pop.dataset.for=t.id;pop.classList.add("show");pop.setAttribute("aria-labelledby","popname");
   const cl=pop.querySelector(".popclose");
-  if(cl)cl.addEventListener("click",()=>{_popSuppress=true;_tapArmed=null;pop.classList.remove("show");n.focus();setTimeout(()=>{_popSuppress=false;},0);});
+  if(cl)cl.addEventListener("click",()=>{_popSuppress=true;hidePop();n.focus();setTimeout(()=>{_popSuppress=false;},0);});
   const sb=pop.querySelector(".selbtn");
   if(sb)sb.addEventListener("click",()=>{const nn=document.querySelector(`.node[data-id="${CSS.escape(t.id)}"]`);toggle(t.id,nn);});
   positionPop(n,pop);
 }
-function hidePopSoon(){ _popTimer=setTimeout(()=>{const p=document.getElementById("nodepop"); if(p.matches(":hover")||p.contains(document.activeElement)) return; _tapArmed=null; p.classList.remove("show");},200); }
+function hidePop(){document.getElementById("nodepop").classList.remove("show");_tapArmed=null;}
+function hidePopSoon(){ _popTimer=setTimeout(()=>{const p=document.getElementById("nodepop"); if(p.matches(":hover")||p.contains(document.activeElement)) return; hidePop();},200); }
 function wire(){
   const pop=document.getElementById("nodepop");
   document.querySelectorAll(".node").forEach(n=>{
@@ -6982,11 +6983,11 @@ function download(name,text,type){const b=new Blob([text],{type});const u=URL.cr
 
 document.getElementById("buildBtn").addEventListener("click",openModal);
 document.getElementById("resetBtn").addEventListener("click",()=>{SEL={};
-  document.querySelectorAll(".node.sel").forEach(c=>setNodeSel(c,false));document.getElementById("nodepop").classList.remove("show");_tapArmed=null;updateTray();});
+  document.querySelectorAll(".node.sel").forEach(c=>setNodeSel(c,false));hidePop();updateTray();});
 document.getElementById("closeModal").addEventListener("click",()=>document.getElementById("modal").classList.remove("show"));
 document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")e.currentTarget.classList.remove("show");});
-document.addEventListener("keydown",e=>{if(e.key==="Escape"){document.getElementById("modal").classList.remove("show");document.getElementById("nodepop").classList.remove("show");_tapArmed=null;}});
-document.addEventListener("click",e=>{if(!e.target.closest(".node")&&!e.target.closest("#nodepop")){document.getElementById("nodepop").classList.remove("show");_tapArmed=null;}});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){document.getElementById("modal").classList.remove("show");hidePop();}});
+document.addEventListener("click",e=>{if(!e.target.closest(".node")&&!e.target.closest("#nodepop")){hidePop();}});
 document.addEventListener("pointerdown",e=>{_lastPtr=e.pointerType||"";},true);
 document.querySelectorAll(".tab").forEach(tb=>tb.addEventListener("click",()=>{
   document.querySelectorAll(".tab").forEach(x=>x.classList.remove("on"));tb.classList.add("on");
