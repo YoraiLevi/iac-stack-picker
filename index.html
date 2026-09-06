@@ -6769,7 +6769,7 @@ const SLOT_WHY={
  "Run it \u2014 automation / TACOS":"Runs plan and apply from pull requests with locking, approvals and an audit trail, instead of from someone's laptop.",
  "Scan for misconfig / security":"Catches insecure defaults such as open buckets and over-broad IAM before you apply. Stack several: each finds gaps the others miss.",
  "Custom policy engine":"Encodes your own guardrails such as naming, allowed regions and cost caps, then blocks changes that break them. Stack several: HCP Terraform attaches Sentinel and OPA policy sets to the same workspace, so an org can enforce both at once.",
- "Test":"Proves a module actually builds working infrastructure, not just valid syntax.",
+ "Test":"Proves a module actually builds working infrastructure, not just valid syntax. Stack several: terraform/tofu test asserts plan and apply outcomes in-language, while Terratest drives real Go-based integration checks against live resources.",
  "Estimate cost":"Shows the dollar impact of a change inside the pull request, before it merges.",
  "Configure servers":"Installs packages and sets state inside long-lived VMs, which cloud provisioning does not do.",
  "Bake immutable images":"Builds a golden machine image once so servers boot ready and identical every time.",
