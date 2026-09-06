@@ -223,7 +223,7 @@ abbr[title]{text-decoration:underline dotted var(--amber-d);text-underline-offse
 .chip{font-size:.875rem}
 .node:focus-visible{outline:3px solid var(--green);outline-offset:2px}
 @media(prefers-reduced-motion:reduce){.node:hover{transform:none}}
-@media(max-width:640px){.tree-wrap{padding:8px 10px 20px}.node{width:110px}}
+@media(max-width:640px){.tree-wrap{padding:8px 10px 20px}}
 /* ===== a11y + visibility overhaul v3 ===== */
 :root{--ink3:#5c6157;--green-d:#3f6d28}
 .node:focus-visible,.selbtn:focus-visible,.btn:focus-visible,.tab:focus-visible,.close:focus-visible,.popclose:focus-visible,#chips .x:focus-visible,.gloss summary:focus-visible{outline:3px solid var(--green-d);outline-offset:3px}
@@ -290,7 +290,7 @@ abbr[title]{text-decoration:underline dotted var(--amber-d);text-underline-offse
 #nodepop .pros li::before{content:"\25B2";position:absolute;left:0;top:5px;font-size:10px;color:#2f6d17}
 #nodepop .cons li::before{content:"\25BC";position:absolute;left:0;top:5px;font-size:10px;color:#b3283a}
 #nodepop a{color:#356021}
-.hub-why{font-size:.9375rem;color:var(--ink2);line-height:1.45;max-width:250px;margin-top:3px}
+.hub-why{font-size:.9375rem;color:var(--ink2);line-height:1.45;max-width:260px;margin-top:3px}
 .cost{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:7px;font-size:.75rem;font-weight:800;letter-spacing:.02em;line-height:1.25;white-space:nowrap}
 .cost.cfree{background:#3f6d28;color:#fff}
 .cost.cfreev{background:#0f6b6b;color:#fff}
@@ -6707,7 +6707,7 @@ const PRICING={
  "spacelift":{tier:"tier",src:"https://spacelift.io/pricing"},
  "env0":{tier:"tier",src:"https://www.env0.com/pricing"},
  "scalr":{tier:"tier",src:"https://scalr.com/pricing"},
- "sentinel":{tier:"paid",src:"https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement"},
+ "sentinel":{tier:"tier",src:"https://developer.hashicorp.com/terraform/cloud-docs/workspaces/policy-enforcement"},
  "cloud-kms-sm":{tier:"paid",src:"https://aws.amazon.com/kms/pricing/"},
  "github-actions":{tier:"tier",src:"https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions"},
  "gitlab-ci-cd":{tier:"tier",src:"https://about.gitlab.com/pricing/"},
