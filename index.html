@@ -598,7 +598,7 @@ html{scroll-padding-top:66px}
    "forks": 1355,
    "commits_90d": 268,
    "latest_release": "v1.12.6",
-   "latest_release_at": "2026-08-27T18:01:40Z",
+   "latest_release_at": "2026-08-19T11:40:07Z",
    "archived": false,
    "license_spdx": "MPL-2.0"
   },
@@ -825,7 +825,7 @@ html{scroll-padding-top:66px}
    "forks": 1253,
    "commits_90d": 227,
    "latest_release": "v2.4.0",
-   "latest_release_at": "2026-08-21T17:24:11Z",
+   "latest_release_at": "2026-08-20T14:42:33Z",
    "archived": false,
    "license_spdx": "Apache-2.0"
   },
@@ -1538,8 +1538,8 @@ html{scroll-padding-top:66px}
    "stars": 3623,
    "forks": 125,
    "commits_90d": 24,
-   "latest_release": "v0.17.3-rc1",
-   "latest_release_at": "2026-09-02T09:30:16Z",
+   "latest_release": "v0.17.2",
+   "latest_release_at": "2026-07-31T12:40:47Z",
    "archived": false,
    "license_spdx": "MPL-2.0"
   },
@@ -3020,8 +3020,8 @@ html{scroll-padding-top:66px}
    "stars": 7943,
    "forks": 1372,
    "commits_90d": 46,
-   "latest_release": "modules/core/v2.0.0-beta.2",
-   "latest_release_at": "2026-08-10T13:09:31Z",
+   "latest_release": "v1.0.1",
+   "latest_release_at": "2026-06-27T22:59:52Z",
    "archived": false,
    "license_spdx": "Apache-2.0"
   },
@@ -3135,7 +3135,7 @@ html{scroll-padding-top:66px}
    "forks": 686,
    "commits_90d": 10,
    "latest_release": "v2.16.2",
-   "latest_release_at": "2026-07-03T10:03:43Z",
+   "latest_release_at": "2026-08-17T11:31:45Z",
    "archived": false,
    "license_spdx": "Apache-2.0"
   },
@@ -3250,7 +3250,7 @@ html{scroll-padding-top:66px}
    "forks": 24343,
    "commits_90d": 69,
    "latest_release": "v2.21.3",
-   "latest_release_at": "2026-08-31T16:28:46Z",
+   "latest_release_at": "2026-08-10T16:46:28Z",
    "archived": false,
    "license_spdx": "GPL-3.0"
   },
@@ -3729,7 +3729,7 @@ html{scroll-padding-top:66px}
    "forks": 3335,
    "commits_90d": 19,
    "latest_release": "v1.16.0",
-   "latest_release_at": "2022-03-10T00:30:39Z",
+   "latest_release_at": "2026-07-24T09:26:22Z",
    "archived": false,
    "license_spdx": "NOASSERTION"
   },
@@ -4220,7 +4220,7 @@ html{scroll-padding-top:66px}
    "forks": 1410,
    "commits_90d": 256,
    "latest_release": "v2.10.0",
-   "latest_release_at": "2026-08-28T13:09:40Z",
+   "latest_release_at": "2026-08-28T11:49:18Z",
    "archived": false,
    "license_spdx": "Apache-2.0"
   },
@@ -4351,7 +4351,7 @@ html{scroll-padding-top:66px}
    "forks": 773,
    "commits_90d": 59,
    "latest_release": "v0.39.1",
-   "latest_release_at": "2026-08-20T08:56:57Z",
+   "latest_release_at": "2026-08-20T08:53:22Z",
    "archived": false,
    "license_spdx": "Apache-2.0"
   },
@@ -5728,7 +5728,7 @@ html{scroll-padding-top:66px}
    "forks": 7781,
    "commits_90d": 326,
    "latest_release": "v4.2.4",
-   "latest_release_at": "2026-08-31T22:56:05Z",
+   "latest_release_at": "2026-08-13T15:33:04Z",
    "archived": false,
    "license_spdx": "Apache-2.0"
   },
@@ -6374,7 +6374,7 @@ html{scroll-padding-top:66px}
    "forks": 7608,
    "commits_90d": 1353,
    "latest_release": "v1.54.6",
-   "latest_release_at": "2026-09-01T19:58:09Z",
+   "latest_release_at": "2026-08-28T08:26:31Z",
    "archived": false,
    "license_spdx": "Apache-2.0"
   },
@@ -6875,7 +6875,7 @@ function renderGlossary(){
   const el=document.getElementById("glossBody");if(!el)return;
   el.innerHTML=GLOSSARY.map(([t,f,d])=>`<div class="g"><b>${esc(t)}</b> <i>${esc(f)}</i><br>${esc(d)}</div>`).join("");
 }
-let TOOLS=[], ICONS={}, BYID={}, SEL={}, SLOTMODE={}, MAXSTARS=1; // SEL[slotKey]=Set(id)
+let TOOLS=[], ICONS={}, BYID={}, SEL={}, SLOTMODE={}, CADJ={}, MAXSTARS=1; // SEL[slotKey]=Set(id)
 
 const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const urlOK=u=>{u=String(u==null?"":u).trim();return /^(https?:|mailto:)/i.test(u)?u:"#";};
@@ -6926,9 +6926,9 @@ function node(t){
   const starTxt=starsN?starsN+" stars":"n/a stars";
   const fade=t.lifecycle==="fade", on=isSelected(t.id);
   const c=costOf(t);
-  const cmb=(COMPARE[t.id]||{}).combines||[];
+  const cmb=CADJ[t.id]?[...CADJ[t.id]]:[];
   const alabel=`${t.name}: ${t.oneliner}. ${c.cap}. Licence: ${li.label}. ${starsN?m.stars.toLocaleString("en-US")+" GitHub stars":"No public star data"}.${fade?" Fading or end of life.":""}`;
-  return `<button class="node${on?" sel":""}" data-id="${esc(t.id)}" data-hub="${esc(slotKey(t))}" aria-pressed="${on}" aria-label="${esc(alabel)}">
+  return `<button class="node${on?" sel":""}" data-id="${esc(t.id)}" data-hub="${esc(slotKey(t))}" aria-haspopup="dialog" aria-expanded="false" aria-controls="nodepop" aria-label="${esc(alabel)}">
     ${cmb.length?`<span class="combine-flag" data-combines="${esc(cmb.join(","))}" tabindex="0" title="Combines with ${esc(cmb.map(id=>(BYID[id]||{}).name).filter(Boolean).join(", "))}" aria-label="Combines with ${esc(cmb.map(id=>(BYID[id]||{}).name).filter(Boolean).join(", "))}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></span>`:""}<span class="node-badge" aria-hidden="true">${badgeInner(t)}</span>
     <span class="node-name">${esc(t.name)}</span>
     <span class="node-meta"><span class="ms">${esc(starTxt)}</span><span class="cost ${c.cls}" aria-hidden="true">${c.short}</span></span>
@@ -6999,7 +6999,7 @@ function buildDetail(t){
   const fade=t.lifecycle==="fade", on=isSelected(t.id), c=costOf(t);
   const cm=COMPARE[t.id]||{};
   let cmpHtml="";
-  {const cnames=(cm.combines||[]).map(id=>BYID[id]&&BYID[id].name).filter(Boolean).map(esc);
+  {const cnames=(CADJ[t.id]?[...CADJ[t.id]]:[]).map(id=>BYID[id]&&BYID[id].name).filter(Boolean).map(esc);
    if(cm.edge||cm.watch||cnames.length){
      cmpHtml='<div class="pop-compare">'+
        (cm.edge?'<div class="cmp-row"><span class="cmp-lab s">Best at</span><span>'+gloss(cm.edge)+'</span></div>':'')+
@@ -7048,10 +7048,11 @@ function renderBuilds(){
   row.innerHTML=BUILDS.map((b,i)=>`<button class="build-btn" type="button" data-bi="${i}"><b>${esc(b.name)}</b><span class="bw">${esc(b.tag)}</span></button>`).join("");
   row.querySelectorAll(".build-btn").forEach(btn=>btn.addEventListener("click",()=>applyBuild(+btn.dataset.bi)));
 }
+function selectInto(k,id,mode){SEL[k]=SEL[k]||new Set();if(mode==="pick"&&SEL[k].size>=1&&!SEL[k].has(id))return false;SEL[k].add(id);return true;}
 function applyBuild(i){
   const b=BUILDS[i];if(!b)return;
   SEL={};
-  b.picks.forEach(id=>{const t=BYID[id];if(!t)return;const k=slotKey(t);const mode=SLOTMODE[k]||t.slot_mode;if(!SEL[k])SEL[k]=new Set();if(mode==="pick"&&SEL[k].size>=1){console.warn("Build "+JSON.stringify(b.name)+" lists multiple tools for pick slot "+JSON.stringify(k)+"; keeping first, skipping "+id);return;}SEL[k].add(id);});
+  b.picks.forEach(id=>{const t=BYID[id];if(!t)return;const k=slotKey(t);const mode=SLOTMODE[k]||t.slot_mode;if(!selectInto(k,id,mode))console.warn("Build "+JSON.stringify(b.name)+" lists multiple tools for pick slot "+JSON.stringify(k)+"; keeping first, skipping "+id);});
   document.querySelectorAll(".node").forEach(n=>setNodeSel(n,isSelected(n.dataset.id)));
   hidePop();updateTray();
   document.querySelectorAll(".build-btn").forEach(x=>x.classList.toggle("on",(+x.dataset.bi)===i));
@@ -7066,10 +7067,19 @@ function applyBuild(i){
   d.hidden=false;
   d.scrollIntoView({behavior:"smooth",block:"nearest"});
 }
+function buildCombineAdj(){
+  CADJ={};
+  const add=(a,b)=>{if(!a||!b||a===b)return;(CADJ[a]=CADJ[a]||new Set()).add(b);(CADJ[b]=CADJ[b]||new Set()).add(a);};
+  const bySlot={};
+  TOOLS.forEach(t=>{const k=slotKey(t);(bySlot[k]=bySlot[k]||[]).push(t);});
+  Object.values(bySlot).forEach(arr=>{if(arr[0]&&arr[0].slot_mode==="combine"){for(let i=0;i<arr.length;i++)for(let j=i+1;j<arr.length;j++)add(arr[i].id,arr[j].id);}});
+  Object.keys(COMPARE).forEach(id=>{const cm=COMPARE[id]||{};(cm.combines||[]).forEach(to=>{if(BYID[to])add(id,to);});});
+}
 function render(){
   const app=document.getElementById("app");app.innerHTML="";
   MAXSTARS=Math.max(1,...TOOLS.map(t=>(t.metrics||{}).stars||0));
   buildGloss();
+  buildCombineAdj();
   let drawn=false; let prevSkey=null; const gSeen=new Set();
   for(const [skey,num,label,accent] of STAGES){
     const tools=TOOLS.filter(t=>t.stage===skey);if(!tools.length)continue;
@@ -7098,7 +7108,7 @@ function render(){
   wire();
 }
 
-function setNodeSel(n,on){ if(!n)return; n.classList.toggle("sel",on); n.setAttribute("aria-pressed",on?"true":"false"); }
+function setNodeSel(n,on){ if(!n)return; n.classList.toggle("sel",on); }
 function syncPop(id){ const p=document.getElementById("nodepop");
   if(p.classList.contains("show") && p.dataset.for===id){ const sb=p.querySelector(".selbtn");
     if(sb){ const on=isSelected(id); sb.setAttribute("aria-pressed",on?"true":"false"); sb.textContent=on?"Remove from build":"\uFF0B Add to build"; } } }
@@ -7129,6 +7139,7 @@ function positionPop(n,pop){
 function showPop(n){
   if(_popSuppress)return;
   clearTimeout(_popTimer);
+  document.querySelectorAll('.node[aria-expanded="true"]').forEach(x=>x.setAttribute('aria-expanded','false'));n.setAttribute('aria-expanded','true');
   const pop=document.getElementById("nodepop");const t=BYID[n.dataset.id];if(!t)return;
   pop.innerHTML=buildDetail(t);pop.dataset.for=t.id;pop.classList.add("show");document.body.classList.add("pop-open");pop.setAttribute("aria-labelledby","popname");
   const cl=pop.querySelector(".popclose");
@@ -7137,7 +7148,7 @@ function showPop(n){
   if(sb)sb.addEventListener("click",()=>{const nn=document.querySelector(`.node[data-id="${CSS.escape(t.id)}"]`);toggle(t.id,nn);});
   /* drawer: fixed position via CSS */
 }
-function hidePop(){document.getElementById("nodepop").classList.remove("show");document.body.classList.remove("pop-open");_tapArmed=null;}
+function hidePop(){document.getElementById("nodepop").classList.remove("show");document.body.classList.remove("pop-open");document.querySelectorAll('.node[aria-expanded="true"]').forEach(x=>x.setAttribute("aria-expanded","false"));_tapArmed=null;}
 function hidePopSoon(){ _popTimer=setTimeout(()=>{const p=document.getElementById("nodepop"); if(p.matches(":hover")||p.contains(document.activeElement)) return; hidePop();},200); }
 function wire(){
   document.querySelectorAll(".node").forEach(n=>{
@@ -7161,7 +7172,7 @@ function selectedTools(){
 }
 function cbadge(t){const fg=esc(ink(t.brand));return (t.icon&&ICONS[t.icon])?`<svg viewBox="0 0 24 24" fill="${fg}"><path d="${pathD(ICONS[t.icon])}"/></svg>`:`<span class="mono" style="color:${fg}">${esc(t.mono)}</span>`;}
 function scrollToNode(id){const n=document.querySelector(`.node[data-id="${CSS.escape(id)}"]`);if(!n)return;n.scrollIntoView({behavior:"smooth",block:"center",inline:"center"});n.classList.remove("flash");void n.offsetWidth;n.classList.add("flash");setTimeout(()=>n.classList.remove("flash"),1200);}
-function applyManifest(obj){const names=new Set();const walk=v=>{if(Array.isArray(v))v.forEach(walk);else if(v&&typeof v==="object"){if(typeof v.name==="string")names.add(v.name);Object.values(v).forEach(walk);}};walk(obj);if(!names.size){alert("No tools found in that file.");return;}const byName={};TOOLS.forEach(t=>byName[t.name]=t);SEL={};let n=0;names.forEach(nm=>{const t=byName[nm];if(!t)return;const k=slotKey(t);const mode=SLOTMODE[k]||t.slot_mode;if(!SEL[k])SEL[k]=new Set();if(mode==="pick"&&SEL[k].size>=1)return;SEL[k].add(t.id);n++;});document.querySelectorAll(".node").forEach(nd=>setNodeSel(nd,isSelected(nd.dataset.id)));hidePop();updateTray();if(!n)alert("None of those tool names matched this catalog.");}
+function applyManifest(obj){const ids=new Set(),names=new Set();const walk=v=>{if(Array.isArray(v))v.forEach(walk);else if(v&&typeof v==="object"){if(typeof v.id==="string"&&BYID[v.id])ids.add(v.id);if(typeof v.name==="string")names.add(v.name);Object.values(v).forEach(walk);}};walk(obj);const byName={};TOOLS.forEach(t=>byName[t.name]=t);let chosen=[...ids].map(id=>BYID[id]);if(!chosen.length)chosen=[...names].map(nm=>byName[nm]).filter(Boolean);if(!chosen.length){alert("No matching tools found in that file.");return;}SEL={};let n=0;chosen.forEach(t=>{const k=slotKey(t);const mode=SLOTMODE[k]||t.slot_mode;if(selectInto(k,t.id,mode))n++;});document.querySelectorAll(".node").forEach(nd=>setNodeSel(nd,isSelected(nd.dataset.id)));hidePop();updateTray();if(!n)alert("None of those tools matched this catalog.");}
 
 function updateTray(){
   const sel=selectedTools();const tray=document.getElementById("tray");
@@ -7185,11 +7196,12 @@ function updateTray(){
 }
 
 /* ---------- exporter ---------- */
+function saveJSON(){const sel=selectedTools();if(!sel.length){alert("Select some tools first.");return;}download("iac-stack.json",JSON.stringify(buildManifest(),null,2),"application/json");}
 function buildManifest(){
   const sel=selectedTools();
   return {generated:new Date().toISOString(),tool_count:sel.length,
     source:"IaC Stack Picker",stack:STAGES.map(([sk,,label])=>({stage:label,
-      tools:sel.filter(t=>t.stage===sk).map(t=>({name:t.name,slot:t.slot,license:t.license,lifecycle:t.lifecycle||"active",
+      tools:sel.filter(t=>t.stage===sk).map(t=>({id:t.id,name:t.name,slot:t.slot,license:t.license,lifecycle:t.lifecycle||"active",
         repo:t.repo||null,docs:t.docs||null,stars:(t.metrics||{}).stars??null,
         sentiment:(t.sentiment||{}).n?`${t.sentiment.pos}/${t.sentiment.n} favorable`:null,
         oneliner:t.oneliner}))})).filter(s=>s.tools.length)};
@@ -7236,7 +7248,7 @@ function download(name,text,type){const b=new Blob([text],{type});const u=URL.cr
 document.getElementById("buildBtn").addEventListener("click",openModal);
 document.getElementById("resetBtn").addEventListener("click",()=>{SEL={};
   document.querySelectorAll(".node.sel").forEach(c=>setNodeSel(c,false));hidePop();updateTray();});
-document.getElementById("saveBtn").addEventListener("click",()=>{const sel=selectedTools();if(!sel.length){alert("Select some tools first, then Save.");return;}download("iac-stack.json",JSON.stringify(buildManifest(),null,2),"application/json");});
+document.getElementById("saveBtn").addEventListener("click",saveJSON);
 document.getElementById("loadBtn").addEventListener("click",()=>document.getElementById("loadFile").click());
 document.getElementById("loadFile").addEventListener("change",e=>{const f=e.target.files&&e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{applyManifest(JSON.parse(rd.result));}catch(err){alert("Could not load JSON: "+err.message);}e.target.value="";};rd.readAsText(f);});
 document.getElementById("closeModal").addEventListener("click",()=>document.getElementById("modal").classList.remove("show"));
@@ -7249,7 +7261,7 @@ document.querySelectorAll(".tab").forEach(tb=>tb.addEventListener("click",()=>{
   document.querySelectorAll(".view").forEach(v=>v.classList.remove("on"));
   document.getElementById("v-"+tb.dataset.v).classList.add("on");}));
 document.getElementById("dlSvg").addEventListener("click",()=>download("iac-stack.svg",buildSVG(),"image/svg+xml"));
-document.getElementById("dlJson").addEventListener("click",()=>download("iac-stack.json",JSON.stringify(buildManifest(),null,2),"application/json"));
+document.getElementById("dlJson").addEventListener("click",saveJSON);
 document.getElementById("copyJson").addEventListener("click",()=>navigator.clipboard.writeText(JSON.stringify(buildManifest(),null,2)));
 document.getElementById("dlPng").addEventListener("click",()=>{
   const svg=buildSVG();const img=new Image();const b=new Blob([svg],{type:"image/svg+xml"});const u=URL.createObjectURL(b);

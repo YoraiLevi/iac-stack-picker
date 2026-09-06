@@ -60,8 +60,8 @@
   "created_at": "2012-03-06T14:58:02Z",
   "archived": false,
   "license": "GPL-3.0",
-  "latest_release": "v2.21.4rc1",
-  "latest_release_at": "2026-08-31T16:28:46Z",
+  "latest_release": "v2.21.3",
+  "latest_release_at": "2026-08-10T16:46:28Z",
   "commits_90d": 69
  },
  "aquasecurity/trivy": {
@@ -138,8 +138,8 @@
   "created_at": "2020-01-24T22:39:49Z",
   "archived": false,
   "license": "Apache-2.0",
-  "latest_release": "v1.55.0-next.1",
-  "latest_release_at": "2026-09-01T19:58:09Z",
+  "latest_release": "v1.54.6",
+  "latest_release_at": "2026-08-28T08:26:31Z",
   "commits_90d": 1353
  },
  "bitnami-labs/sealed-secrets": {
@@ -294,8 +294,8 @@
   "created_at": "2016-03-05T00:26:17Z",
   "archived": false,
   "license": "Apache-2.0",
-  "latest_release": "modules/core/v2.0.0-beta.2",
-  "latest_release_at": "2026-08-10T13:09:31Z",
+  "latest_release": "v1.0.1",
+  "latest_release_at": "2026-06-27T22:59:52Z",
   "commits_90d": 46
  },
  "hashicorp/packer": {
@@ -307,8 +307,8 @@
   "created_at": "2013-03-23T05:43:03Z",
   "archived": false,
   "license": "NOASSERTION",
-  "latest_release": "nightly",
-  "latest_release_at": "2022-03-10T00:30:39Z",
+  "latest_release": "v1.16.0",
+  "latest_release_at": "2026-07-24T09:26:22Z",
   "commits_90d": 19
  },
  "hashicorp/terraform": {
@@ -346,8 +346,8 @@
   "created_at": "2015-10-06T01:07:32Z",
   "archived": false,
   "license": "Apache-2.0",
-  "latest_release": "v3.22.0-rc.1",
-  "latest_release_at": "2026-08-31T22:56:05Z",
+  "latest_release": "v4.2.4",
+  "latest_release_at": "2026-08-13T15:33:04Z",
   "commits_90d": 326
  },
  "infracost/infracost": {
@@ -411,8 +411,8 @@
   "created_at": "2023-08-16T20:01:36Z",
   "archived": false,
   "license": "MPL-2.0",
-  "latest_release": "v1.13.0-beta1",
-  "latest_release_at": "2026-08-27T18:01:40Z",
+  "latest_release": "v1.12.6",
+  "latest_release_at": "2026-08-19T11:40:07Z",
   "commits_90d": 268
  },
  "pulumi/pulumi": {
@@ -502,8 +502,8 @@
   "created_at": "2021-09-29T10:33:53Z",
   "archived": false,
   "license": "MPL-2.0",
-  "latest_release": "v0.17.3-rc1",
-  "latest_release_at": "2026-09-02T09:30:16Z",
+  "latest_release": "v0.17.2",
+  "latest_release_at": "2026-07-31T12:40:47Z",
   "commits_90d": 24
  },
  "woodpecker-ci/woodpecker": {
