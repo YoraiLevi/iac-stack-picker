@@ -1,0 +1,1701 @@
+[
+ {
+  "id": "checkov",
+  "sentiment": {
+   "pos": 10,
+   "neu": 10,
+   "neg": 4,
+   "n": 24,
+   "confidence": "high",
+   "summary": "Default OSS IaC scanner: huge policy library and graph checks. Recurring pain is alert noise, skip-file toil, and Prisma upsell. Still the usual Terrascan replacement.",
+   "data_points": [
+    {
+     "source": "blog",
+     "url": "https://devdosvid.blog/2024/04/16/a-deep-dive-into-terraform-static-code-analysis-tools-features-and-comparisons/",
+     "date": "2024-04",
+     "stance": "pos",
+     "note": "Leads compared tools on Terraform policies and providers."
+    },
+    {
+     "source": "article",
+     "url": "https://spacelift.io/blog/iac-scanning-tools",
+     "date": "2024-12",
+     "stance": "pos",
+     "note": "Calls Checkov the most widely deployed OSS IaC scanner."
+    },
+    {
+     "source": "article",
+     "url": "https://www.invicti.com/blog/web-security/iac-security-scanning-tools",
+     "date": "2026-07",
+     "stance": "pos",
+     "note": "De facto OSS standard; graph checks catch cross-resource issues."
+    },
+    {
+     "source": "article",
+     "url": "https://www.envzero.com/blog/best-iac-scan-tool",
+     "date": "2026-08",
+     "stance": "neu",
+     "note": "Feature-rich but slower and more complex than tfsec."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1cu6wlo/terraform_static_security_analysis_trivy_vs/",
+     "date": "2024-05",
+     "stance": "neu",
+     "note": "Side-by-side TF scan thread comparing Checkov findings."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1kv7n3y/checkov_vs_tfsec_vs_trivy_vs_terrascan/",
+     "date": "2025-05",
+     "stance": "neu",
+     "note": "Users weigh Checkov depth versus Trivy consolidation."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1uf55g9/terraform_scans_with_checkov/",
+     "date": "2025-11",
+     "stance": "neg",
+     "note": "Skip lists and noise become a maintenance burden."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1vfkvf3/what_security_checks_are_part_of_your_terraform/",
+     "date": "2025-12",
+     "stance": "pos",
+     "note": "Named as table-stakes Terraform pipeline security check."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/16xxoso/what_are_terraform_cicddevsecops_code_scanning/",
+     "date": "2023-09",
+     "stance": "neu",
+     "note": "Listed among common TF CI scanning options."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=40934408",
+     "date": "2024-07",
+     "stance": "pos",
+     "note": "Commenter recommends Checkov for Terraform security sanity."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=43129301",
+     "date": "2025-02",
+     "stance": "neu",
+     "note": "Massdriver bundles Checkov with OPA in module releases."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=46266028",
+     "date": "2025-12",
+     "stance": "pos",
+     "note": "Builder uses Checkov for SOC2 Terraform compliance."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=32633222",
+     "date": "2022-08",
+     "stance": "pos",
+     "note": "Listed among most useful Terraform OSS security tools."
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=EfkfJ_FMUWo",
+     "date": "2024-05",
+     "stance": "neu",
+     "note": "Short demo: Checkov flags more findings than Terrascan."
+    },
+    {
+     "source": "blog",
+     "url": "https://arnav.au/2026/09/05/migrating-off-terrascan/",
+     "date": "2026-09",
+     "stance": "pos",
+     "note": "Closest replacement when teams used bundled Terrascan rules."
+    },
+    {
+     "source": "article",
+     "url": "https://protego.me/blog/terraform-security-scanning-checkov-vs-terrascan-vs-tfsec",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "Compares Checkov coverage versus Terrascan and tfsec."
+    },
+    {
+     "source": "article",
+     "url": "https://www.envzero.com/insights/terraform-governance-tools-compared-opa-sentinel-checkov-tfsec-and-when-to-use-each",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "Treat Checkov as Level-1 static scan, not full PaC."
+    },
+    {
+     "source": "blog",
+     "url": "https://igorzhivilo.com/2025/02/11/checkov-ci/",
+     "date": "2025-02",
+     "stance": "pos",
+     "note": "Practical praise for Checkov in CI pipelines."
+    },
+    {
+     "source": "blog",
+     "url": "https://stategraph.com/blog/checkov-terraform",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "Point-in-time scan; does not catch post-apply drift."
+    },
+    {
+     "source": "article",
+     "url": "https://audytx.com/comparison",
+     "date": "2026-01",
+     "stance": "neg",
+     "note": "Vendor claims Checkov produces far more false positives."
+    },
+    {
+     "source": "article",
+     "url": "https://codingprotocols.com/blog/terraform-policy-as-code-opa-sentinel-checkov",
+     "date": "2026-07",
+     "stance": "neu",
+     "note": "Positions Checkov as scanner, not a policy engine."
+    },
+    {
+     "source": "article",
+     "url": "https://www.semantive.com/blog/enforcing-security-using-checkov-sentinel-and-more-in-compliance-focused-iac-workflows",
+     "date": "2025-01",
+     "stance": "pos",
+     "note": "Used with Sentinel in compliance-focused IaC workflows."
+    },
+    {
+     "source": "article",
+     "url": "https://ethantroy.dev/posts/infrastructure-as-code-scanning/",
+     "date": "2026-01",
+     "stance": "pos",
+     "note": "Actively maintained alternative after Terrascan archive."
+    },
+    {
+     "source": "article",
+     "url": "https://dev.to/svasylenko/a-deep-dive-into-terraform-static-code-analysis-tools-features-and-comparisons-1kbf",
+     "date": "2024-04",
+     "stance": "pos",
+     "note": "YAML/Python custom policies easier than Rego for many teams."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "alert-noise",
+    "detail": "Default policy set is huge; skip files and suppressions become toil.",
+    "sources": [
+     "https://www.reddit.com/r/Terraform/comments/1uf55g9/terraform_scans_with_checkov/",
+     "https://audytx.com/comparison"
+    ]
+   },
+   {
+    "tag": "prisma-upsell",
+    "detail": "OSS lacks some severity/governance features gated in Prisma Cloud.",
+    "sources": [
+     "https://spacelift.io/blog/iac-scanning-tools",
+     "https://www.reddit.com/r/Terraform/comments/1kv7n3y/checkov_vs_tfsec_vs_trivy_vs_terrascan/"
+    ]
+   },
+   {
+    "tag": "no-runtime-drift",
+    "detail": "Static snapshot only; misses console drift after apply.",
+    "sources": [
+     "https://stategraph.com/blog/checkov-terraform",
+     "https://www.invicti.com/blog/web-security/iac-security-scanning-tools"
+    ]
+   },
+   {
+    "tag": "python-perf",
+    "detail": "Can be slower than Go scanners on large repos.",
+    "sources": [
+     "https://www.envzero.com/blog/best-iac-scan-tool",
+     "https://devdosvid.blog/2024/04/16/a-deep-dive-into-terraform-static-code-analysis-tools-features-and-comparisons/"
+    ]
+   },
+   {
+    "tag": "not-all-in-one",
+    "detail": "IaC-only; teams still add Trivy for images and SCA.",
+    "sources": [
+     "https://www.invicti.com/blog/web-security/iac-security-scanning-tools",
+     "https://spacelift.io/blog/iac-scanning-tools"
+    ]
+   }
+  ],
+  "adopters": "Palo Alto/Prisma Cloud (maintainer); GitLab CI component; Massdriver bundles it; common pre-commit/GHA default; SOC2 DIY repos.",
+  "popularity_notes": "Mindshare leader among dedicated IaC SAST. Stars ~8.7k, frequent releases. Pair-with-Trivy is the 2025-26 default stack."
+ },
+ {
+  "id": "trivy",
+  "sentiment": {
+   "pos": 8,
+   "neu": 7,
+   "neg": 9,
+   "n": 24,
+   "confidence": "high",
+   "summary": "Loved as one-binary IaC+CVE+secrets scanner and tfsec successor. 2026 supply-chain attack on Actions/images badly damaged trust; pin SHAs/digests.",
+   "data_points": [
+    {
+     "source": "article",
+     "url": "https://spacelift.io/blog/iac-scanning-tools",
+     "date": "2024-12",
+     "stance": "pos",
+     "note": "Most actively developed OSS scanner; absorbed tfsec engine."
+    },
+    {
+     "source": "article",
+     "url": "https://www.invicti.com/blog/web-security/iac-security-scanning-tools",
+     "date": "2026-07",
+     "stance": "pos",
+     "note": "Best when consolidating IaC with container and K8s scans."
+    },
+    {
+     "source": "article",
+     "url": "https://www.invicti.com/blog/web-security/iac-security-scanning-tools",
+     "date": "2026-07",
+     "stance": "neg",
+     "note": "March 2026 GitHub Action and image compromise by TeamPCP."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=47450142",
+     "date": "2026-03",
+     "stance": "neg",
+     "note": "HN: the vulnerability scanner became the vulnerability."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=47450142",
+     "date": "2026-03",
+     "stance": "neg",
+     "note": "Commenter: Aqua failed to contain a prior VSCode incident."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=47450142",
+     "date": "2026-03",
+     "stance": "neu",
+     "note": "Advice to pin GitHub Actions to commit SHAs not tags."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=47450142",
+     "date": "2026-03",
+     "stance": "neg",
+     "note": "SHA-pinning insufficient if action still pulls latest binary."
+    },
+    {
+     "source": "article",
+     "url": "https://github.com/aquasecurity/trivy/discussions/10462",
+     "date": "2026-03",
+     "stance": "neu",
+     "note": "Maintainers apologize and detail pipeline hardening."
+    },
+    {
+     "source": "article",
+     "url": "https://github.com/aquasecurity/trivy/discussions/10462",
+     "date": "2026-03",
+     "stance": "pos",
+     "note": "Users thank Aqua for a transparent postmortem."
+    },
+    {
+     "source": "article",
+     "url": "https://github.com/aquasecurity/trivy/discussions/10462",
+     "date": "2026-04",
+     "stance": "neg",
+     "note": "IP allowlisting after the incident broke many CI jobs."
+    },
+    {
+     "source": "article",
+     "url": "https://github.com/aquasecurity/trivy/discussions/10462",
+     "date": "2026-06",
+     "stance": "neg",
+     "note": "Blocking GitHub runners forced users onto Docker Hub."
+    },
+    {
+     "source": "article",
+     "url": "https://github.com/aquasecurity/trivy/security/advisories/GHSA-69fq-xp46-6x23",
+     "date": "2026-03",
+     "stance": "neg",
+     "note": "Official GHSA for the Trivy ecosystem compromise."
+    },
+    {
+     "source": "article",
+     "url": "https://www.aquasec.com/blog/trivy-supply-chain-attack-what-you-need-to-know/",
+     "date": "2026-03",
+     "stance": "neu",
+     "note": "Vendor incident blog; remediation still unfolding then."
+    },
+    {
+     "source": "article",
+     "url": "https://hackmag.com/news/trivy-supply-chain",
+     "date": "2026-03",
+     "stance": "neg",
+     "note": "Attack spread toward Checkmarx and other downstream users."
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=EfkfJ_FMUWo",
+     "date": "2024-05",
+     "stance": "neu",
+     "note": "Demo: Trivy reports more findings with severities than Terrascan."
+    },
+    {
+     "source": "blog",
+     "url": "https://arnav.au/2026/09/05/migrating-off-terrascan/",
+     "date": "2026-09",
+     "stance": "pos",
+     "note": "Best Terrascan exit if you want Rego plus container scans."
+    },
+    {
+     "source": "article",
+     "url": "https://dev.to/verifacrew/how-to-secure-terraform-code-with-trivy-3m9m",
+     "date": "2024-01",
+     "stance": "pos",
+     "note": "Tutorial recommends trivy config as tfsec replacement."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1cu6wlo/terraform_static_security_analysis_trivy_vs/",
+     "date": "2024-05",
+     "stance": "neu",
+     "note": "Community comparison of Trivy versus Checkov and Terrascan."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1kv7n3y/checkov_vs_tfsec_vs_trivy_vs_terrascan/",
+     "date": "2025-05",
+     "stance": "pos",
+     "note": "Trivy favored to reduce scanner sprawl after tfsec merge."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/16xxoso/what_are_terraform_cicddevsecops_code_scanning/",
+     "date": "2023-09",
+     "stance": "neu",
+     "note": "Appears on the standard TF scanning shortlist."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=32633222",
+     "date": "2022-08",
+     "stance": "pos",
+     "note": "tfsec/Trivy lineage listed as core TF static analysis."
+    },
+    {
+     "source": "article",
+     "url": "https://appsecsanta.com/trivy",
+     "date": "2026-07",
+     "stance": "pos",
+     "note": "All-in-one scanner with very high GitHub star count."
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=MjzsO7njTaA",
+     "date": "2025-11",
+     "stance": "neu",
+     "note": "Long IaC security talk covering Trivy config in CI."
+    },
+    {
+     "source": "article",
+     "url": "https://www.envzero.com/blog/best-iac-scan-tool",
+     "date": "2026-08",
+     "stance": "pos",
+     "note": "Praised historically as fast and lightweight versus Checkov."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "supply-chain-2026",
+    "detail": "Actions, Docker tags, and VSCode extension were compromised; trust hit hard.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=47450142",
+     "https://github.com/aquasecurity/trivy/security/advisories/GHSA-69fq-xp46-6x23",
+     "https://github.com/aquasecurity/trivy/discussions/10462"
+    ]
+   },
+   {
+    "tag": "mutable-tags",
+    "detail": "Official action pulled mutable binaries; SHA-pinning Actions was not enough.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=47450142",
+     "https://www.invicti.com/blog/web-security/iac-security-scanning-tools"
+    ]
+   },
+   {
+    "tag": "post-incident-ci-breakage",
+    "detail": "Hardening (IP allowlists) broke GitHub-hosted runner updates.",
+    "sources": [
+     "https://github.com/aquasecurity/trivy/discussions/10462"
+    ]
+   },
+   {
+    "tag": "shallower-iac-graph",
+    "detail": "Inherited tfsec engine; weaker cross-resource graph than Checkov.",
+    "sources": [
+     "https://www.invicti.com/blog/web-security/iac-security-scanning-tools",
+     "https://devdosvid.blog/2024/04/16/a-deep-dive-into-terraform-static-code-analysis-tools-features-and-comparisons/"
+    ]
+   },
+   {
+    "tag": "jack-of-all-trades",
+    "detail": "One binary is convenient but output can be harder to triage.",
+    "sources": [
+     "https://spacelift.io/blog/iac-scanning-tools",
+     "https://www.reddit.com/r/Terraform/comments/1kv7n3y/checkov_vs_tfsec_vs_trivy_vs_terrascan/"
+    ]
+   }
+  ],
+  "adopters": "Aqua Security; default successor for tfsec users; very common GHA/container CI; ~35k-38k GitHub stars.",
+  "popularity_notes": "Highest mindshare of any tool in this cluster. Trend was strongly up until Mar 2026 incident; still default consolidator but now with pin-digest hygiene."
+ },
+ {
+  "id": "kics",
+  "sentiment": {
+   "pos": 10,
+   "neu": 9,
+   "neg": 3,
+   "n": 22,
+   "confidence": "med",
+   "summary": "Checkmarx OSS scanner with the widest IaC format coverage and huge Rego query set. GitLab's built-in IaC scan. Noise and 2026 image/action compromise are the main knocks.",
+   "data_points": [
+    {
+     "source": "article",
+     "url": "https://spacelift.io/blog/iac-scanning-tools",
+     "date": "2024-12",
+     "stance": "pos",
+     "note": "2400+ queries; GitLab IaC scanning uses KICS under the hood."
+    },
+    {
+     "source": "article",
+     "url": "https://www.invicti.com/blog/web-security/iac-security-scanning-tools",
+     "date": "2026-07",
+     "stance": "pos",
+     "note": "Widest OSS format coverage including Pulumi and Ansible."
+    },
+    {
+     "source": "article",
+     "url": "https://www.invicti.com/blog/web-security/iac-security-scanning-tools",
+     "date": "2026-07",
+     "stance": "neg",
+     "note": "April 2026 TeamPCP compromise of Docker image and Action."
+    },
+    {
+     "source": "blog",
+     "url": "https://devdosvid.blog/2024/04/16/a-deep-dive-into-terraform-static-code-analysis-tools-features-and-comparisons/",
+     "date": "2024-04",
+     "stance": "pos",
+     "note": "Auto-remediation and rich GitLab/SonarQube output formats."
+    },
+    {
+     "source": "blog",
+     "url": "https://devdosvid.blog/2024/04/16/a-deep-dive-into-terraform-static-code-analysis-tools-features-and-comparisons/",
+     "date": "2024-04",
+     "stance": "neu",
+     "note": "Module scanning weaker than Checkov or Trivy."
+    },
+    {
+     "source": "article",
+     "url": "https://docs.gitlab.com/user/application_security/iac_scanning/",
+     "date": "2025-01",
+     "stance": "pos",
+     "note": "GitLab ships KICS as default IaC scanning analyzer."
+    },
+    {
+     "source": "article",
+     "url": "https://docs.kics.io/latest/integrations_gitlabci/",
+     "date": "2025-01",
+     "stance": "pos",
+     "note": "First-party GitLab CI integration docs."
+    },
+    {
+     "source": "article",
+     "url": "https://medium.com/@alejo.tapia92/comparativa-de-herramientas-de-seguridad-para-infrastructure-as-code-con-terraform-254b71957c2d",
+     "date": "2025-12",
+     "stance": "neu",
+     "note": "101 findings vs tfsec 10; exhaustive but overwhelming."
+    },
+    {
+     "source": "article",
+     "url": "https://medium.com/@pawel.piwosz/your-infrastructure-code-is-code-start-treating-it-like-one-aef3f0b4ad58",
+     "date": "2025-01",
+     "stance": "neg",
+     "note": "Untuned KICS produced too much pipeline noise."
+    },
+    {
+     "source": "article",
+     "url": "https://medium.com/@kaliarch/securing-terraform-infrastructure-with-kics-core-concepts-implementation-a406bd0f6835",
+     "date": "2025-01",
+     "stance": "pos",
+     "note": "Hands-on KICS Terraform implementation guide."
+    },
+    {
+     "source": "article",
+     "url": "https://medium.com/@rajeev.asthana/creating-secure-infrastructure-with-iac-terraform-and-following-best-practices-part-1-kics-313ee2037233",
+     "date": "2024-01",
+     "stance": "pos",
+     "note": "Author starts TF security series with KICS."
+    },
+    {
+     "source": "blog",
+     "url": "https://arnav.au/2026/09/05/migrating-off-terrascan/",
+     "date": "2026-09",
+     "stance": "pos",
+     "note": "Good Terrascan exit for mixed IaC and existing Rego."
+    },
+    {
+     "source": "article",
+     "url": "https://telekom-mms.github.io/gitlab-credential-scanner/control-kics-scan/",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "Documents excludes to cut GitLab KICS false positives."
+    },
+    {
+     "source": "article",
+     "url": "https://docs.checkmarx.com/en/34965-324501-iac-security-scanner.html",
+     "date": "2026-05",
+     "stance": "neu",
+     "note": "Commercial Checkmarx One path built on KICS."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/16xxoso/what_are_terraform_cicddevsecops_code_scanning/",
+     "date": "2023-09",
+     "stance": "neu",
+     "note": "Appears on community TF scanning option lists."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=32633222",
+     "date": "2022-08",
+     "stance": "pos",
+     "note": "Listed among useful Terraform static analysis tools."
+    },
+    {
+     "source": "article",
+     "url": "https://gitlab.com/gitlab-org/security-products/analyzers/kics",
+     "date": "2025-01",
+     "stance": "pos",
+     "note": "GitLab maintains a dedicated KICS analyzer project."
+    },
+    {
+     "source": "article",
+     "url": "https://www.brainboard.co/blog/comprehensive-guide-to-iac-scanning-tools",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "Included in broad IaC scanner roundups."
+    },
+    {
+     "source": "article",
+     "url": "https://ethantroy.dev/posts/infrastructure-as-code-scanning/",
+     "date": "2026-01",
+     "stance": "pos",
+     "note": "Named as maintained alternative to archived Terrascan."
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=MjzsO7njTaA",
+     "date": "2025-11",
+     "stance": "neu",
+     "note": "IaC security video covering KICS-class scanners in CI."
+    },
+    {
+     "source": "article",
+     "url": "https://medium.com/env0/top-infrastructure-as-code-security-tools-in-2025-df3fba71a7b8",
+     "date": "2025-01",
+     "stance": "pos",
+     "note": "2025 roundup still recommends KICS for multi-IaC."
+    },
+    {
+     "source": "article",
+     "url": "https://dev.to/svasylenko/a-deep-dive-into-terraform-static-code-analysis-tools-features-and-comparisons-1kbf",
+     "date": "2024-04",
+     "stance": "neu",
+     "note": "Rego queries powerful but add a learning curve."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "finding-volume",
+    "detail": "Query catalog is huge; untuned scans overwhelm developers.",
+    "sources": [
+     "https://medium.com/@alejo.tapia92/comparativa-de-herramientas-de-seguridad-para-infrastructure-as-code-con-terraform-254b71957c2d",
+     "https://medium.com/@pawel.piwosz/your-infrastructure-code-is-code-start-treating-it-like-one-aef3f0b4ad58"
+    ]
+   },
+   {
+    "tag": "supply-chain-2026",
+    "detail": "Same TeamPCP wave hit KICS Docker Hub image and GitHub Action.",
+    "sources": [
+     "https://www.invicti.com/blog/web-security/iac-security-scanning-tools",
+     "https://arnav.au/2026/09/05/migrating-off-terrascan/"
+    ]
+   },
+   {
+    "tag": "module-scan-gaps",
+    "detail": "Weaker local/private Terraform module resolution than Checkov.",
+    "sources": [
+     "https://devdosvid.blog/2024/04/16/a-deep-dive-into-terraform-static-code-analysis-tools-features-and-comparisons/"
+    ]
+   },
+   {
+    "tag": "rego-authoring",
+    "detail": "Custom queries are Rego; slower than Checkov YAML for simple rules.",
+    "sources": [
+     "https://spacelift.io/blog/iac-scanning-tools",
+     "https://dev.to/svasylenko/a-deep-dive-into-terraform-static-code-analysis-tools-features-and-comparisons-1kbf"
+    ]
+   }
+  ],
+  "adopters": "Checkmarx (maintainer); GitLab IaC scanning default; Checkmarx One commercial wrap.",
+  "popularity_notes": "Solid second-tier mindshare (~2.6k stars). Strongest where GitLab or polyglot IaC matters. Less Reddit chatter than Checkov/Trivy."
+ },
+ {
+  "id": "terrascan",
+  "sentiment": {
+   "pos": 3,
+   "neu": 8,
+   "neg": 11,
+   "n": 22,
+   "confidence": "high",
+   "summary": "Once a reasonable OPA/Rego IaC scanner. Tenable archived the repo Nov 2025 after a 2024 last release. Consensus: do not start new pipelines; migrate to Checkov, Trivy, or KICS.",
+   "data_points": [
+    {
+     "source": "article",
+     "url": "https://github.com/tenable/terrascan",
+     "date": "2025-11",
+     "stance": "neg",
+     "note": "README: project archived, no further updates or PRs."
+    },
+    {
+     "source": "article",
+     "url": "https://github.com/tenable/terrascan/issues/1724",
+     "date": "2025-01",
+     "stance": "neg",
+     "note": "Users asked if Terrascan is abandonware."
+    },
+    {
+     "source": "article",
+     "url": "https://github.com/tenable/terrascan/issues/1724",
+     "date": "2025-10",
+     "stance": "neg",
+     "note": "Comment: last release was over a year ago."
+    },
+    {
+     "source": "article",
+     "url": "https://docs.tenable.com/pdfs/EOL/nessus-terrascan-eos.pdf",
+     "date": "2025-07",
+     "stance": "neg",
+     "note": "Tenable ended Terrascan support inside Nessus."
+    },
+    {
+     "source": "blog",
+     "url": "https://arnav.au/2026/09/05/migrating-off-terrascan/",
+     "date": "2026-09",
+     "stance": "neg",
+     "note": "Frozen policy set decays as cloud APIs move."
+    },
+    {
+     "source": "blog",
+     "url": "https://arnav.au/2026/09/05/migrating-off-terrascan/",
+     "date": "2026-09",
+     "stance": "pos",
+     "note": "Author recalls it as a quiet, decent CI gate for years."
+    },
+    {
+     "source": "article",
+     "url": "https://www.invicti.com/blog/web-security/iac-security-scanning-tools",
+     "date": "2026-07",
+     "stance": "neg",
+     "note": "Do not start new pipelines on Terrascan."
+    },
+    {
+     "source": "article",
+     "url": "https://spacelift.io/blog/iac-scanning-tools",
+     "date": "2026-05",
+     "stance": "neu",
+     "note": "OPA reuse was interesting; rule set now frozen."
+    },
+    {
+     "source": "article",
+     "url": "https://starlog.is/articles/infrastructure/tenable-terrascan",
+     "date": "2026-06",
+     "stance": "neg",
+     "note": "No new policies or parser fixes after 2024."
+    },
+    {
+     "source": "article",
+     "url": "https://appsecsanta.com/terrascan",
+     "date": "2026-02",
+     "stance": "neg",
+     "note": "Last ship March/Sept 2024; repo now read-only."
+    },
+    {
+     "source": "article",
+     "url": "https://www.envzero.com/blog/best-iac-scan-tool",
+     "date": "2026-08",
+     "stance": "neu",
+     "note": "Flexible OPA policies but steeper curve, thinner docs."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1cu6wlo/terraform_static_security_analysis_trivy_vs/",
+     "date": "2024-05",
+     "stance": "neu",
+     "note": "Demo thread: Terrascan often fewest findings of three."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/16xxoso/what_are_terraform_cicddevsecops_code_scanning/",
+     "date": "2023-09",
+     "stance": "neu",
+     "note": "Still on 2023 community scanning shortlists."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1kv7n3y/checkov_vs_tfsec_vs_trivy_vs_terrascan/",
+     "date": "2025-05",
+     "stance": "neu",
+     "note": "Still compared in 2025, already trailing mindshare."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=32633222",
+     "date": "2022-08",
+     "stance": "pos",
+     "note": "Once listed among most useful TF OSS scanners."
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=EfkfJ_FMUWo",
+     "date": "2024-05",
+     "stance": "neu",
+     "note": "Live comparison still treated Terrascan as a peer."
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=MjzsO7njTaA",
+     "date": "2025-11",
+     "stance": "neu",
+     "note": "2025 talk still demoed Terrascan before archive."
+    },
+    {
+     "source": "article",
+     "url": "https://protego.me/blog/terraform-security-scanning-checkov-vs-terrascan-vs-tfsec",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "Pre-archive feature comparison still includes Terrascan."
+    },
+    {
+     "source": "article",
+     "url": "https://ethantroy.dev/posts/infrastructure-as-code-scanning/",
+     "date": "2026-01",
+     "stance": "neg",
+     "note": "Points readers at Checkov/KICS/Trivy instead."
+    },
+    {
+     "source": "article",
+     "url": "https://devdosvid.blog/2024/04/16/a-deep-dive-into-terraform-static-code-analysis-tools-features-and-comparisons/",
+     "date": "2026-05",
+     "stance": "neg",
+     "note": "2026 update: archived; migrate off."
+    },
+    {
+     "source": "blog",
+     "url": "https://arnav.au/2026/09/05/migrating-off-terrascan/",
+     "date": "2026-09",
+     "stance": "neg",
+     "note": "K8s admission controller has no drop-in in Checkov/Trivy."
+    },
+    {
+     "source": "article",
+     "url": "https://www.brainboard.co/blog/comprehensive-guide-to-iac-scanning-tools",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "Still catalogued in generic IaC tool guides."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "archived-2025",
+    "detail": "Tenable archived GitHub Nov 2025; no issues, PRs, or releases.",
+    "sources": [
+     "https://github.com/tenable/terrascan",
+     "https://www.invicti.com/blog/web-security/iac-security-scanning-tools"
+    ]
+   },
+   {
+    "tag": "stale-policies",
+    "detail": "Last release 2024; CIS/cloud coverage frozen while providers move.",
+    "sources": [
+     "https://arnav.au/2026/09/05/migrating-off-terrascan/",
+     "https://starlog.is/articles/infrastructure/tenable-terrascan"
+    ]
+   },
+   {
+    "tag": "rego-portability",
+    "detail": "Custom Rego does not port to Checkov YAML/Python for free.",
+    "sources": [
+     "https://arnav.au/2026/09/05/migrating-off-terrascan/"
+    ]
+   },
+   {
+    "tag": "tenable-cnapp-shift",
+    "detail": "Commercial attention moved to Tenable Cloud Security.",
+    "sources": [
+     "https://docs.tenable.com/pdfs/EOL/nessus-terrascan-eos.pdf",
+     "https://spacelift.io/blog/iac-scanning-tools"
+    ]
+   },
+   {
+    "tag": "admission-controller-gap",
+    "detail": "K8s webhook role needs Gatekeeper/Kyverno, not a scanner swap.",
+    "sources": [
+     "https://arnav.au/2026/09/05/migrating-off-terrascan/"
+    ]
+   }
+  ],
+  "adopters": "Legacy CI users; historically Accurics then Tenable; ~5.2k stars at archive. Nessus integration EOL 2025.",
+  "popularity_notes": "Sharp downtrend. Pre-2024 peer of Checkov/tfsec; 2026 consensus is migrate. Binary still runs but is not a control."
+ },
+ {
+  "id": "opa-rego",
+  "sentiment": {
+   "pos": 12,
+   "neu": 9,
+   "neg": 3,
+   "n": 24,
+   "confidence": "high",
+   "summary": "CNCF-graduated default for portable policy-as-code across Terraform plans, K8s, and APIs. Recurring complaint is Rego's steep logic-programming curve and Conftest plan-JSON plumbing.",
+   "data_points": [
+    {
+     "source": "article",
+     "url": "https://spacelift.io/blog/open-policy-agent-opa-terraform",
+     "date": "2024-03",
+     "stance": "pos",
+     "note": "Unified PaC across Terraform, K8s, APIs, and CI."
+    },
+    {
+     "source": "article",
+     "url": "https://spacelift.io/blog/terraform-vendor-lock-in",
+     "date": "2026-07",
+     "stance": "pos",
+     "note": "Prefer OPA over Sentinel to avoid HCP lock-in."
+    },
+    {
+     "source": "article",
+     "url": "https://policyascode.dev/guides/opa-vs-sentinel-enterprise/",
+     "date": "2025-01",
+     "stance": "pos",
+     "note": "Portable open alternative to HashiCorp Sentinel."
+    },
+    {
+     "source": "article",
+     "url": "https://www.envzero.com/insights/terraform-governance-tools-compared-opa-sentinel-checkov-tfsec-and-when-to-use-each",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "Best for custom org rules; scanners cover CIS first."
+    },
+    {
+     "source": "article",
+     "url": "https://secure-pipelines.com/ci-cd-security/ci-cd-policy-engines-compared-opa-kyverno-sentinel-cedar/",
+     "date": "2025-01",
+     "stance": "pos",
+     "note": "Vendor-neutral engine versus Sentinel lock-in."
+    },
+    {
+     "source": "article",
+     "url": "https://engineering.tachtech.net/devsecops/2025/10/15/sentinel-and-opa-policies.html",
+     "date": "2025-10",
+     "stance": "neu",
+     "note": "Compares Rego expressiveness with Sentinel syntax."
+    },
+    {
+     "source": "article",
+     "url": "https://cloudatler.com/blog/terraform-sentinel-vs-opa-policy-as-code-for-cloud-security",
+     "date": "2026-06",
+     "stance": "pos",
+     "note": "OPA as universal open standard for whole cloud-native stack."
+    },
+    {
+     "source": "article",
+     "url": "https://codingprotocols.com/blog/terraform-policy-as-code-opa-sentinel-checkov",
+     "date": "2026-07",
+     "stance": "pos",
+     "note": "OPA/Conftest recommended for portable TF plan gates."
+    },
+    {
+     "source": "article",
+     "url": "https://medium.com/@tingli_business/terraform-policy-enforcement-a-practical-guide-to-sentinel-and-opa-3407d496bc83",
+     "date": "2025-10",
+     "stance": "neu",
+     "note": "OPA needs extra testing/lifecycle tooling versus TFC."
+    },
+    {
+     "source": "blog",
+     "url": "https://dev.to/florianlenz/terraform-testing-with-open-policy-agent-and-conftest-secure-infrastructure-through-terraform-3fk4",
+     "date": "2025-12",
+     "stance": "pos",
+     "note": "Conftest on terraform plan JSON as a security gate."
+    },
+    {
+     "source": "article",
+     "url": "https://medium.com/@purveshmjaiswal/automating-terraform-security-with-opa-and-gitlab-ci-cd-real-world-example-github-template-98f8b751bb5f",
+     "date": "2024-05",
+     "stance": "pos",
+     "note": "Real GitLab pipeline using OPA/Conftest on Terraform."
+    },
+    {
+     "source": "article",
+     "url": "https://abdoboshy.medium.com/how-to-block-dangerous-terraform-deploys-automatically-using-opa-policy-as-code-guide-1647c2728510",
+     "date": "2026-06",
+     "stance": "pos",
+     "note": "How-to for blocking dangerous TF applies with OPA."
+    },
+    {
+     "source": "article",
+     "url": "https://medium.com/@ericsonrumuy/terraform-policy-as-code-pac-with-atlantis-and-conftest-f2281dce8c2d",
+     "date": "2024-01",
+     "stance": "pos",
+     "note": "Atlantis plus Conftest as PR-time policy gate."
+    },
+    {
+     "source": "blog",
+     "url": "https://dev.to/lucassha/don-t-let-your-terraform-go-rogue-with-conftest-and-the-open-policy-agent-233b",
+     "date": "2023-01",
+     "stance": "pos",
+     "note": "Treats Conftest as unit tests against plan JSON."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=43129301",
+     "date": "2025-02",
+     "stance": "neu",
+     "note": "Platform vendors bundle OPA with Checkov in module CI."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=32633222",
+     "date": "2022-08",
+     "stance": "pos",
+     "note": "Listed as the TF policy-as-code tool of record."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1vfkvf3/what_security_checks_are_part_of_your_terraform/",
+     "date": "2025-12",
+     "stance": "neu",
+     "note": "Layered with Checkov/Trivy rather than replacing them."
+    },
+    {
+     "source": "article",
+     "url": "https://yrkan.com/blog/policy-as-code-testing-opa-sentinel/",
+     "date": "2026-02",
+     "stance": "neu",
+     "note": "Rego unit testing is powerful but non-trivial."
+    },
+    {
+     "source": "article",
+     "url": "https://www.tfgaurd.com/blog/sentinel-vs-opa-vs-tfgaurd",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "Steep Rego curve versus simpler policy DSLs."
+    },
+    {
+     "source": "article",
+     "url": "https://openpolicyagent.org/docs/terraform",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "Official pattern: evaluate terraform show JSON."
+    },
+    {
+     "source": "article",
+     "url": "https://developer.hashicorp.com/terraform/policy/compare",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "Even HashiCorp documents OPA beside Sentinel."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/kubernetes/comments/xjizg5/opa_rego_is_ridiculously_confusing_best_way_to/",
+     "date": "2022-09",
+     "stance": "neg",
+     "note": "Widely cited thread: Rego is ridiculously confusing."
+    },
+    {
+     "source": "article",
+     "url": "https://spacelift.io/blog/open-policy-agent-opa-terraform",
+     "date": "2024-03",
+     "stance": "neg",
+     "note": "Rego is another language to hire and debug for."
+    },
+    {
+     "source": "article",
+     "url": "https://scalr.com/learning-center/enforcing-policy-as-code-in-terraform-a-comprehensive-guide",
+     "date": "2025-01",
+     "stance": "pos",
+     "note": "Platforms like Scalr/Spacelift/env0 first-class OPA."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "rego-learning-curve",
+    "detail": "Logic/Datalog style and implicit iteration confuse imperative engineers.",
+    "sources": [
+     "https://www.reddit.com/r/kubernetes/comments/xjizg5/opa_rego_is_ridiculously_confusing_best_way_to/",
+     "https://www.tfgaurd.com/blog/sentinel-vs-opa-vs-tfgaurd"
+    ]
+   },
+   {
+    "tag": "plan-json-plumbing",
+    "detail": "Must understand terraform show JSON, including unknown-at-plan values.",
+    "sources": [
+     "https://openpolicyagent.org/docs/terraform",
+     "https://spacelift.io/blog/open-policy-agent-opa-terraform"
+    ]
+   },
+   {
+    "tag": "diy-lifecycle",
+    "detail": "No native TFC-style enforcement levels unless a platform wraps it.",
+    "sources": [
+     "https://medium.com/@tingli_business/terraform-policy-enforcement-a-practical-guide-to-sentinel-and-opa-3407d496bc83",
+     "https://policyascode.dev/guides/opa-vs-sentinel-enterprise/"
+    ]
+   },
+   {
+    "tag": "not-a-scanner",
+    "detail": "You write policies; it does not ship CIS libraries like Checkov.",
+    "sources": [
+     "https://www.envzero.com/insights/terraform-governance-tools-compared-opa-sentinel-checkov-tfsec-and-when-to-use-each"
+    ]
+   }
+  ],
+  "adopters": "CNCF graduated; Spacelift, Scalr, env0, HCP Terraform (OPA policy sets); Airtime Rewards via Spacelift; Conftest+Atlantis common.",
+  "popularity_notes": "Highest PaC mindshare. Trend up as TFC alternatives and OpenTofu shops standardize on Rego. Language friction is the tax."
+ },
+ {
+  "id": "sentinel",
+  "sentiment": {
+   "pos": 6,
+   "neu": 10,
+   "neg": 6,
+   "n": 22,
+   "confidence": "med",
+   "summary": "Best-in-class native HCP Terraform/Enterprise plan gates with advisory/soft/hard enforcement. Repeatedly criticized as proprietary lock-in versus OPA, and paid-tier only for real enforcement.",
+   "data_points": [
+    {
+     "source": "article",
+     "url": "https://spacelift.io/blog/terraform-vendor-lock-in",
+     "date": "2026-07",
+     "stance": "neg",
+     "note": "Sentinel named as a core HCP platform lock-in layer."
+    },
+    {
+     "source": "article",
+     "url": "https://policyascode.dev/guides/opa-vs-sentinel-enterprise/",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "Wins on TFC integration; loses on portability and cost."
+    },
+    {
+     "source": "article",
+     "url": "https://engineering.tachtech.net/devsecops/2025/10/15/sentinel-and-opa-policies.html",
+     "date": "2025-10",
+     "stance": "neu",
+     "note": "Language more approachable than Rego for some teams."
+    },
+    {
+     "source": "article",
+     "url": "https://developer.hashicorp.com/terraform/policy/compare",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "HashiCorp documents Sentinel beside OPA and TF policy."
+    },
+    {
+     "source": "article",
+     "url": "https://aws.amazon.com/blogs/apn/scale-securely-with-hashicorp-terraform-and-sentinel-policy-as-code/",
+     "date": "2024-01",
+     "stance": "pos",
+     "note": "AWS/HashiCorp promote Sentinel for scale governance."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/14athk9/sentinel_patterns_what_does_your_sentinel_look/",
+     "date": "2023-06",
+     "stance": "neu",
+     "note": "Practitioners share mature Sentinel repo layouts."
+    },
+    {
+     "source": "article",
+     "url": "https://cloudatler.com/blog/terraform-sentinel-vs-opa-policy-as-code-for-cloud-security",
+     "date": "2026-06",
+     "stance": "neu",
+     "note": "Sentinel for HashiCorp shops; OPA for universal PaC."
+    },
+    {
+     "source": "article",
+     "url": "https://secure-pipelines.com/ci-cd-security/ci-cd-policy-engines-compared-opa-kyverno-sentinel-cedar/",
+     "date": "2025-01",
+     "stance": "neg",
+     "note": "Lists HashiCorp lock-in as Sentinel's main weakness."
+    },
+    {
+     "source": "article",
+     "url": "https://www.tfgaurd.com/blog/sentinel-vs-opa-vs-tfgaurd",
+     "date": "2025-01",
+     "stance": "neg",
+     "note": "Cannot reuse Sentinel policies outside HashiCorp."
+    },
+    {
+     "source": "article",
+     "url": "https://www.tryterracotta.com/blog/migrate-sentinel-policies-to-terracotta-ai",
+     "date": "2026-01",
+     "stance": "neg",
+     "note": "Vendors now sell migrations off Sentinel policies."
+    },
+    {
+     "source": "article",
+     "url": "https://www.semantive.com/blog/enforcing-security-using-checkov-sentinel-and-more-in-compliance-focused-iac-workflows",
+     "date": "2025-01",
+     "stance": "pos",
+     "note": "Used with Checkov in compliance IaC programs."
+    },
+    {
+     "source": "article",
+     "url": "https://codingprotocols.com/blog/terraform-policy-as-code-opa-sentinel-checkov",
+     "date": "2026-07",
+     "stance": "neu",
+     "note": "Practical TF PaC comparison including Sentinel."
+    },
+    {
+     "source": "article",
+     "url": "https://medium.com/@tingli_business/terraform-policy-enforcement-a-practical-guide-to-sentinel-and-opa-3407d496bc83",
+     "date": "2025-10",
+     "stance": "pos",
+     "note": "Tighter TFC testing workflow than DIY OPA."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=40212617",
+     "date": "2024-04",
+     "stance": "neu",
+     "note": "OpenTofu sponsors cover Sentinel-like policy via OPA."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/u_aalejos/comments/1l1sxva/terraform_adds_new_prewritten_sentinel_policies/",
+     "date": "2025-06",
+     "stance": "pos",
+     "note": "Prewritten AWS foundational Sentinel policy packs."
+    },
+    {
+     "source": "article",
+     "url": "https://spacelift.io/blog/open-policy-agent-opa-terraform",
+     "date": "2024-03",
+     "stance": "neu",
+     "note": "Sentinel limited to HashiCorp product family."
+    },
+    {
+     "source": "article",
+     "url": "https://www.envzero.com/insights/terraform-governance-tools-compared-opa-sentinel-checkov-tfsec-and-when-to-use-each",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "Pick Sentinel only if already on paid TFC/TFE."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=30310447",
+     "date": "2022-02",
+     "stance": "pos",
+     "note": "Defends Sentinel as free CLI plus public CIS libraries."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/mosfbs/so_let_me_get_this_straight/",
+     "date": "2021-04",
+     "stance": "neg",
+     "note": "Long-running complaint: governance is an Enterprise upsell."
+    },
+    {
+     "source": "article",
+     "url": "https://developer.hashicorp.com/sentinel",
+     "date": "2025-01",
+     "stance": "pos",
+     "note": "Official language/framework docs and mock testing."
+    },
+    {
+     "source": "article",
+     "url": "https://yrkan.com/blog/policy-as-code-testing-opa-sentinel/",
+     "date": "2026-02",
+     "stance": "neu",
+     "note": "Sentinel testing story exists but ecosystem is smaller."
+    },
+    {
+     "source": "article",
+     "url": "https://policyascode.dev/guides/opa-vs-sentinel-enterprise/",
+     "date": "2025-01",
+     "stance": "neg",
+     "note": "Full enforcement tied to paid HCP Terraform tiers."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "vendor-lock-in",
+    "detail": "Policies and enforcement live in HCP TFC/TFE; rewrite to leave.",
+    "sources": [
+     "https://spacelift.io/blog/terraform-vendor-lock-in",
+     "https://secure-pipelines.com/ci-cd-security/ci-cd-policy-engines-compared-opa-kyverno-sentinel-cedar/"
+    ]
+   },
+   {
+    "tag": "paid-enforcement",
+    "detail": "Real org-wide gates need Team & Governance or Enterprise.",
+    "sources": [
+     "https://policyascode.dev/guides/opa-vs-sentinel-enterprise/",
+     "https://www.reddit.com/r/Terraform/comments/mosfbs/so_let_me_get_this_straight/"
+    ]
+   },
+   {
+    "tag": "unique-language",
+    "detail": "Sentinel language is less portable than Rego; smaller hiring pool.",
+    "sources": [
+     "https://www.tfgaurd.com/blog/sentinel-vs-opa-vs-tfgaurd",
+     "https://engineering.tachtech.net/devsecops/2025/10/15/sentinel-and-opa-policies.html"
+    ]
+   },
+   {
+    "tag": "hashicorp-ibm-risk",
+    "detail": "BSL plus IBM acquisition amplified lock-in anxiety around Sentinel.",
+    "sources": [
+     "https://spacelift.io/blog/terraform-vendor-lock-in",
+     "https://news.ycombinator.com/item?id=40212617"
+    ]
+   }
+  ],
+  "adopters": "HCP Terraform / Terraform Enterprise customers; HashiCorp foundational policy library; AWS partnership blogs.",
+  "popularity_notes": "High in HashiCorp enterprise accounts, low on Reddit/HN versus OPA. Mindshare flat-to-down among OSS/OpenTofu shops."
+ },
+ {
+  "id": "terraform-tofu-test",
+  "sentiment": {
+   "pos": 10,
+   "neu": 9,
+   "neg": 5,
+   "n": 24,
+   "confidence": "high",
+   "summary": "GA in Terraform/OpenTofu 1.6; HCL tests with mocks since 1.7. Loved for no-Go unit tests. Mocking gaps (ephemerals, selective real data sources, plan-time computed) still frustrate.",
+   "data_points": [
+    {
+     "source": "article",
+     "url": "https://www.envzero.com/blog/terratest-vs-terraform-opentofu-test-in-depth-comparison",
+     "date": "2026-08",
+     "stance": "pos",
+     "note": "HCL tests beat learning Go for most module authors."
+    },
+    {
+     "source": "article",
+     "url": "https://www.envzero.com/blog/terratest-vs-terraform-opentofu-test-in-depth-comparison",
+     "date": "2026-08",
+     "stance": "neu",
+     "note": "No for_each on run blocks; fewer public examples."
+    },
+    {
+     "source": "article",
+     "url": "https://awstip.com/terratest-vs-terraform-test-which-one-should-you-actually-use-dafe18f4164b",
+     "date": "2025-10",
+     "stance": "pos",
+     "note": "Lightweight native tests for PR-speed unit coverage."
+    },
+    {
+     "source": "blog",
+     "url": "https://dev.to/recca0120/terraform-test-the-built-in-terraform-module-testing-framework-no-go-required-18ap",
+     "date": "2026-04",
+     "stance": "pos",
+     "note": "mock_provider enables unit tests without cloud creds."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/16ab9do/tests_general_availability_in_terraform_16/",
+     "date": "2023-09",
+     "stance": "pos",
+     "note": "Community welcomed GA of terraform test in 1.6."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/18wqvp6/terraform_17_release_candidate/",
+     "date": "2024-01",
+     "stance": "pos",
+     "note": "1.7 mocking called a major testing upgrade."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1bb7a01/do_you_guys_use_terraform_test_command_and_tests/",
+     "date": "2024-03",
+     "stance": "neu",
+     "note": "Adoption still uneven a few months after GA."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1g7iyeh/terraform_test_or_terratest/",
+     "date": "2024-10",
+     "stance": "neu",
+     "note": "Common advice: native for unit, Terratest for E2E."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1sg0947/testdriven_development_for_terraform_its_actually/",
+     "date": "2026-01",
+     "stance": "pos",
+     "note": "TDD with tftest.hcl is becoming practical."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1nv9kw4/is_there_any_way_to_mock_or_override_a_specific",
+     "date": "2025-09",
+     "stance": "neg",
+     "note": "Hard to mock only one resource inside a provider."
+    },
+    {
+     "source": "article",
+     "url": "https://discuss.hashicorp.com/t/terraform-1-10-test-no-ephemeral-resource-types-in-mock-providers/71781",
+     "date": "2024-12",
+     "stance": "neg",
+     "note": "mock_provider does not support ephemeral resources."
+    },
+    {
+     "source": "article",
+     "url": "https://discuss.hashicorp.com/t/get-error-when-reading-computed-attributes-on-resources-in-unit-test-conditions/70606",
+     "date": "2024-11",
+     "stance": "neg",
+     "note": "Computed/mocked values unknown during plan assertions."
+    },
+    {
+     "source": "article",
+     "url": "https://discuss.hashicorp.com/t/terraform-test-using-mock-but-want-data-source-to-generate-data/72503",
+     "date": "2025-01",
+     "stance": "neg",
+     "note": "Mocking a provider is all-or-nothing per provider."
+    },
+    {
+     "source": "article",
+     "url": "https://discuss.hashicorp.com/t/override-provider-version-in-terraform-test/73907",
+     "date": "2025-03",
+     "stance": "neu",
+     "note": "Cannot override provider version inside tests."
+    },
+    {
+     "source": "article",
+     "url": "https://discuss.hashicorp.com/t/mocking-remote-state-and-resources/72491",
+     "date": "2025-01",
+     "stance": "neg",
+     "note": "terraform_remote_state is painful to mock."
+    },
+    {
+     "source": "article",
+     "url": "https://discuss.hashicorp.com/t/how-do-i-pass-provider-information-to-tests/58807",
+     "date": "2023-01",
+     "stance": "neu",
+     "note": "Early friction passing providers into test files."
+    },
+    {
+     "source": "article",
+     "url": "https://discuss.hashicorp.com/t/terraform-test-files-and-referencing-variables-from-auto-tfvars/76642",
+     "date": "2025-10",
+     "stance": "neu",
+     "note": "auto.tfvars interaction with tests still confusing."
+    },
+    {
+     "source": "article",
+     "url": "https://developer.hashicorp.com/terraform/language/tests",
+     "date": "2025-01",
+     "stance": "pos",
+     "note": "Official HCL test language and mock_provider docs."
+    },
+    {
+     "source": "article",
+     "url": "https://scalr.com/learning-center/terraform-opentofu-testing-guide",
+     "date": "2026-01",
+     "stance": "pos",
+     "note": "Put native tests on every PR; Terratest nightly."
+    },
+    {
+     "source": "article",
+     "url": "https://medium.com/version-1/implementing-test-driven-development-with-terraform-46c904689c67",
+     "date": "2025-11",
+     "stance": "pos",
+     "note": "TDD article built on native terraform test."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1d905b1/alternatives_to_terratest_for_unit_testing/",
+     "date": "2024-06",
+     "stance": "pos",
+     "note": "Native test cited as the no-Go unit-test alternative."
+    },
+    {
+     "source": "article",
+     "url": "https://andrewodendaal.com/terraform-testing-unit-integration-e2e/",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "Native tests sit at unit layer of a testing pyramid."
+    },
+    {
+     "source": "article",
+     "url": "https://www.terraformpilot.com/articles/terraform-testing-guide/",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "Guide treats native test as necessary but not sufficient."
+    },
+    {
+     "source": "article",
+     "url": "https://developer.hashicorp.com/terraform/cli/test",
+     "date": "2025-01",
+     "stance": "pos",
+     "note": "First-party CLI command; zero extra toolchain."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "mock-gaps",
+    "detail": "Ephemerals, selective real data sources, and remote_state still weak.",
+    "sources": [
+     "https://discuss.hashicorp.com/t/terraform-1-10-test-no-ephemeral-resource-types-in-mock-providers/71781",
+     "https://discuss.hashicorp.com/t/terraform-test-using-mock-but-want-data-source-to-generate-data/72503",
+     "https://discuss.hashicorp.com/t/mocking-remote-state-and-resources/72491"
+    ]
+   },
+   {
+    "tag": "not-e2e",
+    "detail": "Plan/state asserts cannot replace live HTTP/SSH/API behavior checks.",
+    "sources": [
+     "https://awstip.com/terratest-vs-terraform-test-which-one-should-you-actually-use-dafe18f4164b",
+     "https://www.envzero.com/blog/terratest-vs-terraform-opentofu-test-in-depth-comparison"
+    ]
+   },
+   {
+    "tag": "version-tied-features",
+    "detail": "Mocks need >=1.7; better plan-time mocks need ~1.11.",
+    "sources": [
+     "https://developer.hashicorp.com/terraform/language/tests",
+     "https://discuss.hashicorp.com/t/get-error-when-reading-computed-attributes-on-resources-in-unit-test-conditions/70606"
+    ]
+   },
+   {
+    "tag": "hcl-limits",
+    "detail": "Run blocks ordered, historically no for_each, fewer community fixtures.",
+    "sources": [
+     "https://www.envzero.com/blog/terratest-vs-terraform-opentofu-test-in-depth-comparison"
+    ]
+   }
+  ],
+  "adopters": "HashiCorp Terraform 1.6+; OpenTofu 1.6+ tofu test; env0 private module CI; HCP registry testing.",
+  "popularity_notes": "Fast-rising since 2023 GA. Default recommendation for new modules. Does not displace Terratest for deep integration."
+ },
+ {
+  "id": "terratest",
+  "sentiment": {
+   "pos": 11,
+   "neu": 8,
+   "neg": 3,
+   "n": 22,
+   "confidence": "high",
+   "summary": "Mature Gruntwork Go library for real apply/assert/destroy tests. Still preferred for E2E. Criticized as slow, costly, and a Go tax now that terraform test exists.",
+   "data_points": [
+    {
+     "source": "article",
+     "url": "https://www.envzero.com/blog/terratest-vs-terraform-opentofu-test-in-depth-comparison",
+     "date": "2026-08",
+     "stance": "pos",
+     "note": "Keep Terratest if you already have a working Go suite."
+    },
+    {
+     "source": "article",
+     "url": "https://www.envzero.com/blog/terratest-vs-terraform-opentofu-test-in-depth-comparison",
+     "date": "2026-08",
+     "stance": "neu",
+     "note": "Go plus orchestration is a tall order for HCL-only teams."
+    },
+    {
+     "source": "article",
+     "url": "https://awstip.com/terratest-vs-terraform-test-which-one-should-you-actually-use-dafe18f4164b",
+     "date": "2025-10",
+     "stance": "pos",
+     "note": "Still the tool for real HTTP/infra behavior checks."
+    },
+    {
+     "source": "article",
+     "url": "https://awstip.com/terratest-vs-terraform-test-which-one-should-you-actually-use-dafe18f4164b",
+     "date": "2025-10",
+     "stance": "neu",
+     "note": "You do not want to spin up half of AWS every commit."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1g7iyeh/terraform_test_or_terratest/",
+     "date": "2024-10",
+     "stance": "neu",
+     "note": "Thread consensus: complementary, not a replacement."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1d905b1/alternatives_to_terratest_for_unit_testing/",
+     "date": "2024-06",
+     "stance": "neu",
+     "note": "Teams seek unit-test alternatives but keep Terratest E2E."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1flz837/terraform_module_testing_strategy/",
+     "date": "2024-09",
+     "stance": "pos",
+     "note": "Module strategy threads still center Terratest for integration."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1mtmlhx/testing_iac_with_terratest_and_localstack/",
+     "date": "2025-08",
+     "stance": "pos",
+     "note": "LocalStack pairing used to cut real-cloud cost."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1jvacos/what_is_the_equivalent_of_unit_tests_for",
+     "date": "2025-04",
+     "stance": "pos",
+     "note": "Cited as the infra equivalent of serious automated tests."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=44463780",
+     "date": "2025-07",
+     "stance": "pos",
+     "note": "Engineer shipping Terratest binaries on ECS Fargate."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=37757909",
+     "date": "2023-10",
+     "stance": "pos",
+     "note": "Magnolia SRE job stack lists Terraform/Terratest."
+    },
+    {
+     "source": "article",
+     "url": "https://terratest.gruntwork.io/",
+     "date": "2025-01",
+     "stance": "pos",
+     "note": "Official helpers for TF, Packer, Docker, K8s, clouds."
+    },
+    {
+     "source": "article",
+     "url": "https://github.com/gruntwork-io/terratest",
+     "date": "2025-01",
+     "stance": "pos",
+     "note": "Long-lived Gruntwork library, still maintained."
+    },
+    {
+     "source": "article",
+     "url": "https://scalr.com/learning-center/terraform-opentofu-testing-guide",
+     "date": "2026-01",
+     "stance": "neu",
+     "note": "Place Terratest above native tests in the pyramid."
+    },
+    {
+     "source": "article",
+     "url": "https://andrewodendaal.com/terraform-testing-unit-integration-e2e/",
+     "date": "2025-01",
+     "stance": "pos",
+     "note": "Go power for multi-tool E2E and unique naming."
+    },
+    {
+     "source": "article",
+     "url": "https://flowfactor.be/blogs/testing-terraform-code-part-two-unit-and-integration-testing/",
+     "date": "2025-01",
+     "stance": "neg",
+     "note": "Crashes can leave orphaned cloud resources."
+    },
+    {
+     "source": "article",
+     "url": "https://www.terraformpilot.com/articles/terraform-testing-guide/",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "Use for behavioral checks, not every PR unit test."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/16ab9do/tests_general_availability_in_terraform_16/",
+     "date": "2023-09",
+     "stance": "neu",
+     "note": "Native GA framed as complement, not Terratest killer."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=30627089",
+     "date": "2022-03",
+     "stance": "pos",
+     "note": "HN user prefers GitHub+Terraform+Terratest workflow."
+    },
+    {
+     "source": "article",
+     "url": "https://awstip.com/how-to-test-terraform-modules-worked-examples-with-terraform-test-and-terratest-8400356a1d39",
+     "date": "2025-10",
+     "stance": "pos",
+     "note": "Worked examples still teach both frameworks together."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1d4ziat/terratest/",
+     "date": "2024-05",
+     "stance": "neu",
+     "note": "Standalone Terratest experience thread on r/Terraform."
+    },
+    {
+     "source": "article",
+     "url": "https://www.envzero.com/blog/terratest-vs-terraform-opentofu-test-in-depth-comparison",
+     "date": "2026-08",
+     "stance": "neg",
+     "note": "Real applies are minutes-plus and incur cloud spend."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "go-tax",
+    "detail": "HCL-only teams resist adopting a full Go test harness.",
+    "sources": [
+     "https://www.envzero.com/blog/terratest-vs-terraform-opentofu-test-in-depth-comparison",
+     "https://dev.to/recca0120/terraform-test-the-built-in-terraform-module-testing-framework-no-go-required-18ap"
+    ]
+   },
+   {
+    "tag": "cost-and-slowness",
+    "detail": "Real apply/destroy is slow and bills the cloud; not every-PR.",
+    "sources": [
+     "https://awstip.com/terratest-vs-terraform-test-which-one-should-you-actually-use-dafe18f4164b",
+     "https://www.envzero.com/blog/terratest-vs-terraform-opentofu-test-in-depth-comparison"
+    ]
+   },
+   {
+    "tag": "orphan-resources",
+    "detail": "Failed tests can leak infrastructure if Destroy is skipped.",
+    "sources": [
+     "https://flowfactor.be/blogs/testing-terraform-code-part-two-unit-and-integration-testing/"
+    ]
+   },
+   {
+    "tag": "native-test-overlap",
+    "detail": "Unit-test use cases now overlap with terraform test mocks.",
+    "sources": [
+     "https://www.reddit.com/r/devops/comments/1g7iyeh/terraform_test_or_terratest/",
+     "https://scalr.com/learning-center/terraform-opentofu-testing-guide"
+    ]
+   }
+  ],
+  "adopters": "Gruntwork (author); Magnolia SRE; common in mature module shops; used with LocalStack; HashiCorp historically pointed here pre-1.6.",
+  "popularity_notes": "Mature, still recommended for E2E. Relative mindshare down versus native test for greenfield unit tests, not abandoned."
+ }
+]

@@ -1,0 +1,1833 @@
+[
+ {
+  "id": "github-actions",
+  "sentiment": {
+   "pos": 10,
+   "neu": 15,
+   "neg": 11,
+   "n": 36,
+   "confidence": "high",
+   "summary": "Ubiquitous default for GitHub-hosted code and praised for marketplace plus zero setup. Power users are sharply negative on reliability, debugging feedback loop and runner economics.",
+   "data_points": [
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=46614558",
+     "date": "2026-01",
+     "stance": "neg",
+     "note": "Highly upvoted rant: push-wait-guess feedback loop makes iteration miserable"
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=46615630",
+     "date": "2026-01",
+     "stance": "neg",
+     "note": "Commenter asks why early love for Actions evaporated so fast"
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=37916958",
+     "date": "2023-10",
+     "stance": "neg",
+     "note": "Detailed complaint list: no live logs, unreliable cancels, no retries"
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=46234671",
+     "date": "2025-12",
+     "stance": "neg",
+     "note": "Repeat outages this month prompting internal move-off-Actions discussions"
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=46304379",
+     "date": "2025-12",
+     "stance": "neg",
+     "note": "Backlash over proposed per-minute billing for self-hosted runners"
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=46067219",
+     "date": "2025-11",
+     "stance": "neg",
+     "note": "Zig cites broken Actions scheduling and livelocks in Codeberg move"
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=47939809",
+     "date": "2026-05",
+     "stance": "neg",
+     "note": "Ghostty author leaves GitHub citing repeated degradation and outages"
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=49096427",
+     "date": "2026-08",
+     "stance": "neu",
+     "note": "Supply-chain hardening thread; marketplace action risks stay top of mind"
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=47487584",
+     "date": "2026-04",
+     "stance": "neu",
+     "note": "Mixed thread weighing free OSS minutes against reliability complaints"
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=46133726",
+     "date": "2025-11",
+     "stance": "neu",
+     "note": "Discussion of workflow YAML limits and local-reproducibility workarounds"
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=46291156",
+     "date": "2025-12",
+     "stance": "neu",
+     "note": "Comparison thread placing Actions against GitLab CI and Jenkins"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1rdrpzz/whats_your_biggest_frustration_with_github/",
+     "date": "2026-02",
+     "stance": "neg",
+     "note": "Thread collects frustrations: runner performance, container permission quirks"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1nlybf6/whats_the_point_of_using_github_actions/",
+     "date": "2025-09",
+     "stance": "neu",
+     "note": "Users debate whether Actions adds value beyond scripts plus secrets"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/18ic2zx/seeking_opinions_on_github_actions_for_cicd/",
+     "date": "2023-12",
+     "stance": "pos",
+     "note": "Commenters endorse Actions as easiest start for GitHub-centric teams"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/105a2bn/gitlab_ci_vs_jenkins_vs_github_actions/",
+     "date": "2023-01",
+     "stance": "pos",
+     "note": "Marketplace and repo integration praised as fastest path to pipelines"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1hj46vm/github_actions_or_gitlab/",
+     "date": "2024-12",
+     "stance": "neu",
+     "note": "Terraform users split; GitLab favored for environment predictability"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/13e4eoj/github_vs_gitlab/",
+     "date": "2023-05",
+     "stance": "neu",
+     "note": "Platform choice dominates CI choice; inertia keeps teams put"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/11cd32e/choosing_a_cicd_tool_for_your_product/",
+     "date": "2023-02",
+     "stance": "pos",
+     "note": "Advice: already on GitHub, just use Actions, avoid overthinking"
+    },
+    {
+     "source": "blog",
+     "url": "https://depot.dev/blog/self-hosting-github-actions",
+     "date": "2025-08",
+     "stance": "neu",
+     "note": "Self-hosting saves money but hidden maintenance burden surprises teams"
+    },
+    {
+     "source": "blog",
+     "url": "https://depot.dev/blog/hidden-cost-of-self-hosting-ci-runners",
+     "date": "2025-04",
+     "stance": "neg",
+     "note": "Argues runner self-hosting overhead often exceeds the savings claimed"
+    },
+    {
+     "source": "blog",
+     "url": "https://runs-on.com/blog/ephemeral-vs-long-lived-runners/",
+     "date": "2025-06",
+     "stance": "neu",
+     "note": "Long-lived runners accumulate poisoned state; ephemeral design recommended"
+    },
+    {
+     "source": "blog",
+     "url": "https://theguardian.engineering/blog/faster-cheaper-messier-lessons-from-switch-to-self-hosted-github-actions",
+     "date": "2025-07",
+     "stance": "neu",
+     "note": "Guardian: cheaper faster macOS builds, but messier cleanup and upkeep"
+    },
+    {
+     "source": "blog",
+     "url": "https://zenn.dev/team_soda/articles/b2783d8e009104",
+     "date": "2025-05",
+     "stance": "neu",
+     "note": "Big speed and cost wins, offset by NAT bills and stuck jobs"
+    },
+    {
+     "source": "blog",
+     "url": "https://www.azabani.com/2025/12/18/shoestring-web-engine-ci.html",
+     "date": "2025-12",
+     "stance": "neg",
+     "note": "Hosted minutes too costly and images too rigid for heavy builds"
+    },
+    {
+     "source": "blog",
+     "url": "https://github.blog/news-insights/product-news/lets-talk-about-github-actions/",
+     "date": "2025-11",
+     "stance": "pos",
+     "note": "GitHub details re-architecture work aimed at reliability at huge scale"
+    },
+    {
+     "source": "blog",
+     "url": "https://dev.to/arkhan/why-frontend-developers-should-learn-github-actions-in-2025-9al",
+     "date": "2025-03",
+     "stance": "pos",
+     "note": "Recommends Actions to frontend devs for versioned workflow automation"
+    },
+    {
+     "source": "blog",
+     "url": "https://dev.to/pv_vaisak/top-7-github-actions-you-should-be-using-in-2025-21i4",
+     "date": "2025-02",
+     "stance": "pos",
+     "note": "Enthusiastic roundup of marketplace actions worth adopting"
+    },
+    {
+     "source": "blog",
+     "url": "https://levelup.gitconnected.com/the-real-power-of-github-actions-in-modern-software-development-a12122794da0",
+     "date": "2025-06",
+     "stance": "pos",
+     "note": "Frames Actions as a personal DevOps engineer inside the repo"
+    },
+    {
+     "source": "article",
+     "url": "https://www.theregister.com/software/2025/12/17/github-walks-back-plan-to-charge-for-self-hosted-runners/2064954",
+     "date": "2025-12",
+     "stance": "neg",
+     "note": "Press coverage of GitHub retreating from self-hosted runner charges"
+    },
+    {
+     "source": "article",
+     "url": "https://semaphore.io/blog/best-github-actions-alternatives-in-2026",
+     "date": "2026-01",
+     "stance": "neu",
+     "note": "Alternatives roundup citing scaling cost and reliability triggers"
+    },
+    {
+     "source": "article",
+     "url": "https://northflank.com/blog/github-actions-alternatives",
+     "date": "2025-10",
+     "stance": "neu",
+     "note": "Lists orchestration and concurrency limits driving teams elsewhere"
+    },
+    {
+     "source": "article",
+     "url": "https://www.peerspot.com/products/github-actions-reviews",
+     "date": "2025-09",
+     "stance": "neu",
+     "note": "Aggregated reviews praise setup ease, flag scaling and cost limits"
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=kuUHV0I0YwM",
+     "date": "2025-08",
+     "stance": "pos",
+     "note": "Long production pipeline walkthrough, strong view count and engagement"
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=y7S2oSjJ8PA",
+     "date": "2026-01",
+     "stance": "pos",
+     "note": "Popular Node deploy tutorial treats Actions as default CI choice"
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=GlhK7mz5IJo",
+     "date": "2025-03",
+     "stance": "pos",
+     "note": "GitOps pipeline tutorial recommends Actions plus self-hosted runners"
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=n94XCRVlNIE",
+     "date": "2025-11",
+     "stance": "neu",
+     "note": "Neutral fundamentals course covering workflows, matrices, secrets"
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "debug-feedback-loop",
+    "detail": "No local fidelity or live inspection; push-wait-guess iteration is the top complaint.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=46614558",
+     "https://news.ycombinator.com/item?id=37916958"
+    ]
+   },
+   {
+    "tag": "reliability-outages",
+    "detail": "Recurring outages, stuck runners and out-of-order scheduling push teams to evaluate exits.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=46234671",
+     "https://news.ycombinator.com/item?id=46067219",
+     "https://news.ycombinator.com/item?id=47939809"
+    ]
+   },
+   {
+    "tag": "runner-cost-and-billing",
+    "detail": "Hosted minutes expensive at scale; the self-hosted runner billing proposal triggered backlash.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=46304379",
+     "https://www.theregister.com/software/2025/12/17/github-walks-back-plan-to-charge-for-self-hosted-runners/2064954",
+     "https://www.azabani.com/2025/12/18/shoestring-web-engine-ci.html"
+    ]
+   },
+   {
+    "tag": "self-hosting-ops-tax",
+    "detail": "Self-hosted runners shift image patching, autoscaling and state hygiene onto the team.",
+    "sources": [
+     "https://depot.dev/blog/hidden-cost-of-self-hosting-ci-runners",
+     "https://runs-on.com/blog/ephemeral-vs-long-lived-runners/",
+     "https://theguardian.engineering/blog/faster-cheaper-messier-lessons-from-switch-to-self-hosted-github-actions"
+    ]
+   },
+   {
+    "tag": "yaml-reusability-limits",
+    "detail": "Verbose workflows with weak composition; teams retreat to scripts and containers.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=46133726",
+     "https://news.ycombinator.com/item?id=46291156"
+    ]
+   },
+   {
+    "tag": "marketplace-supply-chain",
+    "detail": "Third-party actions with mutable tags remain a live supply-chain risk.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=49096427"
+    ]
+   }
+  ],
+  "adopters": "Effectively the default CI for GitHub-hosted OSS; GitHub reports tens of millions of jobs daily. High-profile departures include Zig (to Codeberg) and Ghostty.",
+  "popularity_notes": "Mindshare clearly highest of any CI in this cluster, but developer-forum sentiment trended down through 2025-2026 while tutorial/YouTube volume stayed very high."
+ },
+ {
+  "id": "gitlab-ci-cd",
+  "sentiment": {
+   "pos": 9,
+   "neu": 15,
+   "neg": 7,
+   "n": 31,
+   "confidence": "high",
+   "summary": "Well-liked as the integrated all-in-one option, especially self-hosted where runner minutes are free. Complaints concentrate on slow shared SaaS runners and a stingy free compute quota.",
+   "data_points": [
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/gitlab/comments/1la5axk/gitlab_runners_extremely_slow/",
+     "date": "2025-06",
+     "stance": "neg",
+     "note": "Shared runners crawl; preparing and fetch steps take tens of minutes"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/gitlab/comments/1rrw3y4/gitlab_runners_are_very_slow_today/",
+     "date": "2026-02",
+     "stance": "neg",
+     "note": "Users report pipelines ballooning from ten minutes to over an hour"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/gitlab/comments/1kw2v69/free_ultimate_trial_compute_minutes/",
+     "date": "2025-05",
+     "stance": "neg",
+     "note": "Free 400 compute minutes exhausted quickly; quota called stingy"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/gitlab/comments/1gglr7f/autoscaling_runner_issues_due_to_outage",
+     "date": "2024-10",
+     "stance": "neg",
+     "note": "Outage broke runner autoscaling and burned minutes unexpectedly"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/gitlab/comments/1ppa71f/gitlab_runner_job_scheduling_am_i_missing_anything",
+     "date": "2025-12",
+     "stance": "neu",
+     "note": "Self-hosted scheduling via tags and resource groups feels limited"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/gitlab/comments/1l23y0w/monorepo_ci_optimization_pnpm_install_step/",
+     "date": "2025-06",
+     "stance": "neu",
+     "note": "Monorepo install and cache times remain slow despite tuning"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/105a2bn/gitlab_ci_vs_jenkins_vs_github_actions/",
+     "date": "2023-01",
+     "stance": "pos",
+     "note": "GitLab CI praised as complete integrated platform beating Jenkins"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1hj46vm/github_actions_or_gitlab/",
+     "date": "2024-12",
+     "stance": "pos",
+     "note": "Terraform users prefer GitLab for predictable controlled environments"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/13e4eoj/github_vs_gitlab/",
+     "date": "2023-05",
+     "stance": "neu",
+     "note": "GitLab seen stronger on-prem; migration pain keeps teams static"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/11cd32e/choosing_a_cicd_tool_for_your_product/",
+     "date": "2023-02",
+     "stance": "pos",
+     "note": "Guidance: on GitLab already, its CI is the obvious pick"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1m3035c/when_is_circleci_worth_paying_for_over_free",
+     "date": "2025-07",
+     "stance": "pos",
+     "note": "Commenters recommend free self-hosted GitLab runners over paid SaaS CI"
+    },
+    {
+     "source": "blog",
+     "url": "https://dev.to/spiritus/why-gitlab-runners-are-so-slow-4ic9",
+     "date": "2024-05",
+     "stance": "neg",
+     "note": "Blames per-minute billing incentives and contention for slow runners"
+    },
+    {
+     "source": "blog",
+     "url": "https://www.bytebase.com/blog/gitlab-ci-vs-github-actions/",
+     "date": "2025-04",
+     "stance": "neu",
+     "note": "Balanced comparison: GitLab for enterprise depth, Actions for simplicity"
+    },
+    {
+     "source": "blog",
+     "url": "https://dev.to/renzoflv/analisis-y-reflexiones-sobre-github-actions-vs-gitlab-ci-mi-perspectiva-59k4",
+     "date": "2025-11",
+     "stance": "neu",
+     "note": "Hands-on: GitLab setup slower but gives finer environment control"
+    },
+    {
+     "source": "blog",
+     "url": "https://mycuriosity.blog/gitlab-ci-vs-github-actions-the-ultimate-comparison-in-2025",
+     "date": "2025-07",
+     "stance": "neu",
+     "note": "GitLab more customizable for enterprise; Actions faster to ship"
+    },
+    {
+     "source": "blog",
+     "url": "https://dev.to/hashiravc/a-real-world-comparison-of-testing-management-tools-github-actions-vs-gitlab-cicds-52g",
+     "date": "2025-12",
+     "stance": "neu",
+     "note": "Side-by-side test pipelines; choice hinges on ecosystem versus platform"
+    },
+    {
+     "source": "blog",
+     "url": "https://www.bitslovers.com/github-actions-vs-gitlab-ci/",
+     "date": "2025-05",
+     "stance": "neu",
+     "note": "Concludes source-control platform choice should dominate CI decision"
+    },
+    {
+     "source": "blog",
+     "url": "https://dev.to/claudiodevops/from-chaos-to-perfect-flow-my-experience-automating-a-massive-real-gitlab-migration-4000-repos-2p2f",
+     "date": "2025-09",
+     "stance": "pos",
+     "note": "Four-thousand-repo migration yielded more stable pipelines and faster deploys"
+    },
+    {
+     "source": "blog",
+     "url": "https://hostingx.co.il/articles/cicd-migration-playbook",
+     "date": "2025-08",
+     "stance": "pos",
+     "note": "Jenkins to GitLab CI: 200 pipelines moved, builds much faster"
+    },
+    {
+     "source": "blog",
+     "url": "https://dev.to/raji_moshood_ee3a4c2638f6/cicd-wars-github-actions-vs-gitlab-ci-vs-jenkins-vs-circleci-3ahi",
+     "date": "2025-06",
+     "stance": "neu",
+     "note": "Four-way comparison presents GitLab CI as integrated all-rounder"
+    },
+    {
+     "source": "article",
+     "url": "https://cicdcalculator.com/gitlab-ci",
+     "date": "2026-01",
+     "stance": "neu",
+     "note": "Cost breakdown: overage pricing bites, self-hosted runners stay free"
+    },
+    {
+     "source": "article",
+     "url": "https://isdown.app/status/gitlab/incidents/426384-long-queue-times-on-shared-runners",
+     "date": "2025-08",
+     "stance": "neg",
+     "note": "Incident record: long shared-runner queues with thousands pending jobs"
+    },
+    {
+     "source": "article",
+     "url": "https://docs.gitlab.com/ci/migration/github_actions/",
+     "date": "2025-10",
+     "stance": "neu",
+     "note": "Official migration mapping shows conversion effort from Actions concepts"
+    },
+    {
+     "source": "article",
+     "url": "https://uptrace.dev/tools/cicd-tools",
+     "date": "2025-07",
+     "stance": "neu",
+     "note": "Roundup positions GitLab CI as strongest self-hosted commercial option"
+    },
+    {
+     "source": "article",
+     "url": "https://devtoollab.com/blog/best-ci-cd-tools",
+     "date": "2026-01",
+     "stance": "neu",
+     "note": "Cost-focused survey compares GitLab CI against self-hostable engines"
+    },
+    {
+     "source": "article",
+     "url": "https://www.repositorio.ufc.br/handle/riufc/86008?locale=en",
+     "date": "2026-01",
+     "stance": "neg",
+     "note": "Ported pipeline needed 2.6x more YAML and seven correction rounds"
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=zBrP8MzA5y0",
+     "date": "2025-03",
+     "stance": "pos",
+     "note": "Popular homelab automation video; strong views, enthusiastic framing"
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=pwRWXCdbDVo",
+     "date": "2025-06",
+     "stance": "pos",
+     "note": "Reusable CI components presented as major GitLab improvement"
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=9URuLt21LvM",
+     "date": "2025-08",
+     "stance": "pos",
+     "note": "Kubernetes pipeline tutorial with Harbor and Argo CD, well received"
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=tpobmSs_bGU",
+     "date": "2025-07",
+     "stance": "neu",
+     "note": "Short neutral walkthrough of Kubernetes executor runner setup"
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=IV5MQUEUx44",
+     "date": "2026-01",
+     "stance": "neu",
+     "note": "Official beginner pipeline explainer, factual and promotional"
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "shared-runner-slowness",
+    "detail": "SaaS shared runners queue and crawl, with pipelines stretching many times longer.",
+    "sources": [
+     "https://www.reddit.com/r/gitlab/comments/1la5axk/gitlab_runners_extremely_slow/",
+     "https://www.reddit.com/r/gitlab/comments/1rrw3y4/gitlab_runners_are_very_slow_today/",
+     "https://isdown.app/status/gitlab/incidents/426384-long-queue-times-on-shared-runners"
+    ]
+   },
+   {
+    "tag": "free-tier-compute-quota",
+    "detail": "400 monthly compute minutes per namespace exhausts fast; overage draws pricing anger.",
+    "sources": [
+     "https://www.reddit.com/r/gitlab/comments/1kw2v69/free_ultimate_trial_compute_minutes/",
+     "https://cicdcalculator.com/gitlab-ci"
+    ]
+   },
+   {
+    "tag": "yaml-verbosity-learning-curve",
+    "detail": "Stage-centric config is more verbose and slower to get right than Actions.",
+    "sources": [
+     "https://www.repositorio.ufc.br/handle/riufc/86008?locale=en",
+     "https://dev.to/renzoflv/analisis-y-reflexiones-sobre-github-actions-vs-gitlab-ci-mi-perspectiva-59k4"
+    ]
+   },
+   {
+    "tag": "smaller-component-ecosystem",
+    "detail": "CI/CD components catalog still far behind the Actions marketplace for plug-and-play.",
+    "sources": [
+     "https://www.bytebase.com/blog/gitlab-ci-vs-github-actions/",
+     "https://www.bitslovers.com/github-actions-vs-gitlab-ci/"
+    ]
+   },
+   {
+    "tag": "incident-minute-burn",
+    "detail": "Outages and autoscaling failures strand jobs and consume paid minutes.",
+    "sources": [
+     "https://www.reddit.com/r/gitlab/comments/1gglr7f/autoscaling_runner_issues_due_to_outage",
+     "https://www.reddit.com/r/gitlab/comments/1ppa71f/gitlab_runner_job_scheduling_am_i_missing_anything"
+    ]
+   }
+  ],
+  "adopters": "Standard choice in enterprises needing on-prem, air-gapped or compliance-heavy CI; large migrations of thousands of repos reported publicly.",
+  "popularity_notes": "Steady rather than growing mindshare: consistently the recommended pick for self-hosted and DevSecOps-heavy contexts, and the main named alternative whenever GitHub pricing or reliability flares."
+ },
+ {
+  "id": "jenkins",
+  "sentiment": {
+   "pos": 6,
+   "neu": 12,
+   "neg": 12,
+   "n": 30,
+   "confidence": "high",
+   "summary": "Sentiment is the most polarized in the cluster: broadly disliked for plugin and Groovy maintenance yet still widely run and defended by minimal-plugin operators.",
+   "data_points": [
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=44960042",
+     "date": "2025-08",
+     "stance": "pos",
+     "note": "Runs Jenkins painlessly by minimizing plugins to a handful"
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=35889948",
+     "date": "2023-05",
+     "stance": "neg",
+     "note": "Calls Jenkins an obsolete abomination painful to manage and maintain"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1if9aiy/moving_away_from_jenkins",
+     "date": "2025-02",
+     "stance": "neg",
+     "note": "Eight-year install: stale plugins, security debt, wants off Groovy"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1kc0vvk/saw_lots_of_comments_that_jenkins_is_not_worth_it",
+     "date": "2025-05",
+     "stance": "neg",
+     "note": "Consensus: maintenance hell, CVEs, legacy Java glued with plugins"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1jl2u6l/the_future_of_jenkins",
+     "date": "2025-03",
+     "stance": "neg",
+     "note": "Controller cannot scale horizontally; HA still incomplete after years"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1vgzwr7/anyone_still_using_jenkins/",
+     "date": "2026-01",
+     "stance": "neg",
+     "note": "Still everywhere in enterprises, but nobody recommends it now"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1mcg2kk/tried_jenkins_again_was_not_that_bad_as_i_had_in",
+     "date": "2025-08",
+     "stance": "neu",
+     "note": "Revisited with modern infra and found it tolerable; replies disagree"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1mqqvut/jenkins_is_truly_excellent/",
+     "date": "2025-08",
+     "stance": "pos",
+     "note": "Defends Jenkins as excellent when kept simple and declarative"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/jenkinsci/comments/1ikvzb3/how_long_will_jenkins_last/",
+     "date": "2025-02",
+     "stance": "neu",
+     "note": "Users expect long survival through inertia rather than merit"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/jenkinsci/comments/1jnffwn/upgrading_jenkins_and_plugins",
+     "date": "2025-04",
+     "stance": "neg",
+     "note": "Chicken-and-egg upgrades: new plugins need newer core, old ones break"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/QualityAssurance/comments/1eghtr0/is_jenkins_still_worth_it_in_2024_for_sdet",
+     "date": "2024-07",
+     "stance": "neu",
+     "note": "Testers say learn basics for enterprise jobs, prefer modern tools"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/18v5ope/do_you_think_learning_jenkins_is_still_worthwhile/",
+     "date": "2023-12",
+     "stance": "neu",
+     "note": "Worth learning for legacy roles, not as primary skill"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/105a2bn/gitlab_ci_vs_jenkins_vs_github_actions/",
+     "date": "2023-01",
+     "stance": "neg",
+     "note": "Both GitLab CI and Actions judged clearly superior to Jenkins"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1m3035c/when_is_circleci_worth_paying_for_over_free",
+     "date": "2025-07",
+     "stance": "neu",
+     "note": "Free Jenkins defended, though Groovy and slow agents cited"
+    },
+    {
+     "source": "blog",
+     "url": "https://buildkite.com/resources/blog/best-practices-for-managing-jenkins-plugins/",
+     "date": "2025-06",
+     "stance": "neg",
+     "note": "Details plugin dependency conflicts, classloader errors, restart requirements"
+    },
+    {
+     "source": "blog",
+     "url": "https://omniverse.ru/blog/2025/07/15/jenkins-jdk/",
+     "date": "2025-07",
+     "stance": "neg",
+     "note": "Rejuvenating a 2021 instance meant hours of manual plugin bisecting"
+    },
+    {
+     "source": "blog",
+     "url": "https://blog.jetbrains.com/teamcity/2026/03/jenkins-plugin-management/",
+     "date": "2026-03",
+     "stance": "neg",
+     "note": "Argues community plugin model is root of instability and exposure"
+    },
+    {
+     "source": "blog",
+     "url": "https://aws.plainenglish.io/jenkins-to-github-actions-the-migration-that-broke-ci-cd-for-3-weeks-32709027c319",
+     "date": "2026-01",
+     "stance": "neg",
+     "note": "Migration off opaque Groovy jobs broke releases for three weeks"
+    },
+    {
+     "source": "blog",
+     "url": "https://www.harness.io/blog/how-to-migrate-off-jenkins-the-road-to-modern-ci-cd",
+     "date": "2024-12",
+     "stance": "neg",
+     "note": "Vendor playbook framing plugin sprawl and snowflake Groovy as debt"
+    },
+    {
+     "source": "blog",
+     "url": "https://dev.to/giridharan_devops/is-jenkins-still-relevant-in-2025-m9",
+     "date": "2025-04",
+     "stance": "neu",
+     "note": "Still relevant for enterprise and legacy, not for greenfield"
+    },
+    {
+     "source": "blog",
+     "url": "https://dev.to/gabrielle_eduarda_776996b/does-jenkins-still-have-a-place-in-modern-devops-2p2n",
+     "date": "2025-06",
+     "stance": "neu",
+     "note": "Concludes Jenkins keeps a shrinking niche in mixed environments"
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/@pranavpurohit73/jenkins-in-2025-the-cockroach-of-devops-that-refuses-to-die-2aa27fd21c4a",
+     "date": "2025-05",
+     "stance": "neu",
+     "note": "Affectionately calls Jenkins the DevOps cockroach that survives everything"
+    },
+    {
+     "source": "article",
+     "url": "https://www.techtarget.com/it-infrastructure/tip/My-experience-rejuvenating-CI-CD-infrastructure-with-AI",
+     "date": "2025-09",
+     "stance": "neu",
+     "note": "Practitioner account of dragging aging Jenkins infrastructure forward"
+    },
+    {
+     "source": "article",
+     "url": "https://uptrace.dev/tools/cicd-tools",
+     "date": "2025-07",
+     "stance": "neu",
+     "note": "Roundup keeps Jenkins as flexible but ops-heavy self-hosted option"
+    },
+    {
+     "source": "article",
+     "url": "https://devtoollab.com/blog/best-ci-cd-tools",
+     "date": "2026-01",
+     "stance": "neu",
+     "note": "Lists Jenkins among open-source engines worth self-hosting on cost"
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=XaSdKR2fOU4",
+     "date": "2024-09",
+     "stance": "pos",
+     "note": "Six-hour Jenkins course with large audience treats it as core skill"
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=llBvl_iSLDw",
+     "date": "2025-04",
+     "stance": "pos",
+     "note": "Well-viewed end-to-end Jenkins Docker Kubernetes project tutorial"
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=xbxJpZcFT78",
+     "date": "2025-01",
+     "stance": "pos",
+     "note": "GitOps pipeline built on containerized Jenkins with scanning"
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=xlZ9mpIyaVg",
+     "date": "2025-10",
+     "stance": "neu",
+     "note": "Short neutral guide to Jenkins on Kubernetes with dynamic agents"
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=WymTANa9j2o",
+     "date": "2025-11",
+     "stance": "pos",
+     "note": "Pro-level declarative Jenkins pipeline with quality gates and GitOps"
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "plugin-dependency-hell",
+    "detail": "Transitive plugin conflicts, abandoned plugins and CVEs make upgrades cascading work.",
+    "sources": [
+     "https://buildkite.com/resources/blog/best-practices-for-managing-jenkins-plugins/",
+     "https://www.reddit.com/r/jenkinsci/comments/1jnffwn/upgrading_jenkins_and_plugins",
+     "https://blog.jetbrains.com/teamcity/2026/03/jenkins-plugin-management/"
+    ]
+   },
+   {
+    "tag": "groovy-pipeline-pain",
+    "detail": "CPS Groovy Jenkinsfiles and shared libraries are hard to debug and become snowflakes.",
+    "sources": [
+     "https://www.reddit.com/r/devops/comments/1if9aiy/moving_away_from_jenkins",
+     "https://www.reddit.com/r/devops/comments/1kc0vvk/saw_lots_of_comments_that_jenkins_is_not_worth_it"
+    ]
+   },
+   {
+    "tag": "ops-burden-and-scaling",
+    "detail": "Controller does not scale horizontally; HA remains incomplete and toil is high.",
+    "sources": [
+     "https://www.reddit.com/r/devops/comments/1jl2u6l/the_future_of_jenkins",
+     "https://omniverse.ru/blog/2025/07/15/jenkins-jdk/"
+    ]
+   },
+   {
+    "tag": "dated-developer-experience",
+    "detail": "UI and workflow feel legacy; developers resist it versus repo-native CI.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=35889948",
+     "https://www.reddit.com/r/devops/comments/1vgzwr7/anyone_still_using_jenkins/"
+    ]
+   },
+   {
+    "tag": "migration-cost-lock-in",
+    "detail": "Leaving is expensive: opaque legacy jobs and secrets make cutovers multi-week risks.",
+    "sources": [
+     "https://aws.plainenglish.io/jenkins-to-github-actions-the-migration-that-broke-ci-cd-for-3-weeks-32709027c319",
+     "https://www.harness.io/blog/how-to-migrate-off-jenkins-the-road-to-modern-ci-cd"
+    ]
+   }
+  ],
+  "adopters": "Still entrenched across enterprise and on-prem estates; frequently described as the tool everyone is trying to replace but few have finished replacing.",
+  "popularity_notes": "Mindshare trending down for greenfield work while install base persists. Tutorial volume remains large, mostly aimed at enterprise job-seekers rather than new adopters."
+ },
+ {
+  "id": "circleci",
+  "sentiment": {
+   "pos": 4,
+   "neu": 13,
+   "neg": 8,
+   "n": 25,
+   "confidence": "med",
+   "summary": "Respected for orbs, parallelism and quick starts, but recent discussion is dominated by credit-based cost ramp, concurrency ceilings and reliability gripes as teams drift toward GitHub Actions.",
+   "data_points": [
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1nou65j/circleci_self_hosted_concurrency_limits",
+     "date": "2025-09",
+     "stance": "neu",
+     "note": "Self-hosted runners eased cost ramp but hit hard concurrency ceiling"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1ibtbal/best_circleci_course_on_udemyyoutube_etc",
+     "date": "2025-01",
+     "stance": "neg",
+     "note": "Called worst CI ever: poor docs, no real workflow reuse"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1m3035c/when_is_circleci_worth_paying_for_over_free",
+     "date": "2025-07",
+     "stance": "neg",
+     "note": "Responses lean toward never paying for CI when self-hosting works"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1cb26j5/what_are_the_biggest_challenges_you_team_faced",
+     "date": "2024-04",
+     "stance": "neu",
+     "note": "Adopting CircleCI needed orbs as golden paths to avoid duplication"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1bmn7ie/why_do_some_companies_use_other_tooling_for_cicd",
+     "date": "2024-03",
+     "stance": "pos",
+     "note": "Teams stay because Actions lacked parity on images and parallelism"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1pe8wzd/bitbucket_baitandswitched_now_charging_15month",
+     "date": "2025-11",
+     "stance": "neu",
+     "note": "CircleCI mentioned as diversification away from single-vendor CI risk"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/webdev/comments/1po185u/whats_still_annoying_about_cicd_in_your_workflow",
+     "date": "2025-12",
+     "stance": "neu",
+     "note": "General CI gripes thread; credit-based billing among annoyances"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/androiddev/comments/1lecg07/i_wrote_a_stepbystep_guide_on_creating_a_fully/",
+     "date": "2025-06",
+     "stance": "pos",
+     "note": "Author ships full Android automation on CircleCI, recommends approach"
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=47438003",
+     "date": "2026-04",
+     "stance": "neg",
+     "note": "Startup outage after exposed CircleCI access key triggered AWS restriction"
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=47501426",
+     "date": "2026-04",
+     "stance": "neg",
+     "note": "Compromised PyPI release response includes auditing CircleCI blast radius"
+    },
+    {
+     "source": "blog",
+     "url": "https://dev.to/tedh1677/setup-speed-and-pricing-breakdown-for-github-actions-vs-circleci-2jbo",
+     "date": "2025-07",
+     "stance": "neu",
+     "note": "Setup, speed and pricing compared without declaring clear winner"
+    },
+    {
+     "source": "blog",
+     "url": "https://devops-daily.com/comparisons/circleci-vs-github-actions",
+     "date": "2026-06",
+     "stance": "neu",
+     "note": "Notes orb ecosystem strength against Actions marketplace breadth"
+    },
+    {
+     "source": "blog",
+     "url": "https://devopsninja.tech/cicd/circleci-vs-github-actions/",
+     "date": "2026-05",
+     "stance": "neu",
+     "note": "Operational comparison weighing when leaving CircleCI actually pays"
+    },
+    {
+     "source": "blog",
+     "url": "https://techcraft.live/github-actions-vs-circleci-costly-hurdles/",
+     "date": "2026-06",
+     "stance": "neg",
+     "note": "Frames CircleCI credit costs as hurdle for engineering teams"
+    },
+    {
+     "source": "blog",
+     "url": "https://suhailroushan.com/blog/github-actions-vs-circleci",
+     "date": "2026-08",
+     "stance": "neg",
+     "note": "Free credits burn out roughly four times faster than Actions minutes"
+    },
+    {
+     "source": "blog",
+     "url": "https://dev.to/raji_moshood_ee3a4c2638f6/cicd-wars-github-actions-vs-gitlab-ci-vs-jenkins-vs-circleci-3ahi",
+     "date": "2025-06",
+     "stance": "neu",
+     "note": "Four-way survey treats CircleCI as capable managed middle option"
+    },
+    {
+     "source": "article",
+     "url": "https://www.getmonetizely.com/articles/circleci-vs-github-actions-which-cicd-pipeline-tool-offers-better-value-for-your-devops-team",
+     "date": "2026-01",
+     "stance": "neu",
+     "note": "Value analysis of hidden costs across both platforms"
+    },
+    {
+     "source": "article",
+     "url": "https://latest.sh/guides/circleci-vs-github-actions",
+     "date": "2026-03",
+     "stance": "neg",
+     "note": "Concludes Actions is several times cheaper than CircleCI"
+    },
+    {
+     "source": "article",
+     "url": "https://aidev.fit/en/compare/circleci-vs-github-actions.html",
+     "date": "2026-03",
+     "stance": "neu",
+     "note": "Benchmarks caching and config differences plus migration tips"
+    },
+    {
+     "source": "article",
+     "url": "https://agentdeals.dev/circleci-vs-github-actions",
+     "date": "2026-04",
+     "stance": "pos",
+     "note": "Recommends CircleCI when test splitting and build optimization matter"
+    },
+    {
+     "source": "article",
+     "url": "https://communities.stackinsight.net/community/ci-cd-migrations/github-actions-vs-circleci-for-a-5-eng-team-doing-cd-on-ecs-fargate/",
+     "date": "2026-08",
+     "stance": "neg",
+     "note": "Small team feeling pinch of CircleCI billing, exploring migration"
+    },
+    {
+     "source": "article",
+     "url": "https://cicdcalculator.com/gitlab-ci",
+     "date": "2026-01",
+     "stance": "neu",
+     "note": "Cost calculator context comparing CircleCI plans with rivals"
+    },
+    {
+     "source": "article",
+     "url": "https://uptrace.dev/tools/cicd-tools",
+     "date": "2025-07",
+     "stance": "neu",
+     "note": "Roundup keeps CircleCI among leading managed CI choices"
+    },
+    {
+     "source": "article",
+     "url": "https://devtoollab.com/blog/best-ci-cd-tools",
+     "date": "2026-01",
+     "stance": "neu",
+     "note": "Prices CircleCI against Actions, GitLab CI and Buildkite"
+    },
+    {
+     "source": "article",
+     "url": "https://semaphore.io/blog/best-github-actions-alternatives-in-2026",
+     "date": "2026-01",
+     "stance": "pos",
+     "note": "Positions CircleCI as stability-focused alternative for critical pipelines"
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "credit-pricing-ramp",
+    "detail": "Credit model bills unpredictably and costs escalate as build volume grows.",
+    "sources": [
+     "https://techcraft.live/github-actions-vs-circleci-costly-hurdles/",
+     "https://suhailroushan.com/blog/github-actions-vs-circleci",
+     "https://communities.stackinsight.net/community/ci-cd-migrations/github-actions-vs-circleci-for-a-5-eng-team-doing-cd-on-ecs-fargate/"
+    ]
+   },
+   {
+    "tag": "concurrency-limits",
+    "detail": "Self-hosted runner concurrency capped by plan tier, forcing upgrades.",
+    "sources": [
+     "https://www.reddit.com/r/devops/comments/1nou65j/circleci_self_hosted_concurrency_limits"
+    ]
+   },
+   {
+    "tag": "reliability-and-ui",
+    "detail": "Users report buggy UI and unreliable runs prompting migration away.",
+    "sources": [
+     "https://www.reddit.com/r/devops/comments/1ibtbal/best_circleci_course_on_udemyyoutube_etc"
+    ]
+   },
+   {
+    "tag": "config-reuse-and-docs",
+    "detail": "Weak workflow abstraction pushes YAML anchor workarounds; docs criticized.",
+    "sources": [
+     "https://www.reddit.com/r/devops/comments/1ibtbal/best_circleci_course_on_udemyyoutube_etc",
+     "https://www.reddit.com/r/devops/comments/1cb26j5/what_are_the_biggest_challenges_you_team_faced"
+    ]
+   },
+   {
+    "tag": "secret-exposure-blast-radius",
+    "detail": "CI credentials in CircleCI keep surfacing in real supply-chain and key-leak incidents.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=47438003",
+     "https://news.ycombinator.com/item?id=47501426"
+    ]
+   }
+  ],
+  "adopters": "Still used by teams with complex build matrices and non-GitHub forges; several public accounts of teams migrating off toward Actions or Buildkite.",
+  "popularity_notes": "Mindshare declining: mostly appears now inside comparison and migration content rather than first-choice recommendations. Very little organic enthusiasm found in 2024-2026 forum threads."
+ },
+ {
+  "id": "tekton",
+  "sentiment": {
+   "pos": 9,
+   "neu": 14,
+   "neg": 2,
+   "n": 25,
+   "confidence": "med",
+   "summary": "Vendor and enterprise evidence is strongly positive (OpenShift Pipelines cases), but independent community sentiment is thin and repeatedly flags steep learning curve, YAML volume and a weak dashboard.",
+   "data_points": [
+    {
+     "source": "blog",
+     "url": "https://mkdev.me/posts/is-tekton-still-alive-comparing-tekton-pipelines-with-argo-workflows-argocd-and-jenkins",
+     "date": "2024-03",
+     "stance": "neg",
+     "note": "Argues low mindshare; avoid as general CI unless customization essential"
+    },
+    {
+     "source": "blog",
+     "url": "https://devopsboys.com/blog/argocd-vs-jenkins-x-vs-tekton-cd-comparison-2026",
+     "date": "2026-02",
+     "stance": "neu",
+     "note": "Rates learning curve steep; recommends pairing with Argo CD"
+    },
+    {
+     "source": "blog",
+     "url": "https://devopsboys.com/blog/tekton-vs-argo-workflows-cicd-comparison-2026",
+     "date": "2026-03",
+     "stance": "neu",
+     "note": "Says the two engines target different jobs; picks per use case"
+    },
+    {
+     "source": "blog",
+     "url": "https://www.redhat.com/en/tekton-pipelines-1.0-and-openshift-for-cicd",
+     "date": "2025-07",
+     "stance": "pos",
+     "note": "Ford, DNEG, Air Canada cases show large deployment-time reductions"
+    },
+    {
+     "source": "blog",
+     "url": "https://appinventiv.com/blog/automating-rosa-deployments-with-tekton/",
+     "date": "2025-11",
+     "stance": "pos",
+     "note": "Private ROSA pipeline fully automated with Tekton triggers and Kaniko"
+    },
+    {
+     "source": "blog",
+     "url": "https://www.neteye-blog.com/2025/06/pipeline-as-code-quest-unlocked-a-grizzled-beginner-leveling-up-in-ci-cd/",
+     "date": "2025-06",
+     "stance": "neu",
+     "note": "Beginner enjoyed declarative reuse but fought ordering and readiness gaps"
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/@sriram.chennai64/lessons-from-a-year-of-ci-cd-modernization-from-jenkins-to-tekton-7ea1842f5968",
+     "date": "2026-01",
+     "stance": "pos",
+     "note": "Year-long Jenkins-to-Tekton move improved auditability and reduced complexity"
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/otomi-platform/elevating-our-cloud-native-pipelines-migrating-from-drone-to-tekton-4b3d18549d08",
+     "date": "2023-11",
+     "stance": "pos",
+     "note": "Left Drone for Tekton citing Kubernetes-native reuse and scalability"
+    },
+    {
+     "source": "blog",
+     "url": "https://tekton.dev/blog/2025/05/23/tekton-pipelines-reaches-1.0-stability-today-innovation-tomorrow",
+     "date": "2025-05",
+     "stance": "pos",
+     "note": "Project declares 1.0 stability, StepAction GA and CNCF move"
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/@shiv0007/tekton-a-ci-cd-pipelines-on-kubernetes-6805ecedbcf5",
+     "date": "2025-08",
+     "stance": "pos",
+     "note": "Presents Tekton as modern scalable Kubernetes-native pipeline framework"
+    },
+    {
+     "source": "blog",
+     "url": "https://dev.to/shivam_agnihotri/tekton-a-kubernetes-native-cicd-day-46-of-50-days-devops-tools-series-3e9g",
+     "date": "2024-10",
+     "stance": "neu",
+     "note": "Neutral tool-series introduction to Tekton concepts and CRDs"
+    },
+    {
+     "source": "blog",
+     "url": "https://devsecopsschool.com/blog/tekton-in-devsecops-a-comprehensive-tutorial/",
+     "date": "2025-06",
+     "stance": "pos",
+     "note": "Recommends Tekton for secure scalable containerized DevSecOps pipelines"
+    },
+    {
+     "source": "blog",
+     "url": "https://oneuptime.com/blog/post/2026-02-02-tekton-dashboard/view",
+     "date": "2026-02",
+     "stance": "neu",
+     "note": "Hands-on dashboard setup guide, factual with no strong verdict"
+    },
+    {
+     "source": "blog",
+     "url": "https://sumguy.com/argo-workflows-vs-tekton/",
+     "date": "2026-07",
+     "stance": "neu",
+     "note": "Honest comparison of two CNCF engines with different philosophies"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/kubernetes/comments/196wgv9/tekton_pipelines_or_argocd_workflows/",
+     "date": "2024-01",
+     "stance": "neg",
+     "note": "Team abandoned months of Tekton work; dashboard young and limited"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.redditmedia.com/r/devops/comments/1gbd8gl/jenkins_vs_tekton_for_openshift/",
+     "date": "2024-12",
+     "stance": "neu",
+     "note": "Advises OpenShift Pipelines-as-Code to avoid raw trigger setup headaches"
+    },
+    {
+     "source": "article",
+     "url": "https://www.peerspot.com/products/tekton-reviews",
+     "date": "2025-06",
+     "stance": "pos",
+     "note": "Enterprise reviewers report big Jenkins cost cuts, easy Kubernetes fit"
+    },
+    {
+     "source": "article",
+     "url": "https://www.pistack.xyz/posts/tekton-vs-argo-workflows-vs-jenkins-x-self-hosted-kubernetes-native-cicd-guide-2026/",
+     "date": "2026-05",
+     "stance": "neu",
+     "note": "Compares three K8s-native approaches; choice depends on priorities"
+    },
+    {
+     "source": "article",
+     "url": "https://zairalabs.ai/guide/compare/argo-workflows-vs-tekton/",
+     "date": "2026-04",
+     "stance": "neu",
+     "note": "Lists constraints and limitations for each engine side by side"
+    },
+    {
+     "source": "article",
+     "url": "https://shipsolid.github.io/notes/ci-cd/15-appendices/3-argo-workflows-and-tekton-comparison-matrix/argo-workflows-and-tekton-comparison-matrix/",
+     "date": "2026-02",
+     "stance": "neu",
+     "note": "Matrix comparing architecture, extensibility and operational model"
+    },
+    {
+     "source": "article",
+     "url": "https://notes.kodekloud.com/docs/Prep-Course-Certified-Cloud-Native-Platform-Engineer-CNPE/GitOps-and-Continuous-Delivery/CICD-on-Kubernetes-Pipelines-Tasks-Artifacts-and-Flow/page",
+     "date": "2026-01",
+     "stance": "neu",
+     "note": "Course notes contrast runAfter ordering with Argo DAG dependencies"
+    },
+    {
+     "source": "article",
+     "url": "https://tekton.dev/docs/dashboard/",
+     "date": "2025-09",
+     "stance": "neu",
+     "note": "Official dashboard docs; general-purpose UI with modest feature scope"
+    },
+    {
+     "source": "article",
+     "url": "https://github.com/tektoncd/dashboard",
+     "date": "2025-08",
+     "stance": "neu",
+     "note": "Dashboard repository framing it as general resource viewer"
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=lUQXcebe-xI",
+     "date": "2025-10",
+     "stance": "neu",
+     "note": "Short beginner explainer on Tasks, Pipelines and Runs"
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=nFCTMvr38Zg",
+     "date": "2026-01",
+     "stance": "pos",
+     "note": "Conference talk showcasing reproducible builds and provenance with Tekton"
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "steep-learning-curve",
+    "detail": "Requires deep Kubernetes fluency plus many primitives before a pipeline runs.",
+    "sources": [
+     "https://devopsboys.com/blog/argocd-vs-jenkins-x-vs-tekton-cd-comparison-2026",
+     "https://www.neteye-blog.com/2025/06/pipeline-as-code-quest-unlocked-a-grizzled-beginner-leveling-up-in-ci-cd/"
+    ]
+   },
+   {
+    "tag": "low-mindshare",
+    "detail": "Sparse independent blogs and search interest versus Argo and Jenkins.",
+    "sources": [
+     "https://mkdev.me/posts/is-tekton-still-alive-comparing-tekton-pipelines-with-argo-workflows-argocd-and-jenkins"
+    ]
+   },
+   {
+    "tag": "building-blocks-not-product",
+    "detail": "Ships primitives rather than usable CI; teams must build the product layer.",
+    "sources": [
+     "https://mkdev.me/posts/is-tekton-still-alive-comparing-tekton-pipelines-with-argo-workflows-argocd-and-jenkins",
+     "https://www.pistack.xyz/posts/tekton-vs-argo-workflows-vs-jenkins-x-self-hosted-kubernetes-native-cicd-guide-2026/"
+    ]
+   },
+   {
+    "tag": "weak-dashboard-ux",
+    "detail": "Dashboard viewed as young and limited compared to established CI UIs.",
+    "sources": [
+     "https://www.reddit.com/r/kubernetes/comments/196wgv9/tekton_pipelines_or_argocd_workflows/",
+     "https://tekton.dev/docs/dashboard/"
+    ]
+   },
+   {
+    "tag": "trigger-setup-friction",
+    "detail": "Raw Triggers and EventListener wiring painful enough that PaC is recommended.",
+    "sources": [
+     "https://www.redditmedia.com/r/devops/comments/1gbd8gl/jenkins_vs_tekton_for_openshift/",
+     "https://www.peerspot.com/products/tekton-reviews"
+    ]
+   },
+   {
+    "tag": "crd-and-upgrade-overhead",
+    "detail": "Many CRDs on install plus version-update friction reported by enterprise reviewers.",
+    "sources": [
+     "https://www.peerspot.com/products/tekton-reviews"
+    ]
+   }
+  ],
+  "adopters": "Ford (~2000 teams), DNEG, Air Canada via OpenShift Pipelines; PeerSpot lists Home Depot, PayPal, Target, HSBC. Google Cloud Build lineage.",
+  "popularity_notes": "Traction is enterprise/OpenShift-mediated rather than grassroots. Reached 1.0 and moved to CNCF in 2025, but independent community discussion remains notably quieter than Argo's."
+ },
+ {
+  "id": "argo-workflows",
+  "sentiment": {
+   "pos": 10,
+   "neu": 17,
+   "neg": 3,
+   "n": 30,
+   "confidence": "high",
+   "summary": "Strong reputation as a Kubernetes-native DAG and batch engine, widely preferred over Tekton, but consistently judged not a CI product and criticized for controller memory behaviour at scale.",
+   "data_points": [
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1ulusn9/why_argo_workflows_ci/",
+     "date": "2026-07",
+     "stance": "neg",
+     "note": "Criticizes near-absent forge integration and CRD sprawl for simple CI"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/kubernetes/comments/196wgv9/tekton_pipelines_or_argocd_workflows/",
+     "date": "2024-01",
+     "stance": "pos",
+     "note": "Team switched from Tekton to Argo Workflows and stayed there"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/dataengineering/comments/15g8ish/argo_workflowsevents_for_data_pipelines/",
+     "date": "2023-08",
+     "stance": "pos",
+     "note": "Praised for spiky containerized workloads and GitOps-friendly definitions"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/kubernetes/comments/1vndgd3/argo_for_kubernetes_from_argo_cd_to_workflows_and/",
+     "date": "2026-01",
+     "stance": "neu",
+     "note": "Overview thread notes setup overwhelming for non-Kubernetes teams"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/17faiq8/argo_workflows_proven_patterns_from_production",
+     "date": "2023-10",
+     "stance": "pos",
+     "note": "Well-received production patterns writeup from real deployment experience"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/11qw0bv/monorepo_ci_pipeline_with_argo_events_and_argo/",
+     "date": "2023-03",
+     "stance": "pos",
+     "note": "Monorepo CI built on Argo Events and Workflows shared approvingly"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/18yfuzo/need_help_understand_resources_allocation_for/",
+     "date": "2024-01",
+     "stance": "neu",
+     "note": "Scheduled e2e workflows saturated node CPU; tuning requests advised"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/dataengineering/comments/1c8xy92/are_there_any_tools_poised_to_completely_dethrone/",
+     "date": "2024-04",
+     "stance": "neu",
+     "note": "Seen as infra orchestrator, weaker than Dagster for data semantics"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/dataengineering/comments/1er7c63/apache_airflow_sucks_change_my_mind/",
+     "date": "2024-08",
+     "stance": "neu",
+     "note": "Offered as Airflow escape but criticized as plain DAG runner"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/dataengineering/comments/12g8570/orchestration_poll/",
+     "date": "2023-03",
+     "stance": "pos",
+     "note": "Poll comments credit YAML Kubernetes-resource pipelines as GitOps friendly"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/dataengineering/comments/1ffxgkx/conrcern_around_sparkdatabrick_as_a_silver_bullet/",
+     "date": "2024-09",
+     "stance": "neu",
+     "note": "Mentioned as one orchestration option, no silver bullet"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/160uoy5/automating_the_cloudbased_software_upgrade_using/",
+     "date": "2023-09",
+     "stance": "pos",
+     "note": "Shares upgrade automation built successfully on Argo Workflows"
+    },
+    {
+     "source": "blog",
+     "url": "https://octopus.com/devops/argo-workflows/argo-workflows-vs-airflow/",
+     "date": "2025-03",
+     "stance": "neu",
+     "note": "Weighs scalability tradeoffs between Argo Workflows and Airflow"
+    },
+    {
+     "source": "blog",
+     "url": "https://pipekit.io/blog/airflow-vs-argo-workflows",
+     "date": "2024-06",
+     "stance": "pos",
+     "note": "Vendor comparison favoring Argo for container-native scale"
+    },
+    {
+     "source": "blog",
+     "url": "https://pipekit.io/blog/temporal-vs-argo-workflows",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "Contrasts YAML DAGs with code-first durable execution model"
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/@vivekpemawat/understanding-the-differences-between-apache-airflow-and-argo-workflows-3def70b12f40",
+     "date": "2024-05",
+     "stance": "neu",
+     "note": "Explains which ecosystem each tool serves without picking winner"
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/@karthik.kvssk/workflow-definition-flexibility-argo-workflows-vs-airflow-5e035990d0e3",
+     "date": "2024-08",
+     "stance": "neu",
+     "note": "Notes YAML declarative style limits dynamic task construction"
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/@karthik.kvssk/reusability-parameterization-in-argo-workflows-vs-apache-airflow-a219b4a63e24",
+     "date": "2024-08",
+     "stance": "neu",
+     "note": "Compares templating and parameterization approaches evenhandedly"
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/@richardhightower/the-rise-of-container-native-workflow-orchestration-how-argo-is-transforming-data-pipelines-d87c353f3e75",
+     "date": "2025-04",
+     "stance": "pos",
+     "note": "Enthusiastic case that Argo is reshaping container-native data pipelines"
+    },
+    {
+     "source": "blog",
+     "url": "https://www.besthub.dev/articles/airflow-vs-argo-workflows-which-cloud-native-scheduler-wins-for-data-engineering-3bbf7bd2def7",
+     "date": "2025-06",
+     "stance": "neu",
+     "note": "Feature-by-feature scheduler comparison for data engineering"
+    },
+    {
+     "source": "blog",
+     "url": "https://www.besthub.dev/articles/comparative-guide-to-apache-airflow-and-argo-workflows-for-distributed-task-scheduling-a4758c49029c",
+     "date": "2025-06",
+     "stance": "neu",
+     "note": "Comprehensive architecture comparison with selection guidance"
+    },
+    {
+     "source": "blog",
+     "url": "https://sumguy.com/argo-workflows-vs-tekton/",
+     "date": "2026-07",
+     "stance": "neu",
+     "note": "Honest head-to-head; both aimed at replacing Jenkins"
+    },
+    {
+     "source": "article",
+     "url": "https://github.com/argoproj/argo-workflows/issues/13505",
+     "date": "2024-08",
+     "stance": "neg",
+     "note": "Controller memory climbed toward OOM from a few stuck workflows"
+    },
+    {
+     "source": "article",
+     "url": "https://github.com/argoproj/argo-workflows/issues/15194",
+     "date": "2025-12",
+     "stance": "neg",
+     "note": "Event broadcaster leak grows memory unboundedly across many namespaces"
+    },
+    {
+     "source": "article",
+     "url": "https://github.com/argoproj/argo-workflows/blob/main/docs/cost-optimisation.md",
+     "date": "2025-06",
+     "stance": "neu",
+     "note": "Docs concede controller resources scale with live workflows and pods"
+    },
+    {
+     "source": "article",
+     "url": "https://www.datastackhub.com/alternatives-to/argo-workflows-alternatives/",
+     "date": "2025-10",
+     "stance": "neu",
+     "note": "Alternatives page cites Kubernetes-resource management as adoption hurdle"
+    },
+    {
+     "source": "article",
+     "url": "https://zairalabs.ai/guide/compare/apache-airflow-vs-argo-workflows/",
+     "date": "2026-04",
+     "stance": "neu",
+     "note": "Constraint-focused comparison of the two orchestrators"
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=grDJ3o2VLUE",
+     "date": "2024-11",
+     "stance": "pos",
+     "note": "KubeCon practical guide to running Argo Workflows at scale"
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=w98X_0LwKWw",
+     "date": "2024-11",
+     "stance": "neu",
+     "note": "Lightning talk comparing Argo and Airflow scalability tradeoffs"
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=Km-nZGwj5oE",
+     "date": "2025-07",
+     "stance": "pos",
+     "note": "Short tutorial builds automated image pipeline with Kaniko and Slack"
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "not-a-ci-product",
+    "detail": "Lacks native forge integration and status checks; needs wrapping to serve as CI.",
+    "sources": [
+     "https://www.reddit.com/r/devops/comments/1ulusn9/why_argo_workflows_ci/"
+    ]
+   },
+   {
+    "tag": "controller-memory-scaling",
+    "detail": "Stuck workflows and many namespaces drive unbounded controller memory and OOMs.",
+    "sources": [
+     "https://github.com/argoproj/argo-workflows/issues/13505",
+     "https://github.com/argoproj/argo-workflows/issues/15194",
+     "https://github.com/argoproj/argo-workflows/blob/main/docs/cost-optimisation.md"
+    ]
+   },
+   {
+    "tag": "crd-complexity",
+    "detail": "EventSource, Sensor and WorkflowTemplate sprawl to run one simple pipeline.",
+    "sources": [
+     "https://www.reddit.com/r/devops/comments/1ulusn9/why_argo_workflows_ci/",
+     "https://www.reddit.com/r/kubernetes/comments/1vndgd3/argo_for_kubernetes_from_argo_cd_to_workflows_and/"
+    ]
+   },
+   {
+    "tag": "yaml-vs-python-dx",
+    "detail": "YAML DAGs feel limiting next to Python-first Dagster, Prefect or Temporal.",
+    "sources": [
+     "https://medium.com/@karthik.kvssk/workflow-definition-flexibility-argo-workflows-vs-airflow-5e035990d0e3",
+     "https://pipekit.io/blog/temporal-vs-argo-workflows"
+    ]
+   },
+   {
+    "tag": "missing-data-orchestration",
+    "detail": "No lineage, backfills or data-aware scheduling that data teams expect.",
+    "sources": [
+     "https://www.reddit.com/r/dataengineering/comments/1c8xy92/are_there_any_tools_poised_to_completely_dethrone/",
+     "https://www.reddit.com/r/dataengineering/comments/1er7c63/apache_airflow_sucks_change_my_mind/",
+     "https://www.datastackhub.com/alternatives-to/argo-workflows-alternatives/"
+    ]
+   }
+  ],
+  "adopters": "Widely used for ML, batch and GPU workloads on Kubernetes; commonly paired with Argo CD and Argo Events. Named as the destination when teams abandon Tekton.",
+  "popularity_notes": "Mindshare rising within the Kubernetes and ML-platform niche and clearly ahead of Tekton in community content, while data-engineering circles increasingly route to Dagster/Prefect instead."
+ },
+ {
+  "id": "woodpecker",
+  "sentiment": {
+   "pos": 18,
+   "neu": 6,
+   "neg": 1,
+   "n": 25,
+   "confidence": "med",
+   "summary": "Small but consistently warm sentiment: the go-to lightweight self-hosted CI for Gitea/Forgejo homelabs and small teams, valued for tiny resource footprint and genuinely open governance.",
+   "data_points": [
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=43966564",
+     "date": "2025-05",
+     "stance": "pos",
+     "note": "Highlights tiny footprint: roughly 100MB server, 30MB agent idle"
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=46319744",
+     "date": "2025-12",
+     "stance": "pos",
+     "note": "Notes easy Kubernetes prototyping via Helm chart install"
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=46744114",
+     "date": "2026-01",
+     "stance": "pos",
+     "note": "Recommended for cheap VPS and homelab Gitea pairings"
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=48585637",
+     "date": "2026-07",
+     "stance": "pos",
+     "note": "Praises Forgejo plus Woodpecker as fully self-hosted lightweight stack"
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=48583441",
+     "date": "2026-07",
+     "stance": "pos",
+     "note": "Suggested as escape from Actions billing and lock-in"
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=49330949",
+     "date": "2026-08",
+     "stance": "pos",
+     "note": "Described as hands-off with low operational overhead once running"
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=47488521",
+     "date": "2026-04",
+     "stance": "neu",
+     "note": "Mentioned among self-hosted CI options with setup caveats"
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=39398576",
+     "date": "2024-02",
+     "stance": "pos",
+     "note": "Cited as the community fork that stayed genuinely open source"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/selfhosted/comments/1djarsn/forgejo_woodpecker_ci_stack_appears_to_be_borked/",
+     "date": "2024-06",
+     "stance": "neg",
+     "note": "User reports Forgejo plus Woodpecker integration broken after updates"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/11cd32e/choosing_a_cicd_tool_for_your_product/",
+     "date": "2023-02",
+     "stance": "neu",
+     "note": "Suggested for platform independence while acknowledging added complexity"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/107ctsq/starting_w_concourse_ci_in_2023/",
+     "date": "2023-01",
+     "stance": "neu",
+     "note": "Raised alongside Drone as vendor-neutral self-hosted alternative"
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1m3035c/when_is_circleci_worth_paying_for_over_free",
+     "date": "2025-07",
+     "stance": "pos",
+     "note": "Recommended instead of paying for hosted CI subscriptions"
+    },
+    {
+     "source": "blog",
+     "url": "https://xyquadrat.ch/blog/simple-ci-with-woodpecker/",
+     "date": "2023-07",
+     "stance": "pos",
+     "note": "Author settled on Woodpecker after searching; likes simplicity and updates"
+    },
+    {
+     "source": "blog",
+     "url": "https://makerstack.co/reviews/woodpecker-ci-review/",
+     "date": "2026-04",
+     "stance": "pos",
+     "note": "Scores 7.6/10; best for self-hosted Gitea or Forgejo teams"
+    },
+    {
+     "source": "blog",
+     "url": "https://devopsplatforms.com/platforms/ci-cd/woodpecker-ci",
+     "date": "2026-03",
+     "stance": "neu",
+     "note": "Factual profile of YAML pipelines with Docker and Kubernetes backends"
+    },
+    {
+     "source": "blog",
+     "url": "https://techdailyshot.com/product/woodpecker-ci",
+     "date": "2026-02",
+     "stance": "pos",
+     "note": "Presents it as trusted simple self-hosted CI choice"
+    },
+    {
+     "source": "blog",
+     "url": "https://cicdcalculator.com/drone-ci-pricing",
+     "date": "2026-08",
+     "stance": "pos",
+     "note": "Notes many teams left Drone for community-governed Woodpecker"
+    },
+    {
+     "source": "article",
+     "url": "https://saascompared.com/product/woodpecker-ci",
+     "date": "2026-05",
+     "stance": "pos",
+     "note": "Editorial rating 4.3/5 for open-source CI engine"
+    },
+    {
+     "source": "article",
+     "url": "https://www.pistack.xyz/posts/2026-04-19-woodpecker-ci-vs-drone-ci-vs-gitea-actions-self-hosted-cicd-guide-2026/",
+     "date": "2026-04",
+     "stance": "neu",
+     "note": "Compares three container-based self-hosted engines without single winner"
+    },
+    {
+     "source": "article",
+     "url": "https://www.pistack.xyz/posts/self-hosted-ci-cd-woodpecker-drone-jenkins-concourse-2026/",
+     "date": "2026-04",
+     "stance": "pos",
+     "note": "Calls it fastest-growing self-hosted platform with clean architecture"
+    },
+    {
+     "source": "article",
+     "url": "https://www.pistack.xyz/posts/self-hosted-cicd-platforms/",
+     "date": "2026-04",
+     "stance": "pos",
+     "note": "Frames Woodpecker as lightweight contender keeping Drone truly open"
+    },
+    {
+     "source": "article",
+     "url": "https://selfhostedpicker.com/app/woodpecker",
+     "date": "2026-06",
+     "stance": "pos",
+     "note": "Listed as community-driven open-source Actions alternative"
+    },
+    {
+     "source": "article",
+     "url": "https://selfhostedpicker.com/app/drone",
+     "date": "2026-06",
+     "stance": "pos",
+     "note": "Advises new installs prefer Woodpecker over stagnant Drone"
+    },
+    {
+     "source": "article",
+     "url": "https://alternativeto.net/software/woodpecker-ci/",
+     "date": "2026-07",
+     "stance": "neu",
+     "note": "Crowd-sourced alternatives list situating it against GitLab and Jenkins"
+    },
+    {
+     "source": "article",
+     "url": "https://devtoollab.com/blog/best-ci-cd-tools",
+     "date": "2026-01",
+     "stance": "pos",
+     "note": "Names Woodpecker among open-source engines worth self-hosting"
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "lightweight-simplicity-praise",
+    "detail": "Very low memory footprint and simple server plus agent model repeatedly praised.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=43966564",
+     "https://news.ycombinator.com/item?id=49330949"
+    ]
+   },
+   {
+    "tag": "forge-integration-fragility",
+    "detail": "Forgejo/Gitea OAuth and integration breakage reported after version changes.",
+    "sources": [
+     "https://www.reddit.com/r/selfhosted/comments/1djarsn/forgejo_woodpecker_ci_stack_appears_to_be_borked/",
+     "https://news.ycombinator.com/item?id=47488521"
+    ]
+   },
+   {
+    "tag": "limited-enterprise-features",
+    "detail": "Acknowledged as thinner than enterprise CI for complex governance needs.",
+    "sources": [
+     "https://makerstack.co/reviews/woodpecker-ci-review/",
+     "https://www.pistack.xyz/posts/2026-04-19-woodpecker-ci-vs-drone-ci-vs-gitea-actions-self-hosted-cicd-guide-2026/"
+    ]
+   },
+   {
+    "tag": "small-ecosystem-and-mindshare",
+    "detail": "Little independent long-form review coverage; much of it is directory-style listings.",
+    "sources": [
+     "https://alternativeto.net/software/woodpecker-ci/",
+     "https://selfhostedpicker.com/app/woodpecker"
+    ]
+   },
+   {
+    "tag": "drone-heritage-constraints",
+    "detail": "Pipeline syntax and design still inherit Drone 0.8 era assumptions.",
+    "sources": [
+     "https://xyquadrat.ch/blog/simple-ci-with-woodpecker/",
+     "https://cicdcalculator.com/drone-ci-pricing"
+    ]
+   }
+  ],
+  "adopters": "Codeberg offers Woodpecker to its Forgejo users; typical adopters are homelabs, small teams and Gitea/Forgejo self-hosters rather than named enterprises.",
+  "popularity_notes": "Trending up modestly as the surviving open-source Drone lineage and as a named escape hatch during GitHub pricing backlashes, but absolute mindshare stays small and hobbyist-weighted."
+ }
+]

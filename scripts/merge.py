@@ -54,13 +54,14 @@ for t in registry:
     sscore=None; net=None
     if n:
         net=(pos-neg)/n; sscore=round((net+1)/2*100)
-    buzz=Nn(nlog(n))
+    # Popularity uses ONLY real GitHub signals. sentiment_n is NOT used: every tool
+    # has ~20 data points by collection design, so it is a quota artifact, not adoption.
     if t["repo"] and "error" not in m and m.get("stars") is not None:
-        pscore=round(100*(0.60*Ns(nlog(m.get("stars")))+0.15*Nc(nlog(m.get("commits_90d")))+0.25*buzz))
-        pmethod="github+buzz"
+        pscore=round(100*(0.75*Ns(nlog(m.get("stars")))+0.25*Nc(nlog(m.get("commits_90d")))))
+        pmethod="github"
     else:
-        pscore=round(100*buzz) if n else None
-        pmethod="mindshare"
+        pscore=None            # SaaS/closed: no public-repo metric; do not fabricate one
+        pmethod="saas-no-repo"
     # top distinct sources
     dps=sen.get("data_points") or []
     seen=set(); sources=[]
@@ -74,7 +75,7 @@ for t in registry:
                  "latest_release":m.get("latest_release"),"latest_release_at":m.get("latest_release_at"),
                  "archived":m.get("archived"),"license_spdx":m.get("license")},
       "popularity":{"score":pscore,"method":pmethod,
-                    "signals":{"stars":m.get("stars"),"commits_90d":m.get("commits_90d"),"sentiment_n":n}},
+                    "signals":{"stars":m.get("stars"),"commits_90d":m.get("commits_90d")}},
       "sentiment":{"pos":pos,"neu":sen.get("neu") or 0,"neg":neg,"n":n,"net":round(net,3) if net is not None else None,
                    "score":sscore,"confidence":sen.get("confidence"),"summary":sen.get("summary")},
       "concerns":r.get("concerns") or [],

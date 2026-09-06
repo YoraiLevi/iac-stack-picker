@@ -1,0 +1,1647 @@
+[
+ {
+  "id": "terraform",
+  "sentiment": {
+   "pos": 6,
+   "neu": 7,
+   "neg": 10,
+   "n": 23,
+   "confidence": "high",
+   "summary": "Still the default multi-cloud IaC, but BSL/IBM, state footguns, and HCL limits fuel OpenTofu/Pulumi/CDK exits.",
+   "data_points": [
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1ldu1wq/i_hate_terraform/",
+     "date": "2025-06",
+     "stance": "neg",
+     "note": "Overengineered modules and HCL footguns dominate daily work."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1kcbby4/pain_points_while_using_terraform",
+     "date": "2025-05",
+     "stance": "neg",
+     "note": "for_each keys must be known at plan time."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1pm1hd5/if_youve_ever_had_terraform_state_file_nightmares/",
+     "date": "2025-11",
+     "stance": "neg",
+     "note": "State corruption still causes 2am production panics."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1je60w4/hashicorp_has_removed_the_500_free_resources_from/",
+     "date": "2025-03",
+     "stance": "neg",
+     "note": "HCP Terraform free-tier resource quota was cut."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1o086al/your_honest_thoughts_on_terraform/",
+     "date": "2025-10",
+     "stance": "pos",
+     "note": "Still the gold standard when used with discipline."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1i194v0/do_you_guys_enjoy_writing_terraform",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "Enjoyment splits between clean code and inherited messes."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1msieme/why_writing_terraform_with_ai_agents_sucks_and/",
+     "date": "2025-08",
+     "stance": "neg",
+     "note": "AI agents emit invalid HCL amid rapid provider churn."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1fmlbut/functional_differences_between_terraform_and/",
+     "date": "2024-09",
+     "stance": "neu",
+     "note": "Teams freeze Terraform versions then migrate to OpenTofu."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=39183668",
+     "date": "2024-01",
+     "stance": "neg",
+     "note": "Done writing infrastructure in HCL pseudo-languages."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=39183668",
+     "date": "2024-01",
+     "stance": "pos",
+     "note": "HCL is a straightforward declarative DSL with clear docs."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws/comments/150ehx9/why_use_terraform_over_cloudformation/",
+     "date": "2023-07",
+     "stance": "pos",
+     "note": "Prefer Terraform over CloudFormation for flexibility."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1cgugl1/think_about_move_from_cloudformation_to_terraform/",
+     "date": "2024-04",
+     "stance": "pos",
+     "note": "Import, state rm, and targeted apply beat CloudFormation."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/kubernetes/comments/17yvgyi/top_pros_vs_cons_mainly_looking_for_cons_in_using/",
+     "date": "2023-11",
+     "stance": "neg",
+     "note": "No continuous reconciliation unlike Kubernetes controllers."
+    },
+    {
+     "source": "blog",
+     "url": "https://cloud.google.com/blog/products/containers-kubernetes/infrastructure-as-code-at-waze-using-config-connector/",
+     "date": "2025-04",
+     "stance": "neg",
+     "note": "Waze left Terraform over state drift and reconciliation."
+    },
+    {
+     "source": "blog",
+     "url": "https://opentofu.org/blog/fidelity-investment-migration/",
+     "date": "2025-10",
+     "stance": "neu",
+     "note": "Fidelity left Terraform CE after BSL, not feature gaps."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=40003692",
+     "date": "2024-04",
+     "stance": "neg",
+     "note": "HashiCorp C&D against OpenTofu looks like intimidation."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1ps5058/which_infrastructure_as_code_tools_are_actually",
+     "date": "2025-12",
+     "stance": "pos",
+     "note": "Nobody gets fired for choosing Terraform by default."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1h8n0lr/cloudformation_is_cool_but_somehow_terraform",
+     "date": "2024-12",
+     "stance": "pos",
+     "note": "Terraform is easier to live with than CloudFormation YAML."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1lelq6z/just_hit_a_terraform_personal_record",
+     "date": "2025-06",
+     "stance": "neg",
+     "note": "Slow applies and flaky providers set painful personal records."
+    },
+    {
+     "source": "blog",
+     "url": "https://mkdev.me/posts/i-don-t-get-cdk-48",
+     "date": "2024-07",
+     "stance": "pos",
+     "note": "Prefers Terraform modules over CDK for platform engineering."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1o15vgt/fidelity_investments_shares_its_migration_story/",
+     "date": "2025-10",
+     "stance": "neu",
+     "note": "Fidelity story framed as licensing, not technical failure."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=37084083",
+     "date": "2023-08",
+     "stance": "neu",
+     "note": "Ex-HashiCorp PM argues they should have won on merit."
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=WnTDJoSVV7M",
+     "date": "2024-06",
+     "stance": "neu",
+     "note": "Production comparison video of Terraform versus OpenTofu."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "bsl-ibm-trust",
+    "detail": "BSL plus IBM buy damaged trust even when daily use is unchanged.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=40003692",
+     "https://opentofu.org/blog/fidelity-investment-migration/"
+    ]
+   },
+   {
+    "tag": "state-footguns",
+    "detail": "Remote state, locking, and accidental rm/recreate still scare operators.",
+    "sources": [
+     "https://www.reddit.com/r/Terraform/comments/1pm1hd5/if_youve_ever_had_terraform_state_file_nightmares/",
+     "https://cloud.google.com/blog/products/containers-kubernetes/infrastructure-as-code-at-waze-using-config-connector/"
+    ]
+   },
+   {
+    "tag": "hcl-limits",
+    "detail": "Loops, conditionals, and plan-time unknown values force awkward workarounds.",
+    "sources": [
+     "https://www.reddit.com/r/Terraform/comments/1kcbby4/pain_points_while_using_terraform",
+     "https://news.ycombinator.com/item?id=39183668"
+    ]
+   },
+   {
+    "tag": "hcp-pricing",
+    "detail": "HCP Terraform free-tier cuts push teams to S3 backends or OpenTofu.",
+    "sources": [
+     "https://www.reddit.com/r/Terraform/comments/1je60w4/hashicorp_has_removed_the_500_free_resources_from/"
+    ]
+   },
+   {
+    "tag": "provider-slowness",
+    "detail": "Some providers apply slowly or fail after a green plan.",
+    "sources": [
+     "https://www.reddit.com/r/Terraform/comments/1lelq6z/just_hit_a_terraform_personal_record"
+    ]
+   }
+  ],
+  "adopters": "Still default at most enterprises; Fidelity and Waze publicly moved off HashiCorp Terraform. Huge hiring/module ecosystem remains.",
+  "popularity_notes": "Dominant mindshare, slightly down as OpenTofu, Pulumi, and CDK take new greenfield and license-sensitive work."
+ },
+ {
+  "id": "opentofu",
+  "sentiment": {
+   "pos": 14,
+   "neu": 6,
+   "neg": 2,
+   "n": 22,
+   "confidence": "high",
+   "summary": "Production-ready drop-in fork; Fidelity-scale proof. Debate is governance, not stability.",
+   "data_points": [
+    {
+     "source": "blog",
+     "url": "https://opentofu.org/blog/fidelity-investment-migration/",
+     "date": "2025-10",
+     "stance": "pos",
+     "note": "Fidelity ran 50k state files and 4M resources on OpenTofu."
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=2FQQOIEgZmU",
+     "date": "2025-04",
+     "stance": "pos",
+     "note": "KubeCon talk: migration was organizational, CLI swap was easy."
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=tdEsatNU048",
+     "date": "2025-11",
+     "stance": "pos",
+     "note": "Later Fidelity talk cites ~99 percent OpenTofu usage."
+    },
+    {
+     "source": "article",
+     "url": "https://www.futuriom.com/articles/news/fidelity-ditches-terraform-for-opentofu/2025/04",
+     "date": "2025-04",
+     "stance": "pos",
+     "note": "Trade press treats Fidelity move as enterprise validation."
+    },
+    {
+     "source": "blog",
+     "url": "https://www.harness.io/blog/fidelitys-opentofu-migration-a-devops-success-story-worth-studying",
+     "date": "2025-05",
+     "stance": "pos",
+     "note": "Shared pipelines made org-wide OpenTofu cutover a force multiplier."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1o15vgt/fidelity_investments_shares_its_migration_story/",
+     "date": "2025-10",
+     "stance": "pos",
+     "note": "Community reads Fidelity story as proof the fork is real."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1gagheu/for_everyone_that_migrated_to_opentofu_how_was/",
+     "date": "2024-10",
+     "stance": "pos",
+     "note": "Migrants report mechanical binary swap plus plan verify."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1hdhlrx/terraform_or_opentofu/",
+     "date": "2024-12",
+     "stance": "neu",
+     "note": "Choice framed as license and HCP, not core engine quality."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1syj5pu/terraform_vs_opentofu/",
+     "date": "2026-03",
+     "stance": "neu",
+     "note": "By 2026 debate is governance, not whether OpenTofu is stable."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1ka1dtc/opentofu_joins_cncf_new_home_for_open_source_iac/",
+     "date": "2025-04",
+     "stance": "pos",
+     "note": "CNCF path is treated as legitimacy for open IaC."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1ifyser/make_the_switch_to_opentofu/",
+     "date": "2025-02",
+     "stance": "pos",
+     "note": "Advocates call the switch low-risk for standard stacks."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=40003692",
+     "date": "2024-04",
+     "stance": "pos",
+     "note": "C&D backlash put commenters officially on board with OpenTofu."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=39776380",
+     "date": "2024-01",
+     "stance": "pos",
+     "note": "GA 1.6 discussed as a real drop-in Terraform replacement."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=40212617",
+     "date": "2024-05",
+     "stance": "pos",
+     "note": "1.7 state encryption and extra features praised versus HashiCorp."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=43827939",
+     "date": "2025-04",
+     "stance": "pos",
+     "note": "Community vote to join CNCF seen as insurance versus IBM."
+    },
+    {
+     "source": "blog",
+     "url": "https://opentofu.org/blog/our-response-to-hashicorps-cease-and-desist/",
+     "date": "2024-04",
+     "stance": "neu",
+     "note": "Project published a detailed technical rebuttal to HashiCorp."
+    },
+    {
+     "source": "article",
+     "url": "https://dev.to/mechcloud_academy/opentofu-vs-terraform-in-2026-is-the-fork-finally-worth-it-3nd1",
+     "date": "2026-01",
+     "stance": "neu",
+     "note": "2026 comparison: stay for HCP, switch for open governance."
+    },
+    {
+     "source": "blog",
+     "url": "https://jorijn.com/en/blog/opentofu-vs-terraform-2026-the-fork-finally-diverged/",
+     "date": "2026-01",
+     "stance": "neu",
+     "note": "Features have diverged; no longer a pure identical clone."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1fmlbut/functional_differences_between_terraform_and/",
+     "date": "2024-09",
+     "stance": "pos",
+     "note": "Users cite early variable eval and state encryption as wins."
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=WnTDJoSVV7M",
+     "date": "2024-06",
+     "stance": "neu",
+     "note": "Talk treats OpenTofu as production-ready Terraform alternative."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=40003692",
+     "date": "2024-04",
+     "stance": "neg",
+     "note": "Some still worry about parallel construction of BUSL code."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1r5yqtl/terraform_vs_opentofu/",
+     "date": "2026-01",
+     "stance": "neg",
+     "note": "Inertia and HCP lock-in still keep many shops on Terraform."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "hcp-lock-in",
+    "detail": "HCP Terraform/Enterprise users cannot treat OpenTofu as a free lunch.",
+    "sources": [
+     "https://www.reddit.com/r/devops/comments/1hdhlrx/terraform_or_opentofu/",
+     "https://dev.to/mechcloud_academy/opentofu-vs-terraform-in-2026-is-the-fork-finally-worth-it-3nd1"
+    ]
+   },
+   {
+    "tag": "feature-drift",
+    "detail": "The fork is diverging; long-term dual compatibility is not guaranteed.",
+    "sources": [
+     "https://jorijn.com/en/blog/opentofu-vs-terraform-2026-the-fork-finally-diverged/"
+    ]
+   },
+   {
+    "tag": "ip-drama",
+    "detail": "2024 HashiCorp C&D created legal FUD even after a public rebuttal.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=40003692",
+     "https://opentofu.org/blog/our-response-to-hashicorps-cease-and-desist/"
+    ]
+   },
+   {
+    "tag": "ci-binary-names",
+    "detail": "Hardcoded terraform binaries and lockfile churn are the usual migration headaches.",
+    "sources": [
+     "https://www.reddit.com/r/Terraform/comments/1gagheu/for_everyone_that_migrated_to_opentofu_how_was/"
+    ]
+   }
+  ],
+  "adopters": "Fidelity (2k+ apps, 50k+ state files); public mentions of Boeing, Capital One, AMD; CNCF/Linux Foundation backing.",
+  "popularity_notes": "Mindshare up sharply 2024-2026 as the open Terraform. Still smaller than HashiCorp in enterprise sales, but the default insurance policy."
+ },
+ {
+  "id": "pulumi",
+  "sentiment": {
+   "pos": 10,
+   "neu": 6,
+   "neg": 6,
+   "n": 22,
+   "confidence": "high",
+   "summary": "Loved by language-first platform teams; ops teams fear spaghetti, SaaS pricing, and a smaller ecosystem.",
+   "data_points": [
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=46193433",
+     "date": "2025-12",
+     "stance": "pos",
+     "note": "Migrated off Terraform after HashiCorp deal; would recommend."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=46222165",
+     "date": "2025-12",
+     "stance": "pos",
+     "note": "Real languages beat HCL for modular self-service infra."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=42071218",
+     "date": "2024-11",
+     "stance": "neg",
+     "note": "C# Apply and nested dictionaries make Pulumi a royal mess."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=40198258",
+     "date": "2024-04",
+     "stance": "neg",
+     "note": "Switched back to Terraform because Pulumi docs were worse."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=39183668",
+     "date": "2024-01",
+     "stance": "pos",
+     "note": "Pulumi looks more mature than CDKTF for real languages."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=42795324",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "Open core is free; paid Cloud features confuse the pricing story."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/sre/comments/1h4zxry/terraform_vs_pulumi_whats_your_preference_and_why/",
+     "date": "2024-12",
+     "stance": "neu",
+     "note": "SREs split: languages for platforms, HCL for boring ops."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/ExperiencedDevs/comments/1u8nh33/anyone_moved_an_org_from_terraform_to_pulumi_how/",
+     "date": "2026-04",
+     "stance": "neg",
+     "note": "Org moves can yield unreadable imperative infra spaghetti."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1uf8774/terraform_opentofu_vs_pulumi/",
+     "date": "2026-05",
+     "stance": "pos",
+     "note": "Developer shops prefer Pulumi loops over HCL count hacks."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1ps5058/which_infrastructure_as_code_tools_are_actually",
+     "date": "2025-12",
+     "stance": "neu",
+     "note": "Pulumi is the language alternative, not the default hire."
+    },
+    {
+     "source": "blog",
+     "url": "https://mkdev.me/posts/i-don-t-get-cdk-48",
+     "date": "2024-07",
+     "stance": "pos",
+     "note": "Automation API lets you run infra like real program code."
+    },
+    {
+     "source": "blog",
+     "url": "https://sst.dev/blog/moving-away-from-cdk.html",
+     "date": "2024-01",
+     "stance": "pos",
+     "note": "SST Ion rebuilds on Pulumi plus Terraform providers."
+    },
+    {
+     "source": "article",
+     "url": "https://www.infoq.com/news/2025/07/pulumi-terraform-module-support/",
+     "date": "2025-07",
+     "stance": "pos",
+     "note": "Direct Terraform module support lowers migration cost."
+    },
+    {
+     "source": "blog",
+     "url": "http://formidable.com/digital-community/is-pulumi-a-worthy-contender-in-the-iac-race-part-1/",
+     "date": "2024-06",
+     "stance": "neu",
+     "note": "Consultancy series treats Pulumi as a serious TF contender."
+    },
+    {
+     "source": "blog",
+     "url": "https://formidable.com/digital-community/is-pulumi-a-worthy-contender-in-the-iac-race-part-2-from-chaos-to-clarity/",
+     "date": "2024-07",
+     "stance": "pos",
+     "note": "Part two reports clarity after adopting Pulumi patterns."
+    },
+    {
+     "source": "article",
+     "url": "https://dev.to/meisterit_systems_/terraform-vs-pulumi-what-actually-holds-up-in-production-42gg",
+     "date": "2025-06",
+     "stance": "neu",
+     "note": "Production hold-up depends on team, not a universal winner."
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/@junjun231953_53717/pros-and-cons-of-pulumi-f341abcd5015",
+     "date": "2025-03",
+     "stance": "neu",
+     "note": "Pros/cons list: DX wins, ecosystem and cost are the cons."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=42065561",
+     "date": "2024-11",
+     "stance": "neg",
+     "note": "SREs dislike opaque conditionals from app-dev infra code."
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=Mod8xzIQ0IU",
+     "date": "2024-06",
+     "stance": "neu",
+     "note": "NDC talk compares Pulumi with ARM/Bicep and Terraform."
+    },
+    {
+     "source": "article",
+     "url": "https://encore.dev/articles/pulumi",
+     "date": "2025-08",
+     "stance": "neg",
+     "note": "SaaS state lock-in and resource pricing draw skepticism."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/pulumi/comments/1kg3o0l/introducing_pulumi_idp/",
+     "date": "2025-05",
+     "stance": "pos",
+     "note": "IDP launch cheered by users already on Pulumi Cloud."
+    },
+    {
+     "source": "blog",
+     "url": "https://www.pulumi.com/blog/announcing-direct-tf-modules/",
+     "date": "2025-07",
+     "stance": "pos",
+     "note": "Vendor: consume existing Terraform modules without rewrite."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "imperative-spaghetti",
+    "detail": "Full languages let teams write infra that ops cannot audit at a glance.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=42071218",
+     "https://www.reddit.com/r/ExperiencedDevs/comments/1u8nh33/anyone_moved_an_org_from_terraform_to_pulumi_how/"
+    ]
+   },
+   {
+    "tag": "saas-pricing",
+    "detail": "Resource-hour Cloud pricing and Enterprise SSO tiers feel expensive.",
+    "sources": [
+     "https://encore.dev/articles/pulumi",
+     "https://news.ycombinator.com/item?id=42795324"
+    ]
+   },
+   {
+    "tag": "smaller-ecosystem",
+    "detail": "Modules, scanners, and hiring still trail Terraform/OpenTofu.",
+    "sources": [
+     "https://www.reddit.com/r/devops/comments/1ps5058/which_infrastructure_as_code_tools_are_actually",
+     "https://news.ycombinator.com/item?id=46222165"
+    ]
+   },
+   {
+    "tag": "docs-quality",
+    "detail": "2024 AI-docs episode drove at least one public switch back to Terraform.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=40198258"
+    ]
+   }
+  ],
+  "adopters": "SST Ion; Webiny; language-heavy startups and platform teams. Not the default enterprise hire versus Terraform.",
+  "popularity_notes": "Steady niche growth as the real-language IaC. Boosted by HashiCorp BSL and SST v3; still far behind HCL in mindshare."
+ },
+ {
+  "id": "crossplane",
+  "sentiment": {
+   "pos": 8,
+   "neu": 7,
+   "neg": 7,
+   "n": 22,
+   "confidence": "high",
+   "summary": "CNCF-graduated control plane for K8s platforms; production stories mix GitOps love with CRD load, upgrades, and scale pain.",
+   "data_points": [
+    {
+     "source": "blog",
+     "url": "https://www.cecg.io/blog/crossplane-the-good-the-bad-the-ugly",
+     "date": "2024-02",
+     "stance": "neu",
+     "note": "Year in: self-healing is great, YAML and upgrades hurt."
+    },
+    {
+     "source": "blog",
+     "url": "https://www.vshn.ch/en/blog/how-we-used-crossplane-for-the-things-we-should-not-have/",
+     "date": "2025-09",
+     "stance": "neg",
+     "note": "GC deleted 230 DB objects during a no-downtime maintenance."
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=riV-JDEs3u8",
+     "date": "2025-09",
+     "stance": "neu",
+     "note": "Swiss Cloud Native Day war story; still evaluating 2.0."
+    },
+    {
+     "source": "article",
+     "url": "https://towardsaws.com/from-terraform-to-crossplane-a-use-case-in-building-api-driven-multi-cloud-platforms-and-6080433e7bb8",
+     "date": "2025-09",
+     "stance": "neu",
+     "note": "Self-service APIs work; retries flooded AWS with 1222 calls."
+    },
+    {
+     "source": "blog",
+     "url": "https://blog.diatomlabs.com/from-terraform-to-crossplane-real-world-iac-in-kubernetes-for-aws-f67eb472062a",
+     "date": "2025-05",
+     "stance": "pos",
+     "note": "AWS GitOps path is production-ready with strong governance."
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=L8pLC3P4IeA",
+     "date": "2025-06",
+     "stance": "neg",
+     "note": "Built hit hours-to-days latency at 10k MRs; left for TF operator."
+    },
+    {
+     "source": "article",
+     "url": "https://thenewstack.io/reddit-no-longer-haunted-by-drifting-kubernetes-configurations/",
+     "date": "2025-01",
+     "stance": "pos",
+     "note": "Reddit uses Crossplane with Flux and Cluster API in production."
+    },
+    {
+     "source": "article",
+     "url": "https://aws.plainenglish.io/why-crossplanes-api-migration-strategy-is-fundamentally-flawed-2461f973811d",
+     "date": "2025-06",
+     "stance": "neg",
+     "note": "Conversion webhooks can brick every related managed resource."
+    },
+    {
+     "source": "blog",
+     "url": "https://blog.crossplane.io/crossplane-cncf-graduation/",
+     "date": "2025-11",
+     "stance": "pos",
+     "note": "CNCF graduation cites Nike, Nokia, Grafana, NASA, SAP, IBM."
+    },
+    {
+     "source": "blog",
+     "url": "https://blog.crossplane.io/announcing-crossplane-2-0/",
+     "date": "2025-08",
+     "stance": "neu",
+     "note": "2.0 is a real architecture shift driven by production pain."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1dqu68q/crossplane_for_iac/",
+     "date": "2024-06",
+     "stance": "pos",
+     "note": "Eighteen months in prod; 90 percent of infra on Crossplane."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1cxkpdu/is_crossplane_production_ready/",
+     "date": "2024-05",
+     "stance": "neu",
+     "note": "Prod-ready depends on scope; people want more war stories."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/10iix3j/whats_your_thoughts_on_crossplane/",
+     "date": "2023-01",
+     "stance": "neu",
+     "note": "Hybrid: Terraform bootstraps clusters, Crossplane does app AWS."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1asr122/terraform_vs_crossplane/",
+     "date": "2024-02",
+     "stance": "neu",
+     "note": "Teams mix both rather than a full Crossplane replacement."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=34350844",
+     "date": "2023-01",
+     "stance": "neg",
+     "note": "Too bleeding edge; Terraform plus CI still preferred."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/kubernetes/comments/1d1v4g6/terraform_vs_crossplane_vs_ansible_rivals_or/",
+     "date": "2024-05",
+     "stance": "neu",
+     "note": "Not rivals; different layers of the control plane."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/pj6ivr/anyone_here_use_crossplaneio_how_does_it_compare/",
+     "date": "2023-09",
+     "stance": "neg",
+     "note": "Bugs and missing features versus HashiCorp-backed Terraform."
+    },
+    {
+     "source": "article",
+     "url": "https://thinkit.co.jp/article/39106",
+     "date": "2025-11",
+     "stance": "neu",
+     "note": "Japanese CNDW report: better than Bicep/Helm, API-server RAM hurt."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/kubernetes/comments/17yvgyi/top_pros_vs_cons_mainly_looking_for_cons_in_using/",
+     "date": "2023-11",
+     "stance": "pos",
+     "note": "Controllers beat Terraform for continuous drift repair."
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=fDesags82_E",
+     "date": "2025-08",
+     "stance": "pos",
+     "note": "Talk frames Crossplane 2.0 as the platform-API future."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/zqu3hx/terraform_vs_crossplane/",
+     "date": "2023-01",
+     "stance": "pos",
+     "note": "K8s shops lean Crossplane to drop Terraform Cloud dependency."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1asr122/terraform_vs_crossplane/",
+     "date": "2024-02",
+     "stance": "neg",
+     "note": "Some still call Crossplane too new versus Terraform Cloud."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "no-plan-apply",
+    "detail": "Reconcile is immediate; no Terraform-style plan safety net.",
+    "sources": [
+     "https://www.cecg.io/blog/crossplane-the-good-the-bad-the-ugly"
+    ]
+   },
+   {
+    "tag": "crd-apiserver-load",
+    "detail": "Provider CRD dumps stall API servers; 10k MRs got painfully slow.",
+    "sources": [
+     "https://www.cecg.io/blog/crossplane-the-good-the-bad-the-ugly",
+     "https://www.youtube.com/watch?v=L8pLC3P4IeA"
+    ]
+   },
+   {
+    "tag": "upgrade-deletes",
+    "detail": "XRD/provider upgrades and status-less restores can delete cloud resources.",
+    "sources": [
+     "https://www.cecg.io/blog/crossplane-the-good-the-bad-the-ugly",
+     "https://www.vshn.ch/en/blog/how-we-used-crossplane-for-the-things-we-should-not-have/"
+    ]
+   },
+   {
+    "tag": "conversion-webhooks",
+    "detail": "Provider API version migrations have bricked whole resource classes.",
+    "sources": [
+     "https://aws.plainenglish.io/why-crossplanes-api-migration-strategy-is-fundamentally-flawed-2461f973811d"
+    ]
+   },
+   {
+    "tag": "retry-storms",
+    "detail": "Aggressive reconcile retries can flood cloud APIs and CloudTrail.",
+    "sources": [
+     "https://towardsaws.com/from-terraform-to-crossplane-a-use-case-in-building-api-driven-multi-cloud-platforms-and-6080433e7bb8"
+    ]
+   },
+   {
+    "tag": "yaml-verbosity",
+    "detail": "Compositions without functions are huge and hard to test.",
+    "sources": [
+     "https://www.cecg.io/blog/crossplane-the-good-the-bad-the-ugly"
+    ]
+   }
+  ],
+  "adopters": "Nike, Nokia, Grafana, NASA Science Cloud, Elastic, Akamai, SAP, IBM (graduation); Reddit; VSHN (Frankfurt health, HIN); Michelin cited at KubeCon.",
+  "popularity_notes": "Up among platform-engineering/GitOps teams; CNCF graduation 2025. Still niche versus Terraform for general IaC. Hybrid is the common pattern."
+ },
+ {
+  "id": "cloudformation",
+  "sentiment": {
+   "pos": 4,
+   "neu": 6,
+   "neg": 12,
+   "n": 22,
+   "confidence": "high",
+   "summary": "AWS-native rollbacks and audits still matter, but YAML, stuck stacks, and lag make it the tool people escape via CDK or Terraform.",
+   "data_points": [
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=39183668",
+     "date": "2024-01",
+     "stance": "neg",
+     "note": "Hand-written JSON/YAML CloudFormation is suffering and pain."
+    },
+    {
+     "source": "blog",
+     "url": "https://sst.dev/blog/moving-away-from-cdk.html",
+     "date": "2024-01",
+     "stance": "neg",
+     "note": "Black-box CFN: rollback hell, 500-resource limits, slowness."
+    },
+    {
+     "source": "blog",
+     "url": "https://thewagner.net/blog/2025/02/15/six-months-of-cdk",
+     "date": "2025-02",
+     "stance": "neg",
+     "note": "CloudFormation earned a bad reputation for verbose YAML."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1h8n0lr/cloudformation_is_cool_but_somehow_terraform",
+     "date": "2024-12",
+     "stance": "neg",
+     "note": "Cool in theory; Terraform wins day-to-day authoring."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws/comments/1gager4/has_cloudformation_improved",
+     "date": "2024-10",
+     "stance": "neu",
+     "note": "Improved some, but veterans say the core pain remains."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws/comments/1ijvsze/reshape_your_aws_cloudformation_stacks_seamlessly/",
+     "date": "2025-02",
+     "stance": "pos",
+     "note": "Stack refactoring finally eases moving resources between stacks."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws/comments/1em794p/having_major_issues_with_cloud_formation_taking/",
+     "date": "2024-08",
+     "stance": "neg",
+     "note": "Stack updates take painfully long in real accounts."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws/comments/1p9w86d/ecs_native_bluegreen_cloudformation_causes_double/",
+     "date": "2025-11",
+     "stance": "neg",
+     "note": "ECS blue/green plus CFN rollback double-fires and sticks."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws/comments/1funsl7/stack_update_keeps_getting_hung_on_ecs_service/",
+     "date": "2024-10",
+     "stance": "neg",
+     "note": "ECS services hang updates; scale to zero to unblock."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws/comments/1js6apw/couple_of_cloudformation_utility_tools/",
+     "date": "2025-04",
+     "stance": "neu",
+     "note": "Community still needs extra tools to continue failed rollbacks."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws/comments/150ehx9/why_use_terraform_over_cloudformation/",
+     "date": "2023-07",
+     "stance": "neg",
+     "note": "Large thread: most prefer Terraform over native CFN."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1cgugl1/think_about_move_from_cloudformation_to_terraform/",
+     "date": "2024-04",
+     "stance": "neg",
+     "note": "Hard to import, move, or surgically apply versus Terraform."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/140cu83/why_use_cloudformation_when_there_are_tools_like/",
+     "date": "2023-06",
+     "stance": "neu",
+     "note": "People still use it for AWS-native rollbacks and IAM."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws/comments/11ocnwr/cloud_formation_or_terraform/",
+     "date": "2023-03",
+     "stance": "neu",
+     "note": "Data engineers still on CFN get told to learn Terraform."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws/comments/1nf5ifz/cloudformation_stack_updates_that_theoretically",
+     "date": "2025-09",
+     "stance": "neg",
+     "note": "Theoretically simple updates still fail in mysterious ways."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/AWSCloudFormation/comments/1rddvly/when_do_you_finally_give_up_and_switch_to",
+     "date": "2026-02",
+     "stance": "neg",
+     "note": "Users ask when to finally give up and switch away."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1rpclr9/we_scanned_92_open_source_iac_repos/",
+     "date": "2026-03",
+     "stance": "pos",
+     "note": "Public CFN repos scored well in an IaC security scan."
+    },
+    {
+     "source": "blog",
+     "url": "https://mkdev.me/posts/i-don-t-get-cdk-48",
+     "date": "2024-07",
+     "stance": "neg",
+     "note": "CDK still dumps you into horrible CloudFormation stacks."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=39183668",
+     "date": "2024-01",
+     "stance": "neg",
+     "note": "Even at AWS, new APIs lagged CloudFormation for months."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws/comments/1entmyo/terraform_vs_cloudformation_vs_aws_cdk_for_api/",
+     "date": "2024-08",
+     "stance": "neu",
+     "note": "Raw CFN rarely chosen for new API/infra work."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws/comments/1cjc0w8/cdk_vs_terraform/",
+     "date": "2024-05",
+     "stance": "neu",
+     "note": "CFN is the engine under CDK, not a preferred authoring UX."
+    },
+    {
+     "source": "blog",
+     "url": "https://beabetterdev.com/2025/02/15/should-you-start-using-cdk/",
+     "date": "2025-02",
+     "stance": "pos",
+     "note": "AWS-managed state and rollbacks remain a real CFN strength."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "stuck-stacks",
+    "detail": "UPDATE_ROLLBACK_FAILED and hung ECS updates still need manual surgery.",
+    "sources": [
+     "https://www.reddit.com/r/aws/comments/1funsl7/stack_update_keeps_getting_hung_on_ecs_service/",
+     "https://www.reddit.com/r/aws/comments/1p9w86d/ecs_native_bluegreen_cloudformation_causes_double/"
+    ]
+   },
+   {
+    "tag": "slow-deploys",
+    "detail": "Even small changes wait on a remote orchestrator for minutes.",
+    "sources": [
+     "https://sst.dev/blog/moving-away-from-cdk.html",
+     "https://www.reddit.com/r/aws/comments/1em794p/having_major_issues_with_cloud_formation_taking/"
+    ]
+   },
+   {
+    "tag": "yaml-verbosity",
+    "detail": "Hand-written templates are considered a non-starter in 2024-2026.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=39183668",
+     "https://thewagner.net/blog/2025/02/15/six-months-of-cdk"
+    ]
+   },
+   {
+    "tag": "coverage-lag",
+    "detail": "New AWS APIs often ship months before CloudFormation support.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=39183668"
+    ]
+   },
+   {
+    "tag": "stack-limits",
+    "detail": "Resource-per-stack caps force painful splits and export/import knots.",
+    "sources": [
+     "https://sst.dev/blog/moving-away-from-cdk.html"
+    ]
+   }
+  ],
+  "adopters": "Legacy AWS estates, compliance shops, Serverless Framework, and every CDK/SAM user (as the runtime). Rare for new greenfield by choice.",
+  "popularity_notes": "Usage high as a substrate, mindshare low as an authoring tool. Trajectory flat-to-down versus CDK, Terraform, and SST."
+ },
+ {
+  "id": "aws-cdk",
+  "sentiment": {
+   "pos": 9,
+   "neu": 5,
+   "neg": 8,
+   "n": 22,
+   "confidence": "high",
+   "summary": "AWS-only teams call constructs a game changer; CFN underneath, stack splits, and coverage lag keep Terraform in the race.",
+   "data_points": [
+    {
+     "source": "blog",
+     "url": "https://thewagner.net/blog/2025/02/15/six-months-of-cdk",
+     "date": "2025-02",
+     "stance": "pos",
+     "note": "After six months, prefer CDK over any other AWS IaC tool."
+    },
+    {
+     "source": "blog",
+     "url": "https://beabetterdev.com/2025/02/15/should-you-start-using-cdk/",
+     "date": "2025-02",
+     "stance": "pos",
+     "note": "Leave console clicks and raw CFN; constructs plus tests win."
+    },
+    {
+     "source": "reddit",
+     "url": "https://old.reddit.com/r/aws/comments/1n0paul/aws_cdk_absolute_game_changer",
+     "date": "2025-09",
+     "stance": "pos",
+     "note": "Title and thread call CDK an absolute game changer."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws/comments/1ijtq27/what_do_you_hate_about_cdk/",
+     "date": "2025-02",
+     "stance": "neg",
+     "note": "Worst part of CDK is still CloudFormation."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws/comments/1g5fcy1/cdk_ptsd/",
+     "date": "2024-10",
+     "stance": "neg",
+     "note": "VPC and stack failures described as CDK PTSD."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws/comments/1iaiawc/rant_cdk_for_new_aws_products",
+     "date": "2025-01",
+     "stance": "neg",
+     "note": "New AWS products lag in L2 constructs for months."
+    },
+    {
+     "source": "blog",
+     "url": "https://sst.dev/blog/moving-away-from-cdk.html",
+     "date": "2024-01",
+     "stance": "neg",
+     "note": "SST lists cyclical deps, export-in-use, and rollback hell."
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=4jphEjFIys8",
+     "date": "2024-01",
+     "stance": "neg",
+     "note": "SST livestream: CDK is a CFN hack, not true IaC."
+    },
+    {
+     "source": "blog",
+     "url": "https://mkdev.me/posts/i-don-t-get-cdk-48",
+     "date": "2024-07",
+     "stance": "neg",
+     "note": "Cannot programmatically execute CDK like Pulumi Automation."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=39183668",
+     "date": "2024-01",
+     "stance": "neu",
+     "note": "Right abstraction, wrong CFN foundation; still used at startups."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws_cdk/comments/1r2aze6/got_mass_of_cdk_pain_stack_splits_drift_10min",
+     "date": "2026-02",
+     "stance": "neg",
+     "note": "Tiny Lambda tweaks still cost ~10 minute CFN deploys."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws/comments/1f4qhzb/anybody_else_having_horrible_experience_with/",
+     "date": "2024-09",
+     "stance": "neg",
+     "note": "Horrible experience threads keep appearing on r/aws."
+    },
+    {
+     "source": "article",
+     "url": "https://www.techtarget.com/cybersecurity/news/366614325/AWS-CDK-security-issue-could-lead-to-account-takeovers",
+     "date": "2024-06",
+     "stance": "neg",
+     "note": "Bootstrap shadow resources raised account-takeover fears."
+    },
+    {
+     "source": "blog",
+     "url": "https://rayprogramming.com/posts/devops-cicd/migrating-terraform-to-cdk/",
+     "date": "2025-03",
+     "stance": "pos",
+     "note": "Migration write-up prefers CDK for AWS app stacks."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws/comments/1entmyo/terraform_vs_cloudformation_vs_aws_cdk_for_api/",
+     "date": "2024-08",
+     "stance": "pos",
+     "note": "TypeScript CDK wins DevX for AWS-only API platforms."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws/comments/1gs53al/which_iac_to_choose_for_a_project_which_is_more/",
+     "date": "2024-11",
+     "stance": "pos",
+     "note": "Pure-AWS velocity teams are steered to CDK."
+    },
+    {
+     "source": "article",
+     "url": "https://medium.com/@svenleiss/refactoring-aws-cdk-stacks-practical-lessons-and-the-new-aws-cloudformation-stack-refactoring-2c7493dd5d39",
+     "date": "2025-03",
+     "stance": "neu",
+     "note": "Stack refactoring helps, but splits were previously nightmares."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws_cdk/comments/1mjjb5v/aws_cdks_biggest_limitation_is_the_inability_to",
+     "date": "2025-08",
+     "stance": "neg",
+     "note": "Hard to drive CDK as a library behind an internal API."
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/@belov38/gitops-for-aws-cdk-from-pain-points-to-a-working-solution-5d838f4998dc",
+     "date": "2025-06",
+     "stance": "neu",
+     "note": "GitOps with CDK is possible after fighting CFN semantics."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1gk6ruo/has_anyone_used_terraform_cdk/",
+     "date": "2024-11",
+     "stance": "neu",
+     "note": "CDKTF is niche; people use AWS CDK or Pulumi instead."
+    },
+    {
+     "source": "article",
+     "url": "https://www.linkedin.com/pulse/great-bifurcation-why-aws-cdk-won-cdktf-failed-gary-yang-4tnqe",
+     "date": "2025-09",
+     "stance": "pos",
+     "note": "Argues AWS CDK won the language-IaC split as CDKTF faded."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws/comments/1cjc0w8/cdk_vs_terraform/",
+     "date": "2024-05",
+     "stance": "neu",
+     "note": "AWS-only CDK versus multi-cloud Terraform is the real fork."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "cfn-substrate",
+    "detail": "Every CDK app inherits CloudFormation slowness, rollbacks, and limits.",
+    "sources": [
+     "https://www.reddit.com/r/aws/comments/1ijtq27/what_do_you_hate_about_cdk/",
+     "https://sst.dev/blog/moving-away-from-cdk.html"
+    ]
+   },
+   {
+    "tag": "coverage-lag",
+    "detail": "L2 constructs trail new AWS launches; L1/custom resources are escape hatches.",
+    "sources": [
+     "https://www.reddit.com/r/aws/comments/1iaiawc/rant_cdk_for_new_aws_products",
+     "https://beabetterdev.com/2025/02/15/should-you-start-using-cdk/"
+    ]
+   },
+   {
+    "tag": "logical-id-moves",
+    "detail": "Moving constructs recreates resources unless IDs are frozen with tests.",
+    "sources": [
+     "https://thewagner.net/blog/2025/02/15/six-months-of-cdk"
+    ]
+   },
+   {
+    "tag": "not-programmable-runtime",
+    "detail": "Cannot embed CDK as a provisioning API without CLI hacks.",
+    "sources": [
+     "https://mkdev.me/posts/i-don-t-get-cdk-48"
+    ]
+   },
+   {
+    "tag": "bootstrap-security",
+    "detail": "Legacy CDK bootstrap roles had a widely reported privilege issue.",
+    "sources": [
+     "https://www.techtarget.com/cybersecurity/news/366614325/AWS-CDK-security-issue-could-lead-to-account-takeovers"
+    ]
+   }
+  ],
+  "adopters": "AWS-heavy product teams and Amazon internal construct sharing; SST v2 (now leaving). CDKTF sunset pushed some to Pulumi.",
+  "popularity_notes": "Strong and stable in AWS-only shops. Polarizing. SST leaving CDK is a notable 2024 mindshare hit among serverless TS users."
+ },
+ {
+  "id": "azure-bicep",
+  "sentiment": {
+   "pos": 11,
+   "neu": 8,
+   "neg": 3,
+   "n": 22,
+   "confidence": "high",
+   "summary": "Clear ARM successor for Azure-only teams: no state file, day-0 APIs. Terraform still wins multi-cloud and portable skills.",
+   "data_points": [
+    {
+     "source": "blog",
+     "url": "https://hiddedesmet.com/bicep-vs-terraform-the-iac-showdown",
+     "date": "2025-06",
+     "stance": "pos",
+     "note": "Azure-first: Bicep is cleaner, faster, and day-zero on APIs."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/AZURE/comments/1o5o8ld/bicep_or_terraform_for_azure/",
+     "date": "2025-10",
+     "stance": "neu",
+     "note": "Native simplicity versus multi-cloud Terraform is the split."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/AZURE/comments/1kfdpp8/terraform_vs_bicep_in_a_mostly_azure_shop/",
+     "date": "2025-05",
+     "stance": "neu",
+     "note": "Mostly-Azure shops still argue skill portability of HCL."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/AZURE/comments/1po3sgh/bicep_vs_terraform_in_2026_is_multicloud/",
+     "date": "2025-12",
+     "stance": "neu",
+     "note": "2026 thread: multi-cloud claim often overstated for Azure shops."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/AZURE/comments/1j0uc7z/bicep_vs_terraform/",
+     "date": "2025-03",
+     "stance": "neu",
+     "note": "IBM/HashiCorp caution, little evidence of mass Azure exodus."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/AZURE/comments/1rp4tel/azure_and_terraform/",
+     "date": "2026-03",
+     "stance": "neu",
+     "note": "AzAPI provider used to close Terraform Azure feature lag."
+    },
+    {
+     "source": "article",
+     "url": "https://quisitive.com/arm-bicep-modern-infrastructure-as-code-for-azure/",
+     "date": "2024-06",
+     "stance": "pos",
+     "note": "3400-line ARM cut to ~800-line Bicep and became reviewable."
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=ezEQ_8opqm4",
+     "date": "2024-05",
+     "stance": "pos",
+     "note": "Stop struggling with ARM templates; switch to Bicep."
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=Mod8xzIQ0IU",
+     "date": "2024-06",
+     "stance": "neu",
+     "note": "NDC compares ARM/Bicep, Terraform, and Pulumi honestly."
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=x9jBP0zAI3U",
+     "date": "2025-04",
+     "stance": "pos",
+     "note": "AVM session: official Bicep modules for production patterns."
+    },
+    {
+     "source": "blog",
+     "url": "https://thecloudarchitect.hashnode.dev/azure-networking-from-zero-to-enterprise-part-2-bicep-azure-verified-modules",
+     "date": "2025-07",
+     "stance": "pos",
+     "note": "AVM networking modules recommended over hand-rolled Bicep."
+    },
+    {
+     "source": "article",
+     "url": "https://spacelift.io/blog/bicep-vs-terraform",
+     "date": "2024-08",
+     "stance": "neu",
+     "note": "Spacelift: Bicep for Azure-only, Terraform for everything else."
+    },
+    {
+     "source": "article",
+     "url": "https://dev.to/teaganga/bicep-arm-vs-terraform-53k1",
+     "date": "2025-01",
+     "stance": "pos",
+     "note": "No state file is a major Bicep operational win."
+    },
+    {
+     "source": "blog",
+     "url": "https://parveensingh.com/bicep-vs-terraform-azure/",
+     "date": "2024-11",
+     "stance": "neu",
+     "note": "Pick one and stick; dual Bicep plus Terraform is toil."
+    },
+    {
+     "source": "article",
+     "url": "https://learn.microsoft.com/en-us/azure/developer/terraform/comparing-terraform-and-bicep",
+     "date": "2024-09",
+     "stance": "neu",
+     "note": "Microsoft comparison is factual: native versus multi-cloud."
+    },
+    {
+     "source": "blog",
+     "url": "https://safeguard.sh/resources/blog/azure-bicep-vs-arm-security-comparison",
+     "date": "2025-02",
+     "stance": "pos",
+     "note": "Modules and Deployment Stacks beat raw ARM for reviews."
+    },
+    {
+     "source": "article",
+     "url": "https://technspire.com/en/blog/bicep-vs-terraform-azure-2026-honest-update",
+     "date": "2026-01",
+     "stance": "pos",
+     "note": "2026 update: Bicep tooling and AVM closed much of the gap."
+    },
+    {
+     "source": "article",
+     "url": "https://devsecops.ae/bicep-vs-terraform/",
+     "date": "2025-08",
+     "stance": "pos",
+     "note": "Day-zero Azure features remain the Bicep trump card."
+    },
+    {
+     "source": "blog",
+     "url": "https://exodata.io/terraform-vs-bicep-vs-arm-templates/",
+     "date": "2025-04",
+     "stance": "pos",
+     "note": "Positions Bicep as the ARM successor, Terraform as multi-cloud."
+    },
+    {
+     "source": "article",
+     "url": "https://synextra.co.uk/knowledge-base/bicep-vs-terraform/",
+     "date": "2025-06",
+     "stance": "neu",
+     "note": "State-less Bicep versus Terraform plan/import power."
+    },
+    {
+     "source": "blog",
+     "url": "https://blog.vaibhavgujral.com/terraform-vs-bicep-vs-arm-lessons-from-the-trenches-8b759d49faa6",
+     "date": "2024-10",
+     "stance": "neg",
+     "note": "Trench lessons: Bicep what-if and destroy semantics lag Terraform."
+    },
+    {
+     "source": "article",
+     "url": "https://www.emerrank.com/blogs/posts/terraform-vs-bicep.html",
+     "date": "2025-09",
+     "stance": "neg",
+     "note": "Existing TF skill investment rarely justifies a Bicep rewrite."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "azure-only",
+    "detail": "Cannot manage AWS, GCP, or SaaS; dual-tooling is common and costly.",
+    "sources": [
+     "https://hiddedesmet.com/bicep-vs-terraform-the-iac-showdown",
+     "https://parveensingh.com/bicep-vs-terraform-azure/"
+    ]
+   },
+   {
+    "tag": "weaker-plan-destroy",
+    "detail": "what-if and delete/lifecycle semantics feel weaker than terraform plan.",
+    "sources": [
+     "https://blog.vaibhavgujral.com/terraform-vs-bicep-vs-arm-lessons-from-the-trenches-8b759d49faa6"
+    ]
+   },
+   {
+    "tag": "skill-portability",
+    "detail": "HCL skills transfer across clouds; Bicep skills do not.",
+    "sources": [
+     "https://www.reddit.com/r/AZURE/comments/1kfdpp8/terraform_vs_bicep_in_a_mostly_azure_shop/"
+    ]
+   },
+   {
+    "tag": "module-ecosystem",
+    "detail": "AVM is catching up but the Terraform registry is still larger.",
+    "sources": [
+     "https://spacelift.io/blog/bicep-vs-terraform"
+    ]
+   }
+  ],
+  "adopters": "Microsoft-centric enterprises, ARM migrants, Azure Verified Modules users. CAF landing zones exist in both Bicep and Terraform.",
+  "popularity_notes": "Up versus ARM JSON. Sideways versus Terraform in Azure shops. AVM and Deployment Stacks improved 2024-2026 credibility."
+ },
+ {
+  "id": "gcp-config-connector",
+  "sentiment": {
+   "pos": 8,
+   "neu": 8,
+   "neg": 4,
+   "n": 20,
+   "confidence": "med",
+   "summary": "Waze-scale GitOps win on GCP+GKE. Thinner public forum trail. Pain: ordering, controller CPU, GKE add-on lag, bootstrap still needs TF.",
+   "data_points": [
+    {
+     "source": "blog",
+     "url": "https://cloud.google.com/blog/products/containers-kubernetes/infrastructure-as-code-at-waze-using-config-connector/",
+     "date": "2025-04",
+     "stance": "pos",
+     "note": "Waze moved from Terraform to KCC and has not looked back."
+    },
+    {
+     "source": "youtube",
+     "url": "https://www.youtube.com/watch?v=B4RI4MwXOgg",
+     "date": "2025-04",
+     "stance": "pos",
+     "note": "Waze demo of Helm charts feeding Config Connector."
+    },
+    {
+     "source": "blog",
+     "url": "https://blog.matirix.co.uk/terraform-iac-vs-kubernetes-config-connector-98a48dcfaae6",
+     "date": "2025-08",
+     "stance": "neu",
+     "note": "KCC for GCP GitOps; Terraform if multi-cloud or TF-skilled."
+    },
+    {
+     "source": "blog",
+     "url": "https://cloud.google.com/blog/products/devops-sre/how-config-connector-compares-for-infrastructure-management/",
+     "date": "2023-06",
+     "stance": "pos",
+     "note": "Google: continuous reconcile beats point-in-time apply."
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/@michamarszaek/navigating-config-connector-challenges-a-guide-to-overcoming-pitfalls-a63777ae7ed1",
+     "date": "2023-12",
+     "stance": "neg",
+     "note": "No TF-style graph; deletes leave children in DeleteFailed."
+    },
+    {
+     "source": "article",
+     "url": "https://medium.com/qodea/are-terraforms-days-numbered-a9a15ec0435a",
+     "date": "2023-08",
+     "stance": "neu",
+     "note": "KCC complements TF; not a full landing-zone replacement."
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/dataaichronicles/the-autoscaler-that-never-fired-f6f90adb0081",
+     "date": "2025-09",
+     "stance": "neg",
+     "note": "cnrm-system requested more CPU than all of kube-system."
+    },
+    {
+     "source": "article",
+     "url": "https://medium.com/globant/infrastructure-as-code-using-kubernetes-d3d329446517",
+     "date": "2023-05",
+     "stance": "pos",
+     "note": "GKE add-on plus Workload Identity made KCC easy to start."
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/@sheltoncardin/your-gke-fleet-git-controlled-unlocking-enterprise-devops-with-anthos-config-management-12fb155ac78e",
+     "date": "2024-11",
+     "stance": "pos",
+     "note": "Fleet GitOps: Config Connector next to app manifests."
+    },
+    {
+     "source": "article",
+     "url": "https://medium.com/google-cloud/gke-enterprise-a-platform-engineered-for-success-with-kubernetes-9a196fa51ebf",
+     "date": "2024-09",
+     "stance": "pos",
+     "note": "GKE Enterprise pitch includes Config Connector for platform."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/kubernetes/comments/1jetdex/do_you_manage_cloud_resources_with_kubernetes_or/",
+     "date": "2025-03",
+     "stance": "neu",
+     "note": "K8s-or-Terraform poll: most keep TF for foundations."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1gpm73i/transitioning_from_aws_to_gcp/",
+     "date": "2024-11",
+     "stance": "neu",
+     "note": "AWS-to-GCP movers hear KCC for app resources, TF for base."
+    },
+    {
+     "source": "article",
+     "url": "https://www.linkedin.com/pulse/terraform-vs-gcp-configconnector-part-2-roman-babyuk-z5jee",
+     "date": "2024-06",
+     "stance": "neu",
+     "note": "Hybrid: TF foundations, KCC for app-adjacent GCP objects."
+    },
+    {
+     "source": "blog",
+     "url": "https://oneuptime.com/blog/post/2026-02-23-how-to-use-the-gcp-config-connector-with-terraform/view",
+     "date": "2026-02",
+     "stance": "neu",
+     "note": "How-to assumes Terraform plus KCC, not KCC alone."
+    },
+    {
+     "source": "article",
+     "url": "https://docs.cloud.google.com/config-connector/docs/concepts/installation-types",
+     "date": "2025-01",
+     "stance": "neg",
+     "note": "Google discourages GKE add-on in prod; versions lag badly."
+    },
+    {
+     "source": "article",
+     "url": "https://docs.cloud.google.com/config-connector/docs/overview",
+     "date": "2025-01",
+     "stance": "neu",
+     "note": "Official overview: CRDs plus in-cluster controllers, GCP-only."
+    },
+    {
+     "source": "blog",
+     "url": "https://uplatz.com/blog/the-evolution-of-declarative-cloud-control-on-google-cloud-from-terraform-to-ai-driven-infraops/",
+     "date": "2025-10",
+     "stance": "neu",
+     "note": "Survey: KCC is the KRM path beside Terraform and Infra Manager."
+    },
+    {
+     "source": "article",
+     "url": "https://docs.cloud.google.com/docs/terraform/iac-overview",
+     "date": "2025-06",
+     "stance": "neu",
+     "note": "Google still recommends Terraform as the general GCP default."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/googlecloud/comments/1iyinf0/terraform_just_wow/",
+     "date": "2025-02",
+     "stance": "neg",
+     "note": "GCP thread still wows at Terraform, not Config Connector."
+    },
+    {
+     "source": "article",
+     "url": "https://medium.com/bluecore-engineering/the-infrastructure-triumvirate-continuous-service-and-infrastructure-delivery-with-argo-a33a3f76dc06",
+     "date": "2023-04",
+     "stance": "pos",
+     "note": "Argo plus Kustomize plus Config Connector called a happy trifecta."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "dependency-ordering",
+    "detail": "No Terraform graph; create/delete races and DeleteFailed children.",
+    "sources": [
+     "https://medium.com/@michamarszaek/navigating-config-connector-challenges-a-guide-to-overcoming-pitfalls-a63777ae7ed1"
+    ]
+   },
+   {
+    "tag": "controller-overhead",
+    "detail": "cnrm-system CPU/memory can dwarf kube-system on modest nodes.",
+    "sources": [
+     "https://medium.com/dataaichronicles/the-autoscaler-that-never-fired-f6f90adb0081"
+    ]
+   },
+   {
+    "tag": "addon-lag",
+    "detail": "GKE add-on trails latest KCC; Google says avoid it in production.",
+    "sources": [
+     "https://docs.cloud.google.com/config-connector/docs/concepts/installation-types",
+     "https://cloud.google.com/blog/products/devops-sre/how-config-connector-compares-for-infrastructure-management/"
+    ]
+   },
+   {
+    "tag": "bootstrap-cluster",
+    "detail": "Needs a GKE/control cluster first; landing zones often stay on Terraform.",
+    "sources": [
+     "https://medium.com/qodea/are-terraforms-days-numbered-a9a15ec0435a",
+     "https://docs.cloud.google.com/docs/terraform/iac-overview"
+    ]
+   },
+   {
+    "tag": "gcp-only",
+    "detail": "Cannot manage other clouds; Crossplane or TF for multi-cloud.",
+    "sources": [
+     "https://blog.matirix.co.uk/terraform-iac-vs-kubernetes-config-connector-98a48dcfaae6"
+    ]
+   }
+  ],
+  "adopters": "Waze (public 2025). GKE Enterprise / Config Controller customers. Hybrid with Terraform is the usual pattern.",
+  "popularity_notes": "Niche versus Terraform on GCP. Up inside GKE/GitOps orgs after Waze post. Sparse Reddit/HN compared with the other seven tools."
+ }
+]

@@ -1,0 +1,1640 @@
+[
+ {
+  "id": "terragrunt",
+  "sentiment": {
+   "pos": 10,
+   "neu": 9,
+   "neg": 5,
+   "n": 24,
+   "confidence": "high",
+   "summary": "Still the default DRY/orchestration wrapper at multi-env scale; 1.0/Stacks revived fans. Recurring hate is complexity, inheritance debugging, and overkill for small teams.",
+   "data_points": [
+    {
+     "source": "blog",
+     "url": "https://www.axelmendoza.com/posts/terraform-vs-terragrunt/",
+     "date": "2025-08",
+     "stance": "pos",
+     "note": "Uses Terragrunt everywhere; reputation feels outdated versus 2025 Stacks."
+    },
+    {
+     "source": "blog",
+     "url": "https://home.mlops.community/public/blogs/why-i-use-terragrunt-over-terraformopentofu-in-2025",
+     "date": "2025-10",
+     "stance": "pos",
+     "note": "Picks Terragrunt over vanilla OpenTofu; Stacks enable pattern-level reuse."
+    },
+    {
+     "source": "blog",
+     "url": "https://www.gruntwork.io/blog/terragrunt-opentofu-better-together",
+     "date": "2025-01",
+     "stance": "pos",
+     "note": "Vendor: OpenTofu features do not replace Terragrunt orchestration."
+    },
+    {
+     "source": "article",
+     "url": "https://devopsboys.com/blog/terragrunt-vs-terraform-when-to-use-2026",
+     "date": "2026-06",
+     "stance": "neu",
+     "note": "Need it at 4+ envs or many deps; skip until you feel pain."
+    },
+    {
+     "source": "article",
+     "url": "https://encore.dev/articles/terragrunt-vs-terraform",
+     "date": "2026-07",
+     "stance": "neu",
+     "note": "Wrapper earns keep at scale; extra binary is dead weight small."
+    },
+    {
+     "source": "blog",
+     "url": "https://dev.to/rosesecurity/kiss-vs-dry-in-infrastructure-as-code-why-simple-often-beats-clever-foh",
+     "date": "2025-11",
+     "stance": "neg",
+     "note": "Terragrunt inheritance makes 3am incidents archaeological debugging."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1ow9i1r/am_i_the_only_one_who_doesnt_like_terragrunt/",
+     "date": "2025-10",
+     "stance": "neg",
+     "note": "Popular dislike thread: complexity and over-engineered directory sprawl."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1h4gmwi/in_the_terraform_world_why_is_there_hate_with/",
+     "date": "2024-12",
+     "stance": "neu",
+     "note": "Hate-thread: learning curve and docs vs scale benefits."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1mefgeq/use_terragrunt_or_remain_vanilla_tf/",
+     "date": "2025-07",
+     "stance": "neu",
+     "note": "Team debate: wrapper vs remaining on vanilla Terraform."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1ruxklc/workspaces_terragrunt_or_something_else/",
+     "date": "2026-03",
+     "stance": "neu",
+     "note": "Compares workspaces versus Terragrunt for multi-env layout."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1pfjbya/terraform_vs_terragrunt_for_multienv_aws_need/",
+     "date": "2025-12",
+     "stance": "neu",
+     "note": "AWS multi-env ask: Terragrunt only after duplication hurts."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=47590103",
+     "date": "2026-03",
+     "stance": "neu",
+     "note": "Terragrunt 1.0 announcement; low HN traction, one comment."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1s8m4m4/terragrunt_10_released/",
+     "date": "2026-03",
+     "stance": "pos",
+     "note": "1.0: Stacks, filters, runner pool praised after long 0.x."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1qu4rp6/terragrunt_10_rc1_released",
+     "date": "2026-02",
+     "stance": "pos",
+     "note": "RC1 after ~900 releases; users eager to try Stacks."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1qu04g8/terragrunt_10_rc1_released",
+     "date": "2026-02",
+     "stance": "pos",
+     "note": "Stacks keep per-unit state, avoid giant terralith applies."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1lw97oj/my_opinionated_blueprint_for_a_scalable",
+     "date": "2025-07",
+     "stance": "pos",
+     "note": "Live blueprint: lean units plus root includes scale well."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1gaw41h/the_road_to_terragrunt_10/",
+     "date": "2024-10",
+     "stance": "neu",
+     "note": "Road-to-1.0 RFC: Stacks still experimental, feedback sought."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1k0u1by/the_road_to_10_terragrunt_stacks_feature_complete",
+     "date": "2025-04",
+     "stance": "pos",
+     "note": "Stacks marked feature-complete; test non-prod before GA."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1hiua6c/the_road_to_10_terragrunt_stacks/",
+     "date": "2024-12",
+     "stance": "neu",
+     "note": "Stacks deep-dive: reusable patterns, independent unit state."
+    },
+    {
+     "source": "article",
+     "url": "https://medium.com/@kaliarch/terragrunt-vs-terraform-a-comparative-analysis-of-infrastructure-as-code-tools-033d571e8633",
+     "date": "2024-06",
+     "stance": "neu",
+     "note": "Factual comparison: include/run-all versus copy-paste backends."
+    },
+    {
+     "source": "article",
+     "url": "https://www.harness.io/blog/what-is-terragrunt-and-how-does-it-simplify-terraform-workflows",
+     "date": "2024-08",
+     "stance": "neu",
+     "note": "Explainer: DRY backends and deps; warns of extra complexity."
+    },
+    {
+     "source": "blog",
+     "url": "https://osmanshaikh.com/blog/2025-terragrunt-efficiency-metrics/",
+     "date": "2025-06",
+     "stance": "pos",
+     "note": "Claims measurable efficiency from DRY state and orchestration."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/u_gruntwork_io/comments/1n8f4pp/running_terragrunt_in_prod/",
+     "date": "2025-09",
+     "stance": "neu",
+     "note": "Vendor: Scale pipelines/drift/patcher sold for prod estates."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1l1z0v9/i_automated_my_entire_github_organization",
+     "date": "2025-06",
+     "stance": "pos",
+     "note": "Org automation with Terragrunt plus OpenTofu in production."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "complexity-overhead",
+    "detail": "Second binary, hcl inheritance, and directory sprawl hurt small teams and onboarding.",
+    "sources": [
+     "https://dev.to/rosesecurity/kiss-vs-dry-in-infrastructure-as-code-why-simple-often-beats-clever-foh",
+     "https://www.reddit.com/r/Terraform/comments/1ow9i1r/am_i_the_only_one_who_doesnt_like_terragrunt/",
+     "https://encore.dev/articles/terragrunt-vs-terraform"
+    ]
+   },
+   {
+    "tag": "debug-opacity",
+    "detail": "Value origin across root includes is hard during incidents.",
+    "sources": [
+     "https://dev.to/rosesecurity/kiss-vs-dry-in-infrastructure-as-code-why-simple-often-beats-clever-foh",
+     "https://www.reddit.com/r/devops/comments/1h4gmwi/in_the_terraform_world_why_is_there_hate_with/"
+    ]
+   },
+   {
+    "tag": "lock-in-wrapper",
+    "detail": "Repos become Terragrunt-centric versus native Terraform tooling.",
+    "sources": [
+     "https://dev.to/rosesecurity/kiss-vs-dry-in-infrastructure-as-code-why-simple-often-beats-clever-foh",
+     "https://encore.dev/articles/terragrunt-vs-terraform"
+    ]
+   },
+   {
+    "tag": "slow-monorepo-plans",
+    "detail": "run-all across large graphs is slow without filters/change targeting.",
+    "sources": [
+     "https://www.reddit.com/r/Terraform/comments/1r0vnxy/how_are_you_targeting_individual_units_in/",
+     "https://www.gruntwork.io/blog/terragrunt-opentofu-better-together"
+    ]
+   },
+   {
+    "tag": "overkill-small-scale",
+    "detail": "Workspaces or copied tfvars suffice until 3+ environments.",
+    "sources": [
+     "https://devopsboys.com/blog/terragrunt-vs-terraform-when-to-use-2026",
+     "https://www.reddit.com/r/devops/comments/1mefgeq/use_terragrunt_or_remain_vanilla_tf/"
+    ]
+   }
+  ],
+  "adopters": "Gruntwork customers; Visa/pharma IaC mentioned in HN Who-wants-to-be-hired; GitHub-org automation posts; pairs with Atlantis/OpenTofu widely.",
+  "popularity_notes": "Mindshare still highest among TF wrappers. 1.0 (2026) and Stacks revived interest after years of 0.x fatigue. Competitors: Terramate, Atmos, plain GHA."
+ },
+ {
+  "id": "terramate",
+  "sentiment": {
+   "pos": 8,
+   "neu": 12,
+   "neg": 1,
+   "n": 21,
+   "confidence": "med",
+   "summary": "Liked as a lighter, native-HCL orchestrator with change detection; Alan migration is the strongest independent case. Public corpus is vendor-heavy; few sharp criticisms.",
+   "data_points": [
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=46286787",
+     "date": "2025-12",
+     "stance": "pos",
+     "note": "OSS Terramate plus GHA/S3 made leaving TFC easy."
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/alan/why-we-migrated-from-terraspace-to-terramate-a-technical-journey-91a6d667f6ec",
+     "date": "2025-10",
+     "stance": "pos",
+     "note": "Alan: two-week migrate, no lock-in, graph deps, fair Cloud price."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=43670778",
+     "date": "2025-04",
+     "stance": "pos",
+     "note": "HCL codegen via Terramate beat brittle JQ Terraform templates."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1gnjvsw/terramate_vs_atmos_vs/",
+     "date": "2024-11",
+     "stance": "neu",
+     "note": "Vs Atmos: less opinionated, native TF, optional Cloud."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1guxx2i/blast_radius_and_cicd_consequences/",
+     "date": "2024-11",
+     "stance": "neu",
+     "note": "Change detection used to shrink CI blast radius."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1q7czh0/we_just_launched_terramate_catalyst_selfservice/",
+     "date": "2026-01",
+     "stance": "neu",
+     "note": "Vendor Catalyst launch: golden-path self-service over stacks."
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/terramate/introducing-terramate-v0-8-0-opentofu-support-runtime-configuration-for-stacks-19df63c08913",
+     "date": "2024-06",
+     "stance": "neu",
+     "note": "v0.8 adds OpenTofu and runtime stack configuration."
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/terramate/how-to-use-terramate-with-terragrunt-19f68e6df741",
+     "date": "2024-04",
+     "stance": "neu",
+     "note": "Can layer change-detection on existing Terragrunt without rewrite."
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/@gilad437/building-a-production-ready-infrastructure-pipeline-with-terramate-and-google-cloud-platform-51fc60fac6c7",
+     "date": "2025-03",
+     "stance": "pos",
+     "note": "GCP pipeline: codegen, parallel runs, PR plan comments."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1pngkr4/hcp_terraform_free_is_ending_choose_a_new_plan/",
+     "date": "2025-12",
+     "stance": "pos",
+     "note": "Named as DIY TFC-free-tier replacement with GHA."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=44957534",
+     "date": "2025-08",
+     "stance": "neu",
+     "note": "Production secrets managed via terraform/terragrunt/terramate."
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/terramate/getting-started-with-terramate-in-exiting-terraform-andopentofu-projects-394212419e55",
+     "date": "2024-05",
+     "stance": "neu",
+     "note": "Onboard existing roots with create --all-terraform, no rewrite."
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/terramate/introducing-the-terramate-mcp-server-27c741b9dfed",
+     "date": "2025-11",
+     "stance": "neu",
+     "note": "MCP server for AI IDEs over stacks, drift, plans."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1ow9i1r/am_i_the_only_one_who_doesnt_like_terragrunt/",
+     "date": "2025-10",
+     "stance": "pos",
+     "note": "In TG-hate thread, some prefer Terramate as less intrusive."
+    },
+    {
+     "source": "article",
+     "url": "https://stackpick.net/tools/terramate/",
+     "date": "2026-01",
+     "stance": "neu",
+     "note": "Review-style overview: GitOps, drift, policy on native IaC."
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/terramate/create-and-orchestrate-terraform-stacks-with-terramate-6a2197fb5c28",
+     "date": "2024-03",
+     "stance": "neu",
+     "note": "run --changed skips unchanged stacks in CI."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=37267726",
+     "date": "2023-08",
+     "stance": "neu",
+     "note": "Cofounder: OpenTF buy-in after Hashi slowed Terraform PRs."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=35049570",
+     "date": "2023-03",
+     "stance": "neu",
+     "note": "Quiet GitHub link; little discussion yet."
+    },
+    {
+     "source": "blog",
+     "url": "https://blog.terramate.io/announcing-terramate-vim-plugin-16cc171b4d9e",
+     "date": "2023-12",
+     "stance": "neu",
+     "note": "Editor plugin; signals small but growing toolchain."
+    },
+    {
+     "source": "article",
+     "url": "https://faun.dev/toolbox/compare/aws-cloudformation-vs-terramate/",
+     "date": "2025-06",
+     "stance": "neu",
+     "note": "Catalog blurb: DRY multi-stack, run only changed stacks."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=46278994",
+     "date": "2025-12",
+     "stance": "pos",
+     "note": "TFC free EOL thread: Terramate cited as easy self-run path."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "vendor-heavy-evidence",
+    "detail": "Most writeups are Terramate Medium; independent user reviews are scarce.",
+    "sources": [
+     "https://medium.com/terramate",
+     "https://stackpick.net/tools/terramate/"
+    ]
+   },
+   {
+    "tag": "smaller-community",
+    "detail": "Fewer templates and war stories than Terragrunt/Atmos.",
+    "sources": [
+     "https://www.reddit.com/r/Terraform/comments/1gnjvsw/terramate_vs_atmos_vs/",
+     "https://news.ycombinator.com/item?id=35049570"
+    ]
+   },
+   {
+    "tag": "cloud-upsell",
+    "detail": "Full drift/observability lives in optional Terramate Cloud.",
+    "sources": [
+     "https://medium.com/alan/why-we-migrated-from-terraspace-to-terramate-a-technical-journey-91a6d667f6ec",
+     "https://medium.com/terramate/create-and-orchestrate-terraform-stacks-with-terramate-6a2197fb5c28"
+    ]
+   },
+   {
+    "tag": "naming-overload",
+    "detail": "Stacks collides with Terraform Stacks and Terragrunt Stacks.",
+    "sources": [
+     "https://www.reddit.com/r/Terraform/comments/1gnjvsw/terramate_vs_atmos_vs/"
+    ]
+   }
+  ],
+  "adopters": "Alan (healthcare, 2025 Terraspace\u2192Terramate); HN user running GHA+S3 after TFC free EOL.",
+  "popularity_notes": "Rising 2024\u201326 as Terragrunt alternative and TFC-exit glue. Mindshare still well below Terragrunt. Catalyst/MCP are 2025\u201326 bets."
+ },
+ {
+  "id": "atlantis",
+  "sentiment": {
+   "pos": 6,
+   "neu": 9,
+   "neg": 8,
+   "n": 23,
+   "confidence": "high",
+   "summary": "Still the default free PR plan/apply bot. Loved for locking and comments; criticized for plan-time RCE, huge comments, no drift/HA, and ops burden versus GHA or TACOS.",
+   "data_points": [
+    {
+     "source": "article",
+     "url": "https://devopsboys.com/blog/atlantis-terraform-pull-request-automation-review-2026",
+     "date": "2026-06",
+     "stance": "neu",
+     "note": "18 months prod: 7.5/10; great PR UX, single-replica, no drift."
+    },
+    {
+     "source": "blog",
+     "url": "https://careersatdoordash.com/blog/atlantis-hardening-and-review-fatigue/",
+     "date": "2023-12",
+     "stance": "neg",
+     "note": "Plan can RCE via providers; many ECS instances tedious."
+    },
+    {
+     "source": "article",
+     "url": "https://labs.snyk.io/resources/gitflops-dangers-of-terraform-automation-platforms/",
+     "date": "2024-11",
+     "stance": "neg",
+     "note": "GitFlops: default Atlantis (and peers) allow plan-time RCE."
+    },
+    {
+     "source": "article",
+     "url": "https://www.runatlantis.io/docs/security",
+     "date": "2024-11",
+     "stance": "neu",
+     "note": "Official: plan is not read-only; lock down allowlists."
+    },
+    {
+     "source": "article",
+     "url": "https://www.cncf.io/projects/atlantis/",
+     "date": "2024-06",
+     "stance": "pos",
+     "note": "CNCF Sandbox acceptance; project still actively developed."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=35887376",
+     "date": "2023-05",
+     "stance": "neg",
+     "note": "Ask HN: creds exfil, split comments, no drift, weak OPA."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=38018846",
+     "date": "2023-10",
+     "stance": "neg",
+     "note": "Atlantis leaves huge Bitbucket PR comments needing collapse."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=37289737",
+     "date": "2023-08",
+     "stance": "neg",
+     "note": "Apply nearly destroyed unbacked Cassandra cluster."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1gfou4n/terraformtofu_plan_apply_with_pr_automation_via/",
+     "date": "2024-10",
+     "stance": "pos",
+     "note": "Called light and stable on Fargate versus rolling GHA."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1gwq3td/whats_best_practice_for_enabling_local_terraform/",
+     "date": "2024-11",
+     "stance": "neu",
+     "note": "PR locks confuse local plan/apply; split projects advised."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1ehu70q/unleashing_terraform_automation_with_atlantis_an/",
+     "date": "2024-08",
+     "stance": "neu",
+     "note": "Tutorial-style: still teaching PR comment workflow."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1h3zm7v/its_behaving_differently_after_upgrade/",
+     "date": "2024-12",
+     "stance": "neg",
+     "note": "GitLab upgrade broke autoplan; webhook config fragile."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1mjnwxx/atlantis_vs_terrateam_oss/",
+     "date": "2025-08",
+     "stance": "neu",
+     "note": "Bake-off vs Terrateam OSS for drift and extras."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1cd51q6/difficulties_choosing_terraform_cicd_platform/",
+     "date": "2024-04",
+     "stance": "neu",
+     "note": "Chosen for locking; ops burden versus SaaS TACOS."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1734l42/starting_new_is_there_any_good_reason_to_use/",
+     "date": "2023-10",
+     "stance": "neu",
+     "note": "New-stack ask: still a reason versus GHA for locks."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1qejs5u/does_atlantis_support_organization_control",
+     "date": "2026-02",
+     "stance": "neg",
+     "note": "No native org/team control; use VCS providers instead."
+    },
+    {
+     "source": "blog",
+     "url": "https://about.grabyo.com/terraform-and-atlantis/",
+     "date": "2024-03",
+     "stance": "pos",
+     "note": "Picked over TFC on cost and over GHA for locking feel."
+    },
+    {
+     "source": "article",
+     "url": "https://scalr.com/learning-center/terraform-atlantis-vs-github-actions-comprehensive-iac-automation-comparison",
+     "date": "2025-06",
+     "stance": "neu",
+     "note": "Vs GHA: better TF UX/locks, worse hosting/HA."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/selfhosted/comments/1ah7pgg/an_open_source_self_hosted_continuous_deployment/",
+     "date": "2024-01",
+     "stance": "neu",
+     "note": "Digger pitches CI reuse versus dedicated Atlantis server."
+    },
+    {
+     "source": "article",
+     "url": "https://cloudposse.com/faqs/why-do-you-recommend-spacelift/",
+     "date": "2024-01",
+     "stance": "neg",
+     "note": "CloudPosse: first GitOps TF tool, now left in the dust."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=40231016",
+     "date": "2024-05",
+     "stance": "neg",
+     "note": "Cannot fan-out module PRs across many workspaces like TFC."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/linux/comments/13y9rpf/terrateam_atlantisstyle_terraform_pull_request/",
+     "date": "2023-06",
+     "stance": "neu",
+     "note": "Terrateam launched as Atlantis-style with extra enterprise bits."
+    },
+    {
+     "source": "article",
+     "url": "https://github.com/runatlantis/atlantis",
+     "date": "2026-01",
+     "stance": "pos",
+     "note": "High GitHub stars; default OSS PR automation reference."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "plan-rce",
+    "detail": "terraform plan loads providers/data sources and can exfiltrate runner creds.",
+    "sources": [
+     "https://careersatdoordash.com/blog/atlantis-hardening-and-review-fatigue/",
+     "https://labs.snyk.io/resources/gitflops-dangers-of-terraform-automation-platforms/",
+     "https://www.runatlantis.io/docs/security"
+    ]
+   },
+   {
+    "tag": "ops-ha",
+    "detail": "File locks imply single replica; you own upgrades, webhooks, disks.",
+    "sources": [
+     "https://devopsboys.com/blog/atlantis-terraform-pull-request-automation-review-2026",
+     "https://www.runatlantis.io/docs/deployment"
+    ]
+   },
+   {
+    "tag": "no-drift-policy",
+    "detail": "No native drift, cost, registry, or rich OPA compared with TACOS.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=35887376",
+     "https://devopsboys.com/blog/atlantis-terraform-pull-request-automation-review-2026"
+    ]
+   },
+   {
+    "tag": "noisy-pr-comments",
+    "detail": "Large plans split or flood PR threads.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=38018846",
+     "https://news.ycombinator.com/item?id=35887376"
+    ]
+   },
+   {
+    "tag": "review-fatigue",
+    "detail": "Everything needs approval unless you build OPA/CODEOWNERS carve-outs.",
+    "sources": [
+     "https://careersatdoordash.com/blog/atlantis-hardening-and-review-fatigue/"
+    ]
+   }
+  ],
+  "adopters": "DoorDash (account-isolated ECS); Grabyo; REI Systems mentions; CNCF Sandbox; still common mid-size self-host default.",
+  "popularity_notes": "Mindshare high but aging. 2024 CNCF Sandbox. Displacement pressure from GHA, Digger, Terrateam, Spacelift."
+ },
+ {
+  "id": "hcp-terraform",
+  "sentiment": {
+   "pos": 3,
+   "neu": 6,
+   "neg": 14,
+   "n": 23,
+   "confidence": "high",
+   "summary": "Product still respected for VCS runs, Sentinel, and Stacks. Sentiment 2024\u201326 is dominated by RUM pricing, free-tier EOL, and IBM-era distrust.",
+   "data_points": [
+    {
+     "source": "blog",
+     "url": "https://mattias.engineer/blog/2026/hcp-terraform-rum-pricing/",
+     "date": "2026-05",
+     "stance": "neg",
+     "note": "Likes HCP product; calls RUM pricing stupid and anti-IaC."
+    },
+    {
+     "source": "blog",
+     "url": "https://www.marktinderholt.com/infrastructure%20as%20code/terraform/devops/cloud/2025/12/19/rum-pricing.html",
+     "date": "2025-12",
+     "stance": "neg",
+     "note": "RUM penalizes fine-grained resources; example bill > cloud spend."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=46278994",
+     "date": "2025-12",
+     "stance": "neg",
+     "note": "Legacy free plan EOL March 2026 email shock."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=46286787",
+     "date": "2025-12",
+     "stance": "neg",
+     "note": "Commenters flee to GHA+S3 rather than pay RUM."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1pngh6j/hcp_terraform_free_is_ending",
+     "date": "2025-12",
+     "stance": "neg",
+     "note": "r/Terraform: free ending, sticker shock on new plans."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1pngkr4/hcp_terraform_free_is_ending_choose_a_new_plan/",
+     "date": "2025-12",
+     "stance": "neg",
+     "note": "Users calculate thousands/year even for modest RUM."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/13jgzc5/terraform_new_pricing/",
+     "date": "2023-05",
+     "stance": "neg",
+     "note": "Early RUM confusion: pay even with zero applies."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1d3fbsg/tfe_pricing/",
+     "date": "2024-05",
+     "stance": "neg",
+     "note": "TFE quotes push teams toward env0/Spacelift/OpenTofu."
+    },
+    {
+     "source": "article",
+     "url": "https://dataconomy.com/2024/06/03/will-ibms-acquisition-mean-the-end-of-terraforms-maligned-rum-billing-model/",
+     "date": "2024-06",
+     "stance": "neg",
+     "note": "Press: RUM widely maligned; IBM deal may not fix it."
+    },
+    {
+     "source": "article",
+     "url": "https://spacelift.io/blog/terraform-cloud-pricing",
+     "date": "2026-01",
+     "stance": "neu",
+     "note": "Competitor explainer of 2026 RUM tiers and 500 free."
+    },
+    {
+     "source": "article",
+     "url": "https://www.envzero.com/blog/terraform-cloud-pricing-a-complete-guide",
+     "date": "2026-08",
+     "stance": "neu",
+     "note": "Competitor: RUM scales against you versus deploy pricing."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=40231016",
+     "date": "2024-05",
+     "stance": "pos",
+     "note": "Stacks/multi-workspace PR fan-out still unmatched in OSS."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1sruq2h/terraform_stacks_in_hcp_publish_outputs_not/",
+     "date": "2026-04",
+     "stance": "neg",
+     "note": "Stacks publish-outputs docs/apply-order quirks."
+    },
+    {
+     "source": "blog",
+     "url": "https://www.hashicorp.com/en/blog/continuing-hcp-terraform-s-enhanced-free-tier-experience",
+     "date": "2025-12",
+     "stance": "neu",
+     "note": "Hashi: enhanced free 500 RUM continues after legacy EOL."
+    },
+    {
+     "source": "article",
+     "url": "https://scalr.com/learning-center/terraform-cloud-pricing-changes",
+     "date": "2025-06",
+     "stance": "neg",
+     "note": "Documents resource explosion and large-estate bills."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1f7yv85/it_seems_terraform_cloud_is_no_longer_viable_what/",
+     "date": "2024-09",
+     "stance": "neg",
+     "note": "Thread: TFC no longer viable; seek OSS/self-host."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1je4zli/lets_do_this_how_much_is_hashicorp_charging_you/",
+     "date": "2025-03",
+     "stance": "neg",
+     "note": "Crowd-sourced Hashi invoices; many call it too high."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1rvgz6i/terraform_enterprise_and_licensing_concerns/",
+     "date": "2026-03",
+     "stance": "neg",
+     "note": "TFE licensing anxiety post-IBM; negotiate or leave."
+    },
+    {
+     "source": "blog",
+     "url": "https://mattias.engineer/blog/2025/terraform-stacks-deep-dive-aws/",
+     "date": "2025-12",
+     "stance": "pos",
+     "note": "Long Stacks deep-dive; author still invests in HCP features."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=37907807",
+     "date": "2023-10",
+     "stance": "neg",
+     "note": "TFC competitors exist because TFC execution was deficient."
+    },
+    {
+     "source": "article",
+     "url": "https://developer.hashicorp.com/terraform/cloud-docs/overview/estimate-hcp-terraform-cost",
+     "date": "2026-01",
+     "stance": "neu",
+     "note": "Official peak-hourly RUM estimator; forecasting remains hard."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=40212617",
+     "date": "2024-05",
+     "stance": "neu",
+     "note": "OpenTofu 1.7 thread: TFC not replaced by OSS runtimes."
+    },
+    {
+     "source": "article",
+     "url": "https://scalr.com/blog/scalr-vs-terraform-cloud-pricing",
+     "date": "2025-09",
+     "stance": "neg",
+     "note": "Competitor pricing contrast against RUM."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "rum-pricing",
+    "detail": "Per-managed-resource billing is unpredictable and punishes thorough IaC.",
+    "sources": [
+     "https://mattias.engineer/blog/2026/hcp-terraform-rum-pricing/",
+     "https://www.marktinderholt.com/infrastructure%20as%20code/terraform/devops/cloud/2025/12/19/rum-pricing.html",
+     "https://www.reddit.com/r/Terraform/comments/13jgzc5/terraform_new_pricing/"
+    ]
+   },
+   {
+    "tag": "free-tier-eol",
+    "detail": "Legacy free ends 2026-03-31; 500 RUM cap shocks growing orgs.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=46278994",
+     "https://www.reddit.com/r/Terraform/comments/1pngh6j/hcp_terraform_free_is_ending"
+    ]
+   },
+   {
+    "tag": "ibm-trust",
+    "detail": "Post-acquisition spirit/pricing skepticism.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=46278994",
+     "https://dataconomy.com/2024/06/03/will-ibms-acquisition-mean-the-end-of-terraforms-maligned-rum-billing-model/"
+    ]
+   },
+   {
+    "tag": "bsl-lock-in",
+    "detail": "BSL Terraform plus paid HCP pushes OpenTofu and rival TACOS.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=40212617",
+     "https://www.reddit.com/r/devops/comments/1f7yv85/it_seems_terraform_cloud_is_no_longer_viable_what/"
+    ]
+   },
+   {
+    "tag": "stacks-immaturity",
+    "detail": "Stacks help multi-workspace PRs but docs/output wiring still rough.",
+    "sources": [
+     "https://www.reddit.com/r/Terraform/comments/1sruq2h/terraform_stacks_in_hcp_publish_outputs_not/",
+     "https://news.ycombinator.com/item?id=40231016"
+    ]
+   }
+  ],
+  "adopters": "Default enterprise Hashi path; exam/docs still teach HCP Projects/Stacks. Many mid-size teams publicly evaluating exits.",
+  "popularity_notes": "Still largest TACOS brand, but 2023 RUM + 2025\u201326 free EOL shifted mindshare toward Spacelift/env0/Scalr/DIY. Trend down on sentiment, not necessarily on installed base."
+ },
+ {
+  "id": "spacelift",
+  "sentiment": {
+   "pos": 8,
+   "neu": 8,
+   "neg": 6,
+   "n": 22,
+   "confidence": "med",
+   "summary": "Often named the quality/multi-IaC TACOS leader versus HCP. Users love policies, workers, and reliability; sting is list price (~$20k Starter) and free-tier jump.",
+   "data_points": [
+    {
+     "source": "article",
+     "url": "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-drrpy7qnpny5s",
+     "date": "2026-08",
+     "stance": "neg",
+     "note": "G2-via-AWS: expensive if unused features; points off for cost."
+    },
+    {
+     "source": "article",
+     "url": "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-drrpy7qnpny5s",
+     "date": "2026-08",
+     "stance": "neg",
+     "note": "Higher-ed: 2-user free too tight; next tier cost-prohibitive."
+    },
+    {
+     "source": "article",
+     "url": "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-drrpy7qnpny5s",
+     "date": "2026-08",
+     "stance": "neu",
+     "note": "Ethan S.: easy UX, steep paid jump from free."
+    },
+    {
+     "source": "article",
+     "url": "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-drrpy7qnpny5s",
+     "date": "2026-08",
+     "stance": "pos",
+     "note": "OpenTofu shop: 3\u20134\u00d7 ROI versus manual work, just works."
+    },
+    {
+     "source": "article",
+     "url": "https://www.peerspot.com/products/spacelift-reviews",
+     "date": "2025-11",
+     "stance": "neu",
+     "note": "Bit expensive; one claim huge savings versus TFE."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=35561181",
+     "date": "2023-04",
+     "stance": "pos",
+     "note": "Self-hosted Spacelift for residency/control announced."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=40231016",
+     "date": "2024-05",
+     "stance": "pos",
+     "note": "Closest paid TFC analog; high-quality Terraform provider."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1cd51q6/difficulties_choosing_terraform_cicd_platform/",
+     "date": "2024-04",
+     "stance": "neu",
+     "note": "Worker pricing more predictable than RUM for some."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1gvwolf/automation_platforms_env0_vs_spacelift_vs_scalr/",
+     "date": "2024-11",
+     "stance": "neu",
+     "note": "Bake-off: often praised, docs/support/pricing mixed."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/1o1bl6i/spacelift_intent_mcp_build_infra_with_ai_agents",
+     "date": "2025-10",
+     "stance": "neu",
+     "note": "Intent MCP: AI agents under policy/audit, early."
+    },
+    {
+     "source": "article",
+     "url": "https://makerstack.co/reviews/spacelift-review/",
+     "date": "2025-06",
+     "stance": "neu",
+     "note": "Third-party review; older per-seat numbers may be stale."
+    },
+    {
+     "source": "article",
+     "url": "https://www.g2.com/products/spacelift/reviews",
+     "date": "2026-01",
+     "stance": "pos",
+     "note": "G2 ~4.9 on a small review set."
+    },
+    {
+     "source": "article",
+     "url": "https://controlmonkey.io/resource/spacelift-vs-terraform-cloud/",
+     "date": "2025-08",
+     "stance": "neu",
+     "note": "Comparison: multi-IaC and policies versus HCP."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/u_spacelift-io/comments/1fjp58d/migrating_from_terraform_cloud_to_spacelift_has/",
+     "date": "2024-09",
+     "stance": "pos",
+     "note": "Vendor customer story: TFC\u2192Spacelift cost/speed."
+    },
+    {
+     "source": "article",
+     "url": "https://aws.amazon.com/marketplace/pp/prodview-lzybqpkgpv7os",
+     "date": "2026-08",
+     "stance": "neg",
+     "note": "Hardest part is justifying spend to finance."
+    },
+    {
+     "source": "article",
+     "url": "https://cloudposse.com/faqs/why-do-you-recommend-spacelift/",
+     "date": "2024-01",
+     "stance": "pos",
+     "note": "CloudPosse recommends Spacelift over aging Atlantis."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=37138389",
+     "date": "2023-08",
+     "stance": "neu",
+     "note": "Publicly not in BSL violation; backs OpenTofu too."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/lkylzk/scalr_vs_spacelift_vs_atlantis_vs_env0_bake_off/",
+     "date": "2021-02",
+     "stance": "neu",
+     "note": "Early bake-off still cited; Spacelift as market leader."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1n39dzk/what_are_tacos_missing_today",
+     "date": "2025-09",
+     "stance": "pos",
+     "note": "2025 TACOS thread: often called the feature leader."
+    },
+    {
+     "source": "article",
+     "url": "https://spacelift.io/pricing",
+     "date": "2026-01",
+     "stance": "neg",
+     "note": "Public Starter+ ~$20k/year shocks small teams."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=37270687",
+     "date": "2023-08",
+     "stance": "neu",
+     "note": "Engineer: OSS pieces exist; OpenTF help is temporary."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1pngkr4/hcp_terraform_free_is_ending_choose_a_new_plan/",
+     "date": "2025-12",
+     "stance": "pos",
+     "note": "Named HCP-exit option alongside Scalr/env0/DIY."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "price-jump",
+    "detail": "Free is tiny; paid entry often five figures; ROI must be sold internally.",
+    "sources": [
+     "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-drrpy7qnpny5s",
+     "https://spacelift.io/pricing",
+     "https://www.peerspot.com/products/spacelift-reviews"
+    ]
+   },
+   {
+    "tag": "worker-billing",
+    "detail": "Concurrency/private workers drive cost and overages.",
+    "sources": [
+     "https://www.reddit.com/r/Terraform/comments/1cd51q6/difficulties_choosing_terraform_cicd_platform/",
+     "https://aws.amazon.com/marketplace/pp/prodview-drrpy7qnpny5s"
+    ]
+   },
+   {
+    "tag": "docs-support-variance",
+    "detail": "Some bake-off users ding docs or support despite product praise.",
+    "sources": [
+     "https://www.reddit.com/r/Terraform/comments/1gvwolf/automation_platforms_env0_vs_spacelift_vs_scalr/"
+    ]
+   },
+   {
+    "tag": "saas-lock-in",
+    "detail": "Full-stack CI for IaC versus staying in GHA; self-host exists but is extra.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=35561181",
+     "https://news.ycombinator.com/item?id=35887376"
+    ]
+   }
+  ],
+  "adopters": "CloudPosse recommendation; Odos TFC migration story; $51M Series C; OpenTofu sponsor. G2/AWS reviews from education, transport, OpenTofu users.",
+  "popularity_notes": "Strongest commercial mindshare versus HCP in 2024\u201326 Reddit bake-offs. Trend up as RUM refugees evaluate it."
+ },
+ {
+  "id": "env0",
+  "sentiment": {
+   "pos": 4,
+   "neu": 13,
+   "neg": 3,
+   "n": 20,
+   "confidence": "med",
+   "summary": "Solid OpenTofu-era TACOS with drift/cost/self-service pitch. Independent reviews thinner than Spacelift; 2026 competitor chatter about stagnation. Snyk flagged default plan RCE like peers.",
+   "data_points": [
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=37090141",
+     "date": "2023-08",
+     "stance": "pos",
+     "note": "HN: env0 raised $35M; seems a good TFC competitor."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=37270006",
+     "date": "2023-08",
+     "stance": "neu",
+     "note": "Founder: OpenTF core member, Terratag OSS give-back."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1gvwolf/automation_platforms_env0_vs_spacelift_vs_scalr/",
+     "date": "2024-11",
+     "stance": "neu",
+     "note": "Users tried all three; env0 in the mix, not a slam dunk."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/10pzpku/has_anyone_used_env0/",
+     "date": "2023-02",
+     "stance": "neu",
+     "note": "Has-anyone-used thread; sparse first-hand reports."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1u86lqh/env0_vs_hcp_terraform_for_multiaccount_governance/",
+     "date": "2026-06",
+     "stance": "neg",
+     "note": "Competitor-tinged claim env0 stagnated after leadership shift."
+    },
+    {
+     "source": "article",
+     "url": "https://www.g2.com/products/env-zero/reviews",
+     "date": "2025-12",
+     "stance": "pos",
+     "note": "G2 cloud-automation reviews generally satisfied."
+    },
+    {
+     "source": "article",
+     "url": "https://www.featuredcustomers.com/vendor/env0",
+     "date": "2025-06",
+     "stance": "neu",
+     "note": "Customer-logo aggregator; FinOps-aware positioning."
+    },
+    {
+     "source": "article",
+     "url": "https://www.envzero.com/insights/env0-vs-spacelift-vs-scalr-vs-terraform-enterprise-an-honest-2026-comparison",
+     "date": "2026-01",
+     "stance": "neu",
+     "note": "Vendor 2026 comparison; cost governance differentiator."
+    },
+    {
+     "source": "blog",
+     "url": "https://medium.com/env0/2024-product-release-highlights-c98f6a62e636",
+     "date": "2024-12",
+     "stance": "neu",
+     "note": "2024 product highlights: drift, Compass, FinOps extras."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=39921404",
+     "date": "2024-04",
+     "stance": "neu",
+     "note": "Skeptic: how TACOS vendors profit if OpenTofu wins."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=37332897",
+     "date": "2023-08",
+     "stance": "neu",
+     "note": "Noted among three largest TFC competitors pledging OpenTF."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/u_envzero/comments/196nr5y/with_opentofus_ga_its_not_just_about_migrating/",
+     "date": "2024-01",
+     "stance": "neu",
+     "note": "Vendor: one-click-ish OpenTofu GA onboarding."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/u_envzero/comments/19djrwv/over_70_of_iac_users_cite_drift_as_a_major/",
+     "date": "2024-01",
+     "stance": "neu",
+     "note": "Vendor drift-detection marketing with industry stats."
+    },
+    {
+     "source": "article",
+     "url": "https://labs.snyk.io/resources/gitflops-dangers-of-terraform-automation-platforms/",
+     "date": "2024-11",
+     "stance": "neg",
+     "note": "Default env0 configs in GitFlops plan-RCE set."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/lkylzk/scalr_vs_spacelift_vs_atlantis_vs_env0_bake_off/",
+     "date": "2021-02",
+     "stance": "neu",
+     "note": "Long-running bake-off still used as env0 reference."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1d3fbsg/tfe_pricing/",
+     "date": "2024-05",
+     "stance": "pos",
+     "note": "env0 staffer pitches deploy-based pricing versus RUM."
+    },
+    {
+     "source": "article",
+     "url": "https://spacelift.io/blog/env-zero-vs-terraform-cloud",
+     "date": "2025-04",
+     "stance": "neu",
+     "note": "Competitor: env0 as collaboration/cost-visibility platform."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1tq40mo/terraform_cloud_alternatives_options/",
+     "date": "2026-04",
+     "stance": "neu",
+     "note": "Listed among HCP alternatives for cost visibility."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=39921776",
+     "date": "2024-04",
+     "stance": "neu",
+     "note": "Grouped with Spacelift/Scalr as OpenTofu TACOS layer."
+    },
+    {
+     "source": "article",
+     "url": "https://www.envzero.com/blog/terraform-cloud-pricing-a-complete-guide",
+     "date": "2026-08",
+     "stance": "pos",
+     "note": "Argues environment/deploy billing more predictable than RUM."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "thin-independent-reviews",
+    "detail": "Fewer candid user writeups than Spacelift or Atlantis.",
+    "sources": [
+     "https://www.reddit.com/r/devops/comments/10pzpku/has_anyone_used_env0/",
+     "https://www.reddit.com/r/Terraform/comments/1gvwolf/automation_platforms_env0_vs_spacelift_vs_scalr/"
+    ]
+   },
+   {
+    "tag": "stagnation-rumor",
+    "detail": "2026 thread alleged slower innovation after org changes (biased source).",
+    "sources": [
+     "https://www.reddit.com/r/Terraform/comments/1u86lqh/env0_vs_hcp_terraform_for_multiaccount_governance/"
+    ]
+   },
+   {
+    "tag": "plan-rce-defaults",
+    "detail": "Snyk: default automation platforms including env0 were exploitable at plan.",
+    "sources": [
+     "https://labs.snyk.io/resources/gitflops-dangers-of-terraform-automation-platforms/"
+    ]
+   },
+   {
+    "tag": "vendor-noise",
+    "detail": "Reddit presence is often official u/envzero posts.",
+    "sources": [
+     "https://www.reddit.com/r/u_envzero/comments/196nr5y/with_opentofus_ga_its_not_just_about_migrating/"
+    ]
+   }
+  ],
+  "adopters": "OpenTofu founding sponsor; Terratag OSS; $35M raise (2023). Specific public end-customer names scarce in this pass.",
+  "popularity_notes": "Always in the Spacelift/Scalr/HCP shortlist. Mindshare mid-pack; 2026 chatter mixed versus 2023 OpenTF peak."
+ },
+ {
+  "id": "scalr",
+  "sentiment": {
+   "pos": 4,
+   "neu": 13,
+   "neg": 3,
+   "n": 20,
+   "confidence": "med",
+   "summary": "Governance/hierarchy TACOS with run-based pricing and CLI-native backend. Mastercard/Peloton cited. Independent sentiment sparse; HN user slammed Terraform provider quality.",
+   "data_points": [
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=40231016",
+     "date": "2024-05",
+     "stance": "neg",
+     "note": "Scalr Terraform provider called really low-quality versus TFE."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=37907807",
+     "date": "2023-10",
+     "stance": "neu",
+     "note": "Employee: TFC gaps created Scalr/Spacelift/env0."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1c7wjfk/scalr_we_have_removed_concurrency_constraints",
+     "date": "2024-04",
+     "stance": "pos",
+     "note": "Vendor: self-hosted agents no longer eat concurrency quota."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1n39dzk/what_are_tacos_missing_today",
+     "date": "2025-09",
+     "stance": "pos",
+     "note": "Battle-tested; Mastercard and Peloton cited as users."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1mcng8x/scalr_plan_forces_replace_on_null_resource_but/",
+     "date": "2025-08",
+     "stance": "neu",
+     "note": "Plan UI/replace-on-null_resource support thread."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/114s96h/terraform_reporting/",
+     "date": "2023-02",
+     "stance": "neu",
+     "note": "Module/provider/version reporting feature called out."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/urvcvb/how_does_one_deal_with_multiple_having/",
+     "date": "2022-05",
+     "stance": "neu",
+     "note": "Env/workspace hierarchy for multi-account discussed."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/lkylzk/scalr_vs_spacelift_vs_atlantis_vs_env0_bake_off/",
+     "date": "2021-02",
+     "stance": "neu",
+     "note": "Classic four-way bake-off still referenced."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1gvwolf/automation_platforms_env0_vs_spacelift_vs_scalr/",
+     "date": "2024-11",
+     "stance": "neu",
+     "note": "2024 three-way; Scalr in enterprise-governance bucket."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=37089813",
+     "date": "2023-08",
+     "stance": "neu",
+     "note": "CEO on BSL paths: fork, BYO Terraform, pin 1.5.5."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=39735220",
+     "date": "2024-03",
+     "stance": "neu",
+     "note": "Users stayed on TF 1.5 + Scalr while watching OpenTofu."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1rw56jw/how_are_you_managing_terraform_state_in_a_large",
+     "date": "2026-03",
+     "stance": "neu",
+     "note": "Positioned when homegrown S3+CI breaks at team scale."
+    },
+    {
+     "source": "article",
+     "url": "https://scalr.com/blog/scalr-vs-terraform-cloud-pricing",
+     "date": "2025-09",
+     "stance": "pos",
+     "note": "Vendor: run pricing plus free agents versus RUM."
+    },
+    {
+     "source": "article",
+     "url": "https://spacelift.io/blog/scalr-alternatives",
+     "date": "2025-10",
+     "stance": "neu",
+     "note": "Competitor: Scalr as CLI-native, Terraform-focused TACOS."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1d3fbsg/tfe_pricing/",
+     "date": "2024-05",
+     "stance": "pos",
+     "note": "Some prefer Scalr human/run pricing versus Hashi."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=40156091",
+     "date": "2024-04",
+     "stance": "neu",
+     "note": "Ex-Hashi: TFC competitors like Scalr drove license talks."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/sgf59w/tacos_providers/",
+     "date": "2022-01",
+     "stance": "neu",
+     "note": "Early TACOS provider list including Scalr."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/devops/comments/w5fmta/evaluating_the_top_terraform_ci_platforms/",
+     "date": "2022-07",
+     "stance": "neu",
+     "note": "Eval thread: hierarchy/OPA versus peers."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1cd51q6/difficulties_choosing_terraform_cicd_platform/",
+     "date": "2024-04",
+     "stance": "neu",
+     "note": "One of three commercial options beside Spacelift/env0."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=40212617",
+     "date": "2024-05",
+     "stance": "neu",
+     "note": "OpenTofu sponsor providing TACOS around the fork."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "provider-quality",
+    "detail": "Public HN claim that Scalr's Terraform provider lags hashicorp/tfe.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=40231016"
+    ]
+   },
+   {
+    "tag": "lower-mindshare",
+    "detail": "Always third in Spacelift/env0/Scalr lists; fewer unsolicited reviews.",
+    "sources": [
+     "https://www.reddit.com/r/Terraform/comments/1gvwolf/automation_platforms_env0_vs_spacelift_vs_scalr/",
+     "https://www.reddit.com/r/Terraform/comments/1cd51q6/difficulties_choosing_terraform_cicd_platform/"
+    ]
+   },
+   {
+    "tag": "staff-on-reddit",
+    "detail": "Many threads answered by Scalr employees, biasing visible sentiment.",
+    "sources": [
+     "https://www.reddit.com/r/Terraform/comments/1c7wjfk/scalr_we_have_removed_concurrency_constraints",
+     "https://news.ycombinator.com/item?id=37907807"
+    ]
+   },
+   {
+    "tag": "feature-parity-race",
+    "detail": "Must keep up with Spacelift multi-IaC and HCP Stacks.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=40231016",
+     "https://www.reddit.com/r/Terraform/comments/1n39dzk/what_are_tacos_missing_today"
+    ]
+   }
+  ],
+  "adopters": "Reddit 2025: Mastercard, Peloton. OpenTofu sponsor. Active r/Terraform staff (founder/DevRel).",
+  "popularity_notes": "Stable niche: hierarchy, OPA, run billing, CLI backend. Not the 2024\u201326 hype leader."
+ },
+ {
+  "id": "infracost",
+  "sentiment": {
+   "pos": 12,
+   "neu": 6,
+   "neg": 4,
+   "n": 22,
+   "confidence": "high",
+   "summary": "Widely loved shift-left PR cost comments. Accuracy gaps on usage-based/new resources and UI speed are the main nits. OSS CLI plus Cloud policies is the pattern.",
+   "data_points": [
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=37062007",
+     "date": "2023-08",
+     "stance": "neu",
+     "note": "Show HN tagging policies; 3,000+ companies claimed."
+    },
+    {
+     "source": "article",
+     "url": "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-vy3p327s7vxsw",
+     "date": "2026-05",
+     "stance": "pos",
+     "note": "~8/10: PR cost diffs caught EC2 upsizing; ROI clear."
+    },
+    {
+     "source": "article",
+     "url": "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-vy3p327s7vxsw",
+     "date": "2026-02",
+     "stance": "pos",
+     "note": "7/10: showed EC2+LB impact; ~$500 saved; UI slow."
+    },
+    {
+     "source": "article",
+     "url": "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-vy3p327s7vxsw",
+     "date": "2023-12",
+     "stance": "pos",
+     "note": "G2 Jerin: detailed Terraform bills before create."
+    },
+    {
+     "source": "article",
+     "url": "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-vy3p327s7vxsw",
+     "date": "2023-12",
+     "stance": "neg",
+     "note": "G2: some AWS resource prices not accurate."
+    },
+    {
+     "source": "article",
+     "url": "https://github.com/infracost/infracost/issues/3406",
+     "date": "2025-01",
+     "stance": "neg",
+     "note": "Issue: ElastiCache/Valkey costs very wrong."
+    },
+    {
+     "source": "blog",
+     "url": "https://blog.doubleslash.de/en/software-technologien/cloud-technology/cloud-costs-firmly-under-control-with-infracost-estimate-instead-of-marvel",
+     "date": "2025-04",
+     "stance": "neu",
+     "note": "Estimates need usage quantities; compare to real bills."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=41235038",
+     "date": "2024-08",
+     "stance": "pos",
+     "note": "Cannot recommend enough; trust directionality of diffs."
+    },
+    {
+     "source": "blog",
+     "url": "https://www.infracost.io/blog/infracost-has-raised-a-15-million-series-a/",
+     "date": "2025-06",
+     "stance": "pos",
+     "note": "Series A $15M; adoption/funding signal."
+    },
+    {
+     "source": "article",
+     "url": "https://www.peerspot.com/products/infracost-reviews",
+     "date": "2025-09",
+     "stance": "pos",
+     "note": "PeerSpot: recommend for embedding cost in reviews."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/aws/comments/1me33cg/how_do_you_get_engineers_to_care_about_finops/",
+     "date": "2025-07",
+     "stance": "pos",
+     "note": "FinOps thread: PR comments make engineers care."
+    },
+    {
+     "source": "reddit",
+     "url": "https://www.reddit.com/r/Terraform/comments/1n27eqd/i_built_a_vs_code_extension_that_caught_a/",
+     "date": "2025-09",
+     "stance": "pos",
+     "note": "IDE cost hints; usage/enterprise rates still a gap."
+    },
+    {
+     "source": "blog",
+     "url": "https://dev.to/arbythecoder/the-day-our-cloud-bill-hit-127k-and-nobody-knew-why-5e88",
+     "date": "2025-03",
+     "stance": "pos",
+     "note": "Bill-shock story: shift-left estimates would have helped."
+    },
+    {
+     "source": "article",
+     "url": "https://medium.com/curious-devs-corner/infracost-finops-terraform-cost-estimates-to-github-prs-4cccb4e0e270",
+     "date": "2024-11",
+     "stance": "pos",
+     "note": "How-to: GitHub PR cost comments as FinOps gate."
+    },
+    {
+     "source": "article",
+     "url": "https://cloudatler.com/blog/infracost-explained-how-to-see-terraform-costs-before-you-launch",
+     "date": "2025-02",
+     "stance": "neu",
+     "note": "Explainer of PR diff workflow and coverage."
+    },
+    {
+     "source": "blog",
+     "url": "https://c3x.dev/blog/infracost-alternative-open-source-terraform-cost-estimation/",
+     "date": "2025-08",
+     "stance": "neg",
+     "note": "Alternative post: public prices miss private rate cards."
+    },
+    {
+     "source": "article",
+     "url": "https://devopsinside.com/how-to-build-pull-request-cost-gates-with-infracost-and-opencost/",
+     "date": "2025-05",
+     "stance": "neu",
+     "note": "Pair Infracost estimates with OpenCost actuals."
+    },
+    {
+     "source": "article",
+     "url": "https://oneuptime.com/blog/post/2026-02-23-how-to-use-infracost-with-terraform-for-cost-testing/view",
+     "date": "2026-02",
+     "stance": "neu",
+     "note": "Tutorial: fail CI when cost delta exceeds threshold."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=46706668",
+     "date": "2026-01",
+     "stance": "neu",
+     "note": "Carbon estimates alongside dollars in PR comments."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=48397148",
+     "date": "2026-06",
+     "stance": "pos",
+     "note": "Agent-oriented CLI cuts tokens; deterministic price checks."
+    },
+    {
+     "source": "article",
+     "url": "https://dev.to/digger/top-10-terraform-tools-you-should-know-about-1fhg",
+     "date": "2024-02",
+     "stance": "pos",
+     "note": "Top-10 TF tools list: Infracost as default cost estimator."
+    },
+    {
+     "source": "hn",
+     "url": "https://news.ycombinator.com/item?id=30086789",
+     "date": "2022-01",
+     "stance": "pos",
+     "note": "Show HN policies (borderline 2023 window); platform-team pull."
+    }
+   ]
+  },
+  "concerns": [
+   {
+    "tag": "estimate-accuracy",
+    "detail": "Public list prices miss EDP/RI/SP and some new resource SKUs.",
+    "sources": [
+     "https://github.com/infracost/infracost/issues/3406",
+     "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-vy3p327s7vxsw",
+     "https://c3x.dev/blog/infracost-alternative-open-source-terraform-cost-estimation/"
+    ]
+   },
+   {
+    "tag": "usage-based-gaps",
+    "detail": "S3/Lambda/transfer need usage files or estimates stay rough.",
+    "sources": [
+     "https://blog.doubleslash.de/en/software-technologien/cloud-technology/cloud-costs-firmly-under-control-with-infracost-estimate-instead-of-marvel",
+     "https://www.reddit.com/r/Terraform/comments/1n27eqd/i_built_a_vs_code_extension_that_caught_a/"
+    ]
+   },
+   {
+    "tag": "ui-speed",
+    "detail": "AWS Marketplace reviewers want faster processing and cleaner UI.",
+    "sources": [
+     "https://aws.amazon.com/marketplace/reviews/reviews-list/prodview-vy3p327s7vxsw"
+    ]
+   },
+   {
+    "tag": "not-the-bill",
+    "detail": "Must still reconcile to CUR; directionality trusted more than absolutes.",
+    "sources": [
+     "https://news.ycombinator.com/item?id=41235038",
+     "https://devopsinside.com/how-to-build-pull-request-cost-gates-with-infracost-and-opencost/"
+    ]
+   }
+  ],
+  "adopters": "Vendor: 3,000\u20133,500 companies including Fortune 500 slice. YC W21; $15M Series A (2025). Default mention in TF tool lists and Digger/Atlantis integrations.",
+  "popularity_notes": "Highest positive mindshare in this cluster. Trend up into agent/IDE cost checks (2025\u201326). Not a run orchestrator\u2014complements Atlantis/HCP/Spacelift."
+ }
+]

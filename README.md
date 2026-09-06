@@ -10,9 +10,11 @@ recurring author concerns with source links. Pick your tools and export the stac
 
 ## How the scores work
 - **Sentiment** = `(pos − neg) / n` mapped to 0–100, with raw `▲pos ▬neu ▼neg · n` shown on every card.
-- **Popularity** = composite of GitHub stars, 90-day commit activity, and discussion volume,
+- **Popularity** = composite of GitHub stars (0.75) and 90-day commit activity (0.25),
   min-max normalized **within this survey set** (so it reads "big vs small here", not absolute install base).
-  SaaS/closed tools with no public repo get a mindshare proxy from discussion volume, flagged as such.
+  SaaS/closed tools with **no public repo show `n/a`** — we don't fabricate a number from discussion volume,
+  because every tool was researched to a fixed ~20 data-point quota, making discussion count a collection
+  artifact rather than an adoption signal. Their qualitative traction notes are shown instead.
 
 Scores are indicative and method-transparent, not authoritative. Every data point links to its source.
 
