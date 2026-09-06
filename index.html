@@ -170,7 +170,7 @@ body{font-size:17px}
 abbr[title]{text-decoration:underline dotted var(--amber-d);text-underline-offset:3px;text-decoration-thickness:1.5px;cursor:help}
 .gdef{color:var(--ink2);font-style:italic;font-weight:400;font-size:.88em}
 .tree{--lc:#808678;min-width:min-content}
-.tree>ul{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:flex-start;gap:18px 30px;margin:0;padding:0;list-style:none}
+.tree>ul{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:18px 30px;margin:0;padding:0;list-style:none}
 .tree ul{list-style:none}
 .tree>ul>li{padding:0;margin:0;display:flex;flex-direction:column;align-items:center}
 .tree>ul>li::before,.tree>ul>li::after{display:none}
@@ -256,10 +256,10 @@ abbr[title]{text-decoration:underline dotted var(--amber-d);text-underline-offse
 .mode.combine,.pill.combine{background:#e2f0d6;color:#356021}
 .mode.addon,.pill.addon{background:#dcebfb;color:#194b86}
 /* tier connector: bold, solid, visible, labelled */
-.tier-link{height:58px;margin:2px 0}
-.tier-link::before{left:46px;top:2px;bottom:22px;width:6px;background:#557d38;opacity:1;border-radius:3px}
-.tier-link::after{content:"";left:38px;bottom:6px;width:0;height:0;border-left:11px solid transparent;border-right:11px solid transparent;border-top:15px solid #557d38;opacity:1;font-size:0}
-.tl-label{position:absolute;left:74px;top:50%;transform:translateY(-50%);font-size:.875rem;font-weight:700;color:#3f6d28}
+.tier-link{display:flex;flex-direction:column;align-items:center;gap:0;height:auto;margin:6px 0 12px;position:relative}.tier-link::before,.tier-link::after{content:none;display:none}.tl-stem{width:4px;height:14px;background:#9bad84;border-radius:2px}.tl-flow{display:inline-flex;align-items:center;gap:10px;margin:5px 0;padding:6px 16px;border:1.5px solid var(--tlac,#557d38);border-radius:50px;background:#fff;box-shadow:var(--shadow);font-size:.9375rem;font-weight:700;color:var(--ink);max-width:calc(100vw - 32px);flex-wrap:wrap;justify-content:center;text-align:center;line-height:1.3}.tl-flow .tl-ar{color:var(--tlac,#557d38);font-weight:800;font-size:1.1rem}.tl-arrow{width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;border-top:13px solid var(--tlac,#557d38)}
+
+
+
 /* popover: wider, larger, readable */
 #nodepop{width:min(30rem,calc(100vw - 2rem));max-width:none;max-height:min(86vh,44rem);padding:22px 24px 20px;font-size:1rem;line-height:1.55}
 #nodepop .pop-one,#nodepop li,#nodepop .kv{max-width:64ch}
@@ -6680,6 +6680,7 @@ h1{margin:0 0 12px;font-size:clamp(28px,2.4vw,40px);line-height:1.12}
 const STAGES=[["provision","1","PROVISION","var(--s1)"],["orchestrate","2","ORCHESTRATE & GOVERN","var(--s2)"],
  ["configure","3","CONFIGURE · IMAGES · SECRETS","var(--s3)"],["deliver","4","DELIVER · CI/CD","var(--s4)"],
  ["reconcile","5","RECONCILE · GITOPS","var(--s5)"]];
+ const TL_SHORT={provision:"Provision",orchestrate:"Orchestrate & Govern",configure:"Configure",deliver:"Deliver",reconcile:"Reconcile"};
 const HEALTH={open:"var(--open)",bsl:"var(--bsl)",comm:"var(--comm)",fade:"var(--fade)"};
 const ACCENT={provision:"#699c47",orchestrate:"#7a5cc0",configure:"#2f9e8f",deliver:"#f8a231",reconcile:"#d1587f"};
 const TIER_INFO={
@@ -6883,10 +6884,10 @@ function render(){
   const app=document.getElementById("app");app.innerHTML="";
   MAXSTARS=Math.max(1,...TOOLS.map(t=>(t.metrics||{}).stars||0));
   buildGloss();
-  let drawn=false; const gSeen=new Set();
+  let drawn=false; let prevSkey=null; const gSeen=new Set();
   for(const [skey,num,label,accent] of STAGES){
     const tools=TOOLS.filter(t=>t.stage===skey);if(!tools.length)continue;
-    if(drawn){const lk=document.createElement("div");lk.className="tier-link";lk.innerHTML='<span class="tl-label">Next tier \u2193</span>';app.appendChild(lk);}
+    if(drawn){const lk=document.createElement("div");lk.className="tier-link";lk.setAttribute("aria-hidden","true");lk.style.setProperty("--tlac",accent);lk.innerHTML=`<span class="tl-stem"></span><span class="tl-flow"><span class="tl-nm">${esc(TL_SHORT[prevSkey]||"")}</span><span class="tl-ar">\u2192</span><span class="tl-nm">${esc(TL_SHORT[skey]||label)}</span></span><span class="tl-arrow"></span>`;app.appendChild(lk);}
     const slots=[];const seen=new Set();
     for(const t of tools){if(!seen.has(t.slot)){seen.add(t.slot);slots.push(t.slot);}}
     const info=TIER_INFO[skey]||{level:"TIER "+num,role:"",how:""};
@@ -6906,7 +6907,7 @@ function render(){
       <h2 style="color:${accent}">${esc(label)}</h2>
       <div class="tier-desc"><b>${roleH}.</b> ${howH}</div></div></div>
       <div class="tree-wrap"><div class="tree" style="--ac:${accent}"><ul>${branches}</ul></div></div>`;
-    app.appendChild(stage);drawn=true;
+    app.appendChild(stage);drawn=true;prevSkey=skey;
   }
   wire();
 }
