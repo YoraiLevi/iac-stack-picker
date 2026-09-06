@@ -42,63 +42,72 @@
      "url": "https://www.reddit.com/r/Terraform/comments/1cu6wlo/terraform_static_security_analysis_trivy_vs/",
      "date": "2024-05",
      "stance": "neu",
-     "note": "Side-by-side TF scan thread comparing Checkov findings."
+     "note": "Side-by-side TF scan thread comparing Checkov findings.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1kv7n3y/checkov_vs_tfsec_vs_trivy_vs_terrascan/",
      "date": "2025-05",
      "stance": "neu",
-     "note": "Users weigh Checkov depth versus Trivy consolidation."
+     "note": "Users weigh Checkov depth versus Trivy consolidation.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1uf55g9/terraform_scans_with_checkov/",
      "date": "2025-11",
      "stance": "neg",
-     "note": "Skip lists and noise become a maintenance burden."
+     "note": "Skip lists and noise become a maintenance burden.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1vfkvf3/what_security_checks_are_part_of_your_terraform/",
      "date": "2025-12",
      "stance": "pos",
-     "note": "Named as table-stakes Terraform pipeline security check."
+     "note": "Named as table-stakes Terraform pipeline security check.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/16xxoso/what_are_terraform_cicddevsecops_code_scanning/",
      "date": "2023-09",
      "stance": "neu",
-     "note": "Listed among common TF CI scanning options."
+     "note": "Listed among common TF CI scanning options.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=40934408",
      "date": "2024-07",
      "stance": "pos",
-     "note": "Commenter recommends Checkov for Terraform security sanity."
+     "note": "Commenter recommends Checkov for Terraform security sanity.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=43129301",
      "date": "2025-02",
      "stance": "neu",
-     "note": "Massdriver bundles Checkov with OPA in module releases."
+     "note": "Massdriver bundles Checkov with OPA in module releases.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=46266028",
      "date": "2025-12",
      "stance": "pos",
-     "note": "Builder uses Checkov for SOC2 Terraform compliance."
+     "note": "Builder uses Checkov for SOC2 Terraform compliance.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=32633222",
      "date": "2022-08",
      "stance": "pos",
-     "note": "Listed among most useful Terraform OSS security tools."
+     "note": "Listed among most useful Terraform OSS security tools.",
+     "date_approx": true
     },
     {
      "source": "youtube",
@@ -260,28 +269,32 @@
      "url": "https://news.ycombinator.com/item?id=47450142",
      "date": "2026-03",
      "stance": "neg",
-     "note": "HN: the vulnerability scanner became the vulnerability."
+     "note": "HN: the vulnerability scanner became the vulnerability.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=47450142",
      "date": "2026-03",
      "stance": "neg",
-     "note": "Commenter: Aqua failed to contain a prior VSCode incident."
+     "note": "Commenter: Aqua failed to contain a prior VSCode incident.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=47450142",
      "date": "2026-03",
      "stance": "neu",
-     "note": "Advice to pin GitHub Actions to commit SHAs not tags."
+     "note": "Advice to pin GitHub Actions to commit SHAs not tags.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=47450142",
      "date": "2026-03",
      "stance": "neg",
-     "note": "SHA-pinning insufficient if action still pulls latest binary."
+     "note": "SHA-pinning insufficient if action still pulls latest binary.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -358,28 +371,32 @@
      "url": "https://www.reddit.com/r/Terraform/comments/1cu6wlo/terraform_static_security_analysis_trivy_vs/",
      "date": "2024-05",
      "stance": "neu",
-     "note": "Community comparison of Trivy versus Checkov and Terrascan."
+     "note": "Community comparison of Trivy versus Checkov and Terrascan.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1kv7n3y/checkov_vs_tfsec_vs_trivy_vs_terrascan/",
      "date": "2025-05",
      "stance": "pos",
-     "note": "Trivy favored to reduce scanner sprawl after tfsec merge."
+     "note": "Trivy favored to reduce scanner sprawl after tfsec merge.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/16xxoso/what_are_terraform_cicddevsecops_code_scanning/",
      "date": "2023-09",
      "stance": "neu",
-     "note": "Appears on the standard TF scanning shortlist."
+     "note": "Appears on the standard TF scanning shortlist.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=32633222",
      "date": "2022-08",
      "stance": "pos",
-     "note": "tfsec/Trivy lineage listed as core TF static analysis."
+     "note": "tfsec/Trivy lineage listed as core TF static analysis.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -562,14 +579,16 @@
      "url": "https://www.reddit.com/r/devops/comments/16xxoso/what_are_terraform_cicddevsecops_code_scanning/",
      "date": "2023-09",
      "stance": "neu",
-     "note": "Appears on community TF scanning option lists."
+     "note": "Appears on community TF scanning option lists.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=32633222",
      "date": "2022-08",
      "stance": "pos",
-     "note": "Listed among useful Terraform static analysis tools."
+     "note": "Listed among useful Terraform static analysis tools.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -743,28 +762,32 @@
      "url": "https://www.reddit.com/r/Terraform/comments/1cu6wlo/terraform_static_security_analysis_trivy_vs/",
      "date": "2024-05",
      "stance": "neu",
-     "note": "Demo thread: Terrascan often fewest findings of three."
+     "note": "Demo thread: Terrascan often fewest findings of three.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/16xxoso/what_are_terraform_cicddevsecops_code_scanning/",
      "date": "2023-09",
      "stance": "neu",
-     "note": "Still on 2023 community scanning shortlists."
+     "note": "Still on 2023 community scanning shortlists.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1kv7n3y/checkov_vs_tfsec_vs_trivy_vs_terrascan/",
      "date": "2025-05",
      "stance": "neu",
-     "note": "Still compared in 2025, already trailing mindshare."
+     "note": "Still compared in 2025, already trailing mindshare.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=32633222",
      "date": "2022-08",
      "stance": "pos",
-     "note": "Once listed among most useful TF OSS scanners."
+     "note": "Once listed among most useful TF OSS scanners.",
+     "date_approx": true
     },
     {
      "source": "youtube",
@@ -973,21 +996,24 @@
      "url": "https://news.ycombinator.com/item?id=43129301",
      "date": "2025-02",
      "stance": "neu",
-     "note": "Platform vendors bundle OPA with Checkov in module CI."
+     "note": "Platform vendors bundle OPA with Checkov in module CI.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=32633222",
      "date": "2022-08",
      "stance": "pos",
-     "note": "Listed as the TF policy-as-code tool of record."
+     "note": "Listed as the TF policy-as-code tool of record.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1vfkvf3/what_security_checks_are_part_of_your_terraform/",
      "date": "2025-12",
      "stance": "neu",
-     "note": "Layered with Checkov/Trivy rather than replacing them."
+     "note": "Layered with Checkov/Trivy rather than replacing them.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -1022,7 +1048,8 @@
      "url": "https://www.reddit.com/r/kubernetes/comments/xjizg5/opa_rego_is_ridiculously_confusing_best_way_to/",
      "date": "2022-09",
      "stance": "neg",
-     "note": "Widely cited thread: Rego is ridiculously confusing."
+     "note": "Widely cited thread: Rego is ridiculously confusing.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -1126,7 +1153,8 @@
      "url": "https://www.reddit.com/r/Terraform/comments/14athk9/sentinel_patterns_what_does_your_sentinel_look/",
      "date": "2023-06",
      "stance": "neu",
-     "note": "Practitioners share mature Sentinel repo layouts."
+     "note": "Practitioners share mature Sentinel repo layouts.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -1182,14 +1210,16 @@
      "url": "https://news.ycombinator.com/item?id=40212617",
      "date": "2024-04",
      "stance": "neu",
-     "note": "OpenTofu sponsors cover Sentinel-like policy via OPA."
+     "note": "OpenTofu sponsors cover Sentinel-like policy via OPA.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/u_aalejos/comments/1l1sxva/terraform_adds_new_prewritten_sentinel_policies/",
      "date": "2025-06",
      "stance": "pos",
-     "note": "Prewritten AWS foundational Sentinel policy packs."
+     "note": "Prewritten AWS foundational Sentinel policy packs.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -1210,14 +1240,16 @@
      "url": "https://news.ycombinator.com/item?id=30310447",
      "date": "2022-02",
      "stance": "pos",
-     "note": "Defends Sentinel as free CLI plus public CIS libraries."
+     "note": "Defends Sentinel as free CLI plus public CIS libraries.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/mosfbs/so_let_me_get_this_straight/",
      "date": "2021-04",
      "stance": "neg",
-     "note": "Long-running complaint: governance is an Enterprise upsell."
+     "note": "Long-running complaint: governance is an Enterprise upsell.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -1322,42 +1354,48 @@
      "url": "https://www.reddit.com/r/Terraform/comments/16ab9do/tests_general_availability_in_terraform_16/",
      "date": "2023-09",
      "stance": "pos",
-     "note": "Community welcomed GA of terraform test in 1.6."
+     "note": "Community welcomed GA of terraform test in 1.6.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/18wqvp6/terraform_17_release_candidate/",
      "date": "2024-01",
      "stance": "pos",
-     "note": "1.7 mocking called a major testing upgrade."
+     "note": "1.7 mocking called a major testing upgrade.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1bb7a01/do_you_guys_use_terraform_test_command_and_tests/",
      "date": "2024-03",
      "stance": "neu",
-     "note": "Adoption still uneven a few months after GA."
+     "note": "Adoption still uneven a few months after GA.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1g7iyeh/terraform_test_or_terratest/",
      "date": "2024-10",
      "stance": "neu",
-     "note": "Common advice: native for unit, Terratest for E2E."
+     "note": "Common advice: native for unit, Terratest for E2E.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1sg0947/testdriven_development_for_terraform_its_actually/",
      "date": "2026-01",
      "stance": "pos",
-     "note": "TDD with tftest.hcl is becoming practical."
+     "note": "TDD with tftest.hcl is becoming practical.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1nv9kw4/is_there_any_way_to_mock_or_override_a_specific",
      "date": "2025-09",
      "stance": "neg",
-     "note": "Hard to mock only one resource inside a provider."
+     "note": "Hard to mock only one resource inside a provider.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -1434,7 +1472,8 @@
      "url": "https://www.reddit.com/r/Terraform/comments/1d905b1/alternatives_to_terratest_for_unit_testing/",
      "date": "2024-06",
      "stance": "pos",
-     "note": "Native test cited as the no-Go unit-test alternative."
+     "note": "Native test cited as the no-Go unit-test alternative.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -1539,49 +1578,56 @@
      "url": "https://www.reddit.com/r/devops/comments/1g7iyeh/terraform_test_or_terratest/",
      "date": "2024-10",
      "stance": "neu",
-     "note": "Thread consensus: complementary, not a replacement."
+     "note": "Thread consensus: complementary, not a replacement.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1d905b1/alternatives_to_terratest_for_unit_testing/",
      "date": "2024-06",
      "stance": "neu",
-     "note": "Teams seek unit-test alternatives but keep Terratest E2E."
+     "note": "Teams seek unit-test alternatives but keep Terratest E2E.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1flz837/terraform_module_testing_strategy/",
      "date": "2024-09",
      "stance": "pos",
-     "note": "Module strategy threads still center Terratest for integration."
+     "note": "Module strategy threads still center Terratest for integration.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1mtmlhx/testing_iac_with_terratest_and_localstack/",
      "date": "2025-08",
      "stance": "pos",
-     "note": "LocalStack pairing used to cut real-cloud cost."
+     "note": "LocalStack pairing used to cut real-cloud cost.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1jvacos/what_is_the_equivalent_of_unit_tests_for",
      "date": "2025-04",
      "stance": "pos",
-     "note": "Cited as the infra equivalent of serious automated tests."
+     "note": "Cited as the infra equivalent of serious automated tests.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=44463780",
      "date": "2025-07",
      "stance": "pos",
-     "note": "Engineer shipping Terratest binaries on ECS Fargate."
+     "note": "Engineer shipping Terratest binaries on ECS Fargate.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=37757909",
      "date": "2023-10",
      "stance": "pos",
-     "note": "Magnolia SRE job stack lists Terraform/Terratest."
+     "note": "Magnolia SRE job stack lists Terraform/Terratest.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -1630,14 +1676,16 @@
      "url": "https://www.reddit.com/r/Terraform/comments/16ab9do/tests_general_availability_in_terraform_16/",
      "date": "2023-09",
      "stance": "neu",
-     "note": "Native GA framed as complement, not Terratest killer."
+     "note": "Native GA framed as complement, not Terratest killer.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=30627089",
      "date": "2022-03",
      "stance": "pos",
-     "note": "HN user prefers GitHub+Terraform+Terratest workflow."
+     "note": "HN user prefers GitHub+Terraform+Terratest workflow.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -1651,7 +1699,8 @@
      "url": "https://www.reddit.com/r/Terraform/comments/1d4ziat/terratest/",
      "date": "2024-05",
      "stance": "neu",
-     "note": "Standalone Terratest experience thread on r/Terraform."
+     "note": "Standalone Terratest experience thread on r/Terraform.",
+     "date_approx": true
     },
     {
      "source": "article",

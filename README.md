@@ -18,6 +18,16 @@ recurring author concerns with source links. Pick your tools and export the stac
 
 Scores are indicative and method-transparent, not authoritative. Every data point links to its source.
 
+## Data provenance and honesty
+- **URLs are real, not recalled.** Every source URL was returned by an actual search during
+  research; a random spot-check of 24 across all six clusters returned HTTP 200. None were constructed.
+- **Community-post dates are approximate.** For Hacker News and Reddit items without an explicit
+  published date, the *month* was interpolated from the post's base36/monotonic ID, calibrated against
+  neighbours whose dates were stated. Those points carry `"date_approx": true` in
+  `data/research/out/*.json`; treat the **year** as reliable and the **month** as an estimate. Blog,
+  article and video dates are taken from explicit publication dates and are not flagged.
+- **Notes are ≤15-word paraphrases**, not quoted article text.
+
 ## Data pipeline
 1. `data/registry.json` — canonical tool list (frozen).
 2. `data/gh_metrics.json` — GitHub metrics via one GraphQL query.

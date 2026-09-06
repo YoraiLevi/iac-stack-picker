@@ -20,10 +20,12 @@ Write a JSON array (no markdown fences) to the output path in your task. Per too
 
 ```
 {"id","sentiment":{"pos":int,"neu":int,"neg":int,"n":int,"confidence":"high|med|low","summary":"1-2 lines",
-  "data_points":[{"source":"hn|reddit|youtube|blog|article","url","date":"YYYY-MM","stance":"pos|neu|neg","note":"<=15 words"}]},
+  "data_points":[{"source":"hn|reddit|youtube|blog|article","url","date":"YYYY-MM","date_approx":true,"stance":"pos|neu|neg","note":"<=15 words"}]},
  "concerns":[{"tag":"short-slug","detail":"1 line","sources":["url"]}],
  "adopters":"notable orgs/usage signals or empty",
  "popularity_notes":"qualitative traction signals (mindshare, trend up/down)"}
 ```
 
 Keep notes concise; this is evidence cataloging, not prose. Also return a 3-line summary when done.
+
+**Note on `date_approx`:** Hacker News and Reddit posts often lack an explicit published date, so the month is interpolated from the post's base36/monotonic ID (calibrated against dated neighbours). Those points are marked `"date_approx": true` — year is reliable, month is an estimate. Blog/article/video points use explicit publication dates and omit the flag.

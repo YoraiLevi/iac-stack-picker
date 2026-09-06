@@ -14,140 +14,160 @@
      "url": "https://news.ycombinator.com/item?id=41867540",
      "date": "2024-10",
      "stance": "neu",
-     "note": "Thread hunts newer general-purpose config tools than Ansible; replies defend it"
+     "note": "Thread hunts newer general-purpose config tools than Ansible; replies defend it",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=39658149",
      "date": "2024-02",
      "stance": "pos",
-     "note": "Vault plus Ansible dynamic inventory and signed SSH workflow praised as practical"
+     "note": "Vault plus Ansible dynamic inventory and signed SSH workflow praised as practical",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=46449852",
      "date": "2026-02",
      "stance": "pos",
-     "note": "Enroll reverse-engineers live servers into roles; warmly received, Geerling approved"
+     "note": "Enroll reverse-engineers live servers into roles; warmly received, Geerling approved",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=46529507",
      "date": "2026-02",
      "stance": "pos",
-     "note": "dev-sec hardening collection described as battle-tested CIS baseline automation"
+     "note": "dev-sec hardening collection described as battle-tested CIS baseline automation",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=46170870",
      "date": "2026-01",
      "stance": "neu",
-     "note": "Self-hosted controller pitched as simpler than AAP, richer than Semaphore"
+     "note": "Self-hosted controller pitched as simpler than AAP, richer than Semaphore",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=43791941",
      "date": "2025-04",
      "stance": "pos",
-     "note": "Mac dev playbook keeps several machines reproducibly consistent, users report"
+     "note": "Mac dev playbook keeps several machines reproducibly consistent, users report",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=44335920",
      "date": "2025-06",
      "stance": "pos",
-     "note": "Cloud exit to Hetzner hardened entirely with Ansible; big cost savings"
+     "note": "Cloud exit to Hetzner hardened entirely with Ansible; big cost savings",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=45924481",
      "date": "2025-11",
      "stance": "neg",
-     "note": "Criticized as imperative YAML, no true rollback, push scaling pain"
+     "note": "Criticized as imperative YAML, no true rollback, push scaling pain",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=48008544",
      "date": "2026-06",
      "stance": "neg",
-     "note": "YAML fatigue thread; programmers prefer pyinfra for real language debugging"
+     "note": "YAML fatigue thread; programmers prefer pyinfra for real language debugging",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=40212701",
      "date": "2024-04",
      "stance": "neu",
-     "note": "Commenters contrast opaque Ansible abstractions with plain Python execution feedback"
+     "note": "Commenters contrast opaque Ansible abstractions with plain Python execution feedback",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1bqs1o3/retiring_ansible/",
      "date": "2024-03",
      "stance": "neu",
-     "note": "Team openly debates retiring Ansible; replies split on remaining value"
+     "note": "Team openly debates retiring Ansible; replies split on remaining value",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1c09ich/what_is_the_point_of_ansible_would_i_benefit_from/",
      "date": "2024-04",
      "stance": "neu",
-     "note": "Cloud-native crowd dismissive, yet many defend orchestration and legacy uses"
+     "note": "Cloud-native crowd dismissive, yet many defend orchestration and legacy uses",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/17ayinx/more_modern_alternative_to_ansible/",
      "date": "2023-10",
      "stance": "neu",
-     "note": "Asked for modern replacement; consensus says still great, just less fashionable"
+     "note": "Asked for modern replacement; consensus says still great, just less fashionable",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/14r3noc/what_do_you_guys_use_ansible_for/",
      "date": "2023-06",
      "stance": "pos",
-     "note": "Practitioners list external inventory generation and orchestration as strong wins"
+     "note": "Practitioners list external inventory generation and orchestration as strong wins",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/ansible/comments/18am3uf/ansible_in_2023/",
      "date": "2023-12",
      "stance": "pos",
-     "note": "Newcomer asks if worth learning; commenters strongly encourage pursuing it"
+     "note": "Newcomer asks if worth learning; commenters strongly encourage pursuing it",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/networking/comments/1afjvmm/worth_learning_ansible_or_go_to_something_else/",
      "date": "2024-02",
      "stance": "neu",
-     "note": "Worth learning for marketability but Python skills matter more, network engineers say"
+     "note": "Worth learning for marketability but Python skills matter more, network engineers say",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/ansible/comments/1lcerc5/lovehate_relationship_with_ansible_but_no/",
      "date": "2025-06",
      "stance": "neu",
-     "note": "Author describes love-hate relationship yet finds no acceptable replacement"
+     "note": "Author describes love-hate relationship yet finds no acceptable replacement",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/homelab/comments/1jkghfe/alternatives_to_ansible_that_are_more/",
      "date": "2025-03",
      "stance": "neg",
-     "note": "Homelabber seeks more programmable alternative, frustrated by playbook messiness"
+     "note": "Homelabber seeks more programmable alternative, frustrated by playbook messiness",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/125ezvw/web_developer_looking_to_specialize_in_devops/",
      "date": "2023-03",
      "stance": "pos",
-     "note": "Consultant expects Ansible alive and well for decades across sectors"
+     "note": "Consultant expects Ansible alive and well for decades across sectors",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/networking/comments/11w905l/is_ansible_over_rated/",
      "date": "2023-03",
      "stance": "neu",
-     "note": "Good at pushing state, weak for reactive scenarios; not overrated overall"
+     "note": "Good at pushing state, weak for reactive scenarios; not overrated overall",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -290,42 +310,48 @@
      "url": "https://www.reddit.com/r/sysadmin/comments/1bqkqiw/reasons_to_not_use_chef/",
      "date": "2024-03",
      "stance": "neg",
-     "note": "Thread collects reasons to avoid Chef entirely for new work"
+     "note": "Thread collects reasons to avoid Chef entirely for new work",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/sysadmin/comments/1pip1ui/at_some_point_in_the_past_10_years_configuration/",
      "date": "2025-11",
      "stance": "neu",
-     "note": "Retrospective on config management decline names Chef among fading tools"
+     "note": "Retrospective on config management decline names Chef among fading tools",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1ixrej1/what_are_competitors_of_chef/",
      "date": "2025-02",
      "stance": "neu",
-     "note": "Users shopping for Chef competitors; Ansible dominates the suggestions"
+     "note": "Users shopping for Chef competitors; Ansible dominates the suggestions",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/selfhosted/comments/1cm3zle/best_way_to_manage_multiple_linux_servers_git/",
      "date": "2024-05",
      "stance": "neu",
-     "note": "CINC surfaces as the free path for teams keeping cookbooks"
+     "note": "CINC surfaces as the free path for teams keeping cookbooks",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=43585354",
      "date": "2025-04",
      "stance": "neg",
-     "note": "Commenters call post-acquisition Chef a dumpster fire despite CINC existing"
+     "note": "Commenters call post-acquisition Chef a dumpster fire despite CINC existing",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=43585846",
      "date": "2025-04",
      "stance": "neu",
-     "note": "Explains Red Hat-style model: open source, EULA-gated official binaries"
+     "note": "Explains Red Hat-style model: open source, EULA-gated official binaries",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -537,84 +563,96 @@
      "url": "https://www.reddit.com/r/Puppet/comments/1glrhz5/open_source_puppet_updates_2025/",
      "date": "2024-11",
      "stance": "neu",
-     "note": "Community digests Perforce plan restricting free binaries and node counts"
+     "note": "Community digests Perforce plan restricting free binaries and node counts",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Puppet/comments/1md5qst/answering_questions_about_the_developer_eula/",
      "date": "2025-07",
      "stance": "neu",
-     "note": "Q&A thread untangling developer EULA terms for free Puppet usage"
+     "note": "Q&A thread untangling developer EULA terms for free Puppet usage",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Puppet/comments/1irdz1s/puppet_forge_account_api_key_now_needed_to_access",
      "date": "2025-02",
      "stance": "neg",
-     "note": "Users irritated that packages now require Forge account and API key"
+     "note": "Users irritated that packages now require Forge account and API key",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Puppet/comments/1je83k7/moving_to_open_source_licensing/",
      "date": "2025-03",
      "stance": "neu",
-     "note": "Admins weigh Puppet Core node limits against fully open alternatives"
+     "note": "Admins weigh Puppet Core node limits against fully open alternatives",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Puppet/comments/1i8zi9b/openvox_the_communitydriven_fork_of_puppet_has/?tl=th",
      "date": "2025-01",
      "stance": "pos",
-     "note": "OpenVox greeted as the only real open-source Puppet path forward"
+     "note": "OpenVox greeted as the only real open-source Puppet path forward",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Puppet/comments/1ld1x4m/pdk_is_now_behind_a_paywall/",
      "date": "2025-06",
      "stance": "neg",
-     "note": "Sharp complaint that development kit moved behind a paywall"
+     "note": "Sharp complaint that development kit moved behind a paywall",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Puppet/comments/1hkqzm2/puppets_open_source_community_plans_to_fork_the/",
      "date": "2024-12",
      "stance": "neg",
-     "note": "Community announces fork plans after concluding collaboration promises were hollow"
+     "note": "Community announces fork plans after concluding collaboration promises were hollow",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Puppet/comments/1i6t1nu/first_release_of_openvox_hot_off_the_presses/",
      "date": "2025-01",
      "stance": "pos",
-     "note": "First OpenVox release celebrated as drop-in replacement"
+     "note": "First OpenVox release celebrated as drop-in replacement",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Puppet/comments/1sayz1h/introducing_jig_an_open_and_free_reimplementation/",
      "date": "2026-04",
      "stance": "pos",
-     "note": "Community ships open Go reimplementation of the closed development kit"
+     "note": "Community ships open Go reimplementation of the closed development kit",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=42788336",
      "date": "2025-01",
      "stance": "neu",
-     "note": "Thread explains privatized packages, node caps, and the OpenVox response"
+     "note": "Thread explains privatized packages, node caps, and the OpenVox response",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=42790705",
      "date": "2025-01",
      "stance": "neu",
-     "note": "Discussion of fork news; commenters mostly resigned rather than angry"
+     "note": "Discussion of fork news; commenters mostly resigned rather than angry",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=42437070",
      "date": "2024-12",
      "stance": "neu",
-     "note": "Puppet framed as boring enterprise technology absent from startups"
+     "note": "Puppet framed as boring enterprise technology absent from startups",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -777,49 +815,56 @@
      "url": "https://www.reddit.com/r/saltstack/comments/1m514fm/is_salt_worth_learning_in_2025/",
      "date": "2025-07",
      "stance": "neu",
-     "note": "Mixed advice: yes if you need speed, otherwise pick Ansible"
+     "note": "Mixed advice: yes if you need speed, otherwise pick Ansible",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/saltstack/comments/1gu0mrs/why_are_so_many_posts_about_leaving_saltstack/",
      "date": "2024-11",
      "stance": "neg",
-     "note": "Subreddit itself notices the volume of departure posts"
+     "note": "Subreddit itself notices the volume of departure posts",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/saltstack/comments/12lhetb/someone_needs_to_fork_salt_vmware_has_all_but/",
      "date": "2023-04",
      "stance": "neg",
-     "note": "User calls for a fork, claiming VMware effectively abandoned Salt"
+     "note": "User calls for a fork, claiming VMware effectively abandoned Salt",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/saltstack/comments/1eih9pw/seeking_insights_on_the_current_status_and/",
      "date": "2024-07",
      "stance": "neu",
-     "note": "Thread seeks clarity on roadmap confusion after ownership changes"
+     "note": "Thread seeks clarity on roadmap confusion after ownership changes",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/saltstack/comments/1huj8kz/number_of_commits_to_salt_git_repo_for_last_year/",
      "date": "2024-12",
      "stance": "neg",
-     "note": "Commit-count analysis shows activity dropping after Broadcom staffing cuts"
+     "note": "Commit-count analysis shows activity dropping after Broadcom staffing cuts",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/saltstack/comments/1lwnnqd/salt_project_announcement_salt_300614_lts_and",
      "date": "2025-06",
      "stance": "neu",
-     "note": "Release announcement for LTS and STS lines keeps cadence visible"
+     "note": "Release announcement for LTS and STS lines keeps cadence visible",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/sysadmin/comments/1pip1ui/at_some_point_in_the_past_10_years_configuration/",
      "date": "2025-11",
      "stance": "neg",
-     "note": "Broadcom ownership cited as reason to distrust Salt long-term"
+     "note": "Broadcom ownership cited as reason to distrust Salt long-term",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -982,70 +1027,80 @@
      "url": "https://www.reddit.com/r/hashicorp/comments/15np9o8/hashicorp_license_change_hashicorp_adopts/",
      "date": "2023-08",
      "stance": "neg",
-     "note": "License-change thread full of anger about source-available restrictions"
+     "note": "License-change thread full of anger about source-available restrictions",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/hashicorp/comments/18oez0b/changes_to_hashicorp_packer_with_packer_110/",
      "date": "2023-12",
      "stance": "neu",
-     "note": "Users work through bundled-plugin removal in the 1.10 release"
+     "note": "Users work through bundled-plugin removal in the 1.10 release",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1ckopgu/is_there_an_opensource_fork_for_hashicorp_packer?tl=el",
      "date": "2024-05",
      "stance": "neu",
-     "note": "Asks for an OpenTofu-style Packer fork; answers point to mkosi, osbuild"
+     "note": "Asks for an OpenTofu-style Packer fork; answers point to mkosi, osbuild",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1qjaare/alternative_to_packer_for_kvm_say_hello_to_kvmage",
      "date": "2025-12",
      "stance": "neg",
-     "note": "New KVM tool pitched explicitly as post-license Packer replacement"
+     "note": "New KVM tool pitched explicitly as post-license Packer replacement",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1ogsxa4/raptor_build_disk_images_debian_liveboot_isos_and/",
      "date": "2025-10",
      "stance": "neu",
-     "note": "Author announces Rust image builder as layered Packer alternative"
+     "note": "Author announces Rust image builder as layered Packer alternative",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/wsl2/comments/1ibz48a/using_mkosi_to_create_a_distribution_tar_file/",
      "date": "2025-01",
      "stance": "neu",
-     "note": "Practitioner builds images with mkosi instead of Packer"
+     "note": "Practitioner builds images with mkosi instead of Packer",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/redhat/comments/1oisw0a/rhel_9_imagebuilder_blueprint_with_openscap_for",
      "date": "2025-10",
      "stance": "neu",
-     "note": "Uses Red Hat Image Builder blueprints with hardening instead of Packer"
+     "note": "Uses Red Hat Image Builder blueprints with hardening instead of Packer",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=40466931",
      "date": "2024-05",
      "stance": "neg",
-     "note": "Ask HN seeks Packer alternatives as part of leaving HashiCorp"
+     "note": "Ask HN seeks Packer alternatives as part of leaving HashiCorp",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=40467827",
      "date": "2024-05",
      "stance": "neu",
-     "note": "Reply argues Packer was feature-complete years ago, upgrades unnecessary"
+     "note": "Reply argues Packer was feature-complete years ago, upgrades unnecessary",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=40135303",
      "date": "2024-04",
      "stance": "neu",
-     "note": "Acquisition thread briefly questions futures of Packer and siblings"
+     "note": "Acquisition thread briefly questions futures of Packer and siblings",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -1194,91 +1249,104 @@
      "url": "https://www.reddit.com/r/hetzner/comments/1ojddq2/how_to_debug_cloudinit/",
      "date": "2025-10",
      "stance": "neu",
-     "note": "Asks how to debug cloud-init; answers list logs and status commands"
+     "note": "Asks how to debug cloud-init; answers list logs and status commands",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/vmware/comments/15noor0/cloudinit_i_dont_understand_how_it_works/",
      "date": "2023-08",
      "stance": "neg",
-     "note": "Admin frustrated, cannot understand how cloud-init actually works"
+     "note": "Admin frustrated, cannot understand how cloud-init actually works",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/redhat/comments/1lxz68b/cloudinit_seeking_help_little_lost/",
      "date": "2025-06",
      "stance": "neu",
-     "note": "User lost in module ordering; community walks through log inspection"
+     "note": "User lost in module ordering; community walks through log inspection",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Proxmox/comments/1ovhnoj/cloudinit_spin_up_a_debian_13_vm_with_docker_in_2/",
      "date": "2025-10",
      "stance": "pos",
-     "note": "Shares quick recipe spinning up Docker-ready Debian via cloud-init"
+     "note": "Shares quick recipe spinning up Docker-ready Debian via cloud-init",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Proxmox/comments/1uvl4qk/help_me_with_my_cloudinit_setup/",
      "date": "2026-07",
      "stance": "neg",
-     "note": "Hypervisor GUI overwrites custom user-data, causing repeated confusion"
+     "note": "Hypervisor GUI overwrites custom user-data, causing repeated confusion",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Fedora/comments/1pi3pi5/is_there_any_point_of_running_fedora_server/",
      "date": "2025-11",
      "stance": "neu",
-     "note": "Discussion contrasts cloud-init images with Ignition-based immutable systems"
+     "note": "Discussion contrasts cloud-init images with Ignition-based immutable systems",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/186l0ek/the_best_os_for_kubernetes/",
      "date": "2023-11",
      "stance": "neu",
-     "note": "Node OS debate weighs cloud-init against Ignition for cluster hosts"
+     "note": "Node OS debate weighs cloud-init against Ignition for cluster hosts",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/linuxquestions/comments/1k2ynao/what_are_some_things_on_windows_that_are_missing/",
      "date": "2025-04",
      "stance": "pos",
-     "note": "Cited as capability Linux has that Windows notably lacks"
+     "note": "Cited as capability Linux has that Windows notably lacks",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1n94l8q/combining_terraform_ansible_and_clousinit/",
      "date": "2025-09",
      "stance": "pos",
-     "note": "Endorses minimal cloud-init as handoff between Terraform and Ansible"
+     "note": "Endorses minimal cloud-init as handoff between Terraform and Ansible",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/15a2djg/how_to_handle_cloudinit_in_large_environnement/",
      "date": "2023-07",
      "stance": "neu",
-     "note": "Large-estate thread warns against monster user-data files"
+     "note": "Large-estate thread warns against monster user-data files",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1fpo4el/how_do_you_bootstrap_new_vms/",
      "date": "2024-09",
      "stance": "neu",
-     "note": "Bootstrap survey splits between baking images and booting with cloud-init"
+     "note": "Bootstrap survey splits between baking images and booting with cloud-init",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/homelab/comments/100sxyf/automating_proxmox_with_terraform_cloudinit_pxe/",
      "date": "2023-01",
      "stance": "pos",
-     "note": "Homelab automation writeup treats cloud-init as core enabling piece"
+     "note": "Homelab automation writeup treats cloud-init as core enabling piece",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/linuxadmin/comments/12dk1w0/someone_mind_helping_me_with_cloudinit/",
      "date": "2023-04",
      "stance": "neg",
-     "note": "Admin asks for help after silent cloud-init failure"
+     "note": "Admin asks for help after silent cloud-init failure",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -1406,140 +1474,160 @@
      "url": "https://www.reddit.com/r/devops/comments/1mqtq7p/hashicorp_vault_is_it_worth_it/",
      "date": "2025-07",
      "stance": "neu",
-     "note": "Thread concludes complexity is worthwhile only for genuine dynamic-secret needs"
+     "note": "Thread concludes complexity is worthwhile only for genuine dynamic-secret needs",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/selfhosted/comments/1p7ecat/hashicorp_vault/",
      "date": "2025-11",
      "stance": "neu",
-     "note": "Self-hosters trade notes on seal keys, Raft storage and policies"
+     "note": "Self-hosters trade notes on seal keys, Raft storage and policies",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/selfhosted/comments/1sjfupg/hashicorp_vault_alternative/",
      "date": "2026-04",
      "stance": "neg",
-     "note": "Author wants an alternative, citing unseal chicken-and-egg burden"
+     "note": "Author wants an alternative, citing unseal chicken-and-egg burden",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devsecops/comments/1re7shx/hashicorp_vault_does_anyone_use_it_in_prod_or_its/",
      "date": "2026-02",
      "stance": "neu",
-     "note": "Practitioners confirm production use while conceding steep operational cost"
+     "note": "Practitioners confirm production use while conceding steep operational cost",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1k70anc/what_is_the_current_stateoftheart_for_managing/",
      "date": "2025-04",
      "stance": "neu",
-     "note": "State-of-the-art thread says Vault often overkill versus managed stores"
+     "note": "State-of-the-art thread says Vault often overkill versus managed stores",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1fyxlc7/hashicorp_vault_dedicated_vs_k8s/",
      "date": "2024-09",
      "stance": "neu",
-     "note": "Top advice: avoid self-hosting Vault unless on-premises forces it"
+     "note": "Top advice: avoid self-hosting Vault unless on-premises forces it",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1f12lef/which_way_of_using_vault_is_better_on_the_outside",
      "date": "2024-08",
      "stance": "neu",
-     "note": "Debate on running Vault inside or outside the cluster for recoverability"
+     "note": "Debate on running Vault inside or outside the cluster for recoverability",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/homelab/comments/1pu33f5/hashicorp_vault",
      "date": "2025-11",
      "stance": "pos",
-     "note": "Homelabber calls Vault plus External Secrets awesome once running"
+     "note": "Homelabber calls Vault plus External Secrets awesome once running",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1jg1t8b/injecting_secrets_directly_into_pods_and_gitlab/",
      "date": "2025-03",
      "stance": "neg",
-     "note": "Agent injection turned seamless upgrades into multi-day coordination exercises"
+     "note": "Agent injection turned seamless upgrades into multi-day coordination exercises",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/sysadmin/comments/1t02txs/productionready_hashicorp_vault_on_kubernetes/",
      "date": "2026-05",
      "stance": "neu",
-     "note": "Production checklist thread: Raft, auto-unseal, snapshots, tested restores"
+     "note": "Production checklist thread: Raft, auto-unseal, snapshots, tested restores",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1j489fa/hashicorp_vault_as_pki",
      "date": "2025-03",
      "stance": "pos",
-     "note": "Users praise Vault PKI engine for short-lived certificate issuance"
+     "note": "Users praise Vault PKI engine for short-lived certificate issuance",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1krxppi/whats_the_use_of_tools_like_azure_key_vault_aws/",
      "date": "2025-04",
      "stance": "neu",
-     "note": "Beginner question draws pragmatic comparisons of Vault against managed services"
+     "note": "Beginner question draws pragmatic comparisons of Vault against managed services",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=44133909",
      "date": "2025-06",
      "stance": "neu",
-     "note": "OpenBao momentum debated; corporate contributors cited against sustainability doubts"
+     "note": "OpenBao momentum debated; corporate contributors cited against sustainability doubts",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=44132486",
      "date": "2025-06",
      "stance": "neu",
-     "note": "Commenters weigh community fork viability versus commercial Vault backing"
+     "note": "Commenters weigh community fork viability versus commercial Vault backing",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=44823027",
      "date": "2025-08",
      "stance": "neg",
-     "note": "Fork maintainers frustrated at exclusion from Vault security embargo lists"
+     "note": "Fork maintainers frustrated at exclusion from Vault security embargo lists",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=44821434",
      "date": "2025-08",
      "stance": "neu",
-     "note": "Discussion of independent vulnerability triage outside HashiCorp process"
+     "note": "Discussion of independent vulnerability triage outside HashiCorp process",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=38578247",
      "date": "2023-12",
      "stance": "neu",
-     "note": "Original fork announcement thread reacting to the license change"
+     "note": "Original fork announcement thread reacting to the license change",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=38580089",
      "date": "2023-12",
      "stance": "neu",
-     "note": "Parallel thread debating whether a Vault fork can survive"
+     "note": "Parallel thread debating whether a Vault fork can survive",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=41629168",
      "date": "2024-09",
      "stance": "neu",
-     "note": "Secrets-management thread lists Vault among heavier options versus SOPS"
+     "note": "Secrets-management thread lists Vault among heavier options versus SOPS",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=40149608",
      "date": "2024-04",
      "stance": "neu",
-     "note": "Commenters compare Vault complexity with simpler certificate and secret tools"
+     "note": "Commenters compare Vault complexity with simpler certificate and secret tools",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -1667,63 +1755,72 @@
      "url": "https://www.reddit.com/r/devops/comments/1rr3crv/a_workflow_for_encrypted_env_files_using_sops_age/",
      "date": "2026-02",
      "stance": "pos",
-     "note": "Author shares encrypted env-file workflow and recommends SOPS with age"
+     "note": "Author shares encrypted env-file workflow and recommends SOPS with age",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1kt9kz3/why_sops_or_sealed_secrets_over_any_external",
      "date": "2025-04",
      "stance": "neu",
-     "note": "Asks why choose SOPS over external stores; replies weigh both"
+     "note": "Asks why choose SOPS over external stores; replies weigh both",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1eyyqdv/storing_production_secrets_with_sops/",
      "date": "2024-08",
      "stance": "neu",
-     "note": "Production SOPS usage discussed with caveats about pipeline key access"
+     "note": "Production SOPS usage discussed with caveats about pipeline key access",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1k70anc/what_is_the_current_stateoftheart_for_managing/",
      "date": "2025-04",
      "stance": "neu",
-     "note": "SOPS recommended for bootstrapping before adopting heavier operators"
+     "note": "SOPS recommended for bootstrapping before adopting heavier operators",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1cqog1r/secrets_management_best_practice_on_k3s_chicken/",
      "date": "2024-05",
      "stance": "pos",
-     "note": "SOPS resolves the cluster bootstrap chicken-and-egg for small clusters"
+     "note": "SOPS resolves the cluster bootstrap chicken-and-egg for small clusters",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1mqotn6/is_there_a_better_way_to_store_secrets/",
      "date": "2025-07",
      "stance": "neu",
-     "note": "Comparison thread lists SOPS among the reasonable GitOps options"
+     "note": "Comparison thread lists SOPS among the reasonable GitOps options",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1i0gq2r/sealedsecrets_or_externalsecrets",
      "date": "2025-01",
      "stance": "neu",
-     "note": "SOPS raised as third option in sealed-versus-external debate"
+     "note": "SOPS raised as third option in sealed-versus-external debate",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=44636691",
      "date": "2025-07",
      "stance": "neu",
-     "note": "Commenters describe KMS-plus-SOPS as common pattern with rotation caveats"
+     "note": "Commenters describe KMS-plus-SOPS as common pattern with rotation caveats",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=36806756",
      "date": "2023-07",
      "stance": "neu",
-     "note": "Thread weighs SOPS against plain Kubernetes secrets and RBAC"
+     "note": "Thread weighs SOPS against plain Kubernetes secrets and RBAC",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -1850,91 +1947,104 @@
      "url": "https://www.reddit.com/r/kubernetes/comments/1oqsjyr/external_secrets_operator_is_now_ga_with_version",
      "date": "2025-10",
      "stance": "pos",
-     "note": "GA release greeted as confidence boost for organizational adoption"
+     "note": "GA release greeted as confidence boost for organizational adoption",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1rqc5p3/managing_external_secrets_in_production_kubernetes",
      "date": "2026-02",
      "stance": "pos",
-     "note": "Operators report running it happily across very large cluster fleets"
+     "note": "Operators report running it happily across very large cluster fleets",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1rklv79/external_secrets_operator_in_production",
      "date": "2026-02",
      "stance": "pos",
-     "note": "Production thread endorses operator with Secrets Manager backend"
+     "note": "Production thread endorses operator with Secrets Manager backend",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1i0gq2r/sealedsecrets_or_externalsecrets",
      "date": "2025-01",
      "stance": "neu",
-     "note": "Direct comparison lists pros and cons against sealed secrets"
+     "note": "Direct comparison lists pros and cons against sealed secrets",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1kt9kz3/why_sops_or_sealed_secrets_over_any_external",
      "date": "2025-04",
      "stance": "pos",
-     "note": "Replies favor the operator for less friction and easier rotation"
+     "note": "Replies favor the operator for less friction and easier rotation",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1n5mro3/eso_maintainer_update_next_steps/",
      "date": "2025-09",
      "stance": "neg",
-     "note": "Maintainer burnout update raises sustainability worries before community rescue"
+     "note": "Maintainer burnout update raises sustainability worries before community rescue",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1shkpf0/psa_if_your_k8s_operators_have_clusterrole_secret",
      "date": "2026-04",
      "stance": "neg",
-     "note": "PSA flags template-engine CVE and broad cluster secret permissions"
+     "note": "PSA flags template-engine CVE and broad cluster secret permissions",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1maptgy/anyone_using_externalsecrets_and_bitwarden",
      "date": "2025-07",
      "stance": "neu",
-     "note": "Users compare provider support quality for less common backends"
+     "note": "Users compare provider support quality for less common backends",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1m4jl1p/kcd_budapest_secret_rotation_using/",
      "date": "2025-07",
      "stance": "pos",
-     "note": "Conference talk demonstrates practical secret rotation with the operator"
+     "note": "Conference talk demonstrates practical secret rotation with the operator",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/golang/comments/1dny4e8/introducing_externalsecrets_bitwardensdkserver_so",
      "date": "2024-06",
      "stance": "neu",
-     "note": "Contributor announces provider bridge extending backend coverage"
+     "note": "Contributor announces provider bridge extending backend coverage",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1jkep3a/cloudnative_secret_management_oidc_in_k8s/",
      "date": "2025-03",
      "stance": "pos",
-     "note": "Praises workload identity so no long-lived credentials sit in clusters"
+     "note": "Praises workload identity so no long-lived credentials sit in clusters",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1mqotn6/is_there_a_better_way_to_store_secrets/",
      "date": "2025-07",
      "stance": "neu",
-     "note": "Recommended as the scalable answer once secret volume grows"
+     "note": "Recommended as the scalable answer once secret volume grows",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/17sn4ks/best_practices_for_securing_secrets/",
      "date": "2023-11",
      "stance": "neu",
-     "note": "Reminds readers synced secrets still land in etcd unencrypted"
+     "note": "Reminds readers synced secrets still land in etcd unencrypted",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -2076,42 +2186,48 @@
      "url": "https://www.reddit.com/r/kubernetes/comments/1i0gq2r/sealedsecrets_or_externalsecrets",
      "date": "2025-01",
      "stance": "neu",
-     "note": "Comparison thread weighs simplicity against rotation and multi-cluster limits"
+     "note": "Comparison thread weighs simplicity against rotation and multi-cluster limits",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1kt9kz3/why_sops_or_sealed_secrets_over_any_external",
      "date": "2025-04",
      "stance": "neu",
-     "note": "Asks why prefer sealing; replies mostly nudge toward external operators"
+     "note": "Asks why prefer sealing; replies mostly nudge toward external operators",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1plw2h3/github_eznix86kseal_cli_tool_to_view_export_and",
      "date": "2025-11",
      "stance": "pos",
-     "note": "New CLI author says all secrets stay sealed and safely committed"
+     "note": "New CLI author says all secrets stay sealed and safely committed",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1mn7qlq/sealedsecrets_future_because_of_bitnami_change/",
      "date": "2025-07",
      "stance": "neg",
-     "note": "Bitnami catalog changes trigger fear about the project's future"
+     "note": "Bitnami catalog changes trigger fear about the project's future",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1cqog1r/secrets_management_best_practice_on_k3s_chicken/",
      "date": "2024-05",
      "stance": "pos",
-     "note": "Recommended for small clusters wanting zero external dependencies"
+     "note": "Recommended for small clusters wanting zero external dependencies",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1mqotn6/is_there_a_better_way_to_store_secrets/",
      "date": "2025-07",
      "stance": "neu",
-     "note": "Listed as adequate for static secrets, weak for churn"
+     "note": "Listed as adequate for static secrets, weak for churn",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -2209,14 +2325,16 @@
      "url": "https://news.ycombinator.com/item?id=44608856",
      "date": "2025-07",
      "stance": "neu",
-     "note": "Commenters mention sealing among encryption-at-rest patterns for clusters"
+     "note": "Commenters mention sealing among encryption-at-rest patterns for clusters",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=36806756",
      "date": "2023-07",
      "stance": "pos",
-     "note": "Former maintainer defends write-only design while conceding UX gaps"
+     "note": "Former maintainer defends write-only design while conceding UX gaps",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -2295,168 +2413,192 @@
      "url": "https://www.reddit.com/r/aws/comments/1mgl85a/how_we_solved_environment_variable_chaos_for_40",
      "date": "2025-07",
      "stance": "neu",
-     "note": "Team describes taming config sprawl with Parameter Store patterns"
+     "note": "Team describes taming config sprawl with Parameter Store patterns",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1mgl9tl/how_we_solved_environment_variable_chaos_for_40",
      "date": "2025-07",
      "stance": "neu",
-     "note": "Cross-post discussion of managed secret store versus env files"
+     "note": "Cross-post discussion of managed secret store versus env files",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/16ohp7q/how_would_you_store_some_users_secrets/",
      "date": "2023-09",
      "stance": "neu",
-     "note": "Advice packs many values per secret to control per-secret cost"
+     "note": "Advice packs many values per secret to control per-secret cost",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1o9sj1t/using_aws_secrets_manager_as_a_password_vault_am/",
      "date": "2025-10",
      "stance": "neu",
-     "note": "Asks whether managed store fits password-vault use; answers mixed"
+     "note": "Asks whether managed store fits password-vault use; answers mixed",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/AWSCertifications/comments/1i1hwll/secretes_manager_of_paramter_store/",
      "date": "2025-01",
      "stance": "neu",
-     "note": "Learners taught to pick Parameter Store unless rotation is required"
+     "note": "Learners taught to pick Parameter Store unless rotation is required",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1oqjyiv/best_place_to_store_client_api_credentials/",
      "date": "2025-11",
      "stance": "neu",
-     "note": "Thread weighs managed secret stores for third-party API credentials"
+     "note": "Thread weighs managed secret stores for third-party API credentials",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1g0k6ju/pass_credentials_securely_to_lambda_instances",
      "date": "2024-10",
      "stance": "neu",
-     "note": "Discussion of securely delivering managed secrets into serverless functions"
+     "note": "Discussion of securely delivering managed secrets into serverless functions",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/AZURE/comments/1jvecks/easy_way_to_manage_secrets_for_free_or_very_low/",
      "date": "2025-03",
      "stance": "neg",
-     "note": "Developers annoyed Key Vault is not free for hobby projects"
+     "note": "Developers annoyed Key Vault is not free for hobby projects",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/AZURE/comments/1cy0xn4/best_practice_to_save_costs_on_key_vault/",
      "date": "2024-04",
      "stance": "neg",
-     "note": "Transaction-based pricing pushes teams to cache secrets aggressively"
+     "note": "Transaction-based pricing pushes teams to cache secrets aggressively",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1krxppi/whats_the_use_of_tools_like_azure_key_vault_aws/",
      "date": "2025-04",
      "stance": "neu",
-     "note": "Baseline question yields pragmatic defense of managed secret services"
+     "note": "Baseline question yields pragmatic defense of managed secret services",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/googlecloud/comments/1srwom6/google_cloud_detected_975_of_api_key_fraud_on_my/",
      "date": "2026-04",
      "stance": "neg",
-     "note": "Leaked key incident fuels distrust of platform billing safeguards"
+     "note": "Leaked key incident fuels distrust of platform billing safeguards",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/googlecloud/comments/1uyd99h/google_cloud_denied_waiver_after_cyberattack_debt",
      "date": "2026-07",
      "stance": "neg",
-     "note": "Denied waiver after credential compromise; author warns others away"
+     "note": "Denied waiver after credential compromise; author warns others away",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/googlecloud/comments/1stbypb/how_to_avoid_the_unexpected_costs_drama",
      "date": "2026-04",
      "stance": "neg",
-     "note": "Community advises hard credential hygiene because cost caps are absent"
+     "note": "Community advises hard credential hygiene because cost caps are absent",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1jc1tjj/aws_encryption_at_scale_with_kms/",
      "date": "2025-03",
      "stance": "neg",
-     "note": "Uncached envelope decrypts cost roughly three hundred dollars monthly"
+     "note": "Uncached envelope decrypts cost roughly three hundred dollars monthly",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1hb02md/kms_with_encryption_sdk_how_to_do_envelope/",
      "date": "2024-12",
      "stance": "neg",
-     "note": "Per-item KMS calls proved slow and expensive without caching manager"
+     "note": "Per-item KMS calls proved slow and expensive without caching manager",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1dv9vvj/aws_costs_skyrocketed_massively_after_enabling/",
      "date": "2024-06",
      "stance": "neg",
-     "note": "Enabling managed-key encryption tripled monthly bill within days"
+     "note": "Enabling managed-key encryption tripled monthly bill within days",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1hmk2sb/is_it_safe_to_enable_kms_keys_rotation_for/",
      "date": "2024-12",
      "stance": "neu",
-     "note": "Rotation deemed safe but adds storage cost at key scale"
+     "note": "Rotation deemed safe but adds storage cost at key scale",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1dy4bnp/i_nuked_my_aws_account_but_im_still_generating_6/",
      "date": "2024-06",
      "stance": "neg",
-     "note": "Locked-down key policy left unkillable keys generating residual charges"
+     "note": "Locked-down key policy left unkillable keys generating residual charges",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1e2mi1y/encryption_on_amazon_sns_is_not_working/",
      "date": "2024-07",
      "stance": "neg",
-     "note": "Encryption silently failed until exact service principal added to policy"
+     "note": "Encryption silently failed until exact service principal added to policy",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1nuck5c/eks_worker_nodes_failing_due_to_kms_key",
      "date": "2025-09",
      "stance": "neg",
-     "note": "Cluster nodes failed on cross-account key until grants were created"
+     "note": "Cluster nodes failed on cross-account key until grants were created",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1l7y4vh/high_integrity_kms_architecture_pattern_feedback/",
      "date": "2025-06",
      "stance": "neu",
-     "note": "Architect seeks review of no-human-access key management pattern"
+     "note": "Architect seeks review of no-human-access key management pattern",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1jjkmlu/storing_jwejws_keys_kms_vs_secrets_manager/",
      "date": "2025-03",
      "stance": "neu",
-     "note": "Algorithm limits push some key material out of managed KMS"
+     "note": "Algorithm limits push some key material out of managed KMS",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/dataengineering/comments/1fcxavi/endtoend_aws_kms_data_encryption_and_decryption",
      "date": "2024-09",
      "stance": "neg",
-     "note": "Per-file key design called ruinously expensive at modest scale"
+     "note": "Per-file key design called ruinously expensive at modest scale",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/15o92jx/kms_weird_kmsputkeypolicy",
      "date": "2023-08",
      "stance": "neg",
-     "note": "Dual authorization model produces baffling policy update failures"
+     "note": "Dual authorization model produces baffling policy update failures",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -2470,7 +2612,8 @@
      "url": "https://www.reddit.com/r/kubernetes/comments/1k70anc/what_is_the_current_stateoftheart_for_managing/",
      "date": "2025-04",
      "stance": "pos",
-     "note": "Managed cloud stores recommended over self-hosting for most teams"
+     "note": "Managed cloud stores recommended over self-hosting for most teams",
+     "date_approx": true
     }
    ]
   },

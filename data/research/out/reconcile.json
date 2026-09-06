@@ -14,105 +14,120 @@
      "url": "https://www.reddit.com/r/devops/comments/1w3ot1w/anyone_actually_running_argocdgitops_in_prod_hows/",
      "date": "2026-08",
      "stance": "pos",
-     "note": "Prod users call it hardened; single pane of glass praised."
+     "note": "Prod users call it hardened; single pane of glass praised.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/17myb2s/where_argocd_falls_short/",
      "date": "2023-11",
      "stance": "neg",
-     "note": "Falls short on visibility and scale for huge orgs."
+     "note": "Falls short on visibility and scale for huge orgs.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1gpk5jc/why_is_everyone_using_argocd/",
      "date": "2024-11",
      "stance": "neu",
-     "note": "Popular for onboarding, but OutOfSync debugging stays opaque."
+     "note": "Popular for onboarding, but OutOfSync debugging stays opaque.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1o1di1u/argo_cd_got_us_80_of_the_way_there_but_what_about/",
      "date": "2025-10",
      "stance": "neg",
-     "note": "Covers 80 percent; environment promotion still needs glue."
+     "note": "Covers 80 percent; environment promotion still needs glue.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1i3rzr5/why_do_you_need_gitops_tools_like_argocd_and_flux/",
      "date": "2025-01",
      "stance": "neu",
-     "note": "Thread weighs whether GitOps controllers are needed at all."
+     "note": "Thread weighs whether GitOps controllers are needed at all.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1d4xjr5/should_i_use_argocd_to_deploy_all_services_in_k8s/",
      "date": "2024-06",
      "stance": "neu",
-     "note": "Asks whether every service belongs in Argo CD."
+     "note": "Asks whether every service belongs in Argo CD.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/ArgoCD/comments/1pi72jy/kargo_argo_cd_promotion_is_it_production_ready/",
      "date": "2025-12",
      "stance": "neu",
-     "note": "Teams eye Kargo because promotion is unsolved natively."
+     "note": "Teams eye Kargo because promotion is unsolved natively.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/ArgoCD/comments/1ruf5he/how_are_you_structuring_argocd_at_scale/",
      "date": "2026-03",
      "stance": "neu",
-     "note": "Scale structuring advice converges on ApplicationSets."
+     "note": "Scale structuring advice converges on ApplicationSets.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/ArgoCD/comments/1e229kd/beginners_guide_with_comparison_argocd_vs_fluxcd/",
      "date": "2024-07",
      "stance": "neu",
-     "note": "Beginner comparison; Argo for apps, Flux for platform."
+     "note": "Beginner comparison; Argo for apps, Flux for platform.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1ulds3b/how_would_you_predict_when_a_gitops_hub_becomes/",
      "date": "2026-06",
      "stance": "neg",
-     "note": "Central hub becomes a bottleneck; HA upkeep too heavy."
+     "note": "Central hub becomes a bottleneck; HA upkeep too heavy.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=44902063",
      "date": "2025-08",
      "stance": "neu",
-     "note": "Cited as majority-adopted GitOps solution in CNCF survey."
+     "note": "Cited as majority-adopted GitOps solution in CNCF survey.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=41433952",
      "date": "2024-09",
      "stance": "neu",
-     "note": "Clarifies Argo CD deploys but does not replace CI."
+     "note": "Clarifies Argo CD deploys but does not replace CI.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=41192566",
      "date": "2024-08",
      "stance": "pos",
-     "note": "App-of-apps plus Renovate bootstrapping shared as working pattern."
+     "note": "App-of-apps plus Renovate bootstrapping shared as working pattern.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=37556719",
      "date": "2023-09",
      "stance": "neu",
-     "note": "Kargo introduced to fill multi-stage promotion gap."
+     "note": "Kargo introduced to fill multi-stage promotion gap.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=46494430",
      "date": "2026-01",
      "stance": "neg",
-     "note": "Commenter prefers Terraform for better plan and destroy semantics."
+     "note": "Commenter prefers Terraform for better plan and destroy semantics.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -277,91 +292,104 @@
      "url": "https://www.reddit.com/r/kubernetes/comments/1il9d9q/fluxcd_useful_features/",
      "date": "2025-02",
      "stance": "pos",
-     "note": "Users list dependsOn, health checks and image automation favourably."
+     "note": "Users list dependsOn, health checks and image automation favourably.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1rkkdgg/flux_cd_deep_dive_architecture_crds_and_mental/",
      "date": "2026-03",
      "stance": "pos",
-     "note": "Long-time users call it cleaner and less complex than Argo."
+     "note": "Long-time users call it cleaner and less complex than Argo.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1fy9w2k/new_release_pi_cluster_project_19_gitops_tool/",
      "date": "2024-10",
      "stance": "pos",
-     "note": "Pi Cluster project switched from Argo CD for Helm consistency."
+     "note": "Pi Cluster project switched from Argo CD for Helm consistency.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/sre/comments/1nubhxc/using_flux_cd_to_actually_deploy_ml_models_in/",
      "date": "2025-09",
      "stance": "pos",
-     "note": "OCIRepository used to ship ML models with real provenance."
+     "note": "OCIRepository used to ship ML models with real provenance.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1j9m657/how_to_setup_preview_environments_with_fluxcd_in/",
      "date": "2025-03",
      "stance": "pos",
-     "note": "ResourceSets make PR-driven preview environments workable."
+     "note": "ResourceSets make PR-driven preview environments workable.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/homelab/comments/1rinbr1/how_fluxcd_works_and_how_i_use_it_to",
      "date": "2026-03",
      "stance": "pos",
-     "note": "Homelab walkthrough; author happily rebuilds namespaces from Git."
+     "note": "Homelab walkthrough; author happily rebuilds namespaces from Git.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/11t8tbp/thank_you_weaveworks/",
      "date": "2023-03",
      "stance": "pos",
-     "note": "Appreciation thread calls Weaveworks tooling exceptionally polished."
+     "note": "Appreciation thread calls Weaveworks tooling exceptionally polished.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/16fr3id/those_who_have_chosen_between_argo_and_flux_which",
      "date": "2023-09",
      "stance": "neu",
-     "note": "Choice framed as UI convenience versus controller simplicity."
+     "note": "Choice framed as UI convenience versus controller simplicity.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/17kjlgg/fluxcd_vs_argocd/",
      "date": "2023-10",
      "stance": "neu",
-     "note": "Comparison thread repeatedly flags missing native dashboard."
+     "note": "Comparison thread repeatedly flags missing native dashboard.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/GitOps/comments/1qpa5e0/transitioning_to_gitops_with_fluxcd_seeking",
      "date": "2026-01",
      "stance": "neu",
-     "note": "Rollback past fifty services needs disciplined repo structure."
+     "note": "Rollback past fifty services needs disciplined repo structure.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/10m3190/gitlab_deciding_between_argocd_and_flux_spoiler",
      "date": "2023-01",
      "stance": "pos",
-     "note": "GitLab publicly picked Flux after its own evaluation."
+     "note": "GitLab publicly picked Flux after its own evaluation.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1fyxot0/comparing_gitops_argo_cd_vs_flux_cd",
      "date": "2024-10",
      "stance": "neu",
-     "note": "Side-by-side comparison without declaring a winner."
+     "note": "Side-by-side comparison without declaring a winner.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=39265507",
      "date": "2024-02",
      "stance": "neu",
-     "note": "Ex-Weaveworks maintainer explains Flux v1 support history."
+     "note": "Ex-Weaveworks maintainer explains Flux v1 support history.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -531,91 +559,104 @@
      "url": "https://www.reddit.com/r/devops/comments/1qj4721/fuckity_fuck_fuck_fuck_fuck_fuck_i_hate_helm/",
      "date": "2025-12",
      "stance": "neg",
-     "note": "Profanity-titled rant; whitespace-sensitive templating called a sin."
+     "note": "Profanity-titled rant; whitespace-sensitive templating called a sin.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/programming/comments/18ie6dh/pitfalls_of_helm_insights_from_3_yrs_with_the/",
      "date": "2023-12",
      "stance": "neg",
-     "note": "Three years in: string-templating structured data was a mistake."
+     "note": "Three years in: string-templating structured data was a mistake.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1d3cima/talm_is_like_helm_but_for_talos_linux/",
      "date": "2024-06",
      "stance": "neg",
-     "note": "Nested charts and giant _helpers.tpl files called indefensible."
+     "note": "Nested charts and giant _helpers.tpl files called indefensible.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1cgscyb/the_good_the_bad_and_the_ugly_of_templating_yaml",
      "date": "2024-05",
      "stance": "neu",
-     "note": "Balanced look at YAML templating tradeoffs across tools."
+     "note": "Balanced look at YAML templating tradeoffs across tools.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1juqaz3/koreo_the_platform_engineering_toolkit_for/",
      "date": "2025-04",
      "stance": "neg",
-     "note": "Bitnami chart changes and values-schema gotchas pushed users away."
+     "note": "Bitnami chart changes and values-schema gotchas pushed users away.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1ayt7hl/to_kustomize_or_to_helm_which_manifest_tooling_do",
      "date": "2024-02",
      "stance": "neu",
-     "note": "Consensus: Helm for packaging, Kustomize for overlays."
+     "note": "Consensus: Helm for packaging, Kustomize for overlays.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1gk553t/kustomize_vs_helm/",
      "date": "2024-11",
      "stance": "neu",
-     "note": "Comparison thread lands on hybrid usage rather than winner."
+     "note": "Comparison thread lands on hybrid usage rather than winner.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1jqd4pb/werfnelm_nelm_is_a_helm_3_alternative",
      "date": "2025-04",
      "stance": "neg",
-     "note": "Nelm welcomed for fixing Helm's CRD and apply semantics."
+     "note": "Nelm welcomed for fixing Helm's CRD and apply semantics.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1jrcs1f/helm_is_a_pain_so_i_built_yoke_a_codefirst",
      "date": "2025-04",
      "stance": "neg",
-     "note": "Author built a code-first replacement out of frustration."
+     "note": "Author built a code-first replacement out of frustration.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1m29jlh/anemos_open_source_single_binary_cli_tool_to",
      "date": "2025-07",
      "stance": "neg",
-     "note": "Another escape hatch tool advertising Helm chart migration."
+     "note": "Another escape hatch tool advertising Helm chart migration.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1ertzwb/helmchart_got_hard_to_manage_what_now",
      "date": "2024-08",
      "stance": "neg",
-     "note": "Poster's charts became unmanageable and seeks alternatives."
+     "note": "Poster's charts became unmanageable and seeks alternatives.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/relnx/comments/1r0nmwc/kustomize_v581_released_fixes_for_helm_v4",
      "date": "2026-02",
      "stance": "neu",
-     "note": "Kustomize release notes fixing Helm v4 interop."
+     "note": "Kustomize release notes fixing Helm v4 interop.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=45902604",
      "date": "2025-11",
      "stance": "neg",
-     "note": "Helm 4 thread pivots to complaints about templating complexity."
+     "note": "Helm 4 thread pivots to complaints about templating complexity.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -767,77 +808,88 @@
      "url": "https://www.reddit.com/r/kubernetes/comments/1nkx8kl/kustomize_whats_with_all_the_patching/",
      "date": "2025-09",
      "stance": "neg",
-     "note": "Heavy patching called more brittle than Helm at scale."
+     "note": "Heavy patching called more brittle than Helm at scale.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1ru4d92/re_the_post_from_a_few_about_a_month_ago_about/",
      "date": "2026-03",
      "stance": "neg",
-     "note": "Thousands of files; power users cope, regular devs cannot."
+     "note": "Thousands of files; power users cope, regular devs cannot.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1ayt7hl/to_kustomize_or_to_helm_which_manifest_tooling_do",
      "date": "2024-02",
      "stance": "pos",
-     "note": "Preferred for simple env deltas without inventing schemas."
+     "note": "Preferred for simple env deltas without inventing schemas.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1gk553t/kustomize_vs_helm/",
      "date": "2024-11",
      "stance": "neu",
-     "note": "Comparison thread recommends learning and combining both."
+     "note": "Comparison thread recommends learning and combining both.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1r931u2/kustomize_is_it_the_best",
      "date": "2026-02",
      "stance": "neu",
-     "note": "Open question thread on whether Kustomize is actually best."
+     "note": "Open question thread on whether Kustomize is actually best.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1o7mez8/how_to_customize_a_helm_rendered_manifest",
      "date": "2025-10",
      "stance": "neu",
-     "note": "Hybrid Kustomize-over-rendered-Helm pattern discussed as popular."
+     "note": "Hybrid Kustomize-over-rendered-Helm pattern discussed as popular.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1g5rl8o/applying_kustomize_changes_from_one_env_to_another/",
      "date": "2024-10",
      "stance": "neg",
-     "note": "Promoting base changes across overlays is awkward friction."
+     "note": "Promoting base changes across overlays is awkward friction.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/ArgoCD/comments/1j2e0r2/patch_helm_generated_yaml_files_using_kustomize/",
      "date": "2025-03",
      "stance": "neu",
-     "note": "Using Kustomize to post-patch Helm output in Argo CD."
+     "note": "Using Kustomize to post-patch Helm output in Argo CD.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/relnx/comments/1r0nmwc/kustomize_v581_released_fixes_for_helm_v4",
      "date": "2026-02",
      "stance": "neu",
-     "note": "Active release cadence; v5.8.1 fixes Helm v4 interop."
+     "note": "Active release cadence; v5.8.1 fixes Helm v4 interop.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1cgscyb/the_good_the_bad_and_the_ugly_of_templating_yaml",
      "date": "2024-05",
      "stance": "neu",
-     "note": "Positioned as structural alternative to string templating."
+     "note": "Positioned as structural alternative to string templating.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=45902604",
      "date": "2025-11",
      "stance": "pos",
-     "note": "Helm 4 commenters repeatedly prefer Kustomize for org-internal config."
+     "note": "Helm 4 commenters repeatedly prefer Kustomize for org-internal config.",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -1001,91 +1053,104 @@
      "url": "https://news.ycombinator.com/item?id=35325488",
      "date": "2023-03",
      "stance": "neu",
-     "note": "Debugging where a value originated is hard without tooling."
+     "note": "Debugging where a value originated is hard without tooling.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=35328999",
      "date": "2023-03",
      "stance": "neg",
-     "note": "Blunt warning against adding an esoteric unsupported language."
+     "note": "Blunt warning against adding an esoteric unsupported language.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=35329642",
      "date": "2023-03",
      "stance": "neu",
-     "note": "Team picked Starlark over Jsonnet, Dhall and CUE."
+     "note": "Team picked Starlark over Jsonnet, Dhall and CUE.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=36185943",
      "date": "2023-06",
      "stance": "neu",
-     "note": "Thread on three-way config language comparison; sparse discussion."
+     "note": "Thread on three-way config language comparison; sparse discussion.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=39243997",
      "date": "2024-02",
      "stance": "pos",
-     "note": "Commenter prefers Jsonnet plus JSON Schema over newer options."
+     "note": "Commenter prefers Jsonnet plus JSON Schema over newer options.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=41134097",
      "date": "2024-08",
      "stance": "neg",
-     "note": "Lumped into the templating hellscape with Helm and Jinja."
+     "note": "Lumped into the templating hellscape with Helm and Jinja.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=45967995",
      "date": "2025-11",
      "stance": "neu",
-     "note": "Ranked among worthwhile config languages beyond plain JSON."
+     "note": "Ranked among worthwhile config languages beyond plain JSON.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=46646487",
      "date": "2026-02",
      "stance": "pos",
-     "note": "Ported thousands of config lines; no bugs, nobody complained."
+     "note": "Ported thousands of config lines; no bugs, nobody complained.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/programming/comments/140f1a9/taming_the_beast_comparing_jsonnet_dhall_cue",
      "date": "2023-06",
      "stance": "neu",
-     "note": "Comparison thread; some find the DSL rough for their needs."
+     "note": "Comparison thread; some find the DSL rough for their needs.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1j8w66n/helm_jsonnet_template_functional_what_do_you_think",
      "date": "2025-03",
      "stance": "pos",
-     "note": "Working on real objects beats Helm's string templating."
+     "note": "Working on real objects beats Helm's string templating.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/grafana/comments/1ip88wp/jsonnet_grafonnet_automate_scale_grafana",
      "date": "2025-02",
      "stance": "pos",
-     "note": "Grafonnet praised for scaling dashboards as code."
+     "note": "Grafonnet praised for scaling dashboards as code.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1cgscyb/the_good_the_bad_and_the_ugly_of_templating_yaml",
      "date": "2024-05",
      "stance": "neu",
-     "note": "Cited as structured-config option against Go templates."
+     "note": "Cited as structured-config option against Go templates.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1nv0fsu/recommendations_for_grafanalokiprometheus_chart",
      "date": "2025-09",
      "stance": "neu",
-     "note": "Jsonnet mixins raised among Grafana stack deployment options."
+     "note": "Jsonnet mixins raised among Grafana stack deployment options.",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -1222,35 +1287,40 @@
      "url": "https://www.reddit.com/r/kubernetes/comments/1cgdikd/are_things_like_argo_cdargo_rollouts_really_a/",
      "date": "2024-04",
      "stance": "neu",
-     "note": "Likes the capability, questions whether complexity is justified."
+     "note": "Likes the capability, questions whether complexity is justified.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1ug2n9w/debugging_a_canary_pipeline_broken_for_69_days/",
      "date": "2026-06",
      "stance": "neg",
-     "note": "Canary silently aborted 69 days from a successCondition type bug."
+     "note": "Canary silently aborted 69 days from a successCondition type bug.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1gcvlz0/argo_rollouts_canary",
      "date": "2024-10",
      "stance": "neu",
-     "note": "Teams struggle to define which two metrics mean healthy."
+     "note": "Teams struggle to define which two metrics mean healthy.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1apz07z/flagger_vs_argo_rollouts_vs_service_meshes_a",
      "date": "2024-02",
      "stance": "neu",
-     "note": "Rollouts seen as more explicit, needs Deployment migration."
+     "note": "Rollouts seen as more explicit, needs Deployment migration.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1o1di1u/argo_cd_got_us_80_of_the_way_there_but_what_about/",
      "date": "2025-10",
      "stance": "neu",
-     "note": "Named as the bolt-on filling Argo CD's delivery gap."
+     "note": "Named as the bolt-on filling Argo CD's delivery gap.",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -1449,35 +1519,40 @@
      "url": "https://www.reddit.com/r/kubernetes/comments/1apz07z/flagger_vs_argo_rollouts_vs_service_meshes_a",
      "date": "2024-02",
      "stance": "neu",
-     "note": "Architecture is the differentiator; neither tool is bad."
+     "note": "Architecture is the differentiator; neither tool is bad.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/13pv0rm/realworld_gitops_with_flux_flagger_and_linkerd",
      "date": "2023-05",
      "stance": "pos",
-     "note": "Flux plus Flagger plus Linkerd shared as working real stack."
+     "note": "Flux plus Flagger plus Linkerd shared as working real stack.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/12wajhi/service_mesh_customers_out_there",
      "date": "2023-04",
      "stance": "pos",
-     "note": "Linkerd plus Flagger praised for low operational overhead."
+     "note": "Linkerd plus Flagger praised for low operational overhead.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/octopusdeploy/comments/1k0y073/how_we_progressively_deliver_changes_to",
      "date": "2025-04",
      "stance": "neu",
-     "note": "Traffic shifting positioned as complement to feature flags."
+     "note": "Traffic shifting positioned as complement to feature flags.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/t7hu75/a_deep_dive_to_canary_deployments_with_flagger",
      "date": "2023-01",
      "stance": "pos",
-     "note": "Deep-dive shared and received as valuable after setup."
+     "note": "Deep-dive shared and received as valuable after setup.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -1681,84 +1756,96 @@
      "url": "https://www.reddit.com/r/programming/comments/1m0pf7l/backstage_is_at_the_peak_of_its_hype/",
      "date": "2025-07",
      "stance": "neg",
-     "note": "Commenters call ROI terrible and maintenance far from trivial."
+     "note": "Commenters call ROI terrible and maintenance far from trivial.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/sre/comments/1m7j1y0/developer_portals",
      "date": "2025-07",
      "stance": "neg",
-     "note": "Run away unless you enjoy debugging random yarn build failures."
+     "note": "Run away unless you enjoy debugging random yarn build failures.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1nzlg8o/backstage_vs_other_developer_portals",
      "date": "2025-10",
      "stance": "neg",
-     "note": "Called a bloated beast with per-release breaking changes."
+     "note": "Called a bloated beast with per-release breaking changes.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1jn5804/platform_engineering_in_action_with_backstage/",
      "date": "2025-04",
      "stance": "neg",
-     "note": "Team needed headcount larger than any product team."
+     "note": "Team needed headcount larger than any product team.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/sre/comments/15bkatu/anyone_triedthought_about_backstageio_but_decided",
      "date": "2023-07",
      "stance": "neg",
-     "note": "Teams evaluated it then deliberately decided against adopting."
+     "note": "Teams evaluated it then deliberately decided against adopting.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1cy9x6o/why_people_say_backstage_is_difficult/",
      "date": "2024-05",
      "stance": "neg",
-     "note": "Thread catalogues why the framework is considered difficult."
+     "note": "Thread catalogues why the framework is considered difficult.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/SoftwareEngineering/comments/1feei3o/are_internal_developer_portals_useful/",
      "date": "2024-09",
      "stance": "neu",
-     "note": "Some spent more time maintaining the portal than improving workflows."
+     "note": "Some spent more time maintaining the portal than improving workflows.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1dyb1f1/which_internal_developer_portal_should_we_use/?tl=zh-hans",
      "date": "2024-07",
      "stance": "neu",
-     "note": "Advice: small teams should skip heavy Backstage entirely."
+     "note": "Advice: small teams should skip heavy Backstage entirely.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/platform_engineering/comments/17uwvpt/what_do_you_use_as_a_developer_portal_what",
      "date": "2023-11",
      "stance": "neu",
-     "note": "Survey thread of what portals teams actually run."
+     "note": "Survey thread of what portals teams actually run.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/18h7jt9/idp_internal_developer_platform_recommendations/?tl=vi",
      "date": "2023-12",
      "stance": "neu",
-     "note": "Recommendation thread weighing self-hosted against managed."
+     "note": "Recommendation thread weighing self-hosted against managed.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=40258315",
      "date": "2024-05",
      "stance": "neu",
-     "note": "Big orgs report success; mid-size say you need a Backstage team."
+     "note": "Big orgs report success; mid-size say you need a Backstage team.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=48077324",
      "date": "2026-06",
      "stance": "pos",
-     "note": "Spotify Portal credited with cutting agent token usage sharply."
+     "note": "Spotify Portal credited with cutting agent token usage sharply.",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -1904,77 +1991,88 @@
      "url": "https://www.reddit.com/r/devops/comments/1qjbjiz/what_happened_to_getportio",
      "date": "2025-12",
      "stance": "neu",
-     "note": "Thread clarifies only Ocean was open source, not Port."
+     "note": "Thread clarifies only Ocean was open source, not Port.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/sre/comments/1m7j1y0/developer_portals",
      "date": "2025-07",
      "stance": "pos",
-     "note": "Recommended for teams lacking capacity to own Backstage."
+     "note": "Recommended for teams lacking capacity to own Backstage.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/SoftwareEngineering/comments/1feei3o/are_internal_developer_portals_useful/",
      "date": "2024-09",
      "stance": "pos",
-     "note": "Orgs tired of maintaining Backstage reported moving to Port."
+     "note": "Orgs tired of maintaining Backstage reported moving to Port.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1dyb1f1/which_internal_developer_portal_should_we_use/?tl=zh-hans",
      "date": "2024-07",
      "stance": "pos",
-     "note": "Suggested as off-the-shelf option for smaller teams."
+     "note": "Suggested as off-the-shelf option for smaller teams.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1cy9x6o/why_people_say_backstage_is_difficult/",
      "date": "2024-05",
      "stance": "neu",
-     "note": "Commenter reviewed the site and liked the pricing model."
+     "note": "Commenter reviewed the site and liked the pricing model.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1nzlg8o/backstage_vs_other_developer_portals",
      "date": "2025-10",
      "stance": "neu",
-     "note": "Listed among managed alternatives in portal shootout thread."
+     "note": "Listed among managed alternatives in portal shootout thread.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/platform_engineering/comments/17uwvpt/what_do_you_use_as_a_developer_portal_what",
      "date": "2023-11",
      "stance": "neu",
-     "note": "Named when practitioners share what portals they run."
+     "note": "Named when practitioners share what portals they run.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/u_vaibhavgupta0702/comments/18nlbcy/port_vs_backstage_which_internal_developer_portal/",
      "date": "2023-12",
      "stance": "neu",
-     "note": "Third-party Port versus Backstage write-up shared."
+     "note": "Third-party Port versus Backstage write-up shared.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/u_Port_IO/comments/1f1lxrj/shift_left_broken_paths_and_endless_devops_tasks/",
      "date": "2024-08",
      "stance": "neu",
-     "note": "Vendor-authored post on reducing DevOps ticket load."
+     "note": "Vendor-authored post on reducing DevOps ticket load.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/u_Port_IO/comments/1f1lubk/internal_developer_portals_let_developers_code_in/",
      "date": "2024-08",
      "stance": "neu",
-     "note": "Vendor post promoting free trial and portal concept."
+     "note": "Vendor post promoting free trial and portal concept.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/u_Port_IO/comments/1ian0fy/quickly_integrate_popular_tools_into_backstage/",
      "date": "2025-01",
      "stance": "neu",
-     "note": "Vendor markets tooling to speed Backstage integrations too."
+     "note": "Vendor markets tooling to speed Backstage integrations too.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -2145,21 +2243,24 @@
      "url": "https://www.reddit.com/r/devops/comments/1kfcpze/does_anyone_here_use_humanitec_feedback_wanted",
      "date": "2025-05",
      "stance": "neg",
-     "note": "Feedback request drew almost no users; one flat refusal."
+     "note": "Feedback request drew almost no users; one flat refusal.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/platformengineering/comments/1flzeg0/anyone_taken_this_platform_engineering/",
      "date": "2024-09",
      "stance": "neu",
-     "note": "Course praised for depth but suspected of being a sales vehicle."
+     "note": "Course praised for depth but suspected of being a sales vehicle.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/18h7jt9/idp_internal_developer_platform_recommendations/?tl=vi",
      "date": "2023-12",
      "stance": "neu",
-     "note": "Appears as commercial orchestrator option with lock-in caveats."
+     "note": "Appears as commercial orchestrator option with lock-in caveats.",
+     "date_approx": true
     },
     {
      "source": "article",

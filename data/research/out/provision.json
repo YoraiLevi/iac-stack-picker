@@ -14,91 +14,104 @@
      "url": "https://www.reddit.com/r/Terraform/comments/1ldu1wq/i_hate_terraform/",
      "date": "2025-06",
      "stance": "neg",
-     "note": "Overengineered modules and HCL footguns dominate daily work."
+     "note": "Overengineered modules and HCL footguns dominate daily work.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1kcbby4/pain_points_while_using_terraform",
      "date": "2025-05",
      "stance": "neg",
-     "note": "for_each keys must be known at plan time."
+     "note": "for_each keys must be known at plan time.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1pm1hd5/if_youve_ever_had_terraform_state_file_nightmares/",
      "date": "2025-11",
      "stance": "neg",
-     "note": "State corruption still causes 2am production panics."
+     "note": "State corruption still causes 2am production panics.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1je60w4/hashicorp_has_removed_the_500_free_resources_from/",
      "date": "2025-03",
      "stance": "neg",
-     "note": "HCP Terraform free-tier resource quota was cut."
+     "note": "HCP Terraform free-tier resource quota was cut.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1o086al/your_honest_thoughts_on_terraform/",
      "date": "2025-10",
      "stance": "pos",
-     "note": "Still the gold standard when used with discipline."
+     "note": "Still the gold standard when used with discipline.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1i194v0/do_you_guys_enjoy_writing_terraform",
      "date": "2025-01",
      "stance": "neu",
-     "note": "Enjoyment splits between clean code and inherited messes."
+     "note": "Enjoyment splits between clean code and inherited messes.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1msieme/why_writing_terraform_with_ai_agents_sucks_and/",
      "date": "2025-08",
      "stance": "neg",
-     "note": "AI agents emit invalid HCL amid rapid provider churn."
+     "note": "AI agents emit invalid HCL amid rapid provider churn.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1fmlbut/functional_differences_between_terraform_and/",
      "date": "2024-09",
      "stance": "neu",
-     "note": "Teams freeze Terraform versions then migrate to OpenTofu."
+     "note": "Teams freeze Terraform versions then migrate to OpenTofu.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=39183668",
      "date": "2024-01",
      "stance": "neg",
-     "note": "Done writing infrastructure in HCL pseudo-languages."
+     "note": "Done writing infrastructure in HCL pseudo-languages.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=39183668",
      "date": "2024-01",
      "stance": "pos",
-     "note": "HCL is a straightforward declarative DSL with clear docs."
+     "note": "HCL is a straightforward declarative DSL with clear docs.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/150ehx9/why_use_terraform_over_cloudformation/",
      "date": "2023-07",
      "stance": "pos",
-     "note": "Prefer Terraform over CloudFormation for flexibility."
+     "note": "Prefer Terraform over CloudFormation for flexibility.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1cgugl1/think_about_move_from_cloudformation_to_terraform/",
      "date": "2024-04",
      "stance": "pos",
-     "note": "Import, state rm, and targeted apply beat CloudFormation."
+     "note": "Import, state rm, and targeted apply beat CloudFormation.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/17yvgyi/top_pros_vs_cons_mainly_looking_for_cons_in_using/",
      "date": "2023-11",
      "stance": "neg",
-     "note": "No continuous reconciliation unlike Kubernetes controllers."
+     "note": "No continuous reconciliation unlike Kubernetes controllers.",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -119,28 +132,32 @@
      "url": "https://news.ycombinator.com/item?id=40003692",
      "date": "2024-04",
      "stance": "neg",
-     "note": "HashiCorp C&D against OpenTofu looks like intimidation."
+     "note": "HashiCorp C&D against OpenTofu looks like intimidation.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1ps5058/which_infrastructure_as_code_tools_are_actually",
      "date": "2025-12",
      "stance": "pos",
-     "note": "Nobody gets fired for choosing Terraform by default."
+     "note": "Nobody gets fired for choosing Terraform by default.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1h8n0lr/cloudformation_is_cool_but_somehow_terraform",
      "date": "2024-12",
      "stance": "pos",
-     "note": "Terraform is easier to live with than CloudFormation YAML."
+     "note": "Terraform is easier to live with than CloudFormation YAML.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1lelq6z/just_hit_a_terraform_personal_record",
      "date": "2025-06",
      "stance": "neg",
-     "note": "Slow applies and flaky providers set painful personal records."
+     "note": "Slow applies and flaky providers set painful personal records.",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -154,14 +171,16 @@
      "url": "https://www.reddit.com/r/Terraform/comments/1o15vgt/fidelity_investments_shares_its_migration_story/",
      "date": "2025-10",
      "stance": "neu",
-     "note": "Fidelity story framed as licensing, not technical failure."
+     "note": "Fidelity story framed as licensing, not technical failure.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=37084083",
      "date": "2023-08",
      "stance": "neu",
-     "note": "Ex-HashiCorp PM argues they should have won on merit."
+     "note": "Ex-HashiCorp PM argues they should have won on merit.",
+     "date_approx": true
     },
     {
      "source": "youtube",
@@ -265,70 +284,80 @@
      "url": "https://www.reddit.com/r/Terraform/comments/1o15vgt/fidelity_investments_shares_its_migration_story/",
      "date": "2025-10",
      "stance": "pos",
-     "note": "Community reads Fidelity story as proof the fork is real."
+     "note": "Community reads Fidelity story as proof the fork is real.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1gagheu/for_everyone_that_migrated_to_opentofu_how_was/",
      "date": "2024-10",
      "stance": "pos",
-     "note": "Migrants report mechanical binary swap plus plan verify."
+     "note": "Migrants report mechanical binary swap plus plan verify.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1hdhlrx/terraform_or_opentofu/",
      "date": "2024-12",
      "stance": "neu",
-     "note": "Choice framed as license and HCP, not core engine quality."
+     "note": "Choice framed as license and HCP, not core engine quality.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1syj5pu/terraform_vs_opentofu/",
      "date": "2026-03",
      "stance": "neu",
-     "note": "By 2026 debate is governance, not whether OpenTofu is stable."
+     "note": "By 2026 debate is governance, not whether OpenTofu is stable.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1ka1dtc/opentofu_joins_cncf_new_home_for_open_source_iac/",
      "date": "2025-04",
      "stance": "pos",
-     "note": "CNCF path is treated as legitimacy for open IaC."
+     "note": "CNCF path is treated as legitimacy for open IaC.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1ifyser/make_the_switch_to_opentofu/",
      "date": "2025-02",
      "stance": "pos",
-     "note": "Advocates call the switch low-risk for standard stacks."
+     "note": "Advocates call the switch low-risk for standard stacks.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=40003692",
      "date": "2024-04",
      "stance": "pos",
-     "note": "C&D backlash put commenters officially on board with OpenTofu."
+     "note": "C&D backlash put commenters officially on board with OpenTofu.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=39776380",
      "date": "2024-01",
      "stance": "pos",
-     "note": "GA 1.6 discussed as a real drop-in Terraform replacement."
+     "note": "GA 1.6 discussed as a real drop-in Terraform replacement.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=40212617",
      "date": "2024-05",
      "stance": "pos",
-     "note": "1.7 state encryption and extra features praised versus HashiCorp."
+     "note": "1.7 state encryption and extra features praised versus HashiCorp.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=43827939",
      "date": "2025-04",
      "stance": "pos",
-     "note": "Community vote to join CNCF seen as insurance versus IBM."
+     "note": "Community vote to join CNCF seen as insurance versus IBM.",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -356,7 +385,8 @@
      "url": "https://www.reddit.com/r/Terraform/comments/1fmlbut/functional_differences_between_terraform_and/",
      "date": "2024-09",
      "stance": "pos",
-     "note": "Users cite early variable eval and state encryption as wins."
+     "note": "Users cite early variable eval and state encryption as wins.",
+     "date_approx": true
     },
     {
      "source": "youtube",
@@ -370,14 +400,16 @@
      "url": "https://news.ycombinator.com/item?id=40003692",
      "date": "2024-04",
      "stance": "neg",
-     "note": "Some still worry about parallel construction of BUSL code."
+     "note": "Some still worry about parallel construction of BUSL code.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1r5yqtl/terraform_vs_opentofu/",
      "date": "2026-01",
      "stance": "neg",
-     "note": "Inertia and HCP lock-in still keep many shops on Terraform."
+     "note": "Inertia and HCP lock-in still keep many shops on Terraform.",
+     "date_approx": true
     }
    ]
   },
@@ -431,70 +463,80 @@
      "url": "https://news.ycombinator.com/item?id=46193433",
      "date": "2025-12",
      "stance": "pos",
-     "note": "Migrated off Terraform after HashiCorp deal; would recommend."
+     "note": "Migrated off Terraform after HashiCorp deal; would recommend.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=46222165",
      "date": "2025-12",
      "stance": "pos",
-     "note": "Real languages beat HCL for modular self-service infra."
+     "note": "Real languages beat HCL for modular self-service infra.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=42071218",
      "date": "2024-11",
      "stance": "neg",
-     "note": "C# Apply and nested dictionaries make Pulumi a royal mess."
+     "note": "C# Apply and nested dictionaries make Pulumi a royal mess.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=40198258",
      "date": "2024-04",
      "stance": "neg",
-     "note": "Switched back to Terraform because Pulumi docs were worse."
+     "note": "Switched back to Terraform because Pulumi docs were worse.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=39183668",
      "date": "2024-01",
      "stance": "pos",
-     "note": "Pulumi looks more mature than CDKTF for real languages."
+     "note": "Pulumi looks more mature than CDKTF for real languages.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=42795324",
      "date": "2025-01",
      "stance": "neu",
-     "note": "Open core is free; paid Cloud features confuse the pricing story."
+     "note": "Open core is free; paid Cloud features confuse the pricing story.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/sre/comments/1h4zxry/terraform_vs_pulumi_whats_your_preference_and_why/",
      "date": "2024-12",
      "stance": "neu",
-     "note": "SREs split: languages for platforms, HCL for boring ops."
+     "note": "SREs split: languages for platforms, HCL for boring ops.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/ExperiencedDevs/comments/1u8nh33/anyone_moved_an_org_from_terraform_to_pulumi_how/",
      "date": "2026-04",
      "stance": "neg",
-     "note": "Org moves can yield unreadable imperative infra spaghetti."
+     "note": "Org moves can yield unreadable imperative infra spaghetti.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1uf8774/terraform_opentofu_vs_pulumi/",
      "date": "2026-05",
      "stance": "pos",
-     "note": "Developer shops prefer Pulumi loops over HCL count hacks."
+     "note": "Developer shops prefer Pulumi loops over HCL count hacks.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1ps5058/which_infrastructure_as_code_tools_are_actually",
      "date": "2025-12",
      "stance": "neu",
-     "note": "Pulumi is the language alternative, not the default hire."
+     "note": "Pulumi is the language alternative, not the default hire.",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -550,7 +592,8 @@
      "url": "https://news.ycombinator.com/item?id=42065561",
      "date": "2024-11",
      "stance": "neg",
-     "note": "SREs dislike opaque conditionals from app-dev infra code."
+     "note": "SREs dislike opaque conditionals from app-dev infra code.",
+     "date_approx": true
     },
     {
      "source": "youtube",
@@ -571,7 +614,8 @@
      "url": "https://www.reddit.com/r/pulumi/comments/1kg3o0l/introducing_pulumi_idp/",
      "date": "2025-05",
      "stance": "pos",
-     "note": "IDP launch cheered by users already on Pulumi Cloud."
+     "note": "IDP launch cheered by users already on Pulumi Cloud.",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -703,49 +747,56 @@
      "url": "https://www.reddit.com/r/devops/comments/1dqu68q/crossplane_for_iac/",
      "date": "2024-06",
      "stance": "pos",
-     "note": "Eighteen months in prod; 90 percent of infra on Crossplane."
+     "note": "Eighteen months in prod; 90 percent of infra on Crossplane.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1cxkpdu/is_crossplane_production_ready/",
      "date": "2024-05",
      "stance": "neu",
-     "note": "Prod-ready depends on scope; people want more war stories."
+     "note": "Prod-ready depends on scope; people want more war stories.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/10iix3j/whats_your_thoughts_on_crossplane/",
      "date": "2023-01",
      "stance": "neu",
-     "note": "Hybrid: Terraform bootstraps clusters, Crossplane does app AWS."
+     "note": "Hybrid: Terraform bootstraps clusters, Crossplane does app AWS.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1asr122/terraform_vs_crossplane/",
      "date": "2024-02",
      "stance": "neu",
-     "note": "Teams mix both rather than a full Crossplane replacement."
+     "note": "Teams mix both rather than a full Crossplane replacement.",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=34350844",
      "date": "2023-01",
      "stance": "neg",
-     "note": "Too bleeding edge; Terraform plus CI still preferred."
+     "note": "Too bleeding edge; Terraform plus CI still preferred.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1d1v4g6/terraform_vs_crossplane_vs_ansible_rivals_or/",
      "date": "2024-05",
      "stance": "neu",
-     "note": "Not rivals; different layers of the control plane."
+     "note": "Not rivals; different layers of the control plane.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/pj6ivr/anyone_here_use_crossplaneio_how_does_it_compare/",
      "date": "2023-09",
      "stance": "neg",
-     "note": "Bugs and missing features versus HashiCorp-backed Terraform."
+     "note": "Bugs and missing features versus HashiCorp-backed Terraform.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -759,7 +810,8 @@
      "url": "https://www.reddit.com/r/kubernetes/comments/17yvgyi/top_pros_vs_cons_mainly_looking_for_cons_in_using/",
      "date": "2023-11",
      "stance": "pos",
-     "note": "Controllers beat Terraform for continuous drift repair."
+     "note": "Controllers beat Terraform for continuous drift repair.",
+     "date_approx": true
     },
     {
      "source": "youtube",
@@ -773,14 +825,16 @@
      "url": "https://www.reddit.com/r/Terraform/comments/zqu3hx/terraform_vs_crossplane/",
      "date": "2023-01",
      "stance": "pos",
-     "note": "K8s shops lean Crossplane to drop Terraform Cloud dependency."
+     "note": "K8s shops lean Crossplane to drop Terraform Cloud dependency.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1asr122/terraform_vs_crossplane/",
      "date": "2024-02",
      "stance": "neg",
-     "note": "Some still call Crossplane too new versus Terraform Cloud."
+     "note": "Some still call Crossplane too new versus Terraform Cloud.",
+     "date_approx": true
     }
    ]
   },
@@ -848,7 +902,8 @@
      "url": "https://news.ycombinator.com/item?id=39183668",
      "date": "2024-01",
      "stance": "neg",
-     "note": "Hand-written JSON/YAML CloudFormation is suffering and pain."
+     "note": "Hand-written JSON/YAML CloudFormation is suffering and pain.",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -869,98 +924,112 @@
      "url": "https://www.reddit.com/r/devops/comments/1h8n0lr/cloudformation_is_cool_but_somehow_terraform",
      "date": "2024-12",
      "stance": "neg",
-     "note": "Cool in theory; Terraform wins day-to-day authoring."
+     "note": "Cool in theory; Terraform wins day-to-day authoring.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1gager4/has_cloudformation_improved",
      "date": "2024-10",
      "stance": "neu",
-     "note": "Improved some, but veterans say the core pain remains."
+     "note": "Improved some, but veterans say the core pain remains.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1ijvsze/reshape_your_aws_cloudformation_stacks_seamlessly/",
      "date": "2025-02",
      "stance": "pos",
-     "note": "Stack refactoring finally eases moving resources between stacks."
+     "note": "Stack refactoring finally eases moving resources between stacks.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1em794p/having_major_issues_with_cloud_formation_taking/",
      "date": "2024-08",
      "stance": "neg",
-     "note": "Stack updates take painfully long in real accounts."
+     "note": "Stack updates take painfully long in real accounts.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1p9w86d/ecs_native_bluegreen_cloudformation_causes_double/",
      "date": "2025-11",
      "stance": "neg",
-     "note": "ECS blue/green plus CFN rollback double-fires and sticks."
+     "note": "ECS blue/green plus CFN rollback double-fires and sticks.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1funsl7/stack_update_keeps_getting_hung_on_ecs_service/",
      "date": "2024-10",
      "stance": "neg",
-     "note": "ECS services hang updates; scale to zero to unblock."
+     "note": "ECS services hang updates; scale to zero to unblock.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1js6apw/couple_of_cloudformation_utility_tools/",
      "date": "2025-04",
      "stance": "neu",
-     "note": "Community still needs extra tools to continue failed rollbacks."
+     "note": "Community still needs extra tools to continue failed rollbacks.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/150ehx9/why_use_terraform_over_cloudformation/",
      "date": "2023-07",
      "stance": "neg",
-     "note": "Large thread: most prefer Terraform over native CFN."
+     "note": "Large thread: most prefer Terraform over native CFN.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1cgugl1/think_about_move_from_cloudformation_to_terraform/",
      "date": "2024-04",
      "stance": "neg",
-     "note": "Hard to import, move, or surgically apply versus Terraform."
+     "note": "Hard to import, move, or surgically apply versus Terraform.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/140cu83/why_use_cloudformation_when_there_are_tools_like/",
      "date": "2023-06",
      "stance": "neu",
-     "note": "People still use it for AWS-native rollbacks and IAM."
+     "note": "People still use it for AWS-native rollbacks and IAM.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/11ocnwr/cloud_formation_or_terraform/",
      "date": "2023-03",
      "stance": "neu",
-     "note": "Data engineers still on CFN get told to learn Terraform."
+     "note": "Data engineers still on CFN get told to learn Terraform.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1nf5ifz/cloudformation_stack_updates_that_theoretically",
      "date": "2025-09",
      "stance": "neg",
-     "note": "Theoretically simple updates still fail in mysterious ways."
+     "note": "Theoretically simple updates still fail in mysterious ways.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/AWSCloudFormation/comments/1rddvly/when_do_you_finally_give_up_and_switch_to",
      "date": "2026-02",
      "stance": "neg",
-     "note": "Users ask when to finally give up and switch away."
+     "note": "Users ask when to finally give up and switch away.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1rpclr9/we_scanned_92_open_source_iac_repos/",
      "date": "2026-03",
      "stance": "pos",
-     "note": "Public CFN repos scored well in an IaC security scan."
+     "note": "Public CFN repos scored well in an IaC security scan.",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -974,21 +1043,24 @@
      "url": "https://news.ycombinator.com/item?id=39183668",
      "date": "2024-01",
      "stance": "neg",
-     "note": "Even at AWS, new APIs lagged CloudFormation for months."
+     "note": "Even at AWS, new APIs lagged CloudFormation for months.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1entmyo/terraform_vs_cloudformation_vs_aws_cdk_for_api/",
      "date": "2024-08",
      "stance": "neu",
-     "note": "Raw CFN rarely chosen for new API/infra work."
+     "note": "Raw CFN rarely chosen for new API/infra work.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1cjc0w8/cdk_vs_terraform/",
      "date": "2024-05",
      "stance": "neu",
-     "note": "CFN is the engine under CDK, not a preferred authoring UX."
+     "note": "CFN is the engine under CDK, not a preferred authoring UX.",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -1071,28 +1143,32 @@
      "url": "https://old.reddit.com/r/aws/comments/1n0paul/aws_cdk_absolute_game_changer",
      "date": "2025-09",
      "stance": "pos",
-     "note": "Title and thread call CDK an absolute game changer."
+     "note": "Title and thread call CDK an absolute game changer.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1ijtq27/what_do_you_hate_about_cdk/",
      "date": "2025-02",
      "stance": "neg",
-     "note": "Worst part of CDK is still CloudFormation."
+     "note": "Worst part of CDK is still CloudFormation.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1g5fcy1/cdk_ptsd/",
      "date": "2024-10",
      "stance": "neg",
-     "note": "VPC and stack failures described as CDK PTSD."
+     "note": "VPC and stack failures described as CDK PTSD.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1iaiawc/rant_cdk_for_new_aws_products",
      "date": "2025-01",
      "stance": "neg",
-     "note": "New AWS products lag in L2 constructs for months."
+     "note": "New AWS products lag in L2 constructs for months.",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -1120,21 +1196,24 @@
      "url": "https://news.ycombinator.com/item?id=39183668",
      "date": "2024-01",
      "stance": "neu",
-     "note": "Right abstraction, wrong CFN foundation; still used at startups."
+     "note": "Right abstraction, wrong CFN foundation; still used at startups.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws_cdk/comments/1r2aze6/got_mass_of_cdk_pain_stack_splits_drift_10min",
      "date": "2026-02",
      "stance": "neg",
-     "note": "Tiny Lambda tweaks still cost ~10 minute CFN deploys."
+     "note": "Tiny Lambda tweaks still cost ~10 minute CFN deploys.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1f4qhzb/anybody_else_having_horrible_experience_with/",
      "date": "2024-09",
      "stance": "neg",
-     "note": "Horrible experience threads keep appearing on r/aws."
+     "note": "Horrible experience threads keep appearing on r/aws.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -1155,14 +1234,16 @@
      "url": "https://www.reddit.com/r/aws/comments/1entmyo/terraform_vs_cloudformation_vs_aws_cdk_for_api/",
      "date": "2024-08",
      "stance": "pos",
-     "note": "TypeScript CDK wins DevX for AWS-only API platforms."
+     "note": "TypeScript CDK wins DevX for AWS-only API platforms.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/aws/comments/1gs53al/which_iac_to_choose_for_a_project_which_is_more/",
      "date": "2024-11",
      "stance": "pos",
-     "note": "Pure-AWS velocity teams are steered to CDK."
+     "note": "Pure-AWS velocity teams are steered to CDK.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -1176,7 +1257,8 @@
      "url": "https://www.reddit.com/r/aws_cdk/comments/1mjjb5v/aws_cdks_biggest_limitation_is_the_inability_to",
      "date": "2025-08",
      "stance": "neg",
-     "note": "Hard to drive CDK as a library behind an internal API."
+     "note": "Hard to drive CDK as a library behind an internal API.",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -1190,7 +1272,8 @@
      "url": "https://www.reddit.com/r/Terraform/comments/1gk6ruo/has_anyone_used_terraform_cdk/",
      "date": "2024-11",
      "stance": "neu",
-     "note": "CDKTF is niche; people use AWS CDK or Pulumi instead."
+     "note": "CDKTF is niche; people use AWS CDK or Pulumi instead.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -1204,7 +1287,8 @@
      "url": "https://www.reddit.com/r/aws/comments/1cjc0w8/cdk_vs_terraform/",
      "date": "2024-05",
      "stance": "neu",
-     "note": "AWS-only CDK versus multi-cloud Terraform is the real fork."
+     "note": "AWS-only CDK versus multi-cloud Terraform is the real fork.",
+     "date_approx": true
     }
    ]
   },
@@ -1272,35 +1356,40 @@
      "url": "https://www.reddit.com/r/AZURE/comments/1o5o8ld/bicep_or_terraform_for_azure/",
      "date": "2025-10",
      "stance": "neu",
-     "note": "Native simplicity versus multi-cloud Terraform is the split."
+     "note": "Native simplicity versus multi-cloud Terraform is the split.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/AZURE/comments/1kfdpp8/terraform_vs_bicep_in_a_mostly_azure_shop/",
      "date": "2025-05",
      "stance": "neu",
-     "note": "Mostly-Azure shops still argue skill portability of HCL."
+     "note": "Mostly-Azure shops still argue skill portability of HCL.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/AZURE/comments/1po3sgh/bicep_vs_terraform_in_2026_is_multicloud/",
      "date": "2025-12",
      "stance": "neu",
-     "note": "2026 thread: multi-cloud claim often overstated for Azure shops."
+     "note": "2026 thread: multi-cloud claim often overstated for Azure shops.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/AZURE/comments/1j0uc7z/bicep_vs_terraform/",
      "date": "2025-03",
      "stance": "neu",
-     "note": "IBM/HashiCorp caution, little evidence of mass Azure exodus."
+     "note": "IBM/HashiCorp caution, little evidence of mass Azure exodus.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/AZURE/comments/1rp4tel/azure_and_terraform/",
      "date": "2026-03",
      "stance": "neu",
-     "note": "AzAPI provider used to close Terraform Azure feature lag."
+     "note": "AzAPI provider used to close Terraform Azure feature lag.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -1535,14 +1624,16 @@
      "url": "https://www.reddit.com/r/kubernetes/comments/1jetdex/do_you_manage_cloud_resources_with_kubernetes_or/",
      "date": "2025-03",
      "stance": "neu",
-     "note": "K8s-or-Terraform poll: most keep TF for foundations."
+     "note": "K8s-or-Terraform poll: most keep TF for foundations.",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1gpm73i/transitioning_from_aws_to_gcp/",
      "date": "2024-11",
      "stance": "neu",
-     "note": "AWS-to-GCP movers hear KCC for app resources, TF for base."
+     "note": "AWS-to-GCP movers hear KCC for app resources, TF for base.",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -1591,7 +1682,8 @@
      "url": "https://www.reddit.com/r/googlecloud/comments/1iyinf0/terraform_just_wow/",
      "date": "2025-02",
      "stance": "neg",
-     "note": "GCP thread still wows at Terraform, not Config Connector."
+     "note": "GCP thread still wows at Terraform, not Config Connector.",
+     "date_approx": true
     },
     {
      "source": "article",

@@ -14,126 +14,144 @@
      "url": "https://news.ycombinator.com/item?id=46614558",
      "date": "2026-01",
      "stance": "neg",
-     "note": "Highly upvoted rant: push-wait-guess feedback loop makes iteration miserable"
+     "note": "Highly upvoted rant: push-wait-guess feedback loop makes iteration miserable",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=46615630",
      "date": "2026-01",
      "stance": "neg",
-     "note": "Commenter asks why early love for Actions evaporated so fast"
+     "note": "Commenter asks why early love for Actions evaporated so fast",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=37916958",
      "date": "2023-10",
      "stance": "neg",
-     "note": "Detailed complaint list: no live logs, unreliable cancels, no retries"
+     "note": "Detailed complaint list: no live logs, unreliable cancels, no retries",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=46234671",
      "date": "2025-12",
      "stance": "neg",
-     "note": "Repeat outages this month prompting internal move-off-Actions discussions"
+     "note": "Repeat outages this month prompting internal move-off-Actions discussions",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=46304379",
      "date": "2025-12",
      "stance": "neg",
-     "note": "Backlash over proposed per-minute billing for self-hosted runners"
+     "note": "Backlash over proposed per-minute billing for self-hosted runners",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=46067219",
      "date": "2025-11",
      "stance": "neg",
-     "note": "Zig cites broken Actions scheduling and livelocks in Codeberg move"
+     "note": "Zig cites broken Actions scheduling and livelocks in Codeberg move",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=47939809",
      "date": "2026-05",
      "stance": "neg",
-     "note": "Ghostty author leaves GitHub citing repeated degradation and outages"
+     "note": "Ghostty author leaves GitHub citing repeated degradation and outages",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=49096427",
      "date": "2026-08",
      "stance": "neu",
-     "note": "Supply-chain hardening thread; marketplace action risks stay top of mind"
+     "note": "Supply-chain hardening thread; marketplace action risks stay top of mind",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=47487584",
      "date": "2026-04",
      "stance": "neu",
-     "note": "Mixed thread weighing free OSS minutes against reliability complaints"
+     "note": "Mixed thread weighing free OSS minutes against reliability complaints",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=46133726",
      "date": "2025-11",
      "stance": "neu",
-     "note": "Discussion of workflow YAML limits and local-reproducibility workarounds"
+     "note": "Discussion of workflow YAML limits and local-reproducibility workarounds",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=46291156",
      "date": "2025-12",
      "stance": "neu",
-     "note": "Comparison thread placing Actions against GitLab CI and Jenkins"
+     "note": "Comparison thread placing Actions against GitLab CI and Jenkins",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1rdrpzz/whats_your_biggest_frustration_with_github/",
      "date": "2026-02",
      "stance": "neg",
-     "note": "Thread collects frustrations: runner performance, container permission quirks"
+     "note": "Thread collects frustrations: runner performance, container permission quirks",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1nlybf6/whats_the_point_of_using_github_actions/",
      "date": "2025-09",
      "stance": "neu",
-     "note": "Users debate whether Actions adds value beyond scripts plus secrets"
+     "note": "Users debate whether Actions adds value beyond scripts plus secrets",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/18ic2zx/seeking_opinions_on_github_actions_for_cicd/",
      "date": "2023-12",
      "stance": "pos",
-     "note": "Commenters endorse Actions as easiest start for GitHub-centric teams"
+     "note": "Commenters endorse Actions as easiest start for GitHub-centric teams",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/105a2bn/gitlab_ci_vs_jenkins_vs_github_actions/",
      "date": "2023-01",
      "stance": "pos",
-     "note": "Marketplace and repo integration praised as fastest path to pipelines"
+     "note": "Marketplace and repo integration praised as fastest path to pipelines",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1hj46vm/github_actions_or_gitlab/",
      "date": "2024-12",
      "stance": "neu",
-     "note": "Terraform users split; GitLab favored for environment predictability"
+     "note": "Terraform users split; GitLab favored for environment predictability",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/13e4eoj/github_vs_gitlab/",
      "date": "2023-05",
      "stance": "neu",
-     "note": "Platform choice dominates CI choice; inertia keeps teams put"
+     "note": "Platform choice dominates CI choice; inertia keeps teams put",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/11cd32e/choosing_a_cicd_tool_for_your_product/",
      "date": "2023-02",
      "stance": "pos",
-     "note": "Advice: already on GitHub, just use Actions, avoid overthinking"
+     "note": "Advice: already on GitHub, just use Actions, avoid overthinking",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -333,77 +351,88 @@
      "url": "https://www.reddit.com/r/gitlab/comments/1la5axk/gitlab_runners_extremely_slow/",
      "date": "2025-06",
      "stance": "neg",
-     "note": "Shared runners crawl; preparing and fetch steps take tens of minutes"
+     "note": "Shared runners crawl; preparing and fetch steps take tens of minutes",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/gitlab/comments/1rrw3y4/gitlab_runners_are_very_slow_today/",
      "date": "2026-02",
      "stance": "neg",
-     "note": "Users report pipelines ballooning from ten minutes to over an hour"
+     "note": "Users report pipelines ballooning from ten minutes to over an hour",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/gitlab/comments/1kw2v69/free_ultimate_trial_compute_minutes/",
      "date": "2025-05",
      "stance": "neg",
-     "note": "Free 400 compute minutes exhausted quickly; quota called stingy"
+     "note": "Free 400 compute minutes exhausted quickly; quota called stingy",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/gitlab/comments/1gglr7f/autoscaling_runner_issues_due_to_outage",
      "date": "2024-10",
      "stance": "neg",
-     "note": "Outage broke runner autoscaling and burned minutes unexpectedly"
+     "note": "Outage broke runner autoscaling and burned minutes unexpectedly",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/gitlab/comments/1ppa71f/gitlab_runner_job_scheduling_am_i_missing_anything",
      "date": "2025-12",
      "stance": "neu",
-     "note": "Self-hosted scheduling via tags and resource groups feels limited"
+     "note": "Self-hosted scheduling via tags and resource groups feels limited",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/gitlab/comments/1l23y0w/monorepo_ci_optimization_pnpm_install_step/",
      "date": "2025-06",
      "stance": "neu",
-     "note": "Monorepo install and cache times remain slow despite tuning"
+     "note": "Monorepo install and cache times remain slow despite tuning",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/105a2bn/gitlab_ci_vs_jenkins_vs_github_actions/",
      "date": "2023-01",
      "stance": "pos",
-     "note": "GitLab CI praised as complete integrated platform beating Jenkins"
+     "note": "GitLab CI praised as complete integrated platform beating Jenkins",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/Terraform/comments/1hj46vm/github_actions_or_gitlab/",
      "date": "2024-12",
      "stance": "pos",
-     "note": "Terraform users prefer GitLab for predictable controlled environments"
+     "note": "Terraform users prefer GitLab for predictable controlled environments",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/13e4eoj/github_vs_gitlab/",
      "date": "2023-05",
      "stance": "neu",
-     "note": "GitLab seen stronger on-prem; migration pain keeps teams static"
+     "note": "GitLab seen stronger on-prem; migration pain keeps teams static",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/11cd32e/choosing_a_cicd_tool_for_your_product/",
      "date": "2023-02",
      "stance": "pos",
-     "note": "Guidance: on GitLab already, its CI is the obvious pick"
+     "note": "Guidance: on GitLab already, its CI is the obvious pick",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1m3035c/when_is_circleci_worth_paying_for_over_free",
      "date": "2025-07",
      "stance": "pos",
-     "note": "Commenters recommend free self-hosted GitLab runners over paid SaaS CI"
+     "note": "Commenters recommend free self-hosted GitLab runners over paid SaaS CI",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -608,98 +637,112 @@
      "url": "https://news.ycombinator.com/item?id=44960042",
      "date": "2025-08",
      "stance": "pos",
-     "note": "Runs Jenkins painlessly by minimizing plugins to a handful"
+     "note": "Runs Jenkins painlessly by minimizing plugins to a handful",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=35889948",
      "date": "2023-05",
      "stance": "neg",
-     "note": "Calls Jenkins an obsolete abomination painful to manage and maintain"
+     "note": "Calls Jenkins an obsolete abomination painful to manage and maintain",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1if9aiy/moving_away_from_jenkins",
      "date": "2025-02",
      "stance": "neg",
-     "note": "Eight-year install: stale plugins, security debt, wants off Groovy"
+     "note": "Eight-year install: stale plugins, security debt, wants off Groovy",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1kc0vvk/saw_lots_of_comments_that_jenkins_is_not_worth_it",
      "date": "2025-05",
      "stance": "neg",
-     "note": "Consensus: maintenance hell, CVEs, legacy Java glued with plugins"
+     "note": "Consensus: maintenance hell, CVEs, legacy Java glued with plugins",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1jl2u6l/the_future_of_jenkins",
      "date": "2025-03",
      "stance": "neg",
-     "note": "Controller cannot scale horizontally; HA still incomplete after years"
+     "note": "Controller cannot scale horizontally; HA still incomplete after years",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1vgzwr7/anyone_still_using_jenkins/",
      "date": "2026-01",
      "stance": "neg",
-     "note": "Still everywhere in enterprises, but nobody recommends it now"
+     "note": "Still everywhere in enterprises, but nobody recommends it now",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1mcg2kk/tried_jenkins_again_was_not_that_bad_as_i_had_in",
      "date": "2025-08",
      "stance": "neu",
-     "note": "Revisited with modern infra and found it tolerable; replies disagree"
+     "note": "Revisited with modern infra and found it tolerable; replies disagree",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1mqqvut/jenkins_is_truly_excellent/",
      "date": "2025-08",
      "stance": "pos",
-     "note": "Defends Jenkins as excellent when kept simple and declarative"
+     "note": "Defends Jenkins as excellent when kept simple and declarative",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/jenkinsci/comments/1ikvzb3/how_long_will_jenkins_last/",
      "date": "2025-02",
      "stance": "neu",
-     "note": "Users expect long survival through inertia rather than merit"
+     "note": "Users expect long survival through inertia rather than merit",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/jenkinsci/comments/1jnffwn/upgrading_jenkins_and_plugins",
      "date": "2025-04",
      "stance": "neg",
-     "note": "Chicken-and-egg upgrades: new plugins need newer core, old ones break"
+     "note": "Chicken-and-egg upgrades: new plugins need newer core, old ones break",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/QualityAssurance/comments/1eghtr0/is_jenkins_still_worth_it_in_2024_for_sdet",
      "date": "2024-07",
      "stance": "neu",
-     "note": "Testers say learn basics for enterprise jobs, prefer modern tools"
+     "note": "Testers say learn basics for enterprise jobs, prefer modern tools",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/18v5ope/do_you_think_learning_jenkins_is_still_worthwhile/",
      "date": "2023-12",
      "stance": "neu",
-     "note": "Worth learning for legacy roles, not as primary skill"
+     "note": "Worth learning for legacy roles, not as primary skill",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/105a2bn/gitlab_ci_vs_jenkins_vs_github_actions/",
      "date": "2023-01",
      "stance": "neg",
-     "note": "Both GitLab CI and Actions judged clearly superior to Jenkins"
+     "note": "Both GitLab CI and Actions judged clearly superior to Jenkins",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1m3035c/when_is_circleci_worth_paying_for_over_free",
      "date": "2025-07",
      "stance": "neu",
-     "note": "Free Jenkins defended, though Groovy and slow agents cited"
+     "note": "Free Jenkins defended, though Groovy and slow agents cited",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -876,70 +919,80 @@
      "url": "https://www.reddit.com/r/devops/comments/1nou65j/circleci_self_hosted_concurrency_limits",
      "date": "2025-09",
      "stance": "neu",
-     "note": "Self-hosted runners eased cost ramp but hit hard concurrency ceiling"
+     "note": "Self-hosted runners eased cost ramp but hit hard concurrency ceiling",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1ibtbal/best_circleci_course_on_udemyyoutube_etc",
      "date": "2025-01",
      "stance": "neg",
-     "note": "Called worst CI ever: poor docs, no real workflow reuse"
+     "note": "Called worst CI ever: poor docs, no real workflow reuse",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1m3035c/when_is_circleci_worth_paying_for_over_free",
      "date": "2025-07",
      "stance": "neg",
-     "note": "Responses lean toward never paying for CI when self-hosting works"
+     "note": "Responses lean toward never paying for CI when self-hosting works",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1cb26j5/what_are_the_biggest_challenges_you_team_faced",
      "date": "2024-04",
      "stance": "neu",
-     "note": "Adopting CircleCI needed orbs as golden paths to avoid duplication"
+     "note": "Adopting CircleCI needed orbs as golden paths to avoid duplication",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1bmn7ie/why_do_some_companies_use_other_tooling_for_cicd",
      "date": "2024-03",
      "stance": "pos",
-     "note": "Teams stay because Actions lacked parity on images and parallelism"
+     "note": "Teams stay because Actions lacked parity on images and parallelism",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1pe8wzd/bitbucket_baitandswitched_now_charging_15month",
      "date": "2025-11",
      "stance": "neu",
-     "note": "CircleCI mentioned as diversification away from single-vendor CI risk"
+     "note": "CircleCI mentioned as diversification away from single-vendor CI risk",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/webdev/comments/1po185u/whats_still_annoying_about_cicd_in_your_workflow",
      "date": "2025-12",
      "stance": "neu",
-     "note": "General CI gripes thread; credit-based billing among annoyances"
+     "note": "General CI gripes thread; credit-based billing among annoyances",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/androiddev/comments/1lecg07/i_wrote_a_stepbystep_guide_on_creating_a_fully/",
      "date": "2025-06",
      "stance": "pos",
-     "note": "Author ships full Android automation on CircleCI, recommends approach"
+     "note": "Author ships full Android automation on CircleCI, recommends approach",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=47438003",
      "date": "2026-04",
      "stance": "neg",
-     "note": "Startup outage after exposed CircleCI access key triggered AWS restriction"
+     "note": "Startup outage after exposed CircleCI access key triggered AWS restriction",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=47501426",
      "date": "2026-04",
      "stance": "neg",
-     "note": "Compromised PyPI release response includes auditing CircleCI blast radius"
+     "note": "Compromised PyPI release response includes auditing CircleCI blast radius",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -1205,14 +1258,16 @@
      "url": "https://www.reddit.com/r/kubernetes/comments/196wgv9/tekton_pipelines_or_argocd_workflows/",
      "date": "2024-01",
      "stance": "neg",
-     "note": "Team abandoned months of Tekton work; dashboard young and limited"
+     "note": "Team abandoned months of Tekton work; dashboard young and limited",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.redditmedia.com/r/devops/comments/1gbd8gl/jenkins_vs_tekton_for_openshift/",
      "date": "2024-12",
      "stance": "neu",
-     "note": "Advises OpenShift Pipelines-as-Code to avoid raw trigger setup headaches"
+     "note": "Advises OpenShift Pipelines-as-Code to avoid raw trigger setup headaches",
+     "date_approx": true
     },
     {
      "source": "article",
@@ -1345,84 +1400,96 @@
      "url": "https://www.reddit.com/r/devops/comments/1ulusn9/why_argo_workflows_ci/",
      "date": "2026-07",
      "stance": "neg",
-     "note": "Criticizes near-absent forge integration and CRD sprawl for simple CI"
+     "note": "Criticizes near-absent forge integration and CRD sprawl for simple CI",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/196wgv9/tekton_pipelines_or_argocd_workflows/",
      "date": "2024-01",
      "stance": "pos",
-     "note": "Team switched from Tekton to Argo Workflows and stayed there"
+     "note": "Team switched from Tekton to Argo Workflows and stayed there",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/dataengineering/comments/15g8ish/argo_workflowsevents_for_data_pipelines/",
      "date": "2023-08",
      "stance": "pos",
-     "note": "Praised for spiky containerized workloads and GitOps-friendly definitions"
+     "note": "Praised for spiky containerized workloads and GitOps-friendly definitions",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/kubernetes/comments/1vndgd3/argo_for_kubernetes_from_argo_cd_to_workflows_and/",
      "date": "2026-01",
      "stance": "neu",
-     "note": "Overview thread notes setup overwhelming for non-Kubernetes teams"
+     "note": "Overview thread notes setup overwhelming for non-Kubernetes teams",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/17faiq8/argo_workflows_proven_patterns_from_production",
      "date": "2023-10",
      "stance": "pos",
-     "note": "Well-received production patterns writeup from real deployment experience"
+     "note": "Well-received production patterns writeup from real deployment experience",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/11qw0bv/monorepo_ci_pipeline_with_argo_events_and_argo/",
      "date": "2023-03",
      "stance": "pos",
-     "note": "Monorepo CI built on Argo Events and Workflows shared approvingly"
+     "note": "Monorepo CI built on Argo Events and Workflows shared approvingly",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/18yfuzo/need_help_understand_resources_allocation_for/",
      "date": "2024-01",
      "stance": "neu",
-     "note": "Scheduled e2e workflows saturated node CPU; tuning requests advised"
+     "note": "Scheduled e2e workflows saturated node CPU; tuning requests advised",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/dataengineering/comments/1c8xy92/are_there_any_tools_poised_to_completely_dethrone/",
      "date": "2024-04",
      "stance": "neu",
-     "note": "Seen as infra orchestrator, weaker than Dagster for data semantics"
+     "note": "Seen as infra orchestrator, weaker than Dagster for data semantics",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/dataengineering/comments/1er7c63/apache_airflow_sucks_change_my_mind/",
      "date": "2024-08",
      "stance": "neu",
-     "note": "Offered as Airflow escape but criticized as plain DAG runner"
+     "note": "Offered as Airflow escape but criticized as plain DAG runner",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/dataengineering/comments/12g8570/orchestration_poll/",
      "date": "2023-03",
      "stance": "pos",
-     "note": "Poll comments credit YAML Kubernetes-resource pipelines as GitOps friendly"
+     "note": "Poll comments credit YAML Kubernetes-resource pipelines as GitOps friendly",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/dataengineering/comments/1ffxgkx/conrcern_around_sparkdatabrick_as_a_silver_bullet/",
      "date": "2024-09",
      "stance": "neu",
-     "note": "Mentioned as one orchestration option, no silver bullet"
+     "note": "Mentioned as one orchestration option, no silver bullet",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/160uoy5/automating_the_cloudbased_software_upgrade_using/",
      "date": "2023-09",
      "stance": "pos",
-     "note": "Shares upgrade automation built successfully on Argo Workflows"
+     "note": "Shares upgrade automation built successfully on Argo Workflows",
+     "date_approx": true
     },
     {
      "source": "blog",
@@ -1613,84 +1680,96 @@
      "url": "https://news.ycombinator.com/item?id=43966564",
      "date": "2025-05",
      "stance": "pos",
-     "note": "Highlights tiny footprint: roughly 100MB server, 30MB agent idle"
+     "note": "Highlights tiny footprint: roughly 100MB server, 30MB agent idle",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=46319744",
      "date": "2025-12",
      "stance": "pos",
-     "note": "Notes easy Kubernetes prototyping via Helm chart install"
+     "note": "Notes easy Kubernetes prototyping via Helm chart install",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=46744114",
      "date": "2026-01",
      "stance": "pos",
-     "note": "Recommended for cheap VPS and homelab Gitea pairings"
+     "note": "Recommended for cheap VPS and homelab Gitea pairings",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=48585637",
      "date": "2026-07",
      "stance": "pos",
-     "note": "Praises Forgejo plus Woodpecker as fully self-hosted lightweight stack"
+     "note": "Praises Forgejo plus Woodpecker as fully self-hosted lightweight stack",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=48583441",
      "date": "2026-07",
      "stance": "pos",
-     "note": "Suggested as escape from Actions billing and lock-in"
+     "note": "Suggested as escape from Actions billing and lock-in",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=49330949",
      "date": "2026-08",
      "stance": "pos",
-     "note": "Described as hands-off with low operational overhead once running"
+     "note": "Described as hands-off with low operational overhead once running",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=47488521",
      "date": "2026-04",
      "stance": "neu",
-     "note": "Mentioned among self-hosted CI options with setup caveats"
+     "note": "Mentioned among self-hosted CI options with setup caveats",
+     "date_approx": true
     },
     {
      "source": "hn",
      "url": "https://news.ycombinator.com/item?id=39398576",
      "date": "2024-02",
      "stance": "pos",
-     "note": "Cited as the community fork that stayed genuinely open source"
+     "note": "Cited as the community fork that stayed genuinely open source",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/selfhosted/comments/1djarsn/forgejo_woodpecker_ci_stack_appears_to_be_borked/",
      "date": "2024-06",
      "stance": "neg",
-     "note": "User reports Forgejo plus Woodpecker integration broken after updates"
+     "note": "User reports Forgejo plus Woodpecker integration broken after updates",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/11cd32e/choosing_a_cicd_tool_for_your_product/",
      "date": "2023-02",
      "stance": "neu",
-     "note": "Suggested for platform independence while acknowledging added complexity"
+     "note": "Suggested for platform independence while acknowledging added complexity",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/107ctsq/starting_w_concourse_ci_in_2023/",
      "date": "2023-01",
      "stance": "neu",
-     "note": "Raised alongside Drone as vendor-neutral self-hosted alternative"
+     "note": "Raised alongside Drone as vendor-neutral self-hosted alternative",
+     "date_approx": true
     },
     {
      "source": "reddit",
      "url": "https://www.reddit.com/r/devops/comments/1m3035c/when_is_circleci_worth_paying_for_over_free",
      "date": "2025-07",
      "stance": "pos",
-     "note": "Recommended instead of paying for hosted CI subscriptions"
+     "note": "Recommended instead of paying for hosted CI subscriptions",
+     "date_approx": true
     },
     {
      "source": "blog",
